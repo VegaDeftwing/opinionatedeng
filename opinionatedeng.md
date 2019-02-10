@@ -869,7 +869,7 @@ Each of these things is very important, but I'm going to start with cpu MHz as i
 
 ### Clock Speed
 
-![transistor](/run/media/vega/raid/VegaProductions/EEBook/transistor.jpg)
+![transistor](./transistor.jpg)
 
 However, to get to that we've gotta go just a bit further down the rabbit hole to the relay. Relays are super simple to understand, they're just a metal switch that is pulled open or closed using another input signal, basically imagine a light switch, where the switch itself is controlled by yet another electrical signal. Relays are slow though, they require a physical metal plate to move to change the connection. Because of this they have limited reliability and worth note they're actually loud. You can hear an audible click of the switch as they change state.
 
@@ -926,7 +926,7 @@ As you can see, this is incredibly difficult to read to a 'normal' person, so ev
 
 This in turn gets turned into binary as can bee seen by this screenshot generated using https://godbolt.org/
 
-![2019-02-08-145014_2400x522_scrot](/run/media/vega/raid/VegaProductions/EEBook/2019-02-08-145014_2400x522_scrot.png)
+![2019-02-08-145014_2400x522_scrot](./2019-02-08-145014_2400x522_scrot.png)
 
 See the weird numbers next to each instruction? like 4004b255? That's a base 16 number or hexadecimal usually refered to as 'Hex'. Hex is what is used by most computer guys to represent numbers because computers operate in base 2, or binary- like 01001100, which is very difficult to read and type accurately, however, base 10, the normal numbering system your used to, makes translating between binary and decimal a bit uncomfortable as the common factor is 5, an number that is both odd and in turn not a factor of two, where as 16 is $2^4$ so that means we can easily represent binary like this:
 
@@ -969,7 +969,7 @@ Put simply, just as with adding more Random Access Memory (RAM) to your system, 
 
 Let's take a look. install the `hwloc` package using yay and then run `lstopo` and you should get an output that looks a bit like this
 
-![2019-02-08-155129_1660x923_scrot](/run/media/vega/raid/VegaProductions/EEBook/2019-02-08-155129_1660x923_scrot.png)
+![2019-02-08-155129_1660x923_scrot](./2019-02-08-155129_1660x923_scrot.png)
 
 The stuff on the right are connections around the system, you can ignore those for now, but see the various cache layers, designated by L3, L2, L1d and L1i, and you can see how each core has it's own cache. Finally, you can see that each core has two processing units? Hey, wait, what's that all about?
 
@@ -1656,31 +1656,31 @@ once it installs go ahead and open it up
 
 you should see something like this:
 
-![2019-02-08-194336_3836x2042_scrot](/run/media/vega/raid/VegaProductions/EEBook/2019-02-08-194336_3836x2042_scrot.png)
+![2019-02-08-194336_3836x2042_scrot](./2019-02-08-194336_3836x2042_scrot.png)
 
 This is a super powerful equivalent to task manager from windows. You can see the load on all 16 of my cpu threads, the memory usage on the system, uptime, loadavg, and number of tasks running here, but best of all we can see a nice tree of all the processes, and how each one of them is impacting the system. (you may need to press f5 to put it in tree mode) From here you can also see the Process's ID known as the PID, these numbers should directly corolate with those visable in /proc
 
 Leaving that windows open lets open up two more terminals, in one navigate to /proc and in the other start up python:
 
- ![2019-02-08-194844_3241x2113_scrot](/run/media/vega/raid/VegaProductions/EEBook/2019-02-08-194844_3241x2113_scrot.png)
+ ![2019-02-08-194844_3241x2113_scrot](./2019-02-08-194844_3241x2113_scrot.png)
 
 from here go back to the window running htop and use f3 to search for python if there are multiple processes that come up just keep pressing i3 until you find one that has a tree that looks like:
 
 (note your terminal will probably be named either konsole or xterm, not deepin-terminal)
 
-![2019-02-08-195158_1685x128_scrot](/run/media/vega/raid/VegaProductions/EEBook/2019-02-08-195158_1685x128_scrot.png)
+![2019-02-08-195158_1685x128_scrot](./2019-02-08-195158_1685x128_scrot.png)
 
 and look to the left to find the pid of the running python process, in my case it's 754.
 
 Go over to the terminal where you navigated to /proc and now navigate to the folder with the id of your process, in my case i'd run `cd 754`  then run 'ls' and look at everything in this folder:
 
-![2019-02-08-195440_1912x424_scrot](/run/media/vega/raid/VegaProductions/EEBook/2019-02-08-195440_1912x424_scrot.png)
+![2019-02-08-195440_1912x424_scrot](./2019-02-08-195440_1912x424_scrot.png)
 
 now, we're gonna run one more thing before we leave, and we'll come back to it later, but I want to show you now, so you can appreciate how cool it is later: go ahead and run `sudo cat stack`
 
 you should see something like:
 
- ![2019-02-08-200152_831x306_scrot](/run/media/vega/raid/VegaProductions/EEBook/2019-02-08-200152_831x306_scrot.png)
+ ![2019-02-08-200152_831x306_scrot](./2019-02-08-200152_831x306_scrot.png)
 
 but when we run this in the python terminal:
 
@@ -1692,7 +1692,7 @@ while(1):
 
 and read the stack again we'll see:
 
-![2019-02-08-200307_427x115_scrot](/run/media/vega/raid/VegaProductions/EEBook/2019-02-08-200307_427x115_scrot.png)
+![2019-02-08-200307_427x115_scrot](./2019-02-08-200307_427x115_scrot.png)
 
 Which while may not look overly interesting, I assure you will be something of interest later.
 

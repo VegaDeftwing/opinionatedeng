@@ -2,7 +2,7 @@
 
 
 
-# Chapter 0
+# Preface
 
 Hey there.
 
@@ -16,11 +16,88 @@ This is a guide for understanding the power the humble electron has in our lives
 
 I will be assuming you are of reasonable technical ability already, furthermore, I will avoid going into high level math, chemistry, and physics as much as is practical- mostly because knowing these things is typically not actually useful in the daily life of someone who works on any of this beyond those that are doing cutting edge research or are planning to teach, in which case you should actually go to college instead of reading this. For everyone else, welcome. This is the document which can save you going to college and taking classes full of useless information you will inevitably forget and for which employers don't care about to begin with.
 
-Following along will require a few things. The first of which is dedication and time. If you don't have the desire to put in at least a little bit of work there is simply no way I can help, that said, if you're reading this instead of watching Netflix I believe that's already proof enough you want to learn. Next is hardware and software, namely you'll be needing a few development boards and linux, but I'll get into those with time; however, for convinece, everything referenced to be downloaded or physical items to be purchased are all listen in Appendix D
+Following along will require a few things. The first of which is dedication and time. If you don't have the desire to put in at least a little bit of work there is simply no way I can help, that said, if you're reading this instead of watching Netflix I believe that's already proof enough you want to learn. Next is hardware and software, namely you'll be needing a few development boards and linux, but I'll get into those with time; however, for convince, everything referenced to be downloaded or physical items to be purchased are all listed in Appendix D
 
-# Chapter .5 - Community
+# Chapter Ⅰ - Community
 
 The only way to be successful in this journey is to make friends along the way. Some of this get's really, really difficult. You will get stuck. Having friends to help makes it possible. Find group chats on telegram, join IRC channels, get on some forums, and ask questions on Reddit. Working with people is a lot more fun and you'll learn so much more.
+
+Beyond that, having inspiration each day can be a huge booster shot to your motivation and creativity. Some sites I use nearly daily to finding good new material are:
+
+https://news.ycombinator.com/
+
+https://hackaday.io/ | www.hackster.io/
+
+
+
+While much less active, I've found some of these to have great information as well
+
+https://n-o-d-e.net/index.html
+
+https://www.alchemistowl.org/pocorgtfo/
+
+
+
+Oh, and to mention it now
+
+![Image result for dunning kruger effect xkcd](https://imgs.xkcd.com/comics/impostor_syndrome.png)
+
+Yes, there is always a relevant XKCD, and yes, you will always feel like everyone knows more than you. Don't stress about asking stupid questions:
+
+> Frequently in chats, whether telegram, IRC, slack, or discord, someone says something like this: 
+> <AnonOtter> Anyone know rust? Having an issue.
+>
+> How that question is often read: 
+> <AnonOtter> Can someone to commit to being able to solve my problem with rust, spending as much time as necessary, without them even knowing what the actual problem is or if it's even a rust problem?
+>
+> Hopefully it's clear why questions like this rarely result in direct answers.
+>
+> - There are very few people who could be called experts in every facet of whatever is being asked
+> - Imposter syndrome is common
+> - Most people won't write that blank check for time/help commitment
+>
+> #### Instead, share:
+>
+> - The goal - "Trying to query for a list of tags on a post" - See [The XY Problem](http://xyproblem.info/)
+> - The problem - "I'm getting back these results"
+> - The expectation - "but it should be these results"
+> - Any context or previous research you've done
+> - If possible, a simplified example. 3v4l for php, jsfiddle for html/js/css, etc. are great, otherwise a paste site.
+> - What you've already tried
+>
+> This allows anyone there to try to help. Many skills transfer well to other languages or platforms. At minimum, you might get an idea for something you haven't tried yet. Sometimes you'll even solve your own problem while narrowing down the simplest possible test case.
+>
+> Oh, and don't snark at well-intentioned answers. It's rude and discourages participation.
+
+--from https://bad.pet/q/
+
+The technical community can be ruthless with it comes to expecting people to have 'basic' knowledge sometimes, but don't let it get to you. I do want to provide some general ideas that, while not universally, are generally shared among the engineering and sounding community:
+
+Ⅰ - Any good solution is fast, easy to understand, and above all elegant.
+
+Ⅱ - Any task which can be automated should be - if a computer can do it faster than you than you shouldn't do it by hand
+
+Ⅲ - Any problem that has been solved in a way that satisfies the above two rules should be looked at for reuse before reinventing the wheel
+
+Ⅳ - Any question which has already been answered should not be left to a human to answer again.
+
+Ⅴ- All knowledge should be free†
+
+† within practicality, trade secrets are obviously a thing, and I'm not crazy. I mean like publicly funded research and what not. While the specifics of this rule vary amongst engineering types it is generally a core belief.
+
+On the note of point Ⅲ... 
+
+![Standards](https://imgs.xkcd.com/comics/standards.png)
+
+**However, **and I can't stress this enough, I think balancing your creativity among other interests and looking for ties between them can lead to more good than any of these options. I enjoy playing music, reading, and writing, so I find inspiration in these media. There are countless electrical hardware and software tools that use hands on programming when playing music. In books I find ideas for what an author may have thought only futuristic when written. I never know when my mind will strike similar gold when writing for myself. Find a hobby and bend it to this as you go along. Like photography? Lean about the internals of a camera. Like cars? Look up how the ODB2 interface actually works. Nothing is magic and the internet will likely have answers and give you ways to apply this knowledge that you care about.
+
+In general I've found site specific forms and reddit to be the best platforms for most things, with some others finding their main following in other places though. For example I'm in a large technical chat group with Furries on Telegram and some open source tools still thrive on IRC.
+
+# Chapter Ⅱ - Some places to get your toes wet first
+
+- Music, VCV, PD, Sonic Pi
+- Scratch, Shader editors
+- Math
 
 # Chapter 1 - The first goal
 
@@ -1752,11 +1829,17 @@ https://tour.golang.org/welcome/1
 
 # Chapter 7- Let's work on how we work
 
+## The Terminal
+
+In the world of programming, embedded development, and electrical debugging you will inevitably need to understand how to use a terminal/command line at some point. While the text only interface can look intimidating, it has some clear advantages, namely it's significantly faster to use the cli or 'command line interface' version of many tools. Because of the nature of this book you will be using the terminal frequently, so for convince sake information on using it effectively has been moved to Appendix A, though I highly recommend you read though it now.
+
 ## Code editors
 
 ## The Desktop Envrioment
 
 ## Git
+
+## Other Tools: Markdown, Taskwarrior, File Explorers, etc.
 
 # Chapter 8- Networking
 
@@ -1837,6 +1920,20 @@ The OSI model of networking is
 # Chapter 9- Let's dig around Linux a bit more
 
 # Chapter 10- Diodes,  Transistors, and Integrated Circuits
+
+## Diodes, the one way road
+
+### Diode Logic
+
+## Transistors
+
+### PNP V NPN
+
+### IGBT, Mosfets?
+
+## Integrated Circuits
+
+### 555, OpAmp, 74-Series Logic
 
 ## Continued Reading:
 
@@ -1940,11 +2037,21 @@ Functional Programming
 
 # Appendix A- Using the Linux Shell
 
+## The Basic Commands
+
 ## Tab Completion
 
 ## I/O redirection
 
-## Wild Cards
+## Wild Cards & Regex
+
+Regular Expressions or 'Regex' are an incredibly powerful tool used to match strings in a logical way. For example, say you wanted to find all the phone numbers on page that started with the area code 555, the next three digits were any number, and the last four digits could be represented as either numbers or letters, and '-' separating each group. With regex that's easy, the regular expression for this looks like:
+
+```5{3}-[0-9]{3}-[a-zA-Z0-9]{4}```
+
+Which while I could explain, I think just staring at that a little while should make it obvious and ideally the mental effort will lead to a better understanding. Regex can do a lot more than this though. Go ahead and checkout https://regex101.com and give it a shot.
+
+regex can be used with a bunch of common tools like awk, sed, and grep. This means you can do fancy things like chain ls and grep together with a pipe to find any file matching a pattern or chain commands to rename any file containing characters which may be invalid in NTFS ( The file system used by Windows) to be valid before doing a transfer.
 
 ## Job Control
 
@@ -1986,11 +2093,11 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 * alsamixer
 * screenfetch
 
-# Apendix B - Common Graphical Linux Utils
+# Appendix B - Common Graphical Linux Utils
 
-# Apendix C - Common electrical part numbers
+# Appendix C - Common electrical part numbers
 
-# Apendix D - BOM
+# Appendix D - BOM
 
 | Item                                                         | Price/item (approx)                  | Quantity      |
 | ------------------------------------------------------------ | ------------------------------------ | ------------- |
@@ -2053,3 +2160,5 @@ Also we're going to be building a little server, for this you'll want
 OR
 
 You can find a used Dell Poweredge r610 or poweredge 1950. Many of these will come with out drives, but this option is probably cheaper than the above for better specs. However; these servers are LOUD, loud enough to not be comfortable in the same room and absolutely drink power. As mentioned in the server section, the hardware you use really doesn't matter, you'll just want at least two hard drives, an OS drive, and multiple network interfaces are encouraged. These things can all be added to just about any desktop though, so going to electronics thrift stores or auctions and finding a desktop works too. 
+
+# Appendix E - The Politics of it all

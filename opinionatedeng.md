@@ -14,9 +14,15 @@ With that said, what is this exactly?
 
 This is a guide for understanding the power the humble electron has in our lives. Electricity, digital logic, code, computers, embedded systems, these things are all around us every second of everyday. As I type this I'm wearing a smart watch, I have a smart phone in my pocket, and I'm directly using a desktop computer. Each of these devices contains dozens of smaller computers, power supplies, wireless interfaces, etc. My goal with this is to teach you how all of this works and how to use it from transistors to high level code to useful user applications.
 
-I will be assuming you are of reasonable technical ability already, furthermore, I will avoid going into high level math, chemistry, and physics as much as is practical- mostly because knowing these things is typically not actually useful in the daily life of someone who works on any of this beyond those that are doing cutting edge research or are planning to teach, in which case you should actually go to college instead of reading this. For everyone else, welcome. This is the document which can save you going to college and taking classes full of useless information you will inevitably forget and for which employers don't care about to begin with.
+I will be assuming you are of reasonable technical ability already- that is the concept of how to proficiently use most types of software, navigation of a file manager, etc-  furthermore, I will avoid going into high level math, chemistry, and physics as much as is practical- mostly because knowing these things is typically not actually useful in the daily life of someone who works on any of this beyond those that are doing cutting edge research or are planning to teach, in which case you should actually go to college instead of reading this. For everyone else, welcome. This is the document which can save you going to college and taking classes full of useless information you will inevitably forget and for which employers don't care about to begin with.
 
 Following along will require a few things. The first of which is dedication and time. If you don't have the desire to put in at least a little bit of work there is simply no way I can help, that said, if you're reading this instead of watching Netflix I believe that's already proof enough you want to learn. Next is hardware and software, namely you'll be needing a few development boards and linux, but I'll get into those with time; however, for convince, everything referenced to be downloaded or physical items to be purchased are all listed in Appendix D
+
+[TODO]
+
+https://www.youtube.com/watch?v=SzJ46YA_RaA
+
+https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo
 
 # Chapter Ⅰ - Community
 
@@ -28,7 +34,9 @@ https://news.ycombinator.com/
 
 https://hackaday.io/ | www.hackster.io/
 
+https://www.bleepingcomputer.com/
 
+https://www.humanreadablemag.com/morningcupofcoding
 
 While much less active, I've found some of these to have great information as well
 
@@ -36,7 +44,7 @@ https://n-o-d-e.net/index.html
 
 https://www.alchemistowl.org/pocorgtfo/
 
-
+https://www.youtube.com/user/DEFCONConference
 
 Oh, and to mention it now
 
@@ -89,14 +97,22 @@ On the note of point Ⅲ...
 
 ![Standards](https://imgs.xkcd.com/comics/standards.png)
 
-**However, **and I can't stress this enough, I think balancing your creativity among other interests and looking for ties between them can lead to more good than any of these options. I enjoy playing music, reading, and writing, so I find inspiration in these media. There are countless electrical hardware and software tools that use hands on programming when playing music. In books I find ideas for what an author may have thought only futuristic when written. I never know when my mind will strike similar gold when writing for myself. Find a hobby and bend it to this as you go along. Like photography? Lean about the internals of a camera. Like cars? Look up how the ODB2 interface actually works. Nothing is magic and the internet will likely have answers and give you ways to apply this knowledge that you care about.
+Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtousy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevent to the conversation, it's totally reasonable to interject and ask for a superquick primer on what's going on or a relevent link. This may seem obvious, but a good number of technical chats die because of exectaly the afforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
+
+**Finally, **and I can't stress this enough, I think balancing your creativity among other interests and looking for ties between them can lead to more good than any of thing mentioned above. I enjoy playing music, reading, and writing, so I find inspiration in these media. There are countless electrical hardware and software tools that use hands on programming when playing music. In books I find ideas for what an author may have thought only futuristic when written. I never know when my mind will strike similar gold when writing for myself. Find a hobby and bend it to this as you go along. Like photography? Lean about the internals of a camera. Like cars? Look up how the ODB2 interface actually works. Nothing is magic and the internet will likely have answers and give you ways to apply this knowledge that you care about.
 
 In general I've found site specific forms and reddit to be the best platforms for most things, with some others finding their main following in other places though. For example I'm in a large technical chat group with Furries on Telegram and some open source tools still thrive on IRC.
 
-# Chapter Ⅱ - Some places to get your toes wet first
+# Chapter Ⅱ - Learn how to learn
+
+I'm going to keep this short and sweet: Nobody learns (effectively) by being shown what to do. You can watch hundreds of hours of people playing guitar, even explaining how they do it, but you wont be able to randomly pick one up and play if you never have before. Furthermore, as much as you can learn from direct reading and instruction, it has it's place and limits. This guide, book, whatever you want to call it, was never meant to be followed like instructions. You should go out on your own and poke around as you go though. If you find a topic dull, don't read it as in depth. I don't want you wasting your time. Break things. Make mistakes. By the end of this you should know what a burning resistor smells like, what it's like to try to recover a slightly busted linux system, and how it feels when a bug has been eluding you for hours and your code still doesn't work.
+
+This struggle is part of learning and proof that you're doing well. These experinaces should teach you things in their own right. The smell of burning elcetronics may help you diagnose a future circuit, the lesson to not fall into a pit of technical debt may help when a bug has engulfed your code, and the late night of terminal only based work as you try to get your computer working again will teach you more than this book ever can.
+
+# Chapter Ⅲ - What do you already know?
 
 - Music, VCV, PD, Sonic Pi
-- Scratch, Shader editors
+- Scratch, Shader editors, flow charts
 - Math
 
 # Chapter 1 - The first goal
@@ -124,8 +140,6 @@ You should really make a full backup of your computer before doing this, as inst
 ```
 
  Alright, so why do I want you to install a new OS to begin with? Well, the OS we'll be using is called Linux. Linux is actually what powers both android and chomeOS, and is a common descendant of the same system as Mac OsX as well as almost all of the servers on the internet from massive website like Facebook and Google to small Minecraft servers you can rent online to play with friends. What's cool about Linux is it lets you get much closer to the hardware and see what's going on, and it just generally makes writing code much easier. Furthermore, it's super easy to set up an amazing development environment in Linux for getting work done with code or electronics, and at the end of the day you can still watch YouTube, play *most* games that are on steam, or open up an office suite, just like Windows or Mac.
-
-Before we try to install Linux though, you'll need to know a lot more. So onto it. 
 
 # Chapter 2 - Let's do it then, Installing Arch
 
@@ -653,7 +667,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -Acs
 sudo pacman -U 
-yay -S freetype2-ultimate5 zsh
+yay -S zsh
 chsh -s /bin/zsh
 ```
 
@@ -966,7 +980,7 @@ At the moment I got that output the transistors where being turned on and off at
 
 The OS itself actually tells the processor what speed it should be running at. In Windows, when you change your power plan to 'high performance' one of the major things it does is not allow the processor to run at a slower speed, and in Linux you can similarly control this using some cpu speed commands. We'll get to that later though.
 
-Finally it's worth note that on some systems, primarily high end desktops, you can actually run your processor outside of factor specifications by increasing the maximum clock rate of the processor. Doing this can lead to system stability issues and obviously leads to a higher power usage and heat output though. This process is known as 'overclocking'  as your taking the internal clock of the processor beyond it's rating. My Ryzen 1700 has actually been over clocked in order to get 3.8Ghz at all times on all of the cores. 
+Finally it's worth note that on some systems, primarily high end desktops, you can actually run your processor outside of factor specifications by increasing the maximum clock rate of the processor. Doing this can lead to system stability issues and obviously leads to a higher power usage and heat output though. This process is known as 'overclocking'  as your taking the internal clock of the processor beyond it's rating. My CPU, a Ryzen 1700, has actually been over clocked in order to get 3.8Ghz at all times on all of the cores. 
 
 ### Microcode
 
@@ -1647,7 +1661,7 @@ crw-rw----+  1 root uucp       4,  67 Feb  8 06:03 ttyS3
 
 'ttyACMx' or 'ttyUSBx' are attached USB devices that can be accessed as a virtual terminal. This is mostly used for development boards, and we'll be using this later
 
-'ttySx' are serial port terminals, rarely used outside of medial or large server. The physical connector usually looks similar to VGA cable. Your motherboard may well have a serial port header for adding this even if you don't physically see one available on the outside of the case
+'ttySx' are serial port terminals, rarely used outside of scientific or server gear. The physical connector usually looks similar to VGA cable. Your motherboard may well have a serial port header for adding this even if you don't physically see one available on the outside of the case
 
 ```
 crw-------   1 root root      10,  61 Feb  8 06:03 udmabuf
@@ -1907,6 +1921,8 @@ The OSI model of networking is
 
 ### EMail
 
+## VPNs
+
 ## Networking Tools
 
 ### Etherape
@@ -1958,6 +1974,8 @@ https://taleri.files.wordpress.com/2014/02/practical_electronics_for_inventors_-
 # Chapter 14- Servers!
 
 ## Web hosting
+
+Before we get to business there's some necessary viewing: http://motherfuckingwebsite.com/
 
 ## File Sharing
 
@@ -2095,7 +2113,12 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 
 # Appendix B - Common Graphical Linux Utils
 
-# Appendix C - Common electrical part numbers
+# Appendix C - Common electrical parts (appearence and numbers)
+
+* package types
+* reading specs
+* datasheets
+* 
 
 # Appendix D - BOM
 
@@ -2162,3 +2185,52 @@ OR
 You can find a used Dell Poweredge r610 or poweredge 1950. Many of these will come with out drives, but this option is probably cheaper than the above for better specs. However; these servers are LOUD, loud enough to not be comfortable in the same room and absolutely drink power. As mentioned in the server section, the hardware you use really doesn't matter, you'll just want at least two hard drives, an OS drive, and multiple network interfaces are encouraged. These things can all be added to just about any desktop though, so going to electronics thrift stores or auctions and finding a desktop works too. 
 
 # Appendix E - The Politics of it all
+
+https://www.eff.org/
+
+# Appendix F - Other Great Resources
+
+## Youtube
+
+[ElectroBoom](https://www.youtube.com/channel/UCJ0-OtVpF0wOKEqT2Z1HEtA)
+
+[CNLohr](https://www.youtube.com/channel/UCG7yIWtVwcENg_ZS-nahg5g)
+
+[N-O-D-E](https://www.youtube.com/channel/UCvrLvII5oxSWEMEkszrxXEA)
+
+[LiveOverflow](https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w)
+
+[Tom Scott](https://www.youtube.com/channel/UCBa659QWEk1AI4Tg--mrJ2A)
+
+[bigclive](https://www.youtube.com/channel/UCtM5z2gkrGRuWd0JQMx76qA)
+
+[AdoredTV](https://www.youtube.com/channel/UCHXbDmbswY3xNOmzr5O3zgA)
+
+[3Blue1Brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw)
+
+[Bryan Lunduke](https://www.youtube.com/channel/UCkK9UDm_ZNrq_rIXCz3xCGA)
+
+[Level1Techs](https://www.youtube.com/channel/UC4w1YQAJMWOz4qtxinq55LQ)
+
+## Podcasts
+
+https://theamphour.com/
+
+## Github info pages
+
+https://github.com/Awesome-Windows/Awesome
+
+https://github.com/cirosantilli/x86-assembly-cheat
+
+https://github.com/kozross/awesome-c
+
+https://github.com/rby90/Project-Based-Tutorials-in-C
+
+https://github.com/trimstray/the-book-of-secret-knowledge
+
+## Non-Technical
+
+https://longform.org/
+
+
+

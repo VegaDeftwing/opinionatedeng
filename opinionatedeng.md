@@ -24,7 +24,7 @@ https://www.youtube.com/watch?v=SzJ46YA_RaA
 
 https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo
 
-# Chapter Ⅰ - Community
+# Ⅰ - Community
 
 The only way to be successful in this journey is to make friends along the way. Some of this get's really, really difficult. You will get stuck. Having friends to help makes it possible. Find group chats on telegram, join IRC channels, get on some forums, and ask questions on Reddit. Working with people is a lot more fun and you'll learn so much more.
 
@@ -99,21 +99,17 @@ On the note of point Ⅲ...
 
 Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtousy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevent to the conversation, it's totally reasonable to interject and ask for a superquick primer on what's going on or a relevent link. This may seem obvious, but a good number of technical chats die because of exectaly the afforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
 
+TLDR: RTFM & STFW http://www.catb.org/esr/faqs/smart-questions.html#rtfm
+
 **Finally, **and I can't stress this enough, I think balancing your creativity among other interests and looking for ties between them can lead to more good than any of thing mentioned above. I enjoy playing music, reading, and writing, so I find inspiration in these media. There are countless electrical hardware and software tools that use hands on programming when playing music. In books I find ideas for what an author may have thought only futuristic when written. I never know when my mind will strike similar gold when writing for myself. Find a hobby and bend it to this as you go along. Like photography? Lean about the internals of a camera. Like cars? Look up how the ODB2 interface actually works. Nothing is magic and the internet will likely have answers and give you ways to apply this knowledge that you care about.
 
 In general I've found site specific forms and reddit to be the best platforms for most things, with some others finding their main following in other places though. For example I'm in a large technical chat group with Furries on Telegram and some open source tools still thrive on IRC.
 
-# Chapter Ⅱ - Learn how to learn
+# Ⅱ - Learn how to learn
 
-I'm going to keep this short and sweet: Nobody learns (effectively) by being shown what to do. You can watch hundreds of hours of people playing guitar, even explaining how they do it, but you wont be able to randomly pick one up and play if you never have before. Furthermore, as much as you can learn from direct reading and instruction, it has it's place and limits. This guide, book, whatever you want to call it, was never meant to be followed like instructions. You should go out on your own and poke around as you go though. If you find a topic dull, don't read it as in depth. I don't want you wasting your time. Break things. Make mistakes. By the end of this you should know what a burning resistor smells like, what it's like to try to recover a slightly busted linux system, and how it feels when a bug has been eluding you for hours and your code still doesn't work.
+I'm going to keep this short and sweet: Nobody learns (effectively) by being shown what to do. You can watch hundreds of hours of people playing guitar, even explaining how they do it, but you wont be able to randomly pick one up and play if you never have before. Furthermore, as much as you can learn from direct reading and instruction, it has it's place and limits. This guide, book, whatever you want to call it, was never meant to be followed like instructions. You should go out on your own and poke around as you go though. If you find a topic dull, don't read it as in depth. I don't want you wasting your time. Break things. Make mistakes. By the end of this you should know what a burning resistor smells like, what it's like to try to recover a slightly busted linux system, and how it feels when a bug has been eluding you for hours and your code still doesn't work. The only way that happens (unless I made a mistake which is also probable) is if you try ideas when you get them and do more than what's in this book.
 
 This struggle is part of learning and proof that you're doing well. These experinaces should teach you things in their own right. The smell of burning elcetronics may help you diagnose a future circuit, the lesson to not fall into a pit of technical debt may help when a bug has engulfed your code, and the late night of terminal only based work as you try to get your computer working again will teach you more than this book ever can.
-
-# Chapter Ⅲ - What do you already know?
-
-- Music, VCV, PD, Sonic Pi
-- Scratch, Shader editors, flow charts
-- Math
 
 # Chapter 1 - The first goal
 
@@ -141,7 +137,7 @@ You should really make a full backup of your computer before doing this, as inst
 
  Alright, so why do I want you to install a new OS to begin with? Well, the OS we'll be using is called Linux. Linux is actually what powers both android and chomeOS, and is a common descendant of the same system as Mac OsX as well as almost all of the servers on the internet from massive website like Facebook and Google to small Minecraft servers you can rent online to play with friends. What's cool about Linux is it lets you get much closer to the hardware and see what's going on, and it just generally makes writing code much easier. Furthermore, it's super easy to set up an amazing development environment in Linux for getting work done with code or electronics, and at the end of the day you can still watch YouTube, play *most* games that are on steam, or open up an office suite, just like Windows or Mac.
 
-# Chapter 2 - Let's do it then, Installing Arch
+# Chapter 2 - Let's do it then, Installing Arch Linux
 
 First of all, Linux is actually just the name of the underlying 'core' of the system, known as the kernel, as such, there are literally thousands of Linux variations. The one I'm going to have you install is know as one of the hardest to work with, but also one of the most powerful: Arch Linux.
 
@@ -563,7 +559,7 @@ Once that's done you can run `systemctl reboot`
 
 Finally, we're going to get a graphical environment running.
 
-Once the system reboots login with your username, not root. When you type your password you won't see anything, but it is actually typing!
+Once the system reboots login with your username, not root. When you type your password **you won't see anything**, but it is actually typing!
 
 then run:
 
@@ -1087,9 +1083,11 @@ Let's take a deeper dive, reading the man page for free with `man free` we can s
 
 One of the most interesting things to point out here is the concept of Dirty and Writeback,
 
-Dirty is
+Dirty is [TODO]
 
-Writeback is
+Writeback is [TODO]
+
+Pagefaults [TODO]
 
 Going back to when cache was mentioned though, RAM's primary job is to hold bulk information that's in use a bit closer to the CPU. For example if you load a large image file it'll first get copied to ram and then be processed though cache in chunks, this is because there just simply isn't enough cache on the CPU to hold a large image.
 
@@ -1097,15 +1095,69 @@ Finally, I'd like to briefly mention some things about RAM at the hardware level
 
 Just like the CPU, RAM has a speed at which it operates as well, Typically it's listed in MHz still, but speeds range from ~1.8Ghz to ~3.8Ghz at the time of writing, dependent DDR3 or 4. While DDR4 has faster clock speeds, it does typically have a higher overall latency, meaning theres a longer delay between when when data is requested to when it's delivered, albeit at a much higher total throughput. This is a massive topic in of itself, yet is also pretty niche as outside of some pretty specialized applications RAM speed and latency has a relatively minor impact, though faster is typically better. 
 
-## Conclusion
+## The Motherboard
 
-Alright, so that's RAM and CPU, What do we have left?
+dmi decode
 
-Well, a lot actually. Your computer also has a chipset, motherboard, graphics card, power supply, and the list goes on.
+### Chipset
 
-But, for now you already have a pretty deep understanding of what the CPU is and how RAM ties into it all,
+### ROM/BIOS/UEFI
 
-we'll come back to the rest later.
+### VRM
+
+## Graphics Card (or integrated graphics)
+
+## Storage
+
+hdparm
+
+### HDD
+
+### SSD
+
+### Portable
+
+### The Future
+
+#### Optane
+
+#### Cloud Storage (Some one elses' drives)
+
+### The Past
+
+Floppy, Zip, 
+
+## Network Interfaces
+
+### Ethernet
+
+### WiFi
+
+### High Bandwith
+
+### The Future
+
+### The Past
+
+
+
+## Power Supply
+
+power efficency, size, voltage stability
+
+## Cooling
+
+## Peripherals
+
+### Keyborads
+
+5pin din, PS2, USB
+
+### Legacy Connections
+
+Paralell, Serial, Tape, CD, 
+
+## How to know what to buy
 
 # Chapter 4- Back to the Root of Things
 
@@ -1604,7 +1656,7 @@ brw-rw----   1 root disk       8,  98 Feb  8 16:37 sdg2
 
 'rfkill' kills all radio transmission on system
 
-'rtc' real time clock, direct access
+'rtc' real time clock, direct access - we'll talk more about real time clocks and time in networking.
 
 'sdxn' the 'normal' representation of block devices like HDDs, SSDs, and flash drives to the system. Each number is a partition
 
@@ -1789,9 +1841,69 @@ Which while may not look overly interesting, I assure you will be something of i
 
 Before we leave /proc, look back up at all the file that each process has and take note, also notice how some of these relate to what we saw in /dev
 
-## Conclusion,
+## Take a breather,
 
 As you can see, Linux gives us a lot of raw access to hardware. There are no training wheels here. While you can use Linux the exact same way you used windows: watch YouTube videos, open a graphical file manager, etc, you can also get down to the nitty gritty of the OS.
+
+## /bin, /sbin, /lib, /lib64
+
+[TODO]
+
+symbolic links to usr explanation
+
+## /usr
+
+Share, man, local, var
+
+## /boot
+
+[TODO]
+
+boot loaders, init, initrd fs?
+
+## /etc
+
+... and etc.
+
+Literally. the etc folder contains system configuarion files mostly. Remember back when we installed and you used `nano /etc/fstab` that was editing the file system table that the system loads at boot, a configuration file. When we configure SSH later, it's config files are stored here too. Basically, most of the admin level system config files and default config files (lower priority than the config by the user) files are here. As you learn about your system and tweak things you'll find yourself in this folder rather often.
+
+## /home, /mnt, /run
+
+[TODO]
+
+## Users and Groups
+
+
+
+## Drivers
+
+udev rules
+
+## File systems
+
+Inodes, Raid
+
+## Processes and Memory
+
+loading libs, forks, env variables, process ownership
+
+lsof, strace, ltrace, nice levels
+
+## System Calls
+
+## Kernel Parameters
+
+## SystemD
+
+## Schedulers
+
+## Dbus
+
+
+
+
+
+https://github.com/KnowNo/How-Linux-Works-2nd-Edition/blob/master/How.Linux.Works.What.Every.Superuser.Should.Know.2nd.Edition.PDF.pdf
 
 We'll explore more of the OS later, but for now I think the information overload is a bit much anyway, so lets move away from screens and into the world of hardware
 
@@ -1799,15 +1911,87 @@ We'll explore more of the OS later, but for now I think the information overload
 
 ## The Tools of the Trade
 
+Building, fixing, and analyzing circuitry requires the use of a few tools and appliences. While there are many more than those listed here, these are the most important ones and should be all you need for most even very advanced applications.
+
 ### The Multimeter
 
-### The Lab PSU
+![multimeter](./multimeter.jpg)
 
-### The Frequnecy Generator
+#### Resistance and the OHM meter
+
+resistors do one thing- resist current. Using the ohm meter function of your multimeter you can find out the amount of this resistance measured in ohms (ohms are represented with a capital omega, Ω) using an ohm meter is simple, just poke and prod with at least one component inbetween the leads. If there's nothing in between - that is the leads are touching one another- there will be no resistance, if there's no way for a DC voltage to get from one point to the other, that will be infinite or 'overload' resistance
+
+#### Voltage, Ground, and the Volt Meter
+
+Voltage can be thought of as the 'pressure' in a hose. However, this pressure is realative to another point, the point we usally take refrence to is called 'ground', though this doesn't have to be the case- you can measure the volatge across a single resistor or other component too. Just remember measuring the voltage with both probes at point or along the same wire doesn't make sense because a volt meter only tells you the voltage difference between two points. This would be like seeing the pressure difference in hose between two nearby points, obviously the pressure of one point minus the other will be 0.
+
+In general there are two primary ways you will work with voltage- AC or DC, these stand for Alternating Current and Direct Current. DC is simply a constant voltage level output. AC on the otherhand is any time varrying signal, usually periodic (repeating) and most commonly a sine, though many other waves are used like square, triangle, saw, and any mixture of these, inculding the same signal with a DC offset.
+
+![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Waveforms.svg/557px-Waveforms.svg.png)
+
+Your multimeter will likely have two different settings for measuring voltage, one for DC and one for AC. Of note, *most* mulitmeters are not true RMS (Root Mean Square) meters, meaning the reading of AC voltage is not accurate unless it's a clean, no DC offset sine wave. RMS is a topic we'll be covering later, but to wet your appatite, this from wikipedia may help: 
+
+![img](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Sine_wave_voltages.svg/400px-Sine_wave_voltages.svg.png)
+
+https://en.wikipedia.org/wiki/Root_mean_square
+
+Of note, from a mathematical perspective all time varrying signals can be represented as an infinite number of sine waves added together, this is actually used to do practical computation in many things. 
+
+![img](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Periodic_identity_function.gif/400px-Periodic_identity_function.gif)
+
+https://en.wikipedia.org/wiki/Fourier_series#Examples
+
+#### Current and the Ammeter
+
+If current is the pressure in the hose, then current is how much water actually flows. This analogy holds up too, because if we use a resistor to kink the hose and the flow is restircted the current will go down. If you were to stick a wire directly into the wall outlet all the current the wall can give will try to flow though, but it can be restricted. To measure the current though a circuit we can't just probe between two points as before though. Instead the probes need to form the exclusive path that part of the circuit can flow through.
+
+In practice this means the wire you want to measure current through would need to be cut and the ammeter's probes hooked up at either end, making the meter part of the circuit.
+
+Current, just like voltage, can varry, and in AC circuits usually does. This leads to some more interesting caseses like power factor, but we'll get to that later.
+
+#### Continuity Tester
+
+The contiuity tester does exactly what it's name implies, it makes sure two points are connected electrically. If you have   a piece of metal and put both probes on it it should beep, but if you put the probes on rubber, they clearly will not be. The continutiy tester isn't really much different from the ohm meter in operation, and many will actually dispaly the resistance if there is any. The main use is that it beeps when the resistance is low enough to be confident two points are electrically connected.
+
+### The Lab Power Supply
+
+Power Supply Units or 'PSU's are useful because unlike your phone charger which puts out a singular voltage of 5 volts (ignoring fast charging) they can have their output voltage varried usually between 1 and 35-ish volts. Furthermore, they provide current limiting, useful when you're unsure of how much current your circuit might sink or need it for safety.
+
+[TODO] add picture
+
+### The Frequnecy or Waveform Generator
+
+Frequency generators can be used to output a signal that is alternating, unlike the DC signal of the Lab PSU.  Usually they'll support a range of wave shapes, frequencies, amplitudes, and DC offsets. Many support far more than this, though the applications for the more advanced modes are few. If you're just starting out you can (with precausions) actually just use the audio output of your computer or buy an inexpensive one for under $20, unlike the expensive example below:
+
+![Image result for arbitrary function generator](https://upload.wikimedia.org/wikipedia/commons/f/f6/BK_Precision_4078_arbitrary_waveform_generator.jpg)
+
+https://en.wikipedia.org/wiki/Arbitrary_waveform_generator
 
 ### The Oscilloscope
 
+The osciliscope (or OScope or simply Scope) allows you to see an AC signal and how it varies over time as a plot of Voltage on the Y axis and time on the X, Most OScopes will allow you to look at multiple signals at once, with one overlaid on the other. Furthermore, most support X-Y mode, where the plot is actually the voltage of one input as the X axis and the volatge of another as the Y, moving a dot and it's trail around the screen. In fact, this is how the first computer monitors worked: 
+
+![Image result for asteroids game](data:image/jpeg;base64,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)
+
+Modern OScopes look much different than their phosphoresent green ancestors though:
+
+![Image result for oscilloscope](data:image/jpeg;base64,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)
+
+However, a 'Digital Storage Oscilloscope' or DSO like the one above run a minimum of $300 at the time of writing, so many hobbiset opt for older scopes like this one:
+
+![Image result for oscilloscope](data:image/jpeg;base64,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)
+
+or a cheap, low resolution, low speed one from Ebay. For most uses, both of these will be perfectly fine. For just starting out though I'd recomend a logic analyzer scope combo tool, like the **LHT00SU1** which can be found on Ebay. Speaking of...
+
 ### The Logic Analyzer
+
+Logic Analyzers... analyze logic. Who knew? But what does that mean? well, in reality they are *somewhat* similar to an osciliscope in that they show a voltage over time, the difference is they only show either on or off over time based on the set TTL (Transistor–transistor logic) voltage. This lets you evesdrop on the digital communication going on over a wire. Here's an example output:
+
+![logic](./logic.png)
+
+In this particular encoding, the longer high bumps represent a 1 and the short high bumps a 0, so you're looking at the binary that was sent over a wire. It's actually pretty rare that a wire sends raw high for a 1 and low for 0 so other schemes, like the one above, are used. For most schemes the software can actually be used to decode the recived data into raw binary or if it was human readable characters even that.
+
+Using a logic analyzer is pretty simlpe, most today are connected to your comuputer over USB and then use software like Pulseview as shown above, then you just select the sample rate (how many times per second to check the wire, here 1MHz) and the number of samples to collect and hit start. You may want to setup a trigger too (speaking of, it's worthwhile to look up how triggering works on an OScope [TODO]) Most logic analyzers support 8 or more simultanious data streams, though in the picture above I'm only using one.
 
 ### Software Simulation
 
@@ -1815,7 +1999,9 @@ We'll explore more of the OS later, but for now I think the information overload
 
 #### Simulide
 
-## Voltage and Current
+#### VCV Rack?
+
+## Voltage and Current - OHM's law, Nodal & Mesh Analysis
 
 ## Resistors
 
@@ -1823,15 +2009,177 @@ We'll explore more of the OS later, but for now I think the information overload
 
 ## Inductors
 
-# Chapter 6- Let's write some low level code
+## Further Reading
+
+https://learn.sparkfun.com/tutorials/voltage-current-resistance-and-ohms-law/voltage
+
+https://en.wikipedia.org/wiki/Fourier_transform
+
+
+
+# Chapter 6- Let's work on how we work
+
+## The Terminal
+
+In the world of programming, embedded development, and electrical debugging you will inevitably need to understand how to use a terminal/command line at some point. While the text only interface can look intimidating, it has some clear advantages, namely it's significantly faster to use the cli or 'command line interface' version of many tools. Because of the nature of this book you will be using the terminal frequently, so for convince sake information on using it effectively has been moved to Appendix A, though I highly recommend you read though it now.
+
+I highly recomend getting autojump setup early as it makes navigating around the terminal much faster, furthermore, bat makes reading code though cat not suck and tldr will save you time when you forget how to use tar, set these up early if nothing eles.
+
+## Heads up,
+
+With that out of the way, I want to preface this chapter with a big warning: Getting used to everything we're about to do will be a pretty big leap. There's a good chance you've never used a computer that works like we're going to be setting up, but it's what I and many of my friends use daily and for good reason. This is probably where more opinions are foing to show than anywhere else
+
+## Code editors
+
+People get defensive about the way they work, and frequently try to claim theres is the best way. I personally see value in multiple of them, but also understand how setting down with just one and fettinf very fast with it may have it's appeal. I have three recomendations for code editors, as silly as that may seem.
+
+The first two are terminal based `nano` and `vim`,
+
+nano, is the similist of all the editors I'll list here. It's stupid simlpe to use and for quick just opening a text file and changing one line, probably the fastest. It clearly prints it's instructions at the bottom of the termianl:
+
+![nano](./nano.png)
+
+where ^ is the ctrl key, and M the alt key. However, you'll quickly find nano rather limiting, so onto vim!
+
+Vim, with Spacevim (spacevim.org) ontop is a very powerful tool. 
+
+![welcome-page](https://user-images.githubusercontent.com/13142418/45254913-e1e17580-b3b2-11e8-8983-43d6c358a474.png)
+
+Vim can do everything you could ever dream of, and probably a bit more, and with spacevim ontop, it's a powerhouse. Unfortunately, vim is regularly the butt end of a joke becaue of how nutoriously difficult it is to get the hang of. For that reason I'm going to link a mini tutorial here: https://www.openvim.com/, and link https://spacevim.org/documentation
+
+Graphically I recomend Visual Studio Code with Platform IO, Bracket Pair Colorizer 2, and GitLens
+
+This gives you a pretty kick butt editor on bar with most full Integrated Development Envrioments or IDEs. I recomend you try out IDEs, espcially if for some unholy reason you want to write in Java, but otherwise this will do fine.
+
+![code](./code.png)
+
+## The Desktop Envrioment
+
+This is the biggest change, I'm going to recomend switching from KDE, which we installled when we setup arch, to i3. i3 is a tiling window manager, this means it looks something like this:
+
+![i3](./i3.png)
+
+This is with 4 windows open, a music player, a CLI file manager, a graphical file manager, and an extra terminal I used to take the screenshot. What's cool about i3 is how it will always use space as efficently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver. The example above is less than practical (two different file mangers...) but I just rapidly opened some stuff for demonstartion.
+
+i3, when first installed, is very, very minimal, it will greet you with a plain black bar and clicking with either mouse button anywhere will do nothing. You should, however, be able to open a terminal by using your modkey (probably the windows key) and enter.
+
+[TODO]
+
+Compton
+
+LXappearance
+
+Rofi
+
+Ploybar
+
+Deepin-Termianl, URXV-T, kitty,
+
+Nitrogen
+
+HiDPI
+
+Fonts
+
+xrandr
+
+r/unixporn
+
+## The Physical Enviroment & Hardware
+
+### Monitors
+
+Multi-head
+
+Positioning
+
+Color, Brightness, night filter
+
+### Keyboard
+
+layout, shortcuts, height, mechanical
+
+### Sound
+
+### 
+
+## Various Programs:
+
+### Git
+
+### Markdown
+
+### Taskwarrior & Timewarrior
+
+### File Explorers
+
+Ranger, THunar, Nautilius, Baobab, Gparted
+
+### Media (Music, Video, PDF,)
+
+### Office & Creative Software
+
+Libreoffice
+
+Krita
+
+Audacity
+
+Radium? Cadence
+
+OBS
+
+KiCad
+
+darktable
+
+Evince
+
+Feh, nomacs
+
+Wine
+
+Boxes- vm
+
+
+
+### Package managment
+
+Pamac, Steam, AppImg, etc.
+
+maintaining an aur package, pacman conf stuff
+
+### Web and network protocols
+
+Vivaldi, Firefox, Syncthing, Beaker, IPFS, IRC - irssi, Telegram, Etherape, Wireshark, gufw,
+
+## Shell Scripts
+
+# Chapter 7- Let's write some low level code
+
+## What are we going to do?
+
+## Tools to use
+
+## Pseudo code
+
+
 
 ## Writing it
 
+using a code editor, header files, libraries, writing and using a Make file, stdout / stderr,
+
 ## Debugging it
+
+gdb + gef
 
 ## Analyzing the Assembly
 
+Cutter
 
+## Patching it
+
+source patching, binary patching
 
 ## Where to get more pracice
 
@@ -1841,21 +2189,11 @@ https://doc.rust-lang.org/book/foreword.html
 
 https://tour.golang.org/welcome/1
 
-# Chapter 7- Let's work on how we work
-
-## The Terminal
-
-In the world of programming, embedded development, and electrical debugging you will inevitably need to understand how to use a terminal/command line at some point. While the text only interface can look intimidating, it has some clear advantages, namely it's significantly faster to use the cli or 'command line interface' version of many tools. Because of the nature of this book you will be using the terminal frequently, so for convince sake information on using it effectively has been moved to Appendix A, though I highly recommend you read though it now.
-
-## Code editors
-
-## The Desktop Envrioment
-
-## Git
-
-## Other Tools: Markdown, Taskwarrior, File Explorers, etc.
-
 # Chapter 8- Networking
+
+## A typical network
+
+Default Gateway, Routes & kernel routing table, subnet mask, ping, traceroute, dns - resolv.conf, pihole, caching / squid, localhosts, port forwards, DHCP, private nets, firewalls, chromecast port thing, https vs no s,  rsync,scp,samba, cups, databases
 
 The OSI model of networking is 
 
@@ -1921,6 +2259,10 @@ The OSI model of networking is
 
 ### EMail
 
+## Time
+
+Real time clocks, timezones, utc, etc.
+
 ## VPNs
 
 ## Networking Tools
@@ -1933,7 +2275,27 @@ The OSI model of networking is
 
 ## Really weird Networking, because why not!
 
-# Chapter 9- Let's dig around Linux a bit more
+# Chapter 9- High Level Overview of Math, Physics, and Chemistry (Sorry...)
+
+## Ⅰ - Math
+
+### 1 - Algebra
+
+### 2 - Discrete Math
+
+### 3 - Trig
+
+### 4 - Calculus
+
+### 5 - Differential Equations
+
+### 6 - Matrix Theory
+
+## Ⅱ - Physics
+
+## Ⅲ - Chem
+
+
 
 # Chapter 10- Diodes,  Transistors, and Integrated Circuits
 
@@ -2033,7 +2395,7 @@ https://www.youtube.com/watch?v=zK3rDhJqMu0&index=8&list=PL5cGwrD7cv8hK-qxPqRB25
 
 # Chapter 22- (((())(()((()(()))))))
 
-Functional Programming
+Functional Programming, and other paradigms
 
 # Chapter 23- Security
 
@@ -2050,6 +2412,12 @@ Functional Programming
 # Chapter 29- Where to go from here
 
 ## Integrating other interests
+
+## Projects to work on
+
+## Contributing to Open Source
+
+
 
 # Chapter 30- Things to avoid
 

@@ -887,7 +887,377 @@ The first language we're going to try out is called python. Python is an interpr
 Because we installed yay earlier you could use either that or pacman, but let's just use yay for simplicity. From here on out I'll be coping directly from what my terminal prompt looks like. Yours, for now, probaly looks similar to:
 
 ```
-username@root /current/folder <img src="https://rawgit.com/in	git@github.com:VegaDeftwing/opinionatedeng/None/svgs/52b17033cbf4bcf65d927b46a86fc757.svg?invert_in_darkmode" align=middle width=700.27464045pt height=1032.1461249pt/><img src="https://rawgit.com/in	git@github.com:VegaDeftwing/opinionatedeng/None/svgs/a4d46527119d1895ba5d5509445b6d25.svg?invert_in_darkmode" align=middle width=55.55003519999999pt height=31.36100879999999pt/><img src="https://rawgit.com/in	git@github.com:VegaDeftwing/opinionatedeng/None/svgs/7b94b9df7e6ef0c0c8f71dbb3d8c73c6.svg?invert_in_darkmode" align=middle width=5418.2354952pt height=7620.6392757pt/>2^4<img src="https://rawgit.com/in	git@github.com:VegaDeftwing/opinionatedeng/None/svgs/fc2b098cbd11181279e8c371a60ffde7.svg?invert_in_darkmode" align=middle width=3238.0066405499997pt height=1459.7260293pt/>0.10Gb, Ram upwards of \$10Gb, and Cache and registers, which are storage baked directly onto the GPU, cost much, much, more to implement.  It's of note that these not only are digitally faster with each jump, but also usually physically close. A hard drive can be 10's of feet of wire from the CPU while the RAM can be a few inches at best, and the cache and registers are physically in the CPU dye. Most of the data above the HDD/SSD level is actually just smaller subsets of each previous pool. In fact, on modern CPU's there are actually 3 levels of cache, each with a progressively smaller size but increase in proximity to the executed instruction.
+username@root /current/folder : command -to -be executed
+```
+
+However, mine looks like
+
+```
+╭─vega@lyrae /current folder
+╰─➤  command -to -be -executed
+```
+
+so, install python just like we've installed other programs with python or yay
+
+```
+╭─vega@lyrae ~  
+╰─➤  yay -S python
+```
+
+once that's done you should be able to start the python interpreter by simply typing `python` and pressing enter. This will give you a new prompt that takes python code as input
+
+```
+╭─vega@lyrae ~  
+╰─➤  python                                                                             
+Python 3.7.2 (default, Jan 10 2019, 23:51:51) 
+[GCC 8.2.1 20181127] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+the `>>>` is the prompt asking for input, go ahead and just try `1 + 1` for now
+
+```python
+>>> 1 + 1
+2
+```
+
+Okay, who cares though, right? let's try something a bit cooler. Say you wanted to add up all the odd numbers up to 72? This isn't something that's trivial to do on most calculators and would be a real pain by hand, but it's trivial to do in python. The code to run this in python is
+
+```python
+#note, this is to 73 becasue the range function include the first number and excludes the last
+sum = 0
+for i in range(1,73):
+    sum = sum + i
+    
+print(sum)
+```
+
+when you type this in the prompt you'll actually be able to enter multiple lines when you write the for loop. There's no clear way to explain this in text, you'll just have to try it and see how it works, note the way python set up looping is by indentation, so you'll need to press tab when the prompt lets you type the line `sum = sum + i` so that it's obviously a 'child' of the for loop.
+
+after you run the print statment you should see the output
+
+```bash
+╭─vega@lyrae ~  
+╰─➤  python
+Python 3.7.2 (default, Jan 10 2019, 23:51:51) 
+[GCC 8.2.1 20181127] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> sum = 0
+>>> for i in range(1,73):
+...     sum = sum + i
+... 
+>>> print(sum)
+2628
+>>> exit()
+╭─vega@lyrae ~  
+╰─➤
+```
+
+telling us the answer is 2628. To make you feel like a bad ass, you actually just wrote code that's equivalent to this math    <p align="center"><img src="https://rawgit.com/in	git@github.com:VegaDeftwing/opinionatedeng/master/svgs/5813d4d5c684befd3f8ae36870630e8b.svg?invert_in_darkmode" align=middle width=37.3764666pt height=47.159971649999996pt/></p>   pretty cool right? But that's math? Who cares? Let's do something cool!
+
+Python code doesn't have to be written in line by line, you can put it an a file and the computer will run that file as a program, so let's do that! But to do that we're gonna need something better than a terminal editor or an equivalent to notepad. There are actually text editors that make writing code much easier. Let's go grab the 'atom' editor. Hopefully by now you know the command! (The name of the package is just `atom`)
+
+super quick detour: while you can open graphical programs though the start menu down in the lower left hand corner just like on Windows, you can actually open a program directly from the terminal. Interestingly, this can make a program that opens in a new window a 'child process' of the terminal, which is why we normally don't do this. What this normally means is that if you start a program from the terminal - the parent- and then close the terminal, the child process, in this case the graphical program you started, will die too. Strangely, atom actually separates itself from it's parent process almost immediately, which is why we can start it from a terminal and then close the terminal and it should stay running. so, let's do that.
+
+```
+╭─vega@lyrae ~  
+╰─➤ atom
+```
+
+and a new window should pop up. It'll probably open with a few tabs welcoming you, asking if you want to install a theme, if you are okay sending atom usage info, etc. Uncheck boxes so these don't come up each time and answer questions as you please. Then, we're going to go up to the top and chose
+
+ `file -> new file`  Then, down at the bottom right of the editor you should see something that says `plain text` click that and a box will appear asking for the name of the language you're working with. Obviously chose python.
+
+alright, now we're ready to code! Let's put a bit more interesting of a progam in and then we'll talk about what it does line by line. I stole this code from https://matplotlib.org/2.0.2/examples/animation/animate_decay.html
+
+```python
+#!/bin/python3
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+
+def data_gen(t=0):
+    count = 0
+    while count < 1000:
+        count += 1
+        t += 0.1
+        yield t, np.sin(2*np.pi*t) * np.exp(-t/10.)
+
+
+def init():
+    ax.set_ylim(-1.1, 1.1)
+    ax.set_xlim(0, 10)
+    del xdata[:]
+    del ydata[:]
+    line.set_data(xdata, ydata)
+    return line,
+
+fig, ax = plt.subplots()
+line, = ax.plot([], [], lw=2)
+ax.grid()
+xdata, ydata = [], []
+
+
+def run(data):
+    # update the data
+    t, y = data
+    xdata.append(t)
+    ydata.append(y)
+    xmin, xmax = ax.get_xlim()
+
+    if t >= xmax:
+        ax.set_xlim(xmin, 2*xmax)
+        ax.figure.canvas.draw()
+    line.set_data(xdata, ydata)
+
+    return line,
+
+ani = animation.FuncAnimation(fig, run, data_gen, blit=False, interval=10,
+                              repeat=False, init_func=init)
+plt.show()
+```
+
+So you can just copy and paste all of this into atom, then use ctr+s to save it, and let's save it in the Documents folder as test.py - the .py extension is for python files.
+
+Before we talk about our code, let's see it run!
+
+Open up a terminal, and run `cd Documents` to get to your documents folder, `ls` to see what's in there, then `./test.py` to run the program. 
+
+```
+╭─vega@lyrae ~  
+╰─➤ cd Documents
+╭─vega@lyrae ~/Documents  
+╰─➤ ls
+test.py
+╭─vega@lyrae ~/Documents
+╰─➤ ./test.py
+```
+
+Oops! that probably didn't run. If you look at the errors it will tell you you're missing matplotlib ad numpy, let's go get those
+
+```
+╭─vega@lyrae ~/Documents
+╰─➤ yay -S python-matplotlib python-numpy
+```
+
+Now it should work! run `./test.py` again, and now you should see a decaying sine wave. Still not exactly something that get's the heart racing, but it does prove the power of programming! The code did all of that in under 50 lines of text!
+
+Frankly, the code that makes this work is a bit complicated but we can go over some of the important bits
+
+at the very top there are four important lines:
+
+```python
+#!/bin/python3
+import numpy as np
+import matplotlib.pyplot as plot
+import matplotlib.animation as animation
+```
+
+the first line uses a shebang `#!`  followed by python's location, this tells Linux to use python (specifically python3) to run the code underneath, actually, that's the location of the python program we installed earlier. In Linux, most of your programs can be found in /bin
+
+Next we have a bunch of imports. In most programming lanuges you don't want to reinvent the wheel so you'll use libraries. These are well documented, heavily tested, and optimized blocks of code you can use that you don't really need to understand how work under the hood, only how to use them. Although not used here, the most basic example would be advanced math in the math library, like
+
+```python
+╭─vega@lyrae ~  
+╰─➤  python
+Python 3.7.2 (default, Jan 10 2019, 23:51:51) 
+[GCC 8.2.1 20181127] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import math
+>>> math.sin(1)
+0.8414709848078965
+>>> math.pow(2,4)
+16.0
+>>> exit()
+```
+
+on line 6 the math library, which gave us access to sin and exponent functions, was imported. We don't know how `math.sin()` works, but we know it does, and that's fine.
+
+The same is true for `numpy` and `matplotlib` above, both of these are libraries, matplot lib is what handled actually putting the data on the screen, and numpy as can be seen on line 12 of the program:
+
+```
+yield t, np.sin(2*np.pi*t) * np.exp(-t/10.)
+```
+
+is used for doing some of the math. Numpy is a common python library used for doing more advanced math really fast, we're not going to worry about that right now though. 
+
+the next thing you should notice is how the code is organized into blocks with `def name():` like `def data_gen(t=0):` or `def init():` these blocks of code are called functions and they let programmers break up code into re-usable pieces or just wrap up a lot of complicated things to make code more readable, for example imagine a function that takes two numbers and does hundreds of lines of complicated math with them (eww)
+
+```python
+def mathyMess(num1, num2)
+	num1 = math.sin(num1) + math.pow(num1,num2)
+	# imagine hundreds more lines here
+	return result
+```
+
+this would make it so latter in your code anytime you needed to do this math again you could just use
+
+```python
+thing = mathyMess(42, 12)
+otherThing = mathyMess(0, 2)
+finalThing = thing + otherThing
+```
+
+this is much, much easier to read than a copy and pasted version without these functions or 'blocks of code' furthermore, if you accidentally made a mistake somewhere in the math in mathyMess you can fix it there rather than in each independent copy individually.
+
+For now, we're going to take a bit of a break from code, but we'll be back.
+
+# Chapter 3- Into the hardware
+
+## The CPU
+
+One of the nifty things we do pretty easily in linux is get information about our hardware directly. Just as when we were installing Arch and we used `lsblk` to see an overview of the disks on the system, we can use some other tools to find out some other information about the system. Let's start off basic and see what CPU you have. Go ahead and run
+
+```
+╭─vega@lyrae ~ 
+╰─➤  cat /proc/cpuinfo
+```
+
+This is actually just using that same `cat` command we used before to read the system generated file that tells us about the processor in this system. I'm going to provide the output from my system for refrence
+
+```
+processor       : 0
+vendor_id       : AuthenticAMD
+cpu family      : 23
+model           : 1
+model name      : AMD Ryzen 7 1700 Eight-Core Processor
+stepping        : 1
+microcode       : 0x8001137
+cpu MHz         : 2018.119
+cache size      : 512 KB
+physical id     : 0
+siblings        : 16
+core id         : 0
+cpu cores       : 8
+apicid          : 0
+initial apicid  : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb hw_pstate sme ssbd sev ibpb vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt sha_ni xsaveopt xsavec xgetbv1 xsaves clzero irperf xsaveerptr arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif overflow_recov succor smca
+bugs            : sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass
+bogomips        : 7688.44
+TLB size        : 2560 4K pages
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 43 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate eff_freq_ro [13] [14]
+```
+
+Alright, that's a whole lot of information, let's break it down.
+
+First of all, almost all modern Central Processing Units (CPUs) have multiple cores, and as with most things in computers the're counted from 0, so on a 4 core computer you'll have cores 0, 1, 2, and 3. Multiple cores simply let your computer do things in parallel, running multiple programs or tasks at the same time
+
+Next is the vendor ID, family, model, name, and stepping. My processor is an AMD Ryzen 7 1700. There's a pretty good chance your CPU will be made by Intel, and as such the family, model, name, and what not will reflect that. AMD and Intel are practically the only two laptop and desktop CPU providers, though in the feature we'll work with boards that use CPU's made by other manufactures. Really, most of this doesn't matter. Some CPUs are nicer than others, and if you follow the market or care it's easy to get a sense of a CPU's speed just based on it's name, but let's move on for now.
+
+Next is
+
+```
+microcode       : 0x8001137
+cpu MHz         : 2018.119
+cache size      : 512 KB
+```
+
+Each of these things is very important, but I'm going to start with cpu MHz as it's probably the easiest to understand, however, to understand this we'll need to get even a bit lower level than this and learn about the electronic component that changed humanity: the transistor.
+
+### Clock Speed
+
+![transistor](./transistor.jpg)
+
+However, to get to that we've gotta go just a bit further down the rabbit hole to the relay. Relays are super simple to understand, they're just a metal switch that is pulled open or closed using another input signal, basically imagine a light switch, where the switch itself is controlled by yet another electrical signal. Relays are slow though, they require a physical metal plate to move to change the connection. Because of this they have limited reliability and worth note they're actually loud. You can hear an audible click of the switch as they change state.
+
+Enter the vacuum tube. Though rarely used today outside of high end audio and old radios, for a period of time the logic inside a computer used these tubes. Essentially theres three important parts of the tube, the Cathode, Plate and Grid. Put very simply the Cathode emits electrons and the Plate collects them. Where it get's interesting is the grid in between. By applying a voltage to the grid a signal can be controlled giving us the same ability to turn something on or off by a third wire as in the relay. 
+
+>Worth note but irreverent for digital electronics, tubes and transistors can actually pass only a percentage of the input back out, based proportionally on the input. This actually means that both tubes and transistors can act as an amplifer, using a small input range to control a much larger signal. A single tube or transistor in conjunction with other components can be used to make a functional amplifier.
+
+Though the real break though here was the fact that this was no longer a mechanical system. With relays there was a very slow limit on the rate at which they could respond reliably, but with tubes this increased exponentially. Tubes were still expensive, large, and power hungry though. However, with their advent early computers saw a massive boost in speed with a decrease in cost
+
+Finally, enter the transistor. The physics here isn't that far removed from the vacuum tube, only now instead of a vacuum the electrons are moving though a semiconductor - typically silicon. Again this brought a massive shrink in physical size and increase in that rate at which it could respond. Pictured above are two discrete transistors, however, this is where this get's mind blowing:
+
+The Ryzen 1700 CPU in the computer I'm typing this on has 4,800,000,000 transistors in a package that is only 213 mm², and finally, we can refrence the number output by `cat /proc/cpuinfo`
+
+At the moment I got that output the transistors where being turned on and off at a rate of 2018Mhz. or 2Ghz. However, this system can run up to roughly 3.8Ghz. The faster this speed the faster your computer; however, your CPU will also use more power and run hotter. It's for this reason that most systems adjust the speed based on load. Doing simple things like writing this document and as seen with that output my system runs at nearly half speed which is actually the slowest it can run. Because the computer is hardly doing anything right now the majority of that switching is actually just doing nothing but using power running 'no operation instructions' the functional equivalent of just running 0+0 while it it waits for something to do. 
+
+The OS itself actually tells the processor what speed it should be running at. In Windows, when you change your power plan to 'high performance' one of the major things it does is not allow the processor to run at a slower speed, and in Linux you can similarly control this using some cpu speed commands. We'll get to that later though.
+
+Finally it's worth note that on some systems, primarily high end desktops, you can actually run your processor outside of factor specifications by increasing the maximum clock rate of the processor. Doing this can lead to system stability issues and obviously leads to a higher power usage and heat output though. This process is known as 'overclocking'  as your taking the internal clock of the processor beyond it's rating. My CPU, a Ryzen 1700, has actually been over clocked in order to get 3.8Ghz at all times on all of the cores. 
+
+### Microcode
+
+Modern processors are very, very complicated. So complicated in fact that there is a full very tiny computer in your processor. This computer does multiple things, but the main one we'll talk about is the translation between types of machine code. In order to understand this we'll need to look a basic program written in the language 'C'.
+
+```c
+int main() {
+  int a;
+  int b;
+  a = 8;
+  b = 16;
+  a = a + b;
+  return 0;
+}
+```
+
+This code first makes two integers, a and b, gives them values, then adds them together and stores the result back into a. Finally, the program returns a 0 to the operating system in order to say "I ran without errors".
+
+Unlike python which get's converted to something the computer can understand as it executes C is compiled before hand. This makes it so programs written in C are much, much faster than those written in python, though obviously C code is more difficult to write. Compilation is the process of turning a program into a file full of instructions the computer actually understands. This happens in two steps, first the program is turned into assembly code, for the above code this results in an output that looks like
+
+```
+        push    rbp
+        mov     rbp, rsp
+        mov     DWORD PTR [rbp-4], 8
+        mov     DWORD PTR [rbp-8], 16
+        mov     eax, DWORD PTR [rbp-8]
+        add     DWORD PTR [rbp-4], eax
+        mov     eax, 0
+        pop     rbp
+        ret
+```
+
+As you can see, this is incredibly difficult to read to a 'normal' person, so even though we're not there yet.
+
+This in turn gets turned into binary as can bee seen by this screenshot generated using https://godbolt.org/
+
+![2019-02-08-145014_2400x522_scrot](./2019-02-08-145014_2400x522_scrot.png)
+
+See the weird numbers next to each instruction? like 4004b255? That's a base 16 number or hexadecimal usually refered to as 'Hex'. Hex is what is used by most computer guys to represent numbers because computers operate in base 2, or binary- like 01001100, which is very difficult to read and type accurately, however, base 10, the normal numbering system your used to, makes translating between binary and decimal a bit uncomfortable as the common factor is 5, an number that is both odd and in turn not a factor of two, where as 16 is <img src="https://rawgit.com/in	git@github.com:VegaDeftwing/opinionatedeng/master/svgs/812eddc94b3c44a52699e8da08d64dd6.svg?invert_in_darkmode" align=middle width=14.771756999999988pt height=26.76175259999998pt/> so that means we can easily represent binary like this:
+
+| Binary | Hex  | Decimal |
+| ------ | ---- | ------- |
+| 0000   | 0    | 0       |
+| 0001   | 1    | 1       |
+| 0010   | 2    | 2       |
+| 0011   | 3    | 3       |
+| 0100   | 4    | 4       |
+| 0101   | 5    | 5       |
+| 0110   | 6    | 6       |
+| 0111   | 6    | 7       |
+| 1000   | 8    | 8       |
+| 1001   | 9    | 9       |
+| 1010   | A    | 10      |
+| 1011   | B    | 11      |
+| 1100   | C    | 12      |
+| 1101   | D    | 13      |
+| 1110   | E    | 14      |
+| 1111   | F    | 15      |
+
+Okay, so now those 1's and 0's are what your computer actually reads to run instructions. We'll come back to this later, but since we're here I'll drop this [link]( https://www-user.tu-chemnitz.de/~heha/viewchm.php/hs/x86.chm/x86.htm)
+
+Where you can see how these 1's and 0's are arranged to tell the computer what to do. That is super advanced for where we are now though, so let's get back on track- what the hell is micro code already?
+
+Well, it turns out that modern processors are still compatible with some really, really old code. All the way back to the first 8086 processor made by Intel in 1978. It was here that the x86 instruction set - the instructions like 'mov' , 'push', and 'add' above that define the x86 architecture were born. Originally these were 16bit CPUs, that is each instruction only had 16 1's and 0's but soon the i386 came along and used 32bits. Back when 32 bit computers were common this is what this was in reference to. As with all things technology progressed and 64bit cpu's came along. Many attempts were made to make 32bit programs run with backwards comparability at high speeds on these CPU's, though in the end AMD made the method used today, dubbed the x86_64 instruction set. Overtime this instruction set was expanded with various additions. We can actually see the names of these additions that are available on the CPU in the system by looking yet again at the output of `cat /proc/cpuinfo` and looking at the flags section. While not all of these signify instruction set additions, many do. The most common 'famous' if you will is SSE, of which there have been multiple revision, the first version alone adds [70 instructions](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions), which are used to make math faster
+
+Alright, so finally, enter Mircocode. At some point all of this became a lot to manage and processor designs evolved even further, getting exponentially more complicated and faster with more and more instructions, so they added this little computer which has the primary duty of turning the mess of countless possible instructions into yet even smaller instructions that the heavy duty 'real' processor does. Every once in a while a problem will be found in the way this is done, or a security vulnerability in the hardware itself may be found, and your CPU manufacture will release a microcode update.
+
+That update version is what you see on that line of `cat /proc/cpuinfo`
+
+### Cache
+
+Okay, next up is cache. Cache, just like in the real world, is a small place to store things. Most people like to think the majority of what a computer does is raw number crunching, doing hard math, but the truth is more often than not it's just moving data around. This follows a path from slowest and cheapest storage up to the fastest but most expensive. Typically this order looks a bit like
+
+Hard Drive -> Solid State Drive -> Ram -> Cache -> Registers , where the price for storage on a hard drive can be under \$0.10Gb, Ram upwards of \$10Gb, and Cache and registers, which are storage baked directly onto the GPU, cost much, much, more to implement.  It's of note that these not only are digitally faster with each jump, but also usually physically close. A hard drive can be 10's of feet of wire from the CPU while the RAM can be a few inches at best, and the cache and registers are physically in the CPU dye. Most of the data above the HDD/SSD level is actually just smaller subsets of each previous pool. In fact, on modern CPU's there are actually 3 levels of cache, each with a progressively smaller size but increase in proximity to the executed instruction.
 
 Put simply, just as with adding more Random Access Memory (RAM) to your system, having more cache means more information can be within arm's reach of the cpu to do work on at any moment.
 
@@ -1798,7 +2168,23 @@ Power Supply Units or 'PSU's are useful because unlike your phone charger which 
 
 ### The Frequnecy or Waveform Generator
 
-Frequency generators can be used to output a signal that is alternating, unlike the DC signal of the Lab PSU.  Usually they'll support a range of wave shapes, frequencies, amplitudes, and DC offsets. Many support far more than this, though the applications for the more advanced modes are few. If you're just starting out you can (with precausions) actually just use the audio output of your computer or buy an inexpensive one for under <img src="https://rawgit.com/in	git@github.com:VegaDeftwing/opinionatedeng/None/svgs/d475916763dcd82d7e35adf13dc59413.svg?invert_in_darkmode" align=middle width=143883.78299625pt height=519.2694144000001pt/>300 at the time of writing, so many hobbiset opt for older scopes like this one:
+Frequency generators can be used to output a signal that is alternating, unlike the DC signal of the Lab PSU.  Usually they'll support a range of wave shapes, frequencies, amplitudes, and DC offsets. Many support far more than this, though the applications for the more advanced modes are few. If you're just starting out you can (with precausions) actually just use the audio output of your computer or buy an inexpensive one for under \$20, unlike the expensive example below:
+
+![Image result for arbitrary function generator](https://upload.wikimedia.org/wikipedia/commons/f/f6/BK_Precision_4078_arbitrary_waveform_generator.jpg)
+
+https://en.wikipedia.org/wiki/Arbitrary_waveform_generator
+
+### The Oscilloscope
+
+The osciliscope (or OScope or simply Scope) allows you to see an AC signal and how it varies over time as a plot of Voltage on the Y axis and time on the X, Most OScopes will allow you to look at multiple signals at once, with one overlaid on the other. Furthermore, most support X-Y mode, where the plot is actually the voltage of one input as the X axis and the volatge of another as the Y, moving a dot and it's trail around the screen. In fact, this is how the first computer monitors worked: 
+
+![Image result for asteroids game](data:image/jpeg;base64,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)
+
+Modern OScopes look much different than their phosphoresent green ancestors though:
+
+![Image result for oscilloscope](data:image/jpeg;base64,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)
+
+However, a 'Digital Storage Oscilloscope' or DSO like the one above run a minimum of \$300 at the time of writing, so many hobbiset opt for older scopes like this one:
 
 ![Image result for oscilloscope](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhMVFRUVFRUVFxUVFxcVFRUVFRUWFxUVFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQGi0dHSUrLS0tKy0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIANgA6QMBIgACEQEDEQH/xAAbAAAABwEAAAAAAAAAAAAAAAAAAQIDBAUGB//EAEgQAAEDAQMGCQcLBAIBBQAAAAEAAhEDBBIhBTFBUWGRBhMiUnGBkrHRFCMyU6HB8AcVM0JygpOistLhQ2Jjw8Li8RYXJIOj/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwQF/8QAIBEBAQEBAAEFAQEBAAAAAAAAAAEREgIDEyExQWFRcf/aAAwDAQACEQMRAD8Azt1HdSw1GAuD0Do2dzvRa53QCe5O+Q1fVv7LvBWlJ4axjGmAQSccCSSCT2VFOUbOMC4T0HwVxm1H8iqerf2XeCkWexP5juyfBEcpWfnfqUdtqpevPtTlOlqyzP5rtxUptJ3NduKpGW2kCCaxOzETu6kqrb6JzVbvW46tfxinJ0uxTPNduKXxbtR3FZ51tpaK5G9GbdS9eR2k5h00PFnUdyApnUVSfOlD1h7T/FO0LZTqGGVCSATF53vKcnS1IQScn1iGHGeUYvcqMBmnuSKnHyLrydfJp/tTg6PIfGCbotrkcpxH3aR/4p0U6vPd2KXgr7dOgB+AjQ4urz3fh0vBLbQqEfSRsNOn4J7dOyEE6LPU9YPw6fgi4ipz2/hs8FPbp2bCNL4mpz2/htQ4mrzmfhtT26vcIRJwUavOp/hjxROp1Rpp/h/ynt07hARpEVtdH8M/uUfymtiPM4f2H9yzfCw7S4QTQfVEFwplpIBDQ5rgCYkG8QYmU+5sGNWCzfHGpdJRQjQUVkQPjqS2hABHGlbRLLuXRb/YSf8A9D71RZXsLjVAZAkEnCdKvP6tPZS/4jxRtpzV+6O8rp4/TnWc+Z6vOG4+KHzPV5w7J8Vs22cJQs+CrPVYr5nq85u4+KHzPV5zdx8VtTQCHk4T4OqxPzRV5zdx8URyRV5zdx8VtjZhG9EbMnwdVh6mSqo+s3cfFTeDlItqG9nuuzdS09WzBU1gZFd+xru8KX7WVoLH6J+17gm3OcMwnf7kKLiGj7R/SxUOUssvp1C0DCBB1GJJ9vsS0xqbG6SJVgazBq3LP2C2EgOMAkDAmMSmcr5QNMtBa4gySBjBwgq9ZDGnbUac3cmrRVaARIBhVuTrY40g58ic05wJhsqFlzKfFuaCHEEE8nRqw3p5eVwkaKlUacBBjPgie9g0hQMmWsmkHOBGBOOeJwnqVZlnKvFOaAHEOlxjROb3q9ZDGiY9pzQUprsFXZMquexrySJE3dk4T1KS+oM2khXUSBUGsIPdgcdCyduyrFVzLrpBAbAwOA960rfR1Ye5SeW6WYYqWoHATO0GFla1WqbQ4MdDXOAMA7BgtBStDDVey6ZZj6Lo0ZnRGnQVS25wouFS7gXGQJ24hZsmfK+OtAyuMG452xgdY1qVV9I9J71R2C1CqWvAMXgATn0E9SvKuc9J71jz+ovp7t0hGghv+OtcnVlYSmpDEudntW0Ps+mGykP0U/FP2YedP2W97kzT+mdspAflpj3J+ynzjuhvv8V1n0539WLI+Al3RCRTJS5MbkYE4BJal4oNCAiMECAlaERVDNWFQWD6er0H9QV/WOxUOTB52qfj0ln9WLqieR1u/S1ZHKFpuuD7r6l54EMAJ6My1k+b7XuUKxi4CcIiZnGI1QtidQsoLuUSYzaO7OqfKdTzsS+cMwJgdWdX1kJ04YaMUmjRaMzjOcnSSr43EIssVARDrrbohwwcQJBAPxgqLKFe/Vhj7zpILdLA0xjjpWlqmBg5x0xsUOzWNl90tbjLgcZwzz1lTy2/VSy/hOT7a2o7irwMA3miOTECCNsqtyvDK1wuutDW3ZuhobiIG5XNiotaXBoa3OSRMyD09KkADn4/wr4bPsz/AFHyXbRVbepuN1puYgYnDSOlTH0QYdmcGwCAJE58/QmabLogOJkk5pgE9yeqtJbgYwhWqy9K0t46eMBAcScWDEHNBIxWnouLqYfeMOAIzZjiMyZs9MMwDwOr+ehSDPPkEZtftUWq1lVt5wBbewkacYjDVygq3Kd14aWuGJEDa4gCdWdT/Joc97QC51wY4QJF7HZCbZZWNplpiCTOEAnoB2KZISRLsFluU2Ygy4T1mc6samc9JUWgBcY1sQ1zRAERjChW/KDr8Mzy6NpBgT1rF8L5/Szynh9rWUUKHwbdXdTJtLLjpwGE+xW/FDV7CuF+LjsxjUZapAsb9SFSyuAJIzA4rfNZ0bfpquxoHtHgnrEOW7q7k2B56tsMfnd4J7J45b+kfpaus+mL+rABKCSgUYOIhpSZQCAI0mRCEhAitpVBkr06vx9Yq9rHAqhySeVV6R3lP1Z9LoDkdrvVZXsYfUaXBpDcwOk7sNCswJYPv/qcs7bLXV4wtYWwTAnONGCXfxWjsMuN0RJwGOGY+5ZjLOVRTrOYQTAIEeiH4tMidg1q8ZRc1hgmQM/VCy1WyPvmDnJz++dJUktb9Pz4u/bS5Ktji1t/0oBMyTBmAdRU2xWMMD6kcpxz9aruD9jdF5xkmCeiDgdelX1VvJjo71u/TFu1AsNkumo76zydJzYk4aOpUOUstBlUsc5zQGkgNxl0kQTozLV1nFgvNztk6tBB9hK59Xs7y4yLxJPpCTOcnYs3a36flPG7ZrWZKtxc1rnHGBhmwMwY1lTLZaiG586qMgUHkScS446oAwGxNcILYW8kbN4+AlrP6gPyrJqgPN++GtaIzAgCJxxg71rrE83Trj4+Niw1ngODyyTM9eG5bXJ83MdIk9JVnjkdPV9WeckzMHY6j3PqCBAJh2nE5ohRMusqC5dIDpJx1ajvUuw1oFQ4fWODpMAuEERgeTtzqvyjaC+nfBBgtiHTN4t2DCXexWyOSdkum+61zyJL25tQcFXVqrePP2nb77fBW9gBuUpwJe2RObHNGjFZF9p/+VH+R4/MuvpT7cfVv06RCLFNOquS/KHL58+HrU4Sa/okbO8pLXdKU8yOtveNC76wg2Zl6rX+0P1PUyz2e4XGQZM/lA9yz9ot1SnVeQGuD3OAE4y1ztXXPUknLVX1Te2f2rUStVuQMrK/PlT1Q7f/AFR/Pr/Ujt/wjONTJ2ICVlPn5/qfz/wj+f3eq/OPBUxqjKGKy3z+71R7QR/P7vVO7QQxpKjSZVRYrI6mal7SQRHSVC/9QH1T+03xT1myqajgLhaMSS7HNsaCdKYq4vQzqf8AqcqNlspMcQ4C+DpEk9BV3yjS5EXi0xOaSTEkKip1qLagFocA8QXReImJ0DMmai9c+WHaFkcpWQ8bdpy+o+TAgRsL59y1tvqhrTEiJ1Z50LLMrhta+XQQcwBkxmLemAl8smEifkHyykL4oNqsgt5NVod6RdiTngkx0lWzeEVOblanUoOJECo2GnoeMCp2Qq8si6G6cBHpTnGuQfYjylZ6VZtyoy8A4GDeGIzGQroVlJ/myWwZGEHA9axZyW++S0g3i6cSDygccNXuV/acnGmCbM7DOaLySz7js7ejEdCpH5TeXQxga9oJc18AwNWBnTjm6VfgaPIOSDQDjfvX4kaAWg4yTjnhRsuk4DCI0hWNhtAFNoADZg5okOE4gZjnH/mFX5RcL2OokacyzasiHk6wVKroY1pGkwQN8rTMoOAg3YjROdSrBlaz06bTT9F4DXUy4XxdjAtz4k9cJhlYOBgk4e9XNhVbYclXGVDMmoXnN6N69Eb03SyPdocVexIDg67pDgYidntVs+o2Ikb1SWrLL2VQwU3GmHNYXh4m867ENuxhfbhI054KfCLelQLOKaTMOaJzE4iSQueME2wY56rv1robKkvbjMPZ7SFjMm5Jea3HOkRauLg/3G+CNkArXj5Zax5eOum4ahuRw3V7Ezxg0ylcYNa870Mw1yN4kEDA6DpBTbJTgMKaIVS1ySTxbjpN1hM7TCLyoc2n2W+CqOCNO9VtL3AEEsbB0+nI/Sl5Z4PES+iJGlmkfZ19C3P+sVZeUN5tPst8EXHs5lPstWHcdCgtskaulb5/rPTpHGs9VT7LURez1NPst8VhmugAI+N2q8X/AFO/42/I9VT3fyihnqqft/csUKx1nej8oPOO8pxf9O21Lafqmbz+5KY5g/pM3u/csR5S7nO3lDyp3OdvKcX/AE7/AI6LZqt4fUaAAA2QBA1SVS2nIYq177jALsYe2IHXqWU8rfz3doo/K3893aPirxU7dEtVEQcQRifSaTiZj3LPOsDi682Wkn+0j2rOeWP57u0UplvePruPS53inJ26bk6y8XTDZkxJJc2SdJOKebTIM3iRqlojrlcsFvqc928pYyjU57t6t8adunVWHTJ3eKzWVci8dUwDmmeS4DNt6FmPnGpzylDKVTnlTmncbHJFVxcbNWbFemJwzVKeZr2bMyXlqyVOS5rThI2dCw1ptT3Fr7xvsxae8dalU8rVCAb5x2DwUvjq9tBZwRA4p/VETsOrqWjyVQfcJc0gnMIzALnVqypXuG68zhmDdfQmrFli1XhNR0TjIbm3Jlh1rqj2HUdxWasVgmve5XpXoumARJwwVTTyvW559it8n22o7O5TKTyXrLNDwQD6QOIIEAyc/QpjWh16fqvYROu4/Ebyo1jkiSSVIpfX+0z9Llm1uQ+HFHeTM/H/AIRSNfesNqBrULU6Kbz/AGnfGC1d1VPCp92y1TrAG8j3SnLOslwMZ5qo7nVXHcGjvlaAFOcB6QZYqU/Wvv7T3HuhWVrtQCtnykrJ5ZyHTry5sMqc7Q77Q96xVssr6Trr2kH2EawdIXQrblAkwFXW1grNuvx1HUdYSeWF8dYYlFeUyvkquCQKcjWDnUE03Aw5pGMEAiQV2lYsKvIi5SPm15EgVMc3JnuCZfk6qPquP3HeCssTKRfQvJL7NUbnEdIISLjtS0mHbyBcmYdzURedRVTD95C8m74196UI1rOrhQclXkgwM5RhzdaaclhyUHpsFutGC3nBOjk6HoUjBI69+dIDm84JTSJwI0qacpDXpxr1FFRusJQrN1hNTlYUXrQ5HdJWSpWls5wr7I+UaTXiXiOlSrI3dEQB8SnGYB885mB+w9W2Th5phIgkTBzidCOm3zj/ALnc9cnZUTq+OpH8aFfwjhTF1WlZnh7XizRrd3A/wr+tXhYrhxaL7WtHxJAHcVqMLiwWkUrNRZqpM/SJVTbcpEnBQrXbScBow3KCaiixLNdG20KBfS2uU5XUw2lUuUmS+W4E4nSn61XHBRnmTK1PFLV7Z7TyR0BL8sCpWVjCM1is+2vS3q2xpEOAI1ESq6vZKTsW8nZnCivqlJDyFrxl8fpLZQdZYzp2zWYXhOaZPQmuOKJ9pK7974/1jPloTbGbNyMWimdDdyy7rSUQtRXn9t06aryinqbuCUK9PU3cFlfKyj8qKe2dNYKtPU3cEBUpzmbuCywtRRiuU9qp21N6lqZuChZZbT4olrWy0tdgAMzhPsVO20FCvWJaRsVnp2HUaa5S5jOy3wSHCnop0+y3wVM20mIT1Oup7a9CLQ6vdDIaSMQBAGE4LbZJFJrx5tkTnutkexYykeVO1a/gwL1SToVsTW0YxR2DzrxsZ3PUmmVGYfPP+zT7qigk3UISkSDA2y37Vm8ruvtB/wArR2QSf1BPVKxKTbKcU6G01X9Uhg/QVrEQi1ILVIuo+LVw1GuJwU1Jp0k64ABMFPUpJsUlZGnKK5C19JiHxKafSKsxSlL4gKaYpwxKuqc+gm+LW2UJ1Mps0lY8Wk8UrgrDRRcQrTiUfEIisFFKFFWXEo+JQV4opYoqeKKW2kE1UFtJCsyGnoViKQTNsZg1vOcB1DE9ylobbST1OmpQpJ1lJRSKNNazgsIxWepsV/kJ90ws1WwplMU/pn/Zp/7EqzOkJLPpnfZp/wC1YVMQRoKDjxapOUqeNFvNoMnpfNT/AGIzQ0KZlRk16kZmkM/DAZ/xXT9PxVtpJzilIuIXVpDbKSU+mNSU6s1ucgdJhRKmUqEya1OftjulZqjNOURpYxvSDlez+tZvSPnehoqM3pIalFiQ8poW+ic9an2h4pfllAf1afab4rWJpPFkpDqCf8vo+tp9pvikm3UfW0+23xV1MR+LQuJ02imc1RnaCNrmnM4HoIWkNcWjuKQGI7iIjCmj4tSAxC4oqPcQuqRcSakAS4gAZycAoGxgo1k84/jPqjks285ySGm0a20dzqng3vVkynGAzBZURwE4noEncn2NRNCdaE0P2OlJVvZKEFRsl08VoG2bCdSlVNsCWz6Z32af+5JsZx6Utv07vs0v96wqYjRo1BzqtRDXsvZr7SegET7E+LHLnk5zUeenHOnct0IeM+tMV7NXZ6LeMYcxbiY1ETKvS4N9kAWeoTaRxhrCjSJNxrXNa9zQYvPccWzGYKytVas1h829og6HACVzsgsJa4eiYIIgtOojQtS6zZjbjJ1gZiTRcdb6gefzEon1rNBDDRGrBoGzasS60xqRC1dC1hq7tWUKjczKD9rHe4woIy292ApU+sO8VD8p6E294OOE61ciJ5tzznpUey79yLys+po/hg96gF+1Fe2+0oLOnbDppU+qlSHe1HVyjH9Kn1spftCrL207ynG0ZxuuO0SqFvthdmoU+kU2juUY0ST6AHQ0KSBsfvRh0c8daBNCm5uLWuHQSO5XdLLlQAA0AYEekZ7s6q21dtTePBKFo/vqfl8E+BcM4QHTZz1O/wCqdbl4eofv/hUYtX+R+5vgli2/5H9lqIs7Rl50cijG1xJjqAx3p7JdmZaJdVqFzmnBjgGMG0NnldJVR5cfWu7DU5QygA6XPLsCIuRnjV0KK2dOxDQnfINixNXKLC4OGjYVPZltgzOcOi8EwaY2BGLGs8zhEB/UfvcnBwojM89bf+qzyrZZMoQtDZqeELndn4UPa2/II1kD3QtPwa4UU6rC6o5rSHlogES260zp0k7lLLBa4seOlSm/Tn7NLutCgW63UXiW1GA7T4J7JlqFSrycQ1mLoIE5mgT0vx2rKrcBGghCgiWixMeOU0FRDkGjqI6CVaIFVWdyjwfpxhfieVyicNgVbV4CWeoZvGD2t62SYfZhnabp2eCDFZS4CQwCk5rwM1OoBH3XaCsy7JNKm+5aLOaZ6BvBzO3roOWOEFOyYVq1MmJuT5yPsCSsZlb5SWvNxtla+n/mdidoABjfuWpaiRZ+C1gqRdqtBOhwLTOrV7VNd8m1HQR7fFZ/g+6vaapqWegKFMNdi6oXsD4I5JcAZx2x7FZ0rZarMcbzROcG8w94U6u4mH3fJrT+C7xTbvk0Zr9rvFWVLhlVIHIpuOuXN9mKs7Llq0VR5ulQeeaKrmnc5k+xa2mMufkybzvaUk/JtGZ56nFa1mWLTJDrG5xbn4qtReR0tcWlHU4R0m4VmVqE6atJwYP/ALGy32qdUxjv/bp2cVHdo+CQfk3ef6hP3v4XTaTmuaHNIc0gEOBBBBzEEZwnGNToxy4/JxW9Y7t/wmz8m9bQ93aHgurwgQnRjkrvk4r8472ps/JvX1n2Lr0IQnRjj5+TmvrPs8Ug/J7X27h4rscIrqdGONf+gq+aTuHijPAC0bdw8V1408SVIDU6McXPAG0/3dkeKQ7gLadTt38rtd1C6nRjiNn4KWu8RxeGPKjZGZavInBh1OmBUpVHOkklrg0Y5hdIOhdDDUtoUtVjaeQW+qrdBqN/atBkGwupNcCIkyBnjr0q0DUYUAhHCOEEU0iSkSAoSKgwPuzpxBBzfhTwQr2msDSYG0mtAF6AbxJvuJmTMN250Ml/JhBBrVRHNpifzHwXSEFqVMUTeClnDQGhzYzEEz0lRrJxjg7ianGBpuuZUaWOGwhwWmRqDCZQydSP0tB1F3Pp+j2cypbZYTTF9lVtRog4cl46Wn3SuqOaDgqnKXB2jWiRdOktgSp8q5vkfKrmP4xjrtTEYi8CCSII6p3K+ZlepWIbVruawgg3Q1s6IcQ0mOiFKtnAYMBNAy4nM+MBscc3Us/XyDaqMl9MxrYbwWt+PlMdFyNZqdOixlJwcxogEGQdJO8qeuU2PKlSi6QS07MJ6QcCtlkThUyoQyrDTzswPSDm7lBpECjGOZAhASIpRCIBQCERalFqOCgQGJcI4QQCEIQRoCRhABHCAShKMBGAgAKCCNFNXTqKFwoIKgXTqRwdSCCArp1JFNpOMad+1BBAu6ULhQQVQdzpRBh2oIIDu9KSGnUggoI1qyXSqenTa7pGO9VbuCNEEmmC2dBAe3c4IIJgk5LyQ+i7B0N5rS66fuum71FW5adSCCoK4UC3YUSCmA4R3TtQQVkAuFANRoJgF0oXTqQQUwC6dSAadSNBALp1JV0okECg06kLqCCK/9k=)
 
@@ -2367,7 +2753,7 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 | Arduino nano                                                 | 5/board                              | 2             |
 | ESP8266                                                      | 5/board                              | 2             |
 | STM32F103C8T6 w/ programmer                                  | 8                                    | Optional      |
-| [ICE-Breaker FPGA](https://www.crowdsupply.com/1bitsquared/icebreaker-fpga) | $80                                  | Optional      |
+| [ICE-Breaker FPGA](https://www.crowdsupply.com/1bitsquared/icebreaker-fpga) | 80                                   | Optional      |
 | 74-series logic IC's                                         | 25                                   | Optional      |
 | Assorted Resistors                                           | 10                                   |               |
 | Assorted Potentiometers                                      | 5                                    |               |

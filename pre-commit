@@ -1,4 +1,6 @@
-python -m opinionatedeng2tex --output opinionatedengrendered.md opinionatedeng.md --username vegadeftwing --project opinionatedeng
+#/bin/bash
+
+python -m readme2tex --output opinionatedengrendered.md opinionatedeng.md --username vegadeftwing --project opinionatedeng
 
 #
 # An example hook script to verify what is about to be committed.
@@ -8,18 +10,18 @@ python -m opinionatedeng2tex --output opinionatedengrendered.md opinionatedeng.m
 #
 # To enable this hook, rename this file to "pre-commit". 
 
-b=$(find opinionatedeng.md 2>/dev/null)
+b=$(find opinionatedengrendered.md 2>/dev/null)
 c=$(find svgs/ 2>/dev/null)
 
 if [ ${#b} -gt 0 ] && [ ${#c} -gt 0 ]
 then
 	# to remove centering of images, this is a personal preference
-	sed -i "s| align=\"center\"||g" opinionatedeng.md
+	sed -i "s| align=\"center\"||g" opinionatedengrendered.md
 	# these help to remove the faulty links
-	sed -i "s|img src=.*/svgs|img src=\"/svgs|g" opinionatedeng.md
-	sed -i "s|\?invert\_in\_darkmode||g" opinionatedeng.md
+	sed -i "s|img src=.*/svgs|img src=\"/svgs|g" opinionatedengrendered.md
+	sed -i "s|\?invert\_in\_darkmode||g" opinionatedengrendered.md
         # find all used svgs
-	svgs=$(cat opinionatedeng.md | grep -oP "/svgs.*.svg" | sed "s|/svgs/||g")
+	svgs=$(cat opinionatedengrendered.md | grep -oP "/svgs.*.svg" | sed "s|/svgs/||g")
         # find svgs to delete
 	del=$(find svgs/*.svg | grep -v "$svgs")
 

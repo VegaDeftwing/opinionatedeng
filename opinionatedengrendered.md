@@ -954,7 +954,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ╰─➤
 ```
 
-telling us the answer is 2628. To make you feel like a bad ass, you actually just wrote code that's equivalent to this math    <p align="center"><img src="https://rawgit.com/vegadeftwing/opinionatedeng/None/svgs/5813d4d5c684befd3f8ae36870630e8b.svg?invert_in_darkmode" align=middle width=37.3764666pt height=47.159971649999996pt/></p>   pretty cool right? But that's math? Who cares? Let's do something cool!
+telling us the answer is 2628. To make you feel like a bad ass, you actually just wrote code that's equivalent to this math    <p><img src="/svgs/5813d4d5c684befd3f8ae36870630e8b.svg" align=middle width=37.3764666pt height=47.159971649999996pt/></p>   pretty cool right? But that's math? Who cares? Let's do something cool!
 
 Python code doesn't have to be written in line by line, you can put it an a file and the computer will run that file as a program, so let's do that! But to do that we're gonna need something better than a terminal editor or an equivalent to notepad. There are actually text editors that make writing code much easier. Let's go grab the 'atom' editor. Hopefully by now you know the command! (The name of the package is just `atom`)
 
@@ -1222,7 +1222,7 @@ This in turn gets turned into binary as can bee seen by this screenshot generate
 
 ![2019-02-08-145014_2400x522_scrot](./2019-02-08-145014_2400x522_scrot.png)
 
-See the weird numbers next to each instruction? like 4004b255? That's a base 16 number or hexadecimal usually refered to as 'Hex'. Hex is what is used by most computer guys to represent numbers because computers operate in base 2, or binary- like 01001100, which is very difficult to read and type accurately, however, base 10, the normal numbering system your used to, makes translating between binary and decimal a bit uncomfortable as the common factor is 5, an number that is both odd and in turn not a factor of two, where as 16 is <img src="https://rawgit.com/vegadeftwing/opinionatedeng/None/svgs/812eddc94b3c44a52699e8da08d64dd6.svg?invert_in_darkmode" align=middle width=14.771756999999988pt height=26.76175259999998pt/> so that means we can easily represent binary like this:
+See the weird numbers next to each instruction? like 4004b255? That's a base 16 number or hexadecimal usually refered to as 'Hex'. Hex is what is used by most computer guys to represent numbers because computers operate in base 2, or binary- like 01001100, which is very difficult to read and type accurately, however, base 10, the normal numbering system your used to, makes translating between binary and decimal a bit uncomfortable as the common factor is 5, an number that is both odd and in turn not a factor of two, where as 16 is <img src="/svgs/812eddc94b3c44a52699e8da08d64dd6.svg" align=middle width=14.771756999999988pt height=26.76175259999998pt/> so that means we can easily represent binary like this:
 
 | Binary | Hex  | Decimal |
 | ------ | ---- | ------- |

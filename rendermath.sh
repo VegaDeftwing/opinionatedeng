@@ -1,1 +1,1 @@
-python -m readme2tex --output opinionatedengrendered.md opinionatedeng.md
+python -m readme2tex --output opinionatedengrendered.md opinionatedeng.md --username vegadeftwing --project opinionatedeng

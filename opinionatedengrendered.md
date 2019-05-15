@@ -1,5 +1,3 @@
-   # Opinionated Engineering
-   TABLE OF CONTENTS
    * [Preface](#preface)
    * [Ⅰ - Community](#ⅰ---community)
             * [Instead, share:](#instead-share)
@@ -232,7 +230,6 @@
       * [Podcasts](#podcasts)
       * [Github info pages](#github-info-pages)
       * [Non-Technical](#non-technical)
-
 # Preface
 
 Hey there.
@@ -283,10 +280,10 @@ Oh, and to mention it now
 
 Yes, there is always a relevant XKCD, and yes, you will always feel like everyone knows more than you. Don't stress about asking stupid questions:
 
-> Frequently in chats, whether telegram, IRC, slack, or discord, someone says something like this: 
+> Frequently in chats, whether telegram, IRC, slack, or discord, someone says something like this:
 > <AnonOtter> Anyone know rust? Having an issue.
 >
-> How that question is often read: 
+> How that question is often read:
 > <AnonOtter> Can someone to commit to being able to solve my problem with rust, spending as much time as necessary, without them even knowing what the actual problem is or if it's even a rust problem?
 >
 > Hopefully it's clear why questions like this rarely result in direct answers.
@@ -324,7 +321,7 @@ The technical community can be ruthless with it comes to expecting people to hav
 
 † within practicality, trade secrets are obviously a thing, and I'm not crazy. I mean like publicly funded research and what not. While the specifics of this rule vary amongst engineering types it is generally a core belief.
 
-On the note of point Ⅲ... 
+On the note of point Ⅲ...
 
 ![Standards](https://imgs.xkcd.com/comics/standards.png)
 
@@ -368,7 +365,7 @@ Because the various distributions or 'distros' of Linux all have this common cor
 
 Install instructions will vary dependent on your hardware, but I'm going to assume you have a desktop or laptop which shipped with Windows 10 and has a UEFI system. Most laptops newer than ~2016 should be in this category. If your system uses a BIOS or Legacy boot instead, or if you have a mac, this won't apply to you.
 
-Alright, so what exactly are you getting yourself into? Well, I'll be real with you, a lot. Installing Arch sucks. Things can go wrong, it's not user friendly at all, and is generally a pain, and if you screw up you'll need someone who can restore your computer to at least having Windows on it again so I'll say it again- **Make a backup of your entire hard drive before proceeding, if you don't know how to do this, google it.** 
+Alright, so what exactly are you getting yourself into? Well, I'll be real with you, a lot. Installing Arch sucks. Things can go wrong, it's not user friendly at all, and is generally a pain, and if you screw up you'll need someone who can restore your computer to at least having Windows on it again so I'll say it again- **Make a backup of your entire hard drive before proceeding, if you don't know how to do this, google it.**
 
 Okay, so, with that said let's dive into it. After you have a backup, you'll need to head on over to https://www.archlinux.org/download/ and if you have a torrent client installed use the provided BitTorrent Downloads, if you have no idea what that is, look at the below box
 
@@ -407,7 +404,7 @@ Okay, now we're finally ready to copy the OS to a flash drive so we can install 
 >Seriously, backup your shit. I've done this countless times and have still managed to accidentally wipe a drive. There's a good chance you're about to completely murder your windows install. This is a necssary evil to learn, and I assure you'll be happy you've done all this, but this next bit is actual hell for people. I'm sorry it gets so bad so early. I promise it's worth it, okay?
 >▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
->The next section requires a lot of reboots and has steps where you can't have this guide open on the computer you're working on. Don't be stupid. 
+>The next section requires a lot of reboots and has steps where you can't have this guide open on the computer you're working on. Don't be stupid.
 
 Now you'll need to power off your computer. Turn it back on and as you do mash the everliving hell out of both f2 and delete (unless you know what key gets you into the UEFI / BIOS settings). This should bring up a menu that either looks super fancy or looks stright out of the 80's. Either is fine. The setting we're looking for is 'Secure Boot' it's probably under a menu called 'Boot' or 'Security'. You'll need to shut this off. In theory secure boot should protect against a nasty kind of virus called a rootkit, in practice it doesn't and only serves to make installing linux more annoying, don't worry, I'm a security nut and am comfortable leaving it off. Exit and save settings, and as your computer boots again mash F11 or whatever key gets you to a boot menu, and select your USB key. If it shows up twice try the first one first, if that doesn't work try the other one. (If you end up back in Windows just restart and go back into the bios settings, go to 'Boot' and reorder the boot menu entries so your flash drive is the first option) The system should boot first to a screen with a few options, pick Arch Linux if you have to or just wait for it to move on. You should, with any luck, see a list of text flash down the screen that looks roughly like
 
@@ -463,7 +460,7 @@ Okay? Well, that probably doesn't mean much so lets focus on the important bits
 
 "lsblk lists information about all or the specified block devices. The lsblk command reads the sysfs filesystem to gather information."
 
-Block devices are devices that have 'blocks' of information, like hard drives, flash drives, solid state drives, sd cards, etc. 
+Block devices are devices that have 'blocks' of information, like hard drives, flash drives, solid state drives, sd cards, etc.
 
 "-f, --fs ... Output info about filesystems."
 
@@ -475,16 +472,16 @@ So, we can use this command to see information like we saw graphically back when
 vega@linux ~ # lsblk -f
 NAME    FSTYPE LABEL    UUID                                 FSAVAIL FSUSE% MOUNTPOINT
 sda
-├─sda1                                   
-├─sda2                                         
-├─sda3                                                                      
+├─sda1
+├─sda2
+├─sda3
 └─sda4
-sdb                                                                         
-├─sdb1    
+sdb
+├─sdb1
 └─sdb2
-nvme0n1                                                                     
+nvme0n1
 ├─nvme0n1p1  ntfs   Recovery 36C8A86BC8A82B57
-├─nvme0n1p2  vfat            E2AB-10F2    
+├─nvme0n1p2  vfat            E2AB-10F2
 ├─nvme0n1p3  ntfs            DE54B4D854B4B51D
 └─nvme0n1p4
 ```
@@ -498,16 +495,16 @@ For Simplicity now we're actually going to look at a simpler 'lsblk -f' output w
 ```
 root@archiso ~ # lsblk -f
 
-sdb                                                                             
-├─sdb1      ntfs   Recovery 36C8A86BC8A82B57                                    
-├─sdb2      vfat            E2AB-10F2                                           
+sdb
+├─sdb1      ntfs   Recovery 36C8A86BC8A82B57
+├─sdb2      vfat            E2AB-10F2
 ├─sdb3		ntfs            DE54B4D854B4B51D
 └─sdb4
 ```
 
 alright, so now on sdb we see there's 4 partitions (sdb1,2,3,4) where in this case we have sdb2 as a ~512Mb vfat partition, sdb3 as a 300Gb NTFs partition, and then that blank partition we made on sdb4. That 512Mb partition contains the bootloader for both windows and soon linux. The larger NTFS file system is where Windows and all your programs documents and other things you've done on your computer in the past live. I hope now it's obvious why I urged backups, as we're about to play around with things a bit.
 
-We're going to need to make some changes this list tough, as we actually need one more small division in the partition table. run the command 
+We're going to need to make some changes this list tough, as we actually need one more small division in the partition table. run the command
 
 ```
 root@archiso ~ # cfdisk /dev/sdb
@@ -517,11 +514,11 @@ this should bring up a strange command line based almost graphical interface whi
 
 now, run lsblk again. You should see something like
 
-``` 
+```
 root@archiso ~ # lsblk
-sdb                                                                             
-├─sdb1      ntfs   Recovery 36C8A86BC8A82B57                                    
-├─sdb2      vfat            E2AB-10F2                                           
+sdb
+├─sdb1      ntfs   Recovery 36C8A86BC8A82B57
+├─sdb2      vfat            E2AB-10F2
 ├─sdb3		ntfs            DE54B4D854B4B51D
 ├─sdb4
 └─sdb5
@@ -604,7 +601,7 @@ default arch
 
 then, we're ready to reboot into the new OS!
 
-run consecutively, 
+run consecutively,
 
 ```
 root@archiso / # exit
@@ -700,7 +697,7 @@ hwclock -systohc -utc
 timedatectl set-ntp true
 ```
 
-It's worth noting Linux and Windows use differenent clock standards so every time you reboot between the two windows will messup the clock, to fix it in WINDOWS you can run 
+It's worth noting Linux and Windows use differenent clock standards so every time you reboot between the two windows will messup the clock, to fix it in WINDOWS you can run
 
 ```
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
@@ -776,7 +773,7 @@ then run:
 sudo pacman -S xf86-video-vesa mesa
 ```
 
-This command uses sudo or 'superuser do' because you're now logged in as a user, and as such need admin privileges to install software. This is part of why Linux is so secure. Pacman, again, is just 'package manager' , `-S` tells pacman to sync the requested packages from the server and the other two things are the two packages we want right now, both are used for video output. 
+This command uses sudo or 'superuser do' because you're now logged in as a user, and as such need admin privileges to install software. This is part of why Linux is so secure. Pacman, again, is just 'package manager' , `-S` tells pacman to sync the requested packages from the server and the other two things are the two packages we want right now, both are used for video output.
 
 To install the correct driver for your graphics hardware you can run
 
@@ -871,7 +868,7 @@ sudo pacman -S git --needed
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -Acs
-sudo pacman -U 
+sudo pacman -U
 yay -S zsh
 chsh -s /bin/zsh
 ```
@@ -880,7 +877,7 @@ from now on you can just open a terminal and type `yay` followed by your passwor
 
 # Chapter 2- So Why Did I do all of that exactly?
 
-Linux makes development of code particularly easy, so, let's write some code! 
+Linux makes development of code particularly easy, so, let's write some code!
 
 The first language we're going to try out is called python. Python is an interpreted language, meaning each block to be executed can be run one at a time, to show you, let's install it.
 
@@ -900,19 +897,19 @@ However, mine looks like
 so, install python just like we've installed other programs with python or yay
 
 ```
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤  yay -S python
 ```
 
 once that's done you should be able to start the python interpreter by simply typing `python` and pressing enter. This will give you a new prompt that takes python code as input
 
 ```
-╭─vega@lyrae ~  
-╰─➤  python                                                                             
-Python 3.7.2 (default, Jan 10 2019, 23:51:51) 
+╭─vega@lyrae ~
+╰─➤  python
+Python 3.7.2 (default, Jan 10 2019, 23:51:51)
 [GCC 8.2.1 20181127] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>> 
+>>>
 ```
 
 the `>>>` is the prompt asking for input, go ahead and just try `1 + 1` for now
@@ -929,7 +926,7 @@ Okay, who cares though, right? let's try something a bit cooler. Say you wanted 
 sum = 0
 for i in range(1,73):
     sum = sum + i
-    
+
 print(sum)
 ```
 
@@ -938,19 +935,19 @@ when you type this in the prompt you'll actually be able to enter multiple lines
 after you run the print statment you should see the output
 
 ```bash
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤  python
-Python 3.7.2 (default, Jan 10 2019, 23:51:51) 
+Python 3.7.2 (default, Jan 10 2019, 23:51:51)
 [GCC 8.2.1 20181127] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> sum = 0
 >>> for i in range(1,73):
 ...     sum = sum + i
-... 
+...
 >>> print(sum)
 2628
 >>> exit()
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤
 ```
 
@@ -961,7 +958,7 @@ Python code doesn't have to be written in line by line, you can put it an a file
 super quick detour: while you can open graphical programs though the start menu down in the lower left hand corner just like on Windows, you can actually open a program directly from the terminal. Interestingly, this can make a program that opens in a new window a 'child process' of the terminal, which is why we normally don't do this. What this normally means is that if you start a program from the terminal - the parent- and then close the terminal, the child process, in this case the graphical program you started, will die too. Strangely, atom actually separates itself from it's parent process almost immediately, which is why we can start it from a terminal and then close the terminal and it should stay running. so, let's do that.
 
 ```
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤ atom
 ```
 
@@ -1023,12 +1020,12 @@ So you can just copy and paste all of this into atom, then use ctr+s to save it,
 
 Before we talk about our code, let's see it run!
 
-Open up a terminal, and run `cd Documents` to get to your documents folder, `ls` to see what's in there, then `./test.py` to run the program. 
+Open up a terminal, and run `cd Documents` to get to your documents folder, `ls` to see what's in there, then `./test.py` to run the program.
 
 ```
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤ cd Documents
-╭─vega@lyrae ~/Documents  
+╭─vega@lyrae ~/Documents
 ╰─➤ ls
 test.py
 ╭─vega@lyrae ~/Documents
@@ -1060,9 +1057,9 @@ the first line uses a shebang `#!`  followed by python's location, this tells Li
 Next we have a bunch of imports. In most programming lanuges you don't want to reinvent the wheel so you'll use libraries. These are well documented, heavily tested, and optimized blocks of code you can use that you don't really need to understand how work under the hood, only how to use them. Although not used here, the most basic example would be advanced math in the math library, like
 
 ```python
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤  python
-Python 3.7.2 (default, Jan 10 2019, 23:51:51) 
+Python 3.7.2 (default, Jan 10 2019, 23:51:51)
 [GCC 8.2.1 20181127] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import math
@@ -1081,7 +1078,7 @@ The same is true for `numpy` and `matplotlib` above, both of these are libraries
 yield t, np.sin(2*np.pi*t) * np.exp(-t/10.)
 ```
 
-is used for doing some of the math. Numpy is a common python library used for doing more advanced math really fast, we're not going to worry about that right now though. 
+is used for doing some of the math. Numpy is a common python library used for doing more advanced math really fast, we're not going to worry about that right now though.
 
 the next thing you should notice is how the code is organized into blocks with `def name():` like `def data_gen(t=0):` or `def init():` these blocks of code are called functions and they let programmers break up code into re-usable pieces or just wrap up a lot of complicated things to make code more readable, for example imagine a function that takes two numbers and does hundreds of lines of complicated math with them (eww)
 
@@ -1111,7 +1108,7 @@ For now, we're going to take a bit of a break from code, but we'll be back.
 One of the nifty things we do pretty easily in linux is get information about our hardware directly. Just as when we were installing Arch and we used `lsblk` to see an overview of the disks on the system, we can use some other tools to find out some other information about the system. Let's start off basic and see what CPU you have. Go ahead and run
 
 ```
-╭─vega@lyrae ~ 
+╭─vega@lyrae ~
 ╰─➤  cat /proc/cpuinfo
 ```
 
@@ -1169,7 +1166,7 @@ Each of these things is very important, but I'm going to start with cpu MHz as i
 
 However, to get to that we've gotta go just a bit further down the rabbit hole to the relay. Relays are super simple to understand, they're just a metal switch that is pulled open or closed using another input signal, basically imagine a light switch, where the switch itself is controlled by yet another electrical signal. Relays are slow though, they require a physical metal plate to move to change the connection. Because of this they have limited reliability and worth note they're actually loud. You can hear an audible click of the switch as they change state.
 
-Enter the vacuum tube. Though rarely used today outside of high end audio and old radios, for a period of time the logic inside a computer used these tubes. Essentially theres three important parts of the tube, the Cathode, Plate and Grid. Put very simply the Cathode emits electrons and the Plate collects them. Where it get's interesting is the grid in between. By applying a voltage to the grid a signal can be controlled giving us the same ability to turn something on or off by a third wire as in the relay. 
+Enter the vacuum tube. Though rarely used today outside of high end audio and old radios, for a period of time the logic inside a computer used these tubes. Essentially theres three important parts of the tube, the Cathode, Plate and Grid. Put very simply the Cathode emits electrons and the Plate collects them. Where it get's interesting is the grid in between. By applying a voltage to the grid a signal can be controlled giving us the same ability to turn something on or off by a third wire as in the relay.
 
 >Worth note but irreverent for digital electronics, tubes and transistors can actually pass only a percentage of the input back out, based proportionally on the input. This actually means that both tubes and transistors can act as an amplifer, using a small input range to control a much larger signal. A single tube or transistor in conjunction with other components can be used to make a functional amplifier.
 
@@ -1179,11 +1176,11 @@ Finally, enter the transistor. The physics here isn't that far removed from the 
 
 The Ryzen 1700 CPU in the computer I'm typing this on has 4,800,000,000 transistors in a package that is only 213 mm², and finally, we can refrence the number output by `cat /proc/cpuinfo`
 
-At the moment I got that output the transistors where being turned on and off at a rate of 2018Mhz. or 2Ghz. However, this system can run up to roughly 3.8Ghz. The faster this speed the faster your computer; however, your CPU will also use more power and run hotter. It's for this reason that most systems adjust the speed based on load. Doing simple things like writing this document and as seen with that output my system runs at nearly half speed which is actually the slowest it can run. Because the computer is hardly doing anything right now the majority of that switching is actually just doing nothing but using power running 'no operation instructions' the functional equivalent of just running 0+0 while it it waits for something to do. 
+At the moment I got that output the transistors where being turned on and off at a rate of 2018Mhz. or 2Ghz. However, this system can run up to roughly 3.8Ghz. The faster this speed the faster your computer; however, your CPU will also use more power and run hotter. It's for this reason that most systems adjust the speed based on load. Doing simple things like writing this document and as seen with that output my system runs at nearly half speed which is actually the slowest it can run. Because the computer is hardly doing anything right now the majority of that switching is actually just doing nothing but using power running 'no operation instructions' the functional equivalent of just running 0+0 while it it waits for something to do.
 
 The OS itself actually tells the processor what speed it should be running at. In Windows, when you change your power plan to 'high performance' one of the major things it does is not allow the processor to run at a slower speed, and in Linux you can similarly control this using some cpu speed commands. We'll get to that later though.
 
-Finally it's worth note that on some systems, primarily high end desktops, you can actually run your processor outside of factor specifications by increasing the maximum clock rate of the processor. Doing this can lead to system stability issues and obviously leads to a higher power usage and heat output though. This process is known as 'overclocking'  as your taking the internal clock of the processor beyond it's rating. My CPU, a Ryzen 1700, has actually been over clocked in order to get 3.8Ghz at all times on all of the cores. 
+Finally it's worth note that on some systems, primarily high end desktops, you can actually run your processor outside of factor specifications by increasing the maximum clock rate of the processor. Doing this can lead to system stability issues and obviously leads to a higher power usage and heat output though. This process is known as 'overclocking'  as your taking the internal clock of the processor beyond it's rating. My CPU, a Ryzen 1700, has actually been over clocked in order to get 3.8Ghz at all times on all of the cores.
 
 ### Microcode
 
@@ -1271,14 +1268,14 @@ Hyper threading, or SMT, or whatever the new term is for it, is a way of adding 
 
 ### Physically, what is this thing?
 
-The CPU is on a square or rectangular board that is usually covered by a large heat sink used to keep it cool under load. It connects to the motherboard via hundreds of small, gold plated pins to send and receive signals (which well will discuss in depth later) from all around the system. Even though most modern CPUs are x86_64, generation to generation and cross manufacturer there are changes in the number of pins and the way they are arranged, meaning getting a new processor that's not from the same generation usually won't work. Furthermore, most laptops have soldered on processors that can not be upgraded to begin with. 
+The CPU is on a square or rectangular board that is usually covered by a large heat sink used to keep it cool under load. It connects to the motherboard via hundreds of small, gold plated pins to send and receive signals (which well will discuss in depth later) from all around the system. Even though most modern CPUs are x86_64, generation to generation and cross manufacturer there are changes in the number of pins and the way they are arranged, meaning getting a new processor that's not from the same generation usually won't work. Furthermore, most laptops have soldered on processors that can not be upgraded to begin with.
 
 ## RAM
 
-okay, let's move on to ram. There's a program on your system called `free` which can be used to see how much RAM you have, how much is in use, etc. Let's run free with the -h flag so we can see the amounts with nice units. 
+okay, let's move on to ram. There's a program on your system called `free` which can be used to see how much RAM you have, how much is in use, etc. Let's run free with the -h flag so we can see the amounts with nice units.
 
 ```
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤  free -h
               total        used        free      shared  buff/cache   available
 Mem:           31Gi       4.5Gi        23Gi       488Mi       3.3Gi        26Gi
@@ -1300,7 +1297,7 @@ Going back to when cache was mentioned though, RAM's primary job is to hold bulk
 
 Finally, I'd like to briefly mention some things about RAM at the hardware level. Newer systems use Double Date Rate 4 Ram (DDR4), though many people are still using computers with DDR3. Ram stick come in two main form factors, one mostly used for laptops and one for desktps, both are rectangular sticks with a row of gold connectors that slot into the motherboard.
 
-Just like the CPU, RAM has a speed at which it operates as well, Typically it's listed in MHz still, but speeds range from ~1.8Ghz to ~3.8Ghz at the time of writing, dependent DDR3 or 4. While DDR4 has faster clock speeds, it does typically have a higher overall latency, meaning theres a longer delay between when when data is requested to when it's delivered, albeit at a much higher total throughput. This is a massive topic in of itself, yet is also pretty niche as outside of some pretty specialized applications RAM speed and latency has a relatively minor impact, though faster is typically better. 
+Just like the CPU, RAM has a speed at which it operates as well, Typically it's listed in MHz still, but speeds range from ~1.8Ghz to ~3.8Ghz at the time of writing, dependent DDR3 or 4. While DDR4 has faster clock speeds, it does typically have a higher overall latency, meaning theres a longer delay between when when data is requested to when it's delivered, albeit at a much higher total throughput. This is a massive topic in of itself, yet is also pretty niche as outside of some pretty specialized applications RAM speed and latency has a relatively minor impact, though faster is typically better.
 
 ## The Motherboard
 
@@ -1332,7 +1329,7 @@ hdparm
 
 ### The Past
 
-Floppy, Zip, 
+Floppy, Zip,
 
 ## Network Interfaces
 
@@ -1362,7 +1359,7 @@ power efficency, size, voltage stability
 
 ### Legacy Connections
 
-Paralell, Serial, Tape, CD, 
+Paralell, Serial, Tape, CD,
 
 ## How to know what to buy
 
@@ -1373,9 +1370,9 @@ We've been using file in /proc and /dev thoughout this, but we never really look
 We'll actually start with /dev
 
 ```
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤  cd /dev
-╭─vega@lyrae /dev  
+╭─vega@lyrae /dev
 ╰─➤  ls -la
 total 4
 drwxr-xr-x  22 root root         4600 Feb  8 06:03 .
@@ -1540,7 +1537,7 @@ crw-rw-rw-   1 root root       1,   5 Feb  8 06:03 zero
 
 Alright, I know what you're thinking.
 
-What. The. Actual. Fuck. 
+What. The. Actual. Fuck.
 
 And honestly, yeah. But first, lets talk about what we just did.
 
@@ -1573,7 +1570,7 @@ The vast majority of the time you will only see 'd' or '-' designating a file or
 
 Moving on to the 'rwx' blocks, these stand for read, write, and execute respectively and each block in order states the permission of the owner of the file, those that are in the same group as the owner, and everyone else, for this reason these permissions will almost exclusively be set such that permissions are lost with each level, for example a file with
 
--rwxr--r-- , is a file (no 'd'), which may be read, written, or if it is a program ran by, the owner, yet by anyone else in the same group as the owner or anyone else on the system may only be read. So if we changed the permissions on that python file we wrote back in Chapter 2 to be this then while anyone else could see the code, they couldn't run it without making a copy. 
+-rwxr--r-- , is a file (no 'd'), which may be read, written, or if it is a program ran by, the owner, yet by anyone else in the same group as the owner or anyone else on the system may only be read. So if we changed the permissions on that python file we wrote back in Chapter 2 to be this then while anyone else could see the code, they couldn't run it without making a copy.
 
 with that let's skip over the number of links, as I've never found it particularly useful and jump to the owner and group fields. The owner of a file is a single user, usually the one who created it. The root user is often the owner of important system files, which is why we have to temporarily use root account when we do many admin actions, such as updating or installing programs using `sudo`.
 
@@ -1592,7 +1589,7 @@ To round this off we need to talk about how to change these permissions using `c
 For example running
 
 ```
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤  sudo chown vega:vega someFile
 ```
 
@@ -1601,7 +1598,7 @@ would change both the owner and group to me, vega (assuming I exist on your syst
 but what if you want to change every file in a directory?
 
 ```
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤  sudo chown -R vega:vega someFolder
 ```
 
@@ -1612,7 +1609,7 @@ Using `chmod` is pretty easy too, though there are two ways to use it.
 The first, which is easier to understand is with direct flags such as
 
 ```
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤  chmod +x on a file to mark it as executable
 ```
 
@@ -1633,7 +1630,7 @@ The other uses the octal system to set flags. Octal has 3 bits:
 Now, you should notice some of those options are nonsenes? being able to write to a file you can't read? being able to execute a file you can't read? In practice this leads to only some of these being used, but I digress to use these in chmod simply run
 
 ```
-╭─vega@lyrae ~  
+╭─vega@lyrae ~
 ╰─➤  chmod 764 someThing
 ```
 
@@ -1641,7 +1638,7 @@ which would set permissions to -rwxrw-r--
 
 Finally one last oddity. Using `ls -la` you'll see two more files that are very strange one named '.'  and another '..' ; '.' is actually the current folder, as bizzare as this sounds, effectively when you run a command with '.' as an argument it is replaced with the full path to the current folder. In practice this isn't used much, but it means running something like `cd .` just takes you nowhere. I assure you are practical uses though. More relevant is '..' which is the previous directory. so if you're currently in /a/b/c/d and you run `cd ..` you'll be taken to /a/b/c
 
-To round this conversation off , as previously mentioned, '~' represents your home directory. This usually means it expands out to /home/yourUsername which can be particualy helpful if you are say, in /dev and want to get to your documents folder you can use `cd ~/Documents` instead of `cd /home/user/Documents` 
+To round this conversation off , as previously mentioned, '~' represents your home directory. This usually means it expands out to /home/yourUsername which can be particualy helpful if you are say, in /dev and want to get to your documents folder you can use `cd ~/Documents` instead of `cd /home/user/Documents`
 
 With all of that out of the way let's finally look at /dev !
 
@@ -1667,7 +1664,7 @@ lrwxrwxrwx   1 root root           11 Feb  8 06:02 core -> /proc/kcore
 
 Here I've included . and .. in the output for reference, but we'll immediately move on.
 
-'ashmem' is something that is on my system as a part of a project with the end goal of running android apps natively on linux called 'anbox' it's still in early development, and is very difficult to run on arch 
+'ashmem' is something that is on my system as a part of a project with the end goal of running android apps natively on linux called 'anbox' it's still in early development, and is very difficult to run on arch
 
 'autofs' is a configurable system for mounting and unmounting storage as it is used
 
@@ -1707,7 +1704,7 @@ crw-------   1 root root     242,   4 Feb  8 06:03 drm_dp_aux4
 
 'cpu_dma_latency' is something to do with making sure changing between power states (sleep) doesn't take to long, otherwise the system will just refuse to do. Not used directly by anyone really
 
-'cuse' is fuse for character devices, ref fuse below 
+'cuse' is fuse for character devices, ref fuse below
 
 'disk' is the way most modern things access the disk, with separate folders for by id, label, path, or uuid
 
@@ -1894,7 +1891,7 @@ lrwxrwxrwx   1 root root           15 Feb  8 06:02 stdout -> /proc/self/fd/1
 
 'sr0' used for optical media
 
-'**stderr**' is the standard error interface, try `echo 1 > /dev/stderr` - you should see an error return code depending on your terminal setup 
+'**stderr**' is the standard error interface, try `echo 1 > /dev/stderr` - you should see an error return code depending on your terminal setup
 
 '**stdin**' is the standard input interface, try `echo hello | cp /dev/stdin /dev/stdout`
 
@@ -2037,7 +2034,7 @@ but when we run this in the python terminal:
 ```python
 while(1):
 	1+1
-	
+
 ```
 
 and read the stack again we'll see:
@@ -2136,13 +2133,13 @@ In general there are two primary ways you will work with voltage- AC or DC, thes
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Waveforms.svg/557px-Waveforms.svg.png)
 
-Your multimeter will likely have two different settings for measuring voltage, one for DC and one for AC. Of note, *most* mulitmeters are not true RMS (Root Mean Square) meters, meaning the reading of AC voltage is not accurate unless it's a clean, no DC offset sine wave. RMS is a topic we'll be covering later, but to wet your appatite, this from wikipedia may help: 
+Your multimeter will likely have two different settings for measuring voltage, one for DC and one for AC. Of note, *most* mulitmeters are not true RMS (Root Mean Square) meters, meaning the reading of AC voltage is not accurate unless it's a clean, no DC offset sine wave. RMS is a topic we'll be covering later, but to wet your appatite, this from wikipedia may help:
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Sine_wave_voltages.svg/400px-Sine_wave_voltages.svg.png)
 
 https://en.wikipedia.org/wiki/Root_mean_square
 
-Of note, from a mathematical perspective all time varrying signals can be represented as an infinite number of sine waves added together, this is actually used to do practical computation in many things. 
+Of note, from a mathematical perspective all time varrying signals can be represented as an infinite number of sine waves added together, this is actually used to do practical computation in many things.
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Periodic_identity_function.gif/400px-Periodic_identity_function.gif)
 
@@ -2176,7 +2173,7 @@ https://en.wikipedia.org/wiki/Arbitrary_waveform_generator
 
 ### The Oscilloscope
 
-The osciliscope (or OScope or simply Scope) allows you to see an AC signal and how it varies over time as a plot of Voltage on the Y axis and time on the X, Most OScopes will allow you to look at multiple signals at once, with one overlaid on the other. Furthermore, most support X-Y mode, where the plot is actually the voltage of one input as the X axis and the volatge of another as the Y, moving a dot and it's trail around the screen. In fact, this is how the first computer monitors worked: 
+The osciliscope (or OScope or simply Scope) allows you to see an AC signal and how it varies over time as a plot of Voltage on the Y axis and time on the X, Most OScopes will allow you to look at multiple signals at once, with one overlaid on the other. Furthermore, most support X-Y mode, where the plot is actually the voltage of one input as the X axis and the volatge of another as the Y, moving a dot and it's trail around the screen. In fact, this is how the first computer monitors worked:
 
 ![Image result for asteroids game](data:image/jpeg;base64,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)
 
@@ -2258,7 +2255,7 @@ nano, is the similist of all the editors I'll list here. It's stupid simlpe to u
 
 where ^ is the ctrl key, and M the alt key. However, you'll quickly find nano rather limiting, so onto vim!
 
-Vim, with Spacevim (spacevim.org) ontop is a very powerful tool. 
+Vim, with Spacevim (spacevim.org) ontop is a very powerful tool.
 
 ![welcome-page](https://user-images.githubusercontent.com/13142418/45254913-e1e17580-b3b2-11e8-8983-43d6c358a474.png)
 
@@ -2318,7 +2315,7 @@ layout, shortcuts, height, mechanical
 
 ### Sound
 
-### 
+###
 
 ## Various Programs:
 
@@ -2416,7 +2413,7 @@ https://tour.golang.org/welcome/1
 
 Default Gateway, Routes & kernel routing table, subnet mask, ping, traceroute, dns - resolv.conf, pihole, caching / squid, localhosts, port forwards, DHCP, private nets, firewalls, chromecast port thing, https vs no s,  rsync,scp,samba, cups, databases
 
-The OSI model of networking is 
+The OSI model of networking is
 
 ## The physical Layer
 
@@ -2571,7 +2568,7 @@ speakers, piezos, amps, mics and pickup patters
 
 ## Continued Reading:
 
-At this point I highly recommend *'Practical Electronics for Inventors'* ISBN 978-1259587542, namely chapters 2-12, and 15-16. It's a very large, detailed book that does it's best to keep things, well, practical. 
+At this point I highly recommend *'Practical Electronics for Inventors'* ISBN 978-1259587542, namely chapters 2-12, and 15-16. It's a very large, detailed book that does it's best to keep things, well, practical.
 
 https://taleri.files.wordpress.com/2014/02/practical_electronics_for_inventors_-_scherz_paul.pdf
 
@@ -2615,7 +2612,7 @@ Otherwise known as the chapter about sanitizing your damn inputs.
 
 # Chapter 16- Debugging
 
-GDB with Gef, 
+GDB with Gef,
 
 # Chapter 17- Compilers and Assemblers
 
@@ -2641,7 +2638,7 @@ Live Overflow, Youtube: https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w
 
 # Chapter 20- Let's make our own PCB
 
-First things first, we're going to be using Kicad, so you'll want to go grab that from the repos. While that's downloading and installing give this a watch to get the basics down: 
+First things first, we're going to be using Kicad, so you'll want to go grab that from the repos. While that's downloading and installing give this a watch to get the basics down:
 
 https://www.youtube.com/watch?v=zK3rDhJqMu0&index=8&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&t=0s
 
@@ -2702,12 +2699,12 @@ regex can be used with a bunch of common tools like awk, sed, and grep. This mea
 - ctrl-z to bg process, fg to resume
 - jobs -l or ps -a to see jobs
 - reptyr to move
-- pushd/popd & dirs to use path stack 
-- cd - to last dir 
+- pushd/popd & dirs to use path stack
+- cd - to last dir
 - history, and !№ to run that cmd
-- ctrl-c/d to kill 
-- ctrl-l to clearscrn 
-- ctrl-u to clrline 
+- ctrl-c/d to kill
+- ctrl-l to clearscrn
+- ctrl-u to clrline
 - ctrl-r to search hist
 - ctrl-left/right to nav args
 - expansion with mv /path/meh.{md,txt}
@@ -2742,7 +2739,7 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 * package types
 * reading specs
 * datasheets
-* 
+*
 
 # Appendix D - BOM
 
@@ -2806,7 +2803,7 @@ Also we're going to be building a little server, for this you'll want
 
 OR
 
-You can find a used Dell Poweredge r610 or poweredge 1950. Many of these will come with out drives, but this option is probably cheaper than the above for better specs. However; these servers are LOUD, loud enough to not be comfortable in the same room and absolutely drink power. As mentioned in the server section, the hardware you use really doesn't matter, you'll just want at least two hard drives, an OS drive, and multiple network interfaces are encouraged. These things can all be added to just about any desktop though, so going to electronics thrift stores or auctions and finding a desktop works too. 
+You can find a used Dell Poweredge r610 or poweredge 1950. Many of these will come with out drives, but this option is probably cheaper than the above for better specs. However; these servers are LOUD, loud enough to not be comfortable in the same room and absolutely drink power. As mentioned in the server section, the hardware you use really doesn't matter, you'll just want at least two hard drives, an OS drive, and multiple network interfaces are encouraged. These things can all be added to just about any desktop though, so going to electronics thrift stores or auctions and finding a desktop works too.
 
 # Appendix E - The Politics of it all
 

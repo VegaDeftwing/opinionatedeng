@@ -1,5 +1,12 @@
 #/bin/bash
-
+# using a > instead of sponge relusts in an empty output file, idk man
+cat opinionatedeng.md | sed '/# Preface/,$!d' | sponge opinionatedeng.md
+#remove trailing whitespace
+sed -i 's/[[:space:]]*$//' opinionatedeng.md
+# This requires moreutils (available in community repo on arch) and gd-md-toc, which
+# is in this repo but downloaded from https://github.com/ekalinin/github-markdown-toc
+cat opinionatedeng.md | ./gh-md-toc - | cat - opinionatedeng.md | sponge opinionatedeng.md
+sleep 5
 python -m readme2tex --output opinionatedengrendered.md opinionatedeng.md --username vegadeftwing --project opinionatedeng
 
 #

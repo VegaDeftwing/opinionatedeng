@@ -636,11 +636,11 @@ sudo systemctl start ssdm
 Note that KDE Plasma is fairly large to download and a bit resource intensive. As an alternative if on older hardware
 
 ```
-sudo pacman -S xorg-server xord-utils xorg-xinit xterm mate mate-extra lxdm
+sudo pacman -S xorg-server xorg-utils xorg-xinit xterm mate mate-extra lightdm
 
 then
 
-sudo systemctl enebale lxdm
+sudo systemctl enebale lightdm
 
 amixer sset Master unmute
 
@@ -1993,7 +1993,7 @@ In this particular encoding, the longer high bumps represent a 1 and the short h
 
 Using a logic analyzer is pretty simlpe, most today are connected to your comuputer over USB and then use software like Pulseview as shown above, then you just select the sample rate (how many times per second to check the wire, here 1MHz) and the number of samples to collect and hit start. You may want to setup a trigger too (speaking of, it's worthwhile to look up how triggering works on an OScope [TODO]) Most logic analyzers support 8 or more simultanious data streams, though in the picture above I'm only using one.
 
-### Software Simulation
+## Software Simulation
 
 #### Circuit Simulator
 
@@ -2001,13 +2001,21 @@ Using a logic analyzer is pretty simlpe, most today are connected to your comupu
 
 #### VCV Rack?
 
-## Voltage and Current - OHM's law, Nodal & Mesh Analysis
+## OHM's law, Nodal & Mesh Analysis, Superposition
 
 ## Resistors
 
 ## Capacitors
 
 ## Inductors
+
+Motors
+
+## Filters
+
+## Decibels
+
+
 
 ## Further Reading
 
@@ -2028,6 +2036,8 @@ I highly recomend getting autojump setup early as it makes navigating around the
 ## Heads up,
 
 With that out of the way, I want to preface this chapter with a big warning: Getting used to everything we're about to do will be a pretty big leap. There's a good chance you've never used a computer that works like we're going to be setting up, but it's what I and many of my friends use daily and for good reason. This is probably where more opinions are foing to show than anywhere else
+
+[TODO] pacman -Qi , pacman -R
 
 ## Code editors
 
@@ -2173,6 +2183,8 @@ using a code editor, header files, libraries, writing and using a Make file, std
 
 gdb + gef
 
+overflows
+
 ## Analyzing the Assembly
 
 Cutter
@@ -2190,6 +2202,8 @@ https://doc.rust-lang.org/book/foreword.html
 https://tour.golang.org/welcome/1
 
 # Chapter 8- Networking
+
+[TODO] Add follow along making a network stack
 
 ## A typical network
 
@@ -2281,6 +2295,8 @@ Real time clocks, timezones, utc, etc.
 
 ### 1 - Algebra
 
+Imaginary numbers, systems of equations
+
 ### 2 - Discrete Math
 
 ### 3 - Trig
@@ -2299,11 +2315,24 @@ Real time clocks, timezones, utc, etc.
 
 # Chapter 10- Diodes,  Transistors, and Integrated Circuits
 
+Show everything in a circuit sim
+
+## Transformers, Variacs
+
 ## Diodes, the one way road
+
+zeener, normal, bipolar
+
++ varistors , sparkgaps
++ Leds - getting current both ways
+
+
 
 ### Diode Logic
 
 ## Transistors
+
+tubes and how they work
 
 ### PNP V NPN
 
@@ -2312,6 +2341,26 @@ Real time clocks, timezones, utc, etc.
 ## Integrated Circuits
 
 ### 555, OpAmp, 74-Series Logic
+
+## Optical Electronics
+
+## Crystal Oscilators
+
+## PWM
+
+
+
+## ADC/DAC
+
+## Active Filters
+
+
+
+## Audio Devices
+
+speakers, piezos, amps, mics and pickup patters
+
+
 
 ## Continued Reading:
 

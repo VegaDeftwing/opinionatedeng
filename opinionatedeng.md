@@ -1,3 +1,5 @@
+   # Opinionated Engineering
+   TABLE OF CONTENTS
    * [Preface](#preface)
    * [Ⅰ - Community](#ⅰ---community)
             * [Instead, share:](#instead-share)
@@ -225,6 +227,7 @@
    * [Appendix D - BOM](#appendix-d---bom)
    * [Appendix E - The Politics of it all](#appendix-e---the-politics-of-it-all)
    * [Appendix F - Other Great Resources](#appendix-f---other-great-resources)
+      * [Learning Linux](#learning-linux)
       * [Youtube](#youtube)
       * [Podcasts](#podcasts)
       * [Github info pages](#github-info-pages)

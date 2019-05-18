@@ -173,6 +173,7 @@
       * [Active Filters](#active-filters)
       * [Audio Devices](#audio-devices)
       * [Continued Reading:](#continued-reading)
+   * [Chapter 10.5 - AC and Music](#chapter-105---ac-and-music)
    * [Chapter 11- Embedded Systems](#chapter-11--embedded-systems)
       * [What is an Embedded System?](#what-is-an-embedded-system)
       * [PWM, SPI, I2C, What's going on?!](#pwm-spi-i2c-whats-going-on)
@@ -221,6 +222,18 @@
       * [Alternative commands](#alternative-commands)
       * [Useful Non-Stock CLI Tools](#useful-non-stock-cli-tools)
    * [Appendix B - Common Graphical Linux Utils](#appendix-b---common-graphical-linux-utils)
+      * [Graphical Enviroments  :](#graphical-enviroments)
+      * [Free Graphical Utilities:](#free-graphical-utilities)
+         * [Office &amp; Daily](#office--daily)
+         * [A/V](#av)
+         * [Social](#social)
+         * [Programming](#programming)
+         * [Engineering](#engineering)
+         * [System](#system)
+         * [IRL](#irl)
+         * [Other](#other)
+      * [Paid Graphical Utilities:](#paid-graphical-utilities)
+      * [Self hosted / Services:](#self-hosted--services)
    * [Appendix C - Common electrical parts (appearence and numbers)](#appendix-c---common-electrical-parts-appearence-and-numbers)
    * [Appendix D - BOM](#appendix-d---bom)
    * [Appendix E - The Politics of it all](#appendix-e---the-politics-of-it-all)
@@ -229,8 +242,21 @@
       * [Youtube](#youtube)
       * [Podcasts](#podcasts)
       * [Github info pages](#github-info-pages)
+      * [Books](#books)
       * [Non-Technical](#non-technical)
-# Preface
+    # Preface
+
+
+
+
+
+[TODO]
+
+Add 3d-printing and manufaturing section
+
+
+
+
 
 Hey there.
 
@@ -291,17 +317,21 @@ Yes, there is always a relevant XKCD, and yes, you will always feel like everyon
 > Hopefully it's clear why questions like this rarely result in direct answers.
 >
 > - There are very few people who could be called experts in every facet of whatever is being asked
-> > - Imposter syndrome is common
-> > - Most people won't write that blank check for time/help commitment
+>
+>   > - Imposter syndrome is common
+>   >
+>   >   > > - Most people won't write that blank check for time/help commitment
 >
 > #### Instead, share:
 >
 > - The goal - "Trying to query for a list of tags on a post" - See [The XY Problem](http://xyproblem.info/)
-> > - The problem - "I'm getting back these results"
-> > - The expectation - "but it should be these results"
-> > - Any context or previous research you've done
-> > - If possible, a simplified example. 3v4l for php, jsfiddle for html/js/css, etc. are great, otherwise a paste site.
-> > - What you've already tried
+>
+>   > - The problem - "I'm getting back these results"
+>   >
+>   >   > > - The expectation - "but it should be these results"
+>   >   > > >   >   > > - Any context or previous research you've done
+>   >   > > >   >   > > - If possible, a simplified example. 3v4l for php, jsfiddle for html/js/css, etc. are great, otherwise a paste site.
+>   >   > > >   >   > > - What you've already tried
 >
 > This allows anyone there to try to help. Many skills transfer well to other languages or platforms. At minimum, you might get an idea for something you haven't tried yet. Sometimes you'll even solve your own problem while narrowing down the simplest possible test case.
 >
@@ -2569,6 +2599,8 @@ Netsukuku, cjdns + hyperboria, Dat / Beaker, https://readhacker.news/s/3WJ75
 
 ## Ⅰ - Math
 
+some motivation, Klien bottle guy
+
 ### 1 - Algebra
 
 Imaginary numbers, systems of equations
@@ -2620,6 +2652,8 @@ tubes and how they work
 
 ## Crystal Oscilators
 
+https://www.youtube.com/watch?v=wcJXA8IqYl8&t=474s
+
 ## PWM
 
 ## ADC/DAC
@@ -2635,6 +2669,12 @@ speakers, piezos, amps, mics and pickup patters
 At this point I highly recommend *'Practical Electronics for Inventors'* ISBN 978-1259587542, namely chapters 2-12, and 15-16. It's a very large, detailed book that does it's best to keep things, well, practical.
 
 https://taleri.files.wordpress.com/2014/02/practical_electronics_for_inventors_-_scherz_paul.pdf
+
+# Chapter 10.5 - AC and Music
+
+[TODO]
+
+Relate back to things like ADRS, Distortion, Reverb / Echo, Decibels (audio), etc. Use VCV RACK
 
 # Chapter 11- Embedded Systems
 
@@ -2722,8 +2762,6 @@ Phrack : http://www.phrack.org/
 
 Defcon Media Server : https://media.defcon.org/
 
-
-
 # Chapter 20- Let's make our own PCB
 
 [TODO]
@@ -2802,6 +2840,8 @@ C++ from scratch, JS electron app, Processing creative coding, Python Kivy or si
 
 - touch
 
+- cp & rsync
+
 - mkdir & rmdir
 
 - cat
@@ -2860,13 +2900,13 @@ C++ from scratch, JS electron app, Processing creative coding, Python Kivy or si
 
 ## Tab Completion and faster navigation
 
-    Probably the most useful shortcut for using the shell is tab completion. This is used when you need to type a really long command or chain of commands, say I want to run ncmpcpp, a name that is both long and hard to remember, instead of just typing the full name I can type ```ncm``` and press tab, and ta-da suddenly the full name is inserted. If you happen to have another package that has multiple possible endings say you want to run ``lstopo`` but you have `ls, lsusb, lstopo` all on your system, most shells will display a menu underneath with all the possible options. This is nice for commands, but the true power comes in file names, say I want to run ``cat /etc/pacman.d/mirrorlist`` while that's not too awful to type out, you could easily type `cat /e` press tab, get `cat /etc/` add pac to get `cat /etc/pac` press tab, get `cat /etc/pacman.d/` type mir and tab and get the full command, while that sounds complicated it actually speeds using the command line up rather significantly and prevents spelling mistakes
+    Probably the most useful shortcut for using the shell is tab completion. This is used when you need to type a really long command or chain of commands, say I want to run ncmpcpp, a name that is both long and hard to remember, instead of just typing the full name I can type ```ncm``` and press tab, and ta-da suddenly the full name is inserted. If you happen to have another package that has multiple possible endings say you want to run ``lstopo`` but you have `ls, lsusb, lstopo` all on your system, most shells will display a menu underneath with all the possible options. This is nice for commands, but the true power comes in file names, say I want to run ``cat /etc/pacman.d/mirrorlist`` while that's not too awful to type out, you could easily type `cat /e` press tab, get `cat /etc/` add pac to get `cat /etc/pac` press tab, get `cat /etc/pacman.d/` type mir and tab and get the full command, while that sounds complicated it actually speeds using the command line up rather significantly and prevents spelling mistakes
 
-    Next up for navigation is directory shortcuts, these can be massive time savers, the most obvious is `~` which is just short hand for the location of the current shell users home directory, so in my case `~` is the exact same as typing out `/home/vega`. The next two have already been touched on which are `.` for the current directory and `..` for the previous directory. Depending on the shell and arbitrary number of dots may take you back and arbitary number of directories. Give it a shot! If nothing else you can always use `../../..` to navigate back as necessary. Finally, `-` represents the last directory you were in so if your in `~/Downloads` and then `cd /etc/pacman.d/`, running `cd -` will bring you back to downloads.
+    Next up for navigation is directory shortcuts, these can be massive time savers, the most obvious is `~` which is just short hand for the location of the current shell users home directory, so in my case `~` is the exact same as typing out `/home/vega`. The next two have already been touched on which are `.` for the current directory and `..` for the previous directory. Depending on the shell and arbitrary number of dots may take you back and arbitary number of directories. Give it a shot! If nothing else you can always use `../../..` to navigate back as necessary. Finally, `-` represents the last directory you were in so if your in `~/Downloads` and then `cd /etc/pacman.d/`, running `cd -` will bring you back to downloads.
 
-    The most advanced form of bult in linux navigation comes in the form of `pushd` and `popd`, which as their names imply push and pop directories to a stack (a special kind of list) of directories. Like a stack of any item you can put or 'push' an item on top, and take or 'pop' an item off. Running `dirs -v` will show you a numberd list of the stack, you can navigate to the top item with `popd` or and abitrary item with `cd ~#` where # is the number as shown by `dirs -v`.
+    The most advanced form of bult in linux navigation comes in the form of `pushd` and `popd`, which as their names imply push and pop directories to a stack (a special kind of list) of directories. Like a stack of any item you can put or 'push' an item on top, and take or 'pop' an item off. Running `dirs -v` will show you a numberd list of the stack, you can navigate to the top item with `popd` or and abitrary item with `cd ~#` where # is the number as shown by `dirs -v`.
 
-    Finally, there's one more super handy way to get around your file system but it's a non-standard tool so most systems or servers you use other than your own will not have it installed, and that's autojump. Put simply it takes a good guess about where you want to go by only typing part of the name of a folder you've navigated to before, so say you have a long file path `/mnt/data/archived/january2000/pictures/family/vacation/` you can get back to it again by simply running `j vac` which is obviously much simpiler. It works the vast majority of the time in practice, only having issues if you don't include enough letters leading to ambuguity.
+    Finally, there's one more super handy way to get around your file system but it's a non-standard tool so most systems or servers you use other than your own will not have it installed, and that's autojump. Put simply it takes a good guess about where you want to go by only typing part of the name of a folder you've navigated to before, so say you have a long file path `/mnt/data/archived/january2000/pictures/family/vacation/` you can get back to it again by simply running `j vac` which is obviously much simpiler. It works the vast majority of the time in practice, only having issues if you don't include enough letters leading to ambuguity.
 
 ## I/O redirection
 
@@ -3018,15 +3058,17 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 * taskwarrior
   * keep track of To-Do's and tasks, can also be paired with timewarrior for timetracking
 * waifu2x (many forks available)
-  * Upscale and de-noise images zoom-and-enhance style but for real-    this ones' a bit GPU intensive because it uses AI
+  * Upscale and de-noise images zoom-and-enhance style but for real-    this ones' a bit GPU intensive because it uses AI
 * youtube-dl
   * despite the name this tool can download videos or audio from almost any page on the internet, even supporting playlists in many cases too.
 * rat
   * This one is weird, but from https://github.com/ericfreese/rat "*Compose shell commands to build terminal applications*"
 * magic-wormhole
   * tool for getting a file between two systems easily and secure, just run `wormhole send` and `wormhole recive` on the respective systems
-
-
+* Ix, Gist
+  * Paste tools, like pastebin
+* DMIDecode
+  * get info from BIOS
 
 While some of these may be included, they're some of the OG addons or tools to make included things better:
 
@@ -3042,18 +3084,182 @@ While some of these may be included, they're some of the OG addons or tools to m
 
   * GDB, the original debugger, has it's faults. GEF, a config file for GDB on steroids, fixes many of them. While orgiginally made for exploit developers, many people use it for everyday debugging
 
-
-
 # Appendix B - Common Graphical Linux Utils
 
 [TODO]
+
+Mostly taken from https://wiki.archlinux.org/index.php/List_of_applications and https://github.com/Kickball/awesome-selfhosted
+
+## Graphical Enviroments++:
+
+Gnome, KDE, Pantheon,
+
+Rofi, Polybar, j4,
+
+Compton
+
+Nitrogen, pywal, (feh),
+
+## Free Graphical Utilities:
+
+### Office & Daily
+
+Libreoffice, Xournal++,
+
+thunar + bulk rename, nautilus, Filezilla, Deluge, qBitTorrent,
+
+Firefox, Min, Vivalidi,
+
+Marktext, Typora, Notable
+
+Geogebra
+
+Evolution
+
+Evince
+
+### A/V
+
+Feh, Nomacs
+
+Rawtherepee, Krita, Gimp, Darktable
+
+Inkscape,
+
+Blender, Pencil2D, OpenToonz
+
+Goxel,
+
+Pithos, Gnome-Music,
+
+Cadence (jack2)
+
+Audacity, Ardour, LMMS, non, Radium
+
+Giada
+
+VCV Rack
+
+Guitarix
+
+PureData, SonicPi, ORCA
+
+Processing, VVVV,
+
+
+
+VLC
+
+DaVinci Resolve
+
+
+
+Cheese, Motion, OBS
+
+### Social
+
+Thunderbird
+
+LBRY
+
+Discord, Telegram, qTox, HexChat, SRain, Riot/Fractal ,
+
+### Programming
+
+Okteta
+
+Gitkraken
+
+Code, Atom, Sublime, Code::Blocks, Eclipse, Netbeans, IntelliJ, Sublime
+
+PyCharm, Spyder
+
+Cutter, Node-Red
+
+Etherape/cap, Wireshark
+
+### Engineering
+
+FreeCAD, LibreCAD, KiCad, CircuitSim, Fritzing
+
+PulseView, Arduino, PlatformIO
+
+### System
+
+Alacritty, urxvt, Deepin-Terminal, Hyper,
+
+Baobab, Filelight, GParted, VeraCrypt
+
+Syncthing
+
+Etcher
+
+lsusb, lshw, lstopo, usbview,
+
+Firewall frontend?
+
+ClamAV
+
+deepin-screesshot, scrot
+
+### IRL
+
+Gnome-Maps
+
+Gnome-Weather
+
+Celestia
+
+Stellarium
+
+### Other
+
+GnuRadio, SDRAngel
+
+## Paid Graphical Utilities:
+
+Renoise, Bitwig
+
+## Self hosted / Services:
+
+Netdata
+
+VPN (Wiregaurd)
+
+Snort, Suritica
+
+Gitea, Gitlab
+
+Mathics
+
+LAMP stack
+
+Couchpotato, headphones
+
+mpd, ampache
+
+Owncloud, NextClound
+
+Samba
+
+DAT, IPFS
+
+Convos.by
+
+Ix , 0bin (pastebin)
+
+Mathics
+
+TaskWeb (TaskWarrior)
 
 # Appendix C - Common electrical parts (appearence and numbers)
 
 [TODO]
 
 * package types
+
 * reading specs
+
 * datasheets
 
   *
@@ -3102,7 +3308,7 @@ While some of these may be included, they're some of the OG addons or tools to m
 | Multimeter                                                                  | 35                                 |               |
 | Logic Analyzer                                                              | 10                                 |               |
 | Software Defined Radio                                                      | 150                                | optional      |
-|                                                                             |                                    |               |
+| Proxmark3                                                                   |                                    |               |
 |                                                                             |                                    |               |
 |                                                                             |                                    |               |
 | TOTAL                                                                       | BASE ;OPTINONAL                    |               |
@@ -3126,7 +3332,15 @@ You can find a used Dell Poweredge r610 or poweredge 1950. Many of these will co
 
 # Appendix E - The Politics of it all
 
+[TODO:] link guerilla open access manifesto and http://www.textfiles.com/100/hack7.txt
+
 Becuase you're now somebody in the know about topics relating to technology and have a deeper understanding about issues that may effect the pubilc, such as [The FBI V Apple encryption case](https://en.wikipedia.org/wiki/FBI–Apple_encryption_dispute), [Issues regrading internet speed and infrastructure](https://gizmodo.com/why-americas-internet-is-so-shitty-and-slow-1686173744), or [The Government/NSA spying on people](https://en.wikipedia.org/wiki/Room_641A). There are plenty of issues that weather you like it or not you're one of the few with enough informationg to truly understand and inform your peers. A well known digital writes and freedom advocacy group you may consider supporting is the [Electronic Frontier Foundation or EFF](www.eff.org), as they do some absolutely incredible work making sure we maintain our digital rights both in the role of consumers as well as hackers, tinkerers, security reseachers and nerds. You may consider checking out [Free press](https://www.freepress.net/) as well, though above all else educating yourself and others about issues to end ignorance and fear when it comes to these issues is more valuable than anything else.
+
+Furthermore, there's a general view in the technical community that we should help push adoption of superior platfroms. This is usually either for a push for [decentralized](https://www.youtube.com/watch?v=SrA7XTDCtok) services like [Mastodon](https://joinmastodon.org/) or [Dat](https://datproject.org/), or a push for FOSS (Free and Open Source) software like Linux or LibreOffice.
+
+Most in the technical community belive that you should have full control over the devices you own. This is a major factor in why so many technical people host their own servers and build a lot of the crazy things they do. As a result you'll hear a lot about rooting or getting superuser on various devices as well as [Right to Repair](https://repair.org/).
+
+Finally, many in the tech community are on the heartbeat of issues surounding copyright, fairuse, and the [Digital Millennium Copyright Act](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) or DMCA as without exceptions , a lot of security research would not be legal and it's of direct importance to issues like software piracy and issues sorunding Youtube's automated ContentID [TODO: add links]
 
 # Appendix F - Other Great Resources
 
@@ -3135,6 +3349,10 @@ https://github.com/alex/what-happens-when
 http://textfiles.com/
 
 https://www.alchemistowl.org/pocorgtfo/
+
+https://github.com/lorin/resilience-engineering
+
+https://github.com/dwmkerr/hacker-laws
 
 ## Learning Linux
 
@@ -3177,6 +3395,26 @@ https://github.com/kozross/awesome-c
 https://github.com/rby90/Project-Based-Tutorials-in-C
 
 https://github.com/trimstray/the-book-of-secret-knowledge
+
+https://github.com/terkelg/awesome-creative-coding
+
+https://github.com/toplap/awesome-livecoding
+
+https://github.com/sindresorhus/awesome
+
+https://github.com/apsdehal/awesome-ctf#readme
+
+https://github.com/carpedm20/awesome-hacking#readme
+
+https://github.com/sdnds-tw/awesome-sdn#readme
+
+https://github.com/jagracey/Awesome-Unicode#readme
+
+
+
+## Books
+
+https://github.com/EbookFoundation/free-programming-books#readme
 
 ## Non-Technical
 

@@ -178,11 +178,15 @@
       * [ADC/DAC](#adcdac)
       * [Active Filters](#active-filters)
       * [Audio Devices](#audio-devices)
+   * [Relating AC and Music](#relating-ac-and-music)
       * [Continued Reading:](#continued-reading)
-   * [Chapter 10.5 - AC and Music](#chapter-105---ac-and-music)
    * [Chapter 11- Embedded Systems](#chapter-11--embedded-systems)
       * [What is an Embedded System?](#what-is-an-embedded-system)
       * [PWM, SPI, I2C, What's going on?!](#pwm-spi-i2c-whats-going-on)
+      * [Playing around - Hello World and blink](#playing-around---hello-world-and-blink)
+      * [Making an Embeded System project - 1 - Humidity Sensor](#making-an-embeded-system-project---1---humidity-sensor)
+      * [Making an Embeded System project - 2 - MIDI Controller (with piezzo)](#making-an-embeded-system-project---2---midi-controller-with-piezzo)
+      * [Making an Embeded System project - 3 - Stepper Motor Music](#making-an-embeded-system-project---3---stepper-motor-music)
    * [Chapter 12- Discrete Math and Algorithms](#chapter-12--discrete-math-and-algorithms)
    * [Chapter 13- Writing a larger program](#chapter-13--writing-a-larger-program)
       * [Planning](#planning)
@@ -254,10 +258,6 @@
 DELIMITEDFORTOC
 
 # Preface
-
-[TODO]
-
-Add 3d-printing and manufaturing section
 
 Hey there.
 
@@ -2715,17 +2715,18 @@ https://www.youtube.com/watch?v=wcJXA8IqYl8&t=474s
 
 speakers, piezos, amps, mics and pickup patters
 
+# Relating AC and Music
+
+[TODO]
+
+Relate back to things like ADRS, Distortion, Reverb / Echo, Decibels (audio), etc. Use VCV RACK
+
 ## Continued Reading:
 
 At this point I highly recommend *'Practical Electronics for Inventors'* ISBN 978-1259587542, namely chapters 2-12, and 15-16. It's a very large, detailed book that does it's best to keep things, well, practical.
 
 https://taleri.files.wordpress.com/2014/02/practical_electronics_for_inventors_-_scherz_paul.pdf
 
-# Chapter 10.5 - AC and Music
-
-[TODO]
-
-Relate back to things like ADRS, Distortion, Reverb / Echo, Decibels (audio), etc. Use VCV RACK
 
 # Chapter 11- Embedded Systems
 
@@ -2734,6 +2735,16 @@ Relate back to things like ADRS, Distortion, Reverb / Echo, Decibels (audio), et
 ## What is an Embedded System?
 
 ## PWM, SPI, I2C, What's going on?!
+
+## Playing around - Hello World and blink
+
+## Making an Embeded System project - 1 - Humidity Sensor
+
+## Making an Embeded System project - 2 - MIDI Controller (with piezzo)
+
+## Making an Embeded System project - 3 - Stepper Motor Music
+
+adapted from floppy drives, but less expensive
 
 # Chapter 12- Discrete Math and Algorithms
 

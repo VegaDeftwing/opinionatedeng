@@ -1,6 +1,6 @@
 #/bin/bash
 # using a > instead of sponge relusts in an empty output file, idk man
-cat opinionatedeng.md | sed '/# Preface/,$!d' | sponge opinionatedeng.md
+cat opinionatedeng.md | sed '/DELIMITEDFORTOC/,$!d' | sponge opinionatedeng.md
 #remove trailing whitespace
 sed -i 's/[[:space:]]*$//' opinionatedeng.md
 # This requires moreutils (available in community repo on arch) and gd-md-toc, which

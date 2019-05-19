@@ -1,6 +1,5 @@
    * [Preface](#preface)
    * [Ⅰ - Community](#ⅰ---community)
-            * [Instead, share:](#instead-share)
    * [Ⅱ - Learn how to learn](#ⅱ---learn-how-to-learn)
    * [Chapter 1 - The first goal](#chapter-1---the-first-goal)
    * [Chapter 2 - Let's do it then, Installing Arch Linux](#chapter-2---lets-do-it-then-installing-arch-linux)
@@ -98,15 +97,22 @@
          * [Package managment](#package-managment)
          * [Web and network protocols](#web-and-network-protocols)
       * [Shell Scripts](#shell-scripts)
-   * [Chapter 7- Let's write some low level code](#chapter-7--lets-write-some-low-level-code)
-      * [What are we going to do?](#what-are-we-going-to-do)
-      * [Tools to use](#tools-to-use)
-      * [Pseudo code](#pseudo-code)
-      * [Writing it](#writing-it)
-      * [Debugging it](#debugging-it)
-      * [Analyzing the Assembly](#analyzing-the-assembly)
-      * [Patching it](#patching-it)
-      * [Where to get more pracice](#where-to-get-more-pracice)
+   * [Chapter 7- Let's get to code](#chapter-7--lets-get-to-code)
+      * [The building blocks of programming](#the-building-blocks-of-programming)
+      * [Common methods used](#common-methods-used)
+      * [Program 1, Starting easy](#program-1-starting-easy)
+      * [Program 2, Going Deeper](#program-2-going-deeper)
+         * [What are we going to do?](#what-are-we-going-to-do)
+         * [Tools to use](#tools-to-use)
+         * [Pseudo code](#pseudo-code)
+         * [Writing it](#writing-it)
+         * [Debugging it](#debugging-it)
+         * [Analyzing the Assembly](#analyzing-the-assembly)
+         * [Patching it](#patching-it)
+         * [Where to get more pracice with low level programming](#where-to-get-more-pracice-with-low-level-programming)
+      * [more advanced topics](#more-advanced-topics)
+      * [Program 3, more advanced high level](#program-3-more-advanced-high-level)
+      * [Program 4, getting our toes wet with embeded systems](#program-4-getting-our-toes-wet-with-embeded-systems)
    * [Chapter 8- Networking](#chapter-8--networking)
       * [A typical network](#a-typical-network)
       * [The physical Layer](#the-physical-layer)
@@ -192,7 +198,7 @@
    * [Chapter 16- Debugging](#chapter-16--debugging)
    * [Chapter 17- Compilers and Assemblers](#chapter-17--compilers-and-assemblers)
       * [Continued Reading](#continued-reading-1)
-   * [Chapter 18- Automated Building &amp; testing](#chapter-18--automated-building--testing)
+   * [Chapter 18- Automated Building and Testing](#chapter-18--automated-building-and-testing)
    * [Chapter 19- Exploitation](#chapter-19--exploitation)
       * [Where to learn even more:](#where-to-learn-even-more)
    * [Chapter 20- Let's make our own PCB](#chapter-20--lets-make-our-own-pcb)
@@ -204,11 +210,11 @@
    * [Chapter 27- Back to the Lab again](#chapter-27--back-to-the-lab-again)
       * [How to make a home lab for engineering](#how-to-make-a-home-lab-for-engineering)
    * [Chapter 28- Let's make our own CPU](#chapter-28--lets-make-our-own-cpu)
-   * [Chapter 29- Where to go from here](#chapter-29--where-to-go-from-here)
+   * [Chapter 29- 3D printing, cases, and making real things](#chapter-29--3d-printing-cases-and-making-real-things)
+   * [Wrapping up- Where to go from here](#wrapping-up--where-to-go-from-here)
       * [Integrating other interests](#integrating-other-interests)
       * [Projects to work on](#projects-to-work-on)
       * [Contributing to Open Source](#contributing-to-open-source)
-   * [Chapter 30- Things to avoid](#chapter-30--things-to-avoid)
    * [Appendix A- Using the Linux Shell](#appendix-a--using-the-linux-shell)
       * [The Basic Commands](#the-basic-commands)
       * [Tab Completion and faster navigation](#tab-completion-and-faster-navigation)
@@ -237,26 +243,21 @@
    * [Appendix C - Common electrical parts (appearence and numbers)](#appendix-c---common-electrical-parts-appearence-and-numbers)
    * [Appendix D - BOM](#appendix-d---bom)
    * [Appendix E - The Politics of it all](#appendix-e---the-politics-of-it-all)
-   * [Appendix F - Other Great Resources](#appendix-f---other-great-resources)
+   * [Appendix F - Things to avoid](#appendix-f---things-to-avoid)
+   * [Other Great Resources](#other-great-resources)
       * [Learning Linux](#learning-linux)
       * [Youtube](#youtube)
       * [Podcasts](#podcasts)
       * [Github info pages](#github-info-pages)
       * [Books](#books)
       * [Non-Technical](#non-technical)
-    # Preface
+DELIMITEDFORTOC
 
-
-
-
+# Preface
 
 [TODO]
 
 Add 3d-printing and manufaturing section
-
-
-
-
 
 Hey there.
 
@@ -317,21 +318,17 @@ Yes, there is always a relevant XKCD, and yes, you will always feel like everyon
 > Hopefully it's clear why questions like this rarely result in direct answers.
 >
 > - There are very few people who could be called experts in every facet of whatever is being asked
+> - Imposter syndrome is common
+> - Most people won't write that blank check for time/help commitment
 >
->   > - Imposter syndrome is common
->   >
->   >   > > - Most people won't write that blank check for time/help commitment
+> Instead, share:
 >
-> #### Instead, share:
->
-> - The goal - "Trying to query for a list of tags on a post" - See [The XY Problem](http://xyproblem.info/)
->
->   > - The problem - "I'm getting back these results"
->   >
->   >   > > - The expectation - "but it should be these results"
->   >   > > >   >   > > - Any context or previous research you've done
->   >   > > >   >   > > - If possible, a simplified example. 3v4l for php, jsfiddle for html/js/css, etc. are great, otherwise a paste site.
->   >   > > >   >   > > - What you've already tried
+>   - The goal - "Trying to query for a list of tags on a post" - See [The XY Problem](http://xyproblem.info/)
+>   - The problem - "I'm getting back these results"
+>   - The expectation - "but it should be these results"
+>   - Any context or previous research you've done
+>   - If possible, a simplified example. 3v4l for php, jsfiddle for html/js/css, etc. are great, otherwise a paste site.
+>   - What you've already tried
 >
 > This allows anyone there to try to help. Many skills transfer well to other languages or platforms. At minimum, you might get an idea for something you haven't tried yet. Sometimes you'll even solve your own problem while narrowing down the simplest possible test case.
 >
@@ -2451,27 +2448,69 @@ Vivaldi, Firefox, Syncthing, Beaker, IPFS, IRC - irssi, Telegram, Etherape, Wire
 
 [TODO]
 
-# Chapter 7- Let's write some low level code
+# Chapter 7- Let's get to code
 
-## What are we going to do?
+## The building blocks of programming
+[TODO]
+if, while, for (and specialized), assignment, comparison, combined ops (+=), bitwise, mod, exponent, floor,
+in/not in, is/is not, data types
+libraries
+
+## Common methods used
+commenting-out
+print debugging
+Recursion, object orientation
+while(true)
+try/catch
+
+## Program 1, Starting easy
+[TODO] guide to write an OO python program with libraries to read and write entries to a database-like file and a real database
+the database should have 3 tables, a to-do list, a time-tracker list, and a list of articles
+
+To-do: NAME, DUEDATE
+time-tracker: 2types, either manually enterend with NAME, TSTART, TSTOP or NAME, TTOTAL for the following program
+articles: NAME, PUBLISHED, TPUB, TEDIT
+
+we'll need some way to track what items in the time tracker were started, but never stopped
+
+for now, everything should be strictly command line arguments and print statments
+
+## Program 2, Going Deeper
+[TODO] Interacting with the above, this program should run in the background and update the data, based on window focus events
+using libxdo
+
+furthermore, the C code should check to see if there is a new article, and if so it should call a function that
+first checks a 'meta' entry to see if the python code to change a published time to be newer or the number of entries has changed to optimize:
+- generates a template markdown file for the article  if PUBLISHED is FALSE and no file for it exists,
+- generates a template markdown file for the article  if PUBLISHED is TRUE and no file for it exists,
+- generates a html file from the markdown             if PUBLISHED is TRUE  and no html exists  then updates TEDIT, TPUB
+- remove the html file                                if PUBLISHED is FALSE and an html file for it exists,
+
+however, every time this will still need checked to monitor the md for changes, using ionotify
+- generates a new html from the markdwon              if PUBLISHED is TRUE  and md has changed  then updates TEDIT
+- if markdown is removed, the html file should be as well
+
+
+
+### What are we going to do?
 
 [TODO]
 
-## Tools to use
+### Tools to use
 
 [TODO]
 
-## Pseudo code
+### Pseudo code
 
 [TODO]
 
-## Writing it
+### Writing it
 
 [TODO]
 
 using a code editor, header files, libraries, writing and using a Make file, stdout / stderr,
 
-## Debugging it
+### Debugging it
 
 [TODO]
 
@@ -2479,19 +2518,19 @@ gdb + gef
 
 overflows
 
-## Analyzing the Assembly
+### Analyzing the Assembly
 
 [TODO]
 
-Cutter
+Cutter, TIS-100, Shenzhen IO,
 
-## Patching it
+### Patching it
 
 [TODO]
 
 source patching, binary patching
 
-## Where to get more pracice
+### Where to get more pracice with low level programming
 
 [TODO]
 
@@ -2500,6 +2539,18 @@ https://github.com/rby90/Project-Based-Tutorials-in-C
 https://doc.rust-lang.org/book/foreword.html
 
 https://tour.golang.org/welcome/1
+
+## more advanced topics
+lambdas, threads/ parrallelization(high level only), interupts (actually, let's save this until embbeded), apis,
+
+## Program 3, more advanced high level
+
+Modify the original python program to support a pretty cli input in a pretty way to make entries and visulize the data collected, parallelize some things, finally add a config file using yaml
+
+## Program 4, getting our toes wet with embeded systems
+
+Finally, let's go back and add a com port to the C code and send data to an arduino (can be simulated) and a TFT to display the currently active task and time elapsed.
+
 
 # Chapter 8- Networking
 
@@ -2740,7 +2791,7 @@ At this point I highly recommend 'The Art of Exploitation' by Jon Erickson
 
 https://repo.zenk-security.com/Magazine%20E-book/Hacking-%20The%20Art%20of%20Exploitation%20(2nd%20ed.%202008)%20-%20Erickson.pdf
 
-# Chapter 18- Automated Building & testing
+# Chapter 18- Automated Building and Testing
 
 [TODO]
 
@@ -2750,9 +2801,15 @@ Fuzzing (sandsifter), make and alts, etc.
 
 [TODO]
 
+Talk about CPU bugs
+
+CTF time,
+
 Otherwise known as hacking, exploitation of software is always alluring, though in reality like many things it is much less glamorous than the news or tv make it out to be. Before I get into it I want to plug  'The Art of Exploitation' by Jon Erickson again, as it truly is a masterpiece that describes exploiting in a way that just makes sense
 
 https://repo.zenk-security.com/Magazine%20E-book/Hacking-%20The%20Art%20of%20Exploitation%20(2nd%20ed.%202008)%20-%20Erickson.pdf
+
+https://microcorruption.com/ , https://ctftime.org/ ,
 
 ## Where to learn even more:
 
@@ -2806,7 +2863,12 @@ C++ from scratch, JS electron app, Processing creative coding, Python Kivy or si
 
 [TODO]
 
-# Chapter 29- Where to go from here
+# Chapter 29- 3D printing, cases, and making real things
+[TODO]
+
+While this book/guide/thing primarily focuses on the less mechancial-engieering-y side of things, it wouldn't make sense not to include at least a little about 3D printing, molding, materials, gears, springs, and the like. So, here goes:
+
+# Wrapping up- Where to go from here
 
 [TOOD]
 
@@ -2816,10 +2878,6 @@ C++ from scratch, JS electron app, Processing creative coding, Python Kivy or si
 
 ## Contributing to Open Source
 
-# Chapter 30- Things to avoid
-
-[TODO]
-
 # Appendix A- Using the Linux Shell
 
 ## The Basic Commands
@@ -2827,75 +2885,40 @@ C++ from scratch, JS electron app, Processing creative coding, Python Kivy or si
 [TODO] : add detail to each command
 
 - man
-
 - pwd
-
 - ls
-
 - cd
-
 - mv
-
 - rm
-
 - touch
-
 - cp & rsync
-
 - mkdir & rmdir
-
 - cat
-
 - date
-
 - chmod & chown
-
 - less & more
-
 - ln
-
 - du & df
-
 - clear (only use in scripts)
-
 - passwd
-
 - sudo & su
-
 - head & tail
-
 - tee
-
 - grep, sed, awk, tr
-
 - w
-
 - tar, gzip, bzip, zip
-
 - ssh , scp, ftp
-
 - diff
-
 - sort
-
 - uniq
-
 - export
-
 - systemctl
-
 - ip, ping, & dig
-
 - ps
-
 - free
-
 - top
-
 - kill
-
 - whereis
-
 - wget
 
 ## Tab Completion and faster navigation
@@ -3146,13 +3169,9 @@ PureData, SonicPi, ORCA
 
 Processing, VVVV,
 
-
-
 VLC
 
 DaVinci Resolve
-
-
 
 Cheese, Motion, OBS
 
@@ -3342,7 +3361,11 @@ Most in the technical community belive that you should have full control over th
 
 Finally, many in the tech community are on the heartbeat of issues surounding copyright, fairuse, and the [Digital Millennium Copyright Act](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) or DMCA as without exceptions , a lot of security research would not be legal and it's of direct importance to issues like software piracy and issues sorunding Youtube's automated ContentID [TODO: add links]
 
-# Appendix F - Other Great Resources
+# Appendix F - Things to avoid
+
+[TODO]
+
+# Other Great Resources
 
 https://github.com/alex/what-happens-when
 
@@ -3353,6 +3376,8 @@ https://www.alchemistowl.org/pocorgtfo/
 https://github.com/lorin/resilience-engineering
 
 https://github.com/dwmkerr/hacker-laws
+
+https://n-o-d-e.news/
 
 ## Learning Linux
 
@@ -3409,8 +3434,6 @@ https://github.com/carpedm20/awesome-hacking#readme
 https://github.com/sdnds-tw/awesome-sdn#readme
 
 https://github.com/jagracey/Awesome-Unicode#readme
-
-
 
 ## Books
 

@@ -3,8 +3,9 @@
    * [Ⅱ - Learn how to learn](#ⅱ---learn-how-to-learn)
    * [Chapter 1 - The first goal](#chapter-1---the-first-goal)
    * [Chapter 2 - Let's do it then, Installing Arch Linux](#chapter-2---lets-do-it-then-installing-arch-linux)
-   * [Chapter 2- So Why Did I do all of that exactly?](#chapter-2--so-why-did-i-do-all-of-that-exactly)
-   * [Chapter 3- Into the hardware](#chapter-3--into-the-hardware)
+      * [So Why Did I do all of that exactly?](#so-why-did-i-do-all-of-that-exactly)
+      * [Okay, so what?](#okay-so-what)
+   * [Chapter 3 - Into the hardware](#chapter-3---into-the-hardware)
       * [The CPU](#the-cpu)
          * [Clock Speed](#clock-speed)
          * [Microcode](#microcode)
@@ -13,22 +14,22 @@
       * [RAM](#ram)
       * [The Motherboard](#the-motherboard)
          * [Chipset](#chipset)
+         * [Expansion slots](#expansion-slots)
          * [ROM/BIOS/UEFI](#rombiosuefi)
          * [VRM](#vrm)
       * [Graphics Card (or integrated graphics)](#graphics-card-or-integrated-graphics)
       * [Storage](#storage)
          * [HDD](#hdd)
          * [SSD](#ssd)
+         * [Optane](#optane)
+         * [Cloud Storage (Some one elses' drives)](#cloud-storage-some-one-elses-drives)
          * [Portable](#portable)
-         * [The Future](#the-future)
-            * [Optane](#optane)
-            * [Cloud Storage (Some one elses' drives)](#cloud-storage-some-one-elses-drives)
          * [The Past](#the-past)
       * [Network Interfaces](#network-interfaces)
          * [Ethernet](#ethernet)
          * [WiFi](#wifi)
          * [High Bandwith](#high-bandwith)
-         * [The Future](#the-future-1)
+         * [The Future](#the-future)
          * [The Past](#the-past-1)
       * [Power Supply](#power-supply)
       * [Cooling](#cooling)
@@ -36,7 +37,7 @@
          * [Keyborads](#keyborads)
          * [Legacy Connections](#legacy-connections)
       * [How to know what to buy](#how-to-know-what-to-buy)
-   * [Chapter 4- Back to the Root of Things](#chapter-4--back-to-the-root-of-things)
+   * [Chapter 4 - Back to the Root of Things](#chapter-4---back-to-the-root-of-things)
       * [Permissions](#permissions)
       * [/dev, the devices folder](#dev-the-devices-folder)
          * [TTY's, these are important:](#ttys-these-are-important)
@@ -56,7 +57,7 @@
       * [SystemD and alternatives](#systemd-and-alternatives)
       * [Schedulers](#schedulers)
       * [Dbus](#dbus)
-   * [Chapter 5- Resistance, Capacitance, and Inductance](#chapter-5--resistance-capacitance-and-inductance)
+   * [Chapter 5 - Resistance, Capacitance, and Inductance](#chapter-5---resistance-capacitance-and-inductance)
       * [The Tools of the Trade](#the-tools-of-the-trade)
          * [The Multimeter](#the-multimeter)
             * [Resistance and the OHM meter](#resistance-and-the-ohm-meter)
@@ -68,40 +69,42 @@
          * [The Oscilloscope](#the-oscilloscope)
          * [The Logic Analyzer](#the-logic-analyzer)
       * [Software Simulation](#software-simulation)
-            * [Circuit Simulator](#circuit-simulator)
-            * [Simulide](#simulide)
-            * [VCV Rack?](#vcv-rack)
-      * [OHM's law, Nodal &amp; Mesh Analysis, Superposition](#ohms-law-nodal--mesh-analysis-superposition)
+      * [OHM's law, Nodal &amp; Mesh Analysis, Superposition, Thevanins](#ohms-law-nodal--mesh-analysis-superposition-thevanins)
       * [Resistors](#resistors)
       * [Capacitors](#capacitors)
       * [Inductors](#inductors)
       * [Filters](#filters)
       * [Decibels](#decibels)
       * [Further Reading](#further-reading)
-   * [Chapter 6- Let's work on how we work](#chapter-6--lets-work-on-how-we-work)
+   * [Chapter 6 - Let's work on how we work](#chapter-6---lets-work-on-how-we-work)
       * [The Terminal](#the-terminal)
       * [Heads up,](#heads-up)
       * [Code editors](#code-editors)
       * [The Desktop Envrioment](#the-desktop-envrioment)
       * [The Physical Enviroment &amp; Hardware](#the-physical-enviroment--hardware)
-         * [Monitors](#monitors)
-         * [Keyboard](#keyboard)
-         * [Sound](#sound)
       * [Various Programs:](#various-programs)
-         * [Git](#git)
-         * [Markdown](#markdown)
-         * [Taskwarrior &amp; Timewarrior](#taskwarrior--timewarrior)
-         * [File Explorers &amp; Storage Managment](#file-explorers--storage-managment)
-         * [Media (Music, Video, PDF,)](#media-music-video-pdf)
-         * [Office &amp; Creative Software](#office--creative-software)
-         * [Package managment](#package-managment)
-         * [Web and network protocols](#web-and-network-protocols)
-      * [Shell Scripts](#shell-scripts)
-   * [Chapter 7- Let's get to code](#chapter-7--lets-get-to-code)
+   * [Chapter 7 - Let's write some python](#chapter-7---lets-write-some-python)
       * [The building blocks of programming](#the-building-blocks-of-programming)
       * [Common methods used](#common-methods-used)
-      * [Program 1, Starting easy](#program-1-starting-easy)
-      * [Program 2, Going Deeper](#program-2-going-deeper)
+      * [Some simple programs](#some-simple-programs)
+         * [Hello World](#hello-world)
+         * [Even or Odd, prime,](#even-or-odd-prime)
+         * [Calculating sine and pi](#calculating-sine-and-pi)
+         * [Sorting a list](#sorting-a-list)
+         * [Palindromes](#palindromes)
+         * [Cypher](#cypher)
+      * [Making a full project](#making-a-full-project)
+         * [Part 1, Starting easy](#part-1-starting-easy)
+      * [More advanced topics](#more-advanced-topics)
+   * [Chapter 8 - Low Level Programming](#chapter-8---low-level-programming)
+      * [Some simple programs, in C  ](#some-simple-programs-in-c)
+         * [Hello World](#hello-world-1)
+         * [Even or Odd, prime,](#even-or-odd-prime-1)
+         * [Calculating sine and pi](#calculating-sine-and-pi-1)
+         * [Sorting a list](#sorting-a-list-1)
+         * [Palindromes](#palindromes-1)
+         * [Cypher](#cypher-1)
+         * [Part 2, Going Deeper](#part-2-going-deeper)
          * [What are we going to do?](#what-are-we-going-to-do)
          * [Tools to use](#tools-to-use)
          * [Pseudo code](#pseudo-code)
@@ -109,11 +112,12 @@
          * [Debugging it](#debugging-it)
          * [Analyzing the Assembly](#analyzing-the-assembly)
          * [Patching it](#patching-it)
-         * [Where to get more pracice with low level programming](#where-to-get-more-pracice-with-low-level-programming)
-      * [more advanced topics](#more-advanced-topics)
-      * [Program 3, more advanced high level](#program-3-more-advanced-high-level)
-      * [Program 4, getting our toes wet with embeded systems](#program-4-getting-our-toes-wet-with-embeded-systems)
-   * [Chapter 8- Networking](#chapter-8--networking)
+      * [C, C  , Rust, Go, ?](#c-c-rust-go-)
+      * [Where to get more pracice with low level programming](#where-to-get-more-pracice-with-low-level-programming)
+   * [Chapter 9 - Finishing up the project](#chapter-9---finishing-up-the-project)
+      * [Part 3, more advanced high level](#part-3-more-advanced-high-level)
+      * [Part 4, getting our toes wet with embeded systems](#part-4-getting-our-toes-wet-with-embeded-systems)
+   * [Chapter 10 - Networking](#chapter-10---networking)
       * [A typical network](#a-typical-network)
       * [The physical Layer](#the-physical-layer)
          * [Coax, Fiber](#coax-fiber)
@@ -153,7 +157,7 @@
          * [Wireshark](#wireshark)
          * [Nmap](#nmap)
       * [Really weird Networking, because why not!](#really-weird-networking-because-why-not)
-   * [Chapter 9- High Level Overview of Math, Physics, and Chemistry (Sorry...)](#chapter-9--high-level-overview-of-math-physics-and-chemistry-sorry)
+   * [Chapter 11 - High Level Overview of Math, Physics, and Chemistry (Sorry...)](#chapter-11---high-level-overview-of-math-physics-and-chemistry-sorry)
       * [Ⅰ - Math](#ⅰ---math)
          * [1 - Algebra](#1---algebra)
          * [2 - Discrete Math](#2---discrete-math)
@@ -163,7 +167,7 @@
          * [6 - Matrix Theory](#6---matrix-theory)
       * [Ⅱ - Physics](#ⅱ---physics)
       * [Ⅲ - Chem](#ⅲ---chem)
-   * [Chapter 10- Diodes,  Transistors, and Integrated Circuits](#chapter-10--diodes--transistors-and-integrated-circuits)
+   * [Chapter 12 - Diodes,  Transistors, and Integrated Circuits](#chapter-12---diodes--transistors-and-integrated-circuits)
       * [Transformers, Variacs](#transformers-variacs)
       * [Diodes, the one way road](#diodes-the-one-way-road)
          * [Diode Logic](#diode-logic)
@@ -180,42 +184,71 @@
       * [Audio Devices](#audio-devices)
    * [Relating AC and Music](#relating-ac-and-music)
       * [Continued Reading:](#continued-reading)
-   * [Chapter 11- Embedded Systems](#chapter-11--embedded-systems)
+   * [Chapter 13 - Embedded Systems](#chapter-13---embedded-systems)
       * [What is an Embedded System?](#what-is-an-embedded-system)
       * [PWM, SPI, I2C, What's going on?!](#pwm-spi-i2c-whats-going-on)
       * [Playing around - Hello World and blink](#playing-around---hello-world-and-blink)
       * [Making an Embeded System project - 1 - Humidity Sensor](#making-an-embeded-system-project---1---humidity-sensor)
       * [Making an Embeded System project - 2 - MIDI Controller (with piezzo)](#making-an-embeded-system-project---2---midi-controller-with-piezzo)
       * [Making an Embeded System project - 3 - Stepper Motor Music](#making-an-embeded-system-project---3---stepper-motor-music)
-   * [Chapter 12- Discrete Math and Algorithms](#chapter-12--discrete-math-and-algorithms)
-   * [Chapter 13- Writing a larger program](#chapter-13--writing-a-larger-program)
-      * [Planning](#planning)
+   * [Chapter 14 - Discrete Math and Algorithms](#chapter-14---discrete-math-and-algorithms)
+      * [Discrete Math](#discrete-math)
+      * [Complexity analsis](#complexity-analsis)
+      * [Brute Force](#brute-force)
+      * [Data structures](#data-structures)
+      * [Practice](#practice)
+   * [Chapter 15 - Writing a larger program](#chapter-15---writing-a-larger-program)
       * [Object Oriented Programming](#object-oriented-programming)
-   * [Chapter 14- Servers!](#chapter-14--servers)
+      * [Planning](#planning)
+      * [Software Engineering](#software-engineering)
+   * [Chapter 16 - Servers!](#chapter-16---servers)
+      * [Why build a server](#why-build-a-server)
+      * [DIY Networking: Routing, firewall, etc.](#diy-networking-routing-firewall-etc)
       * [Web hosting](#web-hosting)
-      * [File Sharing](#file-sharing)
+      * [File Storage, Sharing, Backups](#file-storage-sharing-backups)
       * [Remote Access](#remote-access)
       * [Git, Games, and Glory](#git-games-and-glory)
       * [Virtual Machines](#virtual-machines)
       * [Containerization](#containerization)
-   * [Chapter 15- Databases](#chapter-15--databases)
-   * [Chapter 16- Debugging](#chapter-16--debugging)
-   * [Chapter 17- Compilers and Assemblers](#chapter-17--compilers-and-assemblers)
+      * [Fault tollerence](#fault-tollerence)
+   * [Chapter 17 - Databases](#chapter-17---databases)
+   * [Chapter 18 - Debugging, Automated Building and Testing](#chapter-18---debugging-automated-building-and-testing)
+      * [Automated Building](#automated-building)
+      * [Debugging](#debugging)
+         * [Software Debugging](#software-debugging)
+         * [Hardware Dubugging](#hardware-dubugging)
+      * [Testing](#testing)
+         * [Software Testing](#software-testing)
+         * [Hardware Testing](#hardware-testing)
+   * [Chapter 19 - Compilers and Assemblers](#chapter-19---compilers-and-assemblers)
+      * [Making an interpreted language](#making-an-interpreted-language)
+      * [Making a compiled language](#making-a-compiled-language)
       * [Continued Reading](#continued-reading-1)
-   * [Chapter 18- Automated Building and Testing](#chapter-18--automated-building-and-testing)
-   * [Chapter 19- Exploitation](#chapter-19--exploitation)
+   * [Chapter 20 - Automated Building and Testing](#chapter-20---automated-building-and-testing)
+   * [Chapter 21 - Exploitation](#chapter-21---exploitation)
+      * [Types of exploits](#types-of-exploits)
+         * [Software](#software)
+            * [Networking](#networking)
+         * [Hardware](#hardware)
+         * [Social Engineering](#social-engineering)
+         * [Physical security](#physical-security)
+      * [Malware](#malware)
+      * [Tools of the trade](#tools-of-the-trade)
+      * [Getting some practice](#getting-some-practice)
+         * [CTF-Time](#ctf-time)
+         * [PWNie Island](#pwnie-island)
       * [Where to learn even more:](#where-to-learn-even-more)
-   * [Chapter 20- Let's make our own PCB](#chapter-20--lets-make-our-own-pcb)
-   * [Chapter 21- We've got cores, let's use em'](#chapter-21--weve-got-cores-lets-use-em)
-   * [Chapter 22- (((())(()((()(()))))))](#chapter-22--)
-   * [Chapter 23- Security](#chapter-23--security)
-   * [Chapter 24- Open Source](#chapter-24--open-source)
-   * [Chapter 25- Graphical Programming](#chapter-25--graphical-programming)
-   * [Chapter 27- Back to the Lab again](#chapter-27--back-to-the-lab-again)
-      * [How to make a home lab for engineering](#how-to-make-a-home-lab-for-engineering)
-   * [Chapter 28- Let's make our own CPU](#chapter-28--lets-make-our-own-cpu)
-   * [Chapter 29- 3D printing, cases, and making real things](#chapter-29--3d-printing-cases-and-making-real-things)
-   * [Wrapping up- Where to go from here](#wrapping-up--where-to-go-from-here)
+   * [Chapter 22 - Security](#chapter-22---security)
+   * [Chapter 23 - Open Source, Licences, and Copyright](#chapter-23---open-source-licences-and-copyright)
+   * [Chapter 24 - Let's make our own PCB](#chapter-24---lets-make-our-own-pcb)
+   * [Chapter 25 - We've got cores, let's use em'](#chapter-25---weve-got-cores-lets-use-em)
+   * [Chapter 26 - Graphical Programming](#chapter-26---graphical-programming)
+   * [Chapter 27 - (((())(()((()(()))))))](#chapter-27---)
+   * [Chapter 28 - Let's try out programmable logic](#chapter-28---lets-try-out-programmable-logic)
+   * [Chapter 29 - Let's make our own CPU](#chapter-29---lets-make-our-own-cpu)
+   * [Chapter 30 - 3D printing, cases, and making real things](#chapter-30---3d-printing-cases-and-making-real-things)
+   * [Chapter 31 - Fine, I'll talk about AI](#chapter-31---fine-ill-talk-about-ai)
+   * [Wrapping up - Where to go from here](#wrapping-up---where-to-go-from-here)
       * [Integrating other interests](#integrating-other-interests)
       * [Projects to work on](#projects-to-work-on)
       * [Contributing to Open Source](#contributing-to-open-source)
@@ -231,9 +264,9 @@
       * [Alternative Shells](#alternative-shells)
       * [Alternative commands](#alternative-commands)
       * [Useful Non-Stock CLI Tools](#useful-non-stock-cli-tools)
-   * [Appendix B - Common Graphical Linux Utils](#appendix-b---common-graphical-linux-utils)
-      * [Graphical Enviroments  :](#graphical-enviroments)
-      * [Free Graphical Utilities:](#free-graphical-utilities)
+      * [Common Graphical Linux Utils](#common-graphical-linux-utils)
+      * [Graphical Enviroments  ](#graphical-enviroments)
+      * [Free Graphical Utilities](#free-graphical-utilities)
          * [Office &amp; Daily](#office--daily)
          * [A/V](#av)
          * [Social](#social)
@@ -242,12 +275,12 @@
          * [System](#system)
          * [IRL](#irl)
          * [Other](#other)
-      * [Paid Graphical Utilities:](#paid-graphical-utilities)
-      * [Self hosted / Services:](#self-hosted--services)
-   * [Appendix C - Common electrical parts (appearence and numbers)](#appendix-c---common-electrical-parts-appearence-and-numbers)
-   * [Appendix D - BOM](#appendix-d---bom)
-   * [Appendix E - The Politics of it all](#appendix-e---the-politics-of-it-all)
-   * [Appendix F - Things to avoid](#appendix-f---things-to-avoid)
+      * [Paid Graphical Utilities](#paid-graphical-utilities)
+      * [Self hosted / Services](#self-hosted--services)
+   * [Appendix B - Common electrical parts (appearence and numbers)](#appendix-b---common-electrical-parts-appearence-and-numbers)
+   * [Appendix C - BOM](#appendix-c---bom)
+   * [Appendix D - The Politics of it all](#appendix-d---the-politics-of-it-all)
+   * [Appendix E - Things to avoid](#appendix-e---things-to-avoid)
    * [Other Great Resources](#other-great-resources)
       * [Learning Linux](#learning-linux)
       * [Youtube](#youtube)
@@ -255,13 +288,13 @@
       * [Github info pages](#github-info-pages)
       * [Books](#books)
       * [Non-Technical](#non-technical)
-DELIMITEDFORTOC
+    DELIMITEDFORTOC
 
 # Preface
 
 Hey there.
 
-My name is Vega. I know there are plenty of tutorials and ways to learn online be it on YouTube, SkillShare, or online classes provided free by various universities. The difference here is there is no bullshit, no babysitting, and lots of bias as a result of personal experience. My views of things like what programming languages are bad or what hardware you should buy to learn on will be expressed directly and bluntly. This isn't to say I won't explain my reasoning, just that I'm not going to be apologetic when I say javascript, php, java, arduino, and Windows 10 are trash - though I will still likely talk about all of these things.
+My name is Vega. I know there are plenty of tutorials and ways to learn online be it on YouTube, SkillShare, or online classes provided for free by various universities. The difference here is there is no bullshit, no babysitting, and lots of bias as a result of personal experience. My views of things like what programming languages are bad or what hardware you should buy to learn on will be expressed directly and bluntly. This isn't to say I won't explain my reasoning, just that I'm not going to be apologetic when I say javascript, php, java, arduino, and Windows 10 are trash - though I will still likely talk about all of these things.
 
 I by no means expect you to share my same biases, in fact, I hope you do not and that at one point or another we can discuss why you think I am wrong, as that is the only way I can learn.
 
@@ -271,13 +304,17 @@ This is a guide for understanding the power the humble electron has in our lives
 
 I will be assuming you are of reasonable technical ability already- that is the concept of how to proficiently use most types of software, navigation of a file manager, etc-  furthermore, I will avoid going into high level math, chemistry, and physics as much as is practical- mostly because knowing these things is typically not actually useful in the daily life of someone who works on any of this beyond those that are doing cutting edge research or are planning to teach, in which case you should actually go to college instead of reading this. For everyone else, welcome. This is the document which can save you going to college and taking classes full of useless information you will inevitably forget and for which employers don't care about to begin with.
 
-Following along will require a few things. The first of which is dedication and time. If you don't have the desire to put in at least a little bit of work there is simply no way I can help, that said, if you're reading this instead of watching Netflix I believe that's already proof enough you want to learn. Next is hardware and software, namely you'll be needing a few development boards and linux, but I'll get into those with time; however, for convince, everything referenced to be downloaded or physical items to be purchased are all listed in Appendix D
+Following along will require a few things. The first of which is dedication and time. If you don't have the desire to put in at least a little bit of work there is simply no way I can help, that said, if you're reading this instead of watching Netflix I believe that's already proof enough you want to learn. Next is hardware and software, namely you'll be needing a few development boards and linux, but I'll get into those with time; however, for convince, everything referenced to be downloaded or physical items to be purchased are all listed in Appendix C
 
-[TODO]
+Before we get started there are a few things I recomend reading and watching first. These should give you a bit of an overview of some of the things that will be covered to give you at least a tiny bit of familiarity as each concept comes up.
 
-https://www.youtube.com/watch?v=SzJ46YA_RaA
+---
 
-https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo
+I recomend this overview of the topics covered in CS: [Map of Computer Science](https://www.youtube.com/watch?v=SzJ46YA_RaA) by Dominic Walliman
+
+Also by Walliman, a video on [How to Read Math](https://www.youtube.com/watch?v=Kp2bYWRQylk) and the cheat sheet from it:
+
+![How To Read Math](https://live.staticflickr.com/4671/40544016221_61cf8944d1_h.jpg)
 
 # Ⅰ - Community
 
@@ -318,17 +355,24 @@ Yes, there is always a relevant XKCD, and yes, you will always feel like everyon
 > Hopefully it's clear why questions like this rarely result in direct answers.
 >
 > - There are very few people who could be called experts in every facet of whatever is being asked
-> - Imposter syndrome is common
-> - Most people won't write that blank check for time/help commitment
+>
+>   > - Imposter syndrome is common
+>   >
+>   >   > > - Most people won't write that blank check for time/help commitment
 >
 > Instead, share:
 >
->   - The goal - "Trying to query for a list of tags on a post" - See [The XY Problem](http://xyproblem.info/)
->   - The problem - "I'm getting back these results"
->   - The expectation - "but it should be these results"
->   - Any context or previous research you've done
->   - If possible, a simplified example. 3v4l for php, jsfiddle for html/js/css, etc. are great, otherwise a paste site.
->   - What you've already tried
+> - The goal - "Trying to query for a list of tags on a post" - See [The XY Problem](http://xyproblem.info/)
+>
+>   > - The problem - "I'm getting back these results"
+>   >
+>   >   > > - The expectation - "but it should be these results"
+>   >   > >
+>   >   > >   > > > > - Any context or previous research you've done
+>   >   > >   > > > >
+>   >   > >   > > > >   > > > > > > > > - If possible, a simplified example. 3v4l for php, jsfiddle for html/js/css, etc. are great, otherwise a paste site.
+>   >   > >   > > > >   > > > > > > > >
+>   >   > >   > > > >   > > > > > > > >   > > > > > > > > > > > > > > > > - What you've already tried
 >
 > This allows anyone there to try to help. Many skills transfer well to other languages or platforms. At minimum, you might get an idea for something you haven't tried yet. Sometimes you'll even solve your own problem while narrowing down the simplest possible test case.
 >
@@ -903,7 +947,7 @@ chsh -s /bin/zsh
 
 from now on you can just open a terminal and type `yay` followed by your password to run updates.
 
-# Chapter 2- So Why Did I do all of that exactly?
+## So Why Did I do all of that exactly?
 
 Linux makes development of code particularly easy, so, let's write some code!
 
@@ -1129,7 +1173,19 @@ this is much, much easier to read than a copy and pasted version without these f
 
 For now, we're going to take a bit of a break from code, but we'll be back.
 
-# Chapter 3- Into the hardware
+## Okay, so what?
+
+So, yeah, you can develop python just fine in windows. Installing it is just a matter of going online and fetching an exe installer and checking the right boxes. There's nothing here you can't do in windows. If that's the case why do any of this.
+
+Frankly the answer is complicated. The gist of it is that linux actually exposes things in a way that while might be possible in windows will probably be much more difficult. Even in the above, when we installed python and a few libraries there was no need to open a web browser and each package is maintianied and verified in a way that makes installation easy, secure, and reproduceable.
+
+But more than that, linux actually exposes the system to the user and doesn't try to hide it's inner workings, rather, for many things linux implies that you should manually edit the config files, look at how programs use various resources, and peer into how the system actually handles any given task.
+
+You'll start to see this more as we move forward though these next few chapters. Speaking of...
+
+# Chapter 3 - Into the hardware
+
+One of the nifty things about linux is you don't need to install extra software to check out the deeper parts of your hardware. While on windows you might need a tool like CPU-Z to look at information about the CPU on linux you can do it out of the box. Let's get started on that then!
 
 ## The CPU
 
@@ -1333,6 +1389,8 @@ dmi decode
 
 ### Chipset
 
+### Expansion slots
+
 ### ROM/BIOS/UEFI
 
 ### VRM
@@ -1347,13 +1405,11 @@ hdparm
 
 ### SSD
 
+### Optane
+
+### Cloud Storage (Some one elses' drives)
+
 ### Portable
-
-### The Future
-
-#### Optane
-
-#### Cloud Storage (Some one elses' drives)
 
 ### The Past
 
@@ -1369,13 +1425,19 @@ Floppy, Zip,
 
 ### The Future
 
+wifi6, 10gbe rj45 and beyond, cellular, sdr
+
 ### The Past
+
+coax network, infrared, sneakernet
 
 ## Power Supply
 
 power efficency, size, voltage stability
 
 ## Cooling
+
+Blower, air flow vs static pressure, fan size liquid, heat pipes, pwm vs DC control
 
 ## Peripherals
 
@@ -1389,7 +1451,7 @@ Paralell, Serial, Tape, CD,
 
 ## How to know what to buy
 
-# Chapter 4- Back to the Root of Things
+# Chapter 4 - Back to the Root of Things
 
 We've been using file in /proc and /dev thoughout this, but we never really looked to see what else is in there. Let's do that.
 
@@ -2068,6 +2130,8 @@ and read the stack again we'll see:
 
 Which while may not look overly interesting, I assure you will be something of interest later.
 
+One interesting processed to note in here is the process numbered '1' which, if you look back in htop, you'll see is the init process. This means it's actually possible to look at a mountain of deails about the init process, which we'll talk about in a bit.
+
 Before we leave /proc, look back up at all the file that each process has and take note, also notice how some of these relate to what we saw in /dev
 
 ## Take a breather,
@@ -2138,6 +2202,8 @@ lsof, strace, ltrace, nice levels
 
 [TODO]
 
+init system: https://www.lifewire.com/how-to-use-the-init-command-in-linux-4066930
+
 ## Schedulers
 
 [TODO]
@@ -2150,7 +2216,7 @@ https://github.com/KnowNo/How-Linux-Works-2nd-Edition/blob/master/How.Linux.Work
 
 We'll explore more of the OS later, but for now I think the information overload is a bit much anyway, so lets move away from screens and into the world of hardware
 
-# Chapter 5- Resistance, Capacitance, and Inductance
+# Chapter 5 - Resistance, Capacitance, and Inductance
 
 ## The Tools of the Trade
 
@@ -2242,13 +2308,15 @@ Using a logic analyzer is pretty simlpe, most today are connected to your comupu
 
 [TODO]
 
-#### Circuit Simulator
+Circuit Simulator
 
-#### Simulide
+Simulide
 
-#### VCV Rack?
+VCV Rack?
 
-## OHM's law, Nodal & Mesh Analysis, Superposition
+[TODO- following title needs split up, possibly new chapter?]
+
+## OHM's law, Nodal & Mesh Analysis, Superposition, Thevanins
 
 [TODO]
 
@@ -2284,7 +2352,7 @@ https://learn.sparkfun.com/tutorials/voltage-current-resistance-and-ohms-law/vol
 
 https://en.wikipedia.org/wiki/Fourier_transform
 
-# Chapter 6- Let's work on how we work
+# Chapter 6 - Let's work on how we work
 
 ## The Terminal
 
@@ -2328,11 +2396,9 @@ This is the biggest change, I'm going to recomend switching from KDE, which we i
 
 ![i3](./i3.png)
 
-This is with 4 windows open, a music player, a CLI file manager, a graphical file manager, and an extra terminal I used to take the screenshot. What's cool about i3 is how it will always use space as efficently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver. The example above is less than practical (two different file mangers...) but I just rapidly opened some stuff for demonstartion.
+This is with 3 windows ope: Marktext (the program I'm writing this in), a file manager, and an terminal I used to launch the program (scrot) to take the screenshot. What's cool about i3 is how it will always use space as efficently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver.
 
 i3, when first installed, is very, very minimal, it will greet you with a plain black bar and clicking with either mouse button anywhere will do nothing. You should, however, be able to open a terminal by using your modkey (probably the windows key) and enter.
-
-[TODO]
 
 Compton
 
@@ -2358,7 +2424,7 @@ r/unixporn
 
 [TODO]
 
-### Monitors
+**Monitors**
 
 Multi-head
 
@@ -2366,45 +2432,43 @@ Positioning
 
 Color, Brightness, night filter
 
-### Keyboard
+**Keyboard**
 
 layout, shortcuts, height, mechanical
 
-### Sound
-
-###
+**Sound**
 
 ## Various Programs:
 
-### Git
+**Git**
 
 [TODO]
 
 Show how to setup SSH keys, mention git kracken
 
-### Markdown
+**Markdown**
 
 [TODO]
 
 Marktext, Typora, colabrative editing, Github markup, etc
 
-### Taskwarrior & Timewarrior
+**Taskwarrior & Timewarrior**
 
 [TODO]
 
 Taskweb
 
-### File Explorers & Storage Managment
+**File Explorers & Storage Managment**
 
 [TODO]
 
 Ranger, THunar, Nautilius, Baobab, Gparted
 
-### Media (Music, Video, PDF,)
+**Media (Music, Video, PDF,)**
 
 [TODO]
 
-### Office & Creative Software
+**Office & Creative Software**
 
 [TODO]
 
@@ -2430,7 +2494,7 @@ Wine
 
 Boxes- vm
 
-### Package managment
+**Package managment**
 
 [TODO]
 
@@ -2438,32 +2502,55 @@ Pamac, Steam, AppImg, itch.io, dpkg, snap.
 
 maintaining an aur package, pacman conf stuff
 
-### Web and network protocols
+**Web and network protocols**
 
 [TODO]
 
 Vivaldi, Firefox, Syncthing, Beaker, IPFS, IRC - irssi, Telegram, Etherape, Wireshark, gufw,
 
-## Shell Scripts
+**Shell Scripts**
 
 [TODO]
 
-# Chapter 7- Let's get to code
+# Chapter 7 - Let's write some python
 
 ## The building blocks of programming
+
 [TODO]
-if, while, for (and specialized), assignment, comparison, combined ops (+=), bitwise, mod, exponent, floor,
-in/not in, is/is not, data types
+if, while, for (and specialized), assignment, comparison, combined ops (+=), mod, exponent, floor,
+in/not in, is/is not, data types, functions
 libraries
 
 ## Common methods used
+
 commenting-out
 print debugging
 Recursion, object orientation
 while(true)
 try/catch
 
-## Program 1, Starting easy
+## Some simple programs
+
+### Hello World
+
+fully discect each line and call and why each line is used, ASCII table
+
+add greating and input
+
+### Even or Odd, prime,
+
+### Calculating sine and pi
+
+### Sorting a list
+
+### Palindromes
+
+### Cypher
+
+## Making a full project
+
+### Part 1, Starting easy
+
 [TODO] guide to write an OO python program with libraries to read and write entries to a database-like file and a real database
 the database should have 3 tables, a to-do list, a time-tracker list, and a list of articles
 
@@ -2475,22 +2562,59 @@ we'll need some way to track what items in the time tracker were started, but ne
 
 for now, everything should be strictly command line arguments and print statments
 
-## Program 2, Going Deeper
+## More advanced topics
+
+lambdas(high level only), threads/ parrallelization(high level only), interupts (actually, let's save this until embbeded), apis,
+
+# Chapter 8 - Low Level Programming
+
+the stack, pointers, etc.
+
+psuedo code, bitwise opererators, types,
+
+## Some simple programs, in C++
+
+### Hello World
+
+fully discect each line and call and why each line is used, ASCII table
+
+add greating and input
+
+### Even or Odd, prime,
+
+### Calculating sine and pi
+
+### Sorting a list
+
+mention efficenecy, analysis later
+
+### Palindromes
+
+### Cypher
+
+### Part 2, Going Deeper
+
 [TODO] Interacting with the above, this program should run in the background and update the data, based on window focus events
 using libxdo
 
+This program should actually provide the VAST majority of the source code, with purposeful errors for demonstating the below
+
 furthermore, the C code should check to see if there is a new article, and if so it should call a function that
 first checks a 'meta' entry to see if the python code to change a published time to be newer or the number of entries has changed to optimize:
-- generates a template markdown file for the article  if PUBLISHED is FALSE and no file for it exists,
-- generates a template markdown file for the article  if PUBLISHED is TRUE and no file for it exists,
-- generates a html file from the markdown             if PUBLISHED is TRUE  and no html exists  then updates TEDIT, TPUB
-- remove the html file                                if PUBLISHED is FALSE and an html file for it exists,
+
+- generates a template markdown file for the article if PUBLISHED is FALSE and no file for it exists,
+
+- generates a template markdown file for the article if PUBLISHED is TRUE and no file for it exists,
+
+- generates a html file from the markdown if PUBLISHED is TRUE and no html exists then updates TEDIT, TPUB
+
+- remove the html file if PUBLISHED is FALSE and an html file for it exists,
 
 however, every time this will still need checked to monitor the md for changes, using ionotify
-- generates a new html from the markdwon              if PUBLISHED is TRUE  and md has changed  then updates TEDIT
+
+- generates a new html from the markdwon if PUBLISHED is TRUE and md has changed then updates TEDIT
+
 - if markdown is removed, the html file should be as well
-
-
 
 ### What are we going to do?
 
@@ -2530,7 +2654,9 @@ Cutter, TIS-100, Shenzhen IO,
 
 source patching, binary patching
 
-### Where to get more pracice with low level programming
+## C, C++, Rust, Go, ?
+
+## Where to get more pracice with low level programming
 
 [TODO]
 
@@ -2540,19 +2666,17 @@ https://doc.rust-lang.org/book/foreword.html
 
 https://tour.golang.org/welcome/1
 
-## more advanced topics
-lambdas, threads/ parrallelization(high level only), interupts (actually, let's save this until embbeded), apis,
+# Chapter 9 - Finishing up the project
 
-## Program 3, more advanced high level
+## Part 3, more advanced high level
 
 Modify the original python program to support a pretty cli input in a pretty way to make entries and visulize the data collected, parallelize some things, finally add a config file using yaml
 
-## Program 4, getting our toes wet with embeded systems
+## Part 4, getting our toes wet with embeded systems
 
 Finally, let's go back and add a com port to the C code and send data to an arduino (can be simulated) and a TFT to display the currently active task and time elapsed.
 
-
-# Chapter 8- Networking
+# Chapter 10 - Networking
 
 [TODO] Add follow along making a network stack
 
@@ -2644,7 +2768,7 @@ Real time clocks, timezones, utc, etc.
 
 Netsukuku, cjdns + hyperboria, Dat / Beaker, https://readhacker.news/s/3WJ75
 
-# Chapter 9- High Level Overview of Math, Physics, and Chemistry (Sorry...)
+# Chapter 11 - High Level Overview of Math, Physics, and Chemistry (Sorry...)
 
 [TODO]
 
@@ -2670,7 +2794,7 @@ Imaginary numbers, systems of equations
 
 ## Ⅲ - Chem
 
-# Chapter 10- Diodes,  Transistors, and Integrated Circuits
+# Chapter 12 - Diodes,  Transistors, and Integrated Circuits
 
 [TODO]
 
@@ -2727,8 +2851,7 @@ At this point I highly recommend *'Practical Electronics for Inventors'* ISBN 97
 
 https://taleri.files.wordpress.com/2014/02/practical_electronics_for_inventors_-_scherz_paul.pdf
 
-
-# Chapter 11- Embedded Systems
+# Chapter 13 - Embedded Systems
 
 [TODO]
 
@@ -2746,27 +2869,57 @@ https://taleri.files.wordpress.com/2014/02/practical_electronics_for_inventors_-
 
 adapted from floppy drives, but less expensive
 
-# Chapter 12- Discrete Math and Algorithms
+# Chapter 14 - Discrete Math and Algorithms
 
 [TODO]
 
-# Chapter 13- Writing a larger program
+## Discrete Math
+
+Truth tables, binary, logical equlivencies, propositional logic,
+
+Sets, functions, relations, recurrence, induction, combonation, graphs, isomorphsm,
+
+## Complexity analsis
+
++recursion analysis, https://www.youtube.com/watch?v=YX40hbAHx3s (p np)
+
+## Brute Force
+
+## Data structures
+
+trees, hashtables/maps, stacks
+
+## Practice
+
+Fib, some pracice logical equliv, base conversion algo, overlapping lines, matrix multiplication
+
+# Chapter 15 - Writing a larger program
 
 [TODO]
-
-## Planning
 
 ## Object Oriented Programming
 
-# Chapter 14- Servers!
+## Planning
+
+## Software Engineering
+
+# Chapter 16 - Servers!
 
 [TODO]
+
+##
+
+What's a homelab?
+
+## Why build a server
+
+## DIY Networking: Routing, firewall, etc.
 
 ## Web hosting
 
 Before we get to business there's some necessary viewing: http://motherfuckingwebsite.com/
 
-## File Sharing
+## File Storage, Sharing, Backups
 
 ## Remote Access
 
@@ -2776,7 +2929,9 @@ Before we get to business there's some necessary viewing: http://motherfuckingwe
 
 ## Containerization
 
-# Chapter 15- Databases
+## Fault tollerence
+
+# Chapter 17 - Databases
 
 [TODO]
 
@@ -2784,43 +2939,169 @@ Otherwise known as the chapter about sanitizing your damn inputs.
 
 // insert xkcd drop tables
 
-# Chapter 16- Debugging
+# Chapter 18 - Debugging, Automated Building and Testing
+
+## Automated Building
+
+## Debugging
+
+### Software Debugging
 
 [TODO]
 
 GDB with Gef, interpreted languages, embeded systems, non-code isssues (boot problems, glitchy behavior), hardware failures
 
-# Chapter 17- Compilers and Assemblers
+### Hardware Dubugging
+
+common interfaces, simulation, serial/print debugging (slow), internal data logging, physical indicators of internal state
+
+## Testing
+
+### Software Testing
+
+### Hardware Testing
+
+# Chapter 19 - Compilers and Assemblers
 
 [TODO]
 
 Making a compiler and assembler, DIY language eso-lang style
 
+## Making an interpreted language
+
+## Making a compiled language
+
+https://medium.freecodecamp.org/the-programming-language-pipeline-91d3f449c919
+
 ## Continued Reading
 
-At this point I highly recommend 'The Art of Exploitation' by Jon Erickson
+At this point I highly recommend '[The Art of Exploitation](https://nostarch.com/hacking2.htm)' by Jon Erickson
 
-https://repo.zenk-security.com/Magazine%20E-book/Hacking-%20The%20Art%20of%20Exploitation%20(2nd%20ed.%202008)%20-%20Erickson.pdf
-
-# Chapter 18- Automated Building and Testing
+# Chapter 20 - Automated Building and Testing
 
 [TODO]
 
 Fuzzing (sandsifter), make and alts, etc.
 
-# Chapter 19- Exploitation
+# Chapter 21 - Exploitation
 
 [TODO]
 
+## Types of exploits
+
+[TODO] - where to put return oriented programming, super old hardware/software - 'the home router',
+
+Otherwise known as hacking, exploitation of software is always alluring, though in reality like many things it is much less glamorous than the news or tv make it out to be. Before I get into it I want to plug 'The Art of Exploitation' by Jon Erickson again, as it truly is a masterpiece that describes exploiting in a way that just makes sense
+
+### Software
+
+Injection - SQL
+
+breaking hashes
+
+Heap/buffer overflow
+
+dangaling pointers
+
+code-injection
+
+clock attacks
+
+Race conditions
+
+Path traversel
+
+format string
+
+pseudo-random
+
+Fuzzing
+
+#### Networking
+
+DoS/DDoS
+
+MitM
+
+XXS
+
+MAC/IP spoofing
+
+sniffing
+
+### Hardware
+
 Talk about CPU bugs
 
-CTF time,
+Power side channel
 
-Otherwise known as hacking, exploitation of software is always alluring, though in reality like many things it is much less glamorous than the news or tv make it out to be. Before I get into it I want to plug  'The Art of Exploitation' by Jon Erickson again, as it truly is a masterpiece that describes exploiting in a way that just makes sense
+Timing attacks
 
-https://repo.zenk-security.com/Magazine%20E-book/Hacking-%20The%20Art%20of%20Exploitation%20(2nd%20ed.%202008)%20-%20Erickson.pdf
+pseudo-random (hardware side)
 
-https://microcorruption.com/ , https://ctftime.org/ ,
+Hardware trust (HID injection)
+
+replay attacks
+
+radio, rfid, etc
+
+### Social Engineering
+
+Phishing
+
+spoofing (email, phone)
+
+UTF-8 v ASCII
+
+click jacking
+
+expired certificate
+
+default passwords
+
+honey pots
+
+### Physical security
+
+Lock picking as a last resort
+
+data destruction
+
+## Malware
+
+> Section here about not being a dick
+
+Viruses
+
+polymorphic
+
+boot-record
+
+trojan
+
+logic/comression bomb
+
+logic/time bombs
+
+ransomware
+
+adware/spyware
+
+## Tools of the trade
+
+Many tools in common with debugging (gdb - gef, hex editors, logic analzer)
+
+and testing (fuzzing)
+
+decompilers, dissassembly, analysis
+
+Wireshark
+
+## Getting some practice
+
+### CTF-Time
+
+### PWNie Island
 
 ## Where to learn even more:
 
@@ -2830,7 +3111,25 @@ Phrack : http://www.phrack.org/
 
 Defcon Media Server : https://media.defcon.org/
 
-# Chapter 20- Let's make our own PCB
+As mentioned above in [Chapter 17- Compilers and Assemblers](#chapter-17--compilers-and-assemblers) At this point I highly recommend '[The Art of Exploitation](https://nostarch.com/hacking2.htm)' by Jon Erickson
+
+https://microcorruption.com/ , https://ctftime.org/ ,
+
+CTF time,
+
+# Chapter 22 - Security
+
+[TODO]
+
+focus on how to write secure programs, protect hardware, etc.
+
+# Chapter 23 - Open Source, Licences, and Copyright
+
+[TODO]
+
+actually contribute on github, make an issue, submit a pull request, make a custom repo,
+
+# Chapter 24 - Let's make our own PCB
 
 [TODO]
 
@@ -2838,48 +3137,37 @@ First things first, we're going to be using Kicad, so you'll want to go grab tha
 
 https://www.youtube.com/watch?v=zK3rDhJqMu0&index=8&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&t=0s
 
-# Chapter 21- We've got cores, let's use em'
+# Chapter 25 - We've got cores, let's use em'
 
 [TODO]
 
-# Chapter 22- (((())(()((()(()))))))
+# Chapter 26 - Graphical Programming
+
+[TODO]
+
+C++ from scratch, JS electron app, Processing creative coding, Python Kivy or similar, Flutter (google lang), shaders
+
+# Chapter 27 - (((())(()((()(()))))))
 
 [TODO]
 
 Functional Programming, and other paradigms : lisp, haskell, luna-lang.org
 
-# Chapter 23- Security
+# Chapter 28 - Let's try out programmable logic
+
+# Chapter 29 - Let's make our own CPU
 
 [TODO]
 
-# Chapter 24- Open Source
+# Chapter 30 - 3D printing, cases, and making real things
 
-[TODO]
-
-actually contribute on github, make an issue, submit a pull request, make a custom repo,
-
-# Chapter 25- Graphical Programming
-
-[TODO]
-
-C++ from scratch, JS electron app, Processing creative coding, Python Kivy or similar, Flutter (google lang)
-
-# Chapter 27- Back to the Lab again
-
-[TODO]
-
-## How to make a home lab for engineering
-
-# Chapter 28- Let's make our own CPU
-
-[TODO]
-
-# Chapter 29- 3D printing, cases, and making real things
 [TODO]
 
 While this book/guide/thing primarily focuses on the less mechancial-engieering-y side of things, it wouldn't make sense not to include at least a little about 3D printing, molding, materials, gears, springs, and the like. So, here goes:
 
-# Wrapping up- Where to go from here
+# Chapter 31 - Fine, I'll talk about AI
+
+# Wrapping up - Where to go from here
 
 [TOOD]
 
@@ -3065,13 +3353,13 @@ When we installed arch we actually changed the default shell from bash to zsh, b
   * full featured IRC client, chat right from your terminal
 * screenfetch
   * get some nift stats about your terminal, add to your shell's RC file to be one of the cool kids
-* moreutils
-  * "moreutils is a growing collection of the unix tools that nobody thought to write long ago when unix was young." https://joeyh.name/code/moreutils/
-* hr - https://github.com/octobanana/hr
+* [moreutils](https://joeyh.name/code/moreutils/)
+  * "moreutils is a growing collection of the unix tools that nobody thought to write long ago when unix was young."
+* [hr](https://github.com/octobanana/hr)
   * Need some way to visually seperate things, this literally just makes a horizontal line in the terminal
-* fltrdr - https://github.com/octobanana/fltrdr
+* [fltrdr](https://github.com/octobanana/fltrdr)
   * Wanna read at 1000wpm, this is the tool for you.
-* crex - https://github.com/octobanana/crex
+* [crex]( https://github.com/octobanana/crex)
   * test regular expressions in the terminal
 * lynx, w3m, browsh
   * Browse the web from a terminal (not a joke and actually useful)
@@ -3095,14 +3383,22 @@ When we installed arch we actually changed the default shell from bash to zsh, b
   * Upscale and de-noise images zoom-and-enhance style but for real-    this ones' a bit GPU intensive because it uses AI
 * youtube-dl
   * despite the name this tool can download videos or audio from almost any page on the internet, even supporting playlists in many cases too.
-* rat
-  * This one is weird, but from https://github.com/ericfreese/rat "*Compose shell commands to build terminal applications*"
+* [rat](https://github.com/ericfreese/rat)
+  * "Compose shell commands to build terminal applications"
 * magic-wormhole
   * tool for getting a file between two systems easily and secure, just run `wormhole send` and `wormhole recive` on the respective systems
 * Ix, Gist
   * Paste tools, like pastebin
 * DMIDecode
   * get info from BIOS
+* hexyl
+  * pretty terminal based hex viewer
+* [UXY](https://github.com/sustrik/uxy)
+  * "UXY tool also wraps some common UNIX tools and exports their output in UXY format."
+
+    "UXY is a tool to manipulate UXY format, which is a basically a two-dimenstional table that's both human- and machine-readable."
+
+    This gives a nice format for manipulation of commands though pipes for super complex shell scripting
 
 While some of these may be included, they're some of the OG addons or tools to make included things better:
 
@@ -3118,13 +3414,13 @@ While some of these may be included, they're some of the OG addons or tools to m
 
   * GDB, the original debugger, has it's faults. GEF, a config file for GDB on steroids, fixes many of them. While orgiginally made for exploit developers, many people use it for everyday debugging
 
-# Appendix B - Common Graphical Linux Utils
+## Common Graphical Linux Utils
 
 [TODO]
 
 Mostly taken from https://wiki.archlinux.org/index.php/List_of_applications and https://github.com/Kickball/awesome-selfhosted
 
-## Graphical Enviroments++:
+## Graphical Enviroments++
 
 Gnome, KDE, Pantheon,
 
@@ -3134,7 +3430,7 @@ Compton
 
 Nitrogen, pywal, (feh),
 
-## Free Graphical Utilities:
+## Free Graphical Utilities
 
 ### Office & Daily
 
@@ -3246,11 +3542,11 @@ Stellarium
 
 GnuRadio, SDRAngel
 
-## Paid Graphical Utilities:
+## Paid Graphical Utilities
 
 Renoise, Bitwig
 
-## Self hosted / Services:
+## Self hosted / Services
 
 Netdata
 
@@ -3282,7 +3578,7 @@ Mathics
 
 TaskWeb (TaskWarrior)
 
-# Appendix C - Common electrical parts (appearence and numbers)
+# Appendix B - Common electrical parts (appearence and numbers)
 
 [TODO]
 
@@ -3294,7 +3590,7 @@ TaskWeb (TaskWarrior)
 
   *
 
-# Appendix D - BOM
+# Appendix C - BOM
 
 [TODO - FINAL REVSION]
 
@@ -3360,7 +3656,7 @@ OR
 
 You can find a used Dell Poweredge r610 or poweredge 1950. Many of these will come with out drives, but this option is probably cheaper than the above for better specs. However; these servers are LOUD, loud enough to not be comfortable in the same room and absolutely drink power. As mentioned in the server section, the hardware you use really doesn't matter, you'll just want at least two hard drives, an OS drive, and multiple network interfaces are encouraged. These things can all be added to just about any desktop though, so going to electronics thrift stores or auctions and finding a desktop works too.
 
-# Appendix E - The Politics of it all
+# Appendix D - The Politics of it all
 
 [TODO:] link guerilla open access manifesto and http://www.textfiles.com/100/hack7.txt
 
@@ -3372,7 +3668,7 @@ Most in the technical community belive that you should have full control over th
 
 Finally, many in the tech community are on the heartbeat of issues surounding copyright, fairuse, and the [Digital Millennium Copyright Act](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) or DMCA as without exceptions , a lot of security research would not be legal and it's of direct importance to issues like software piracy and issues sorunding Youtube's automated ContentID [TODO: add links]
 
-# Appendix F - Things to avoid
+# Appendix E - Things to avoid
 
 [TODO]
 
@@ -3389,6 +3685,8 @@ https://github.com/lorin/resilience-engineering
 https://github.com/dwmkerr/hacker-laws
 
 https://n-o-d-e.news/
+
+[Crash Course: Comptuer Science, from PBS](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
 
 ## Learning Linux
 

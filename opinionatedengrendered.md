@@ -279,6 +279,7 @@
       * [Self hosted / Services](#self-hosted--services)
    * [Appendix B - Common electrical parts (appearence and numbers)](#appendix-b---common-electrical-parts-appearence-and-numbers)
    * [Appendix C - BOM](#appendix-c---bom)
+      * [Getting things for cheap](#getting-things-for-cheap)
    * [Appendix D - The Politics of it all](#appendix-d---the-politics-of-it-all)
    * [Appendix E - Things to avoid](#appendix-e---things-to-avoid)
    * [Other Great Resources](#other-great-resources)
@@ -314,7 +315,9 @@ I recomend this overview of the topics covered in CS: [Map of Computer Science](
 
 Also by Walliman, a video on [How to Read Math](https://www.youtube.com/watch?v=Kp2bYWRQylk) and the cheat sheet from it:
 
-![How To Read Math](https://live.staticflickr.com/4671/40544016221_61cf8944d1_h.jpg)
+[How To Read Math, Cheat Sheet](https://live.staticflickr.com/4671/40544016221_61cf8944d1_h.jpg)
+
+
 
 # Ⅰ - Community
 
@@ -405,6 +408,25 @@ I'm going to keep this short and sweet: Nobody learns (effectively) by being sho
 
 This struggle is part of learning and proof that you're doing well. These experinaces should teach you things in their own right. The smell of burning elcetronics may help you diagnose a future circuit, the lesson to not fall into a pit of technical debt may help when a bug has engulfed your code, and the late night of terminal only based work as you try to get your computer working again will teach you more than this book ever can.
 
+To quote someone much smarted than myself:
+
+![Live Overflow Tips](./lotips.png)
+
+
+
+Finally, there's
+
+> **Cunningham's Law** states "the best way to get the right answer on the internet is not to ask a question; it's to post the wrong answer." ([source](https://meta.wikimedia.org/wiki/Cunningham's_Law))
+
+but note, you should keep in mind the standard warning that comes when first using `sudo` if you plan to use Cunningham's law to your advantage:
+
+> We trust you have received the usual lecture from the local System
+> Administrator. It usually boils down to these three things:
+>
+>     #1) Respect the privacy of others.
+>     #2) Think before you type.
+>     #3) With great power comes great responsibility.
+
 # Chapter 1 - The first goal
 
 Every journey needs a place to start, and while many may like to start slow I think a head first approach is best. So that's exactly what we're gonna do. The very first thing we're going to do is install a new operating system (OS) on your computer.
@@ -424,6 +446,8 @@ You should really make a full backup of your computer before doing this, as inst
  Alright, so why do I want you to install a new OS to begin with? Well, the OS we'll be using is called Linux. Linux is actually what powers both android and chomeOS, and is a common descendant of the same system as Mac OsX as well as almost all of the servers on the internet from massive website like Facebook and Google to small Minecraft servers you can rent online to play with friends. What's cool about Linux is it lets you get much closer to the hardware and see what's going on, and it just generally makes writing code much easier. Furthermore, it's super easy to set up an amazing development environment in Linux for getting work done with code or electronics, and at the end of the day you can still watch YouTube, play *most* games that are on steam, or open up an office suite, just like Windows or Mac.
 
 # Chapter 2 - Let's do it then, Installing Arch Linux
+
+![Arch Logo](./archlogo.png)
 
 First of all, Linux is actually just the name of the underlying 'core' of the system, known as the kernel, as such, there are literally thousands of Linux variations. The one I'm going to have you install is know as one of the hardest to work with, but also one of the most powerful: Arch Linux.
 
@@ -463,7 +487,15 @@ Alright, we're getting there I promise. You should now have a gray block next to
 
 Okay, now we're finally ready to copy the OS to a flash drive so we can install Arch, to do this, you'll need to download a program called rufus https://rufus.ie/. Download, run, etc. When it opens select the flash drive as your 'device' , press the select button under that and select the archlinux-20xx.xx.xx-x86_64.iso file we downloaded earlier. Everything else should be fine, so click start. This may take a second, in the mean time, open this guide on **another computer** as the next few steps will require a lot of restarting and doing things outside of windows.
 
-While this guide should lead you though step by step, it may be helpful to follow the offical installation guide as well, which is available at https://wiki.archlinux.org/index.php/installation_guide. Furthermore, while slightly outdated, this flow chat is a nice refrence as well (from https://i.imgur.com/Hokk8sK.jpg) ![archflow](./archflow.jpg)
+While this guide should lead you though step by step, it may be helpful to follow the offical installation guide as well, which is available at https://wiki.archlinux.org/index.php/installation_guide. Furthermore, while slightly outdated, this flow chat is a nice refrence as well (from https://i.imgur.com/Hokk8sK.jpg)
+
+![archflow](./archflow.jpg)
+
+
+
+despite the technically complexity to get to it, the best place for Arch Linux support, even for installation, is in the IRC (Internet Relay Chat) channel #archlinux on Freenode. https://wiki.archlinux.org/index.php/Arch_IRC_channels
+
+Obviously if you need this you'll need IRC open on a differnt device than the one you're installing from. There are plenty of IRC clients available for any platform though.
 
 ☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠
 
@@ -1182,6 +1214,12 @@ One of the nifty things about linux is you don't need to install extra software 
 
 ## The CPU
 
+![CPUS](cpus.jpg)
+
+These are CPUS or Central Processing Units. They're the beating heart of your computer, doing the day-to-day number crunching. The rectangular one of one of the first CPU's in the lineage leading up to CPU's like the ones used in desktop's today, with further sucessors shown in order from top left to the bottom right. The metal-capped one at the bottom right, while old, is visulally quite representative of a moden desktop CPU, though the CPUs in a laptop or smart phone do look quite differnt still.
+
+
+
 One of the nifty things we do pretty easily in linux is get information about our hardware directly. Just as when we were installing Arch and we used `lsblk` to see an overview of the disks on the system, we can use some other tools to find out some other information about the system. Let's start off basic and see what CPU you have. Go ahead and run
 
 ```
@@ -1349,7 +1387,13 @@ The CPU is on a square or rectangular board that is usually covered by a large h
 
 ## RAM
 
-okay, let's move on to ram. There's a program on your system called `free` which can be used to see how much RAM you have, how much is in use, etc. Let's run free with the -h flag so we can see the amounts with nice units.
+![RAM](./ram.jpg)
+
+ This is RAM or Random Access Memory. The above two sticks are the normal sized used in desktop PCs, this form factor is called a DIM while the bottom two are from laptops and are called SO-DIMS, the placement of the notch is an indicator of the generation of RAM, with neraly all modern ram being a consecutive generation of the DDR standard. At the time of writing (Q2,2019) DDR4 is common in new, medium to high end devices, with many DDR3 devices still being used. Of note many more compact devices solder the ram chips directly to the board, meaning there is no form factor to consider.
+
+
+
+okay, let's move on to ram in Linux. There's a program on your system called `free` which can be used to see how much RAM you have, how much is in use, etc. Let's run free with the -h flag so we can see the amounts with nice units.
 
 ```
 ╭─vega@lyrae ~
@@ -1378,23 +1422,45 @@ Just like the CPU, RAM has a speed at which it operates as well, Typically it's 
 
 ## The Motherboard
 
+form factor, cpu socket, VRM capability, rear io, font pannel Io, expansion in general
+
 dmi decode
 
 ### Chipset
 
+lane division, other responsibilities, AMD!=AMD, etc
+
+multi gen-cpu support
+
 ### Expansion slots
+
+PCI-e + revisions, PCI, AGP, ISA
 
 ### ROM/BIOS/UEFI
 
+physical chips, battery for RTC
+
 ### VRM
+
+external VRM, over/under volting
 
 ## Graphics Card (or integrated graphics)
 
 ## Storage
 
+![disks](./hdds.jpg)
+
+
+
+[TODO] mention hdd, ssd, sata, nvme, usb-storage, sd, scsi, u.2, m.2, tape, floppy, zip
+
+
+
 hdparm
 
 ### HDD
+
+
 
 ### SSD
 
@@ -1409,6 +1475,14 @@ hdparm
 Floppy, Zip,
 
 ## Network Interfaces
+
+![NICS](./nics.jpg)
+
+Pictured here are three Network Interface cards or a NIC. The three on the left are for WiFi (though some of this form factor may include bluetooth as well) while the one on the right has an ethernet port for wired access. Most comptuer's will not have a seprate card for the wired inteface though, as most motherboard's have a wired network interface built in.
+
+NICs also include the wireless chipset used for connecting to a cell tower and really any radio communication device in general.
+
+Older NICs include those used for Dial-Up connections and some obscure wireless methods that predate wifi.
 
 ### Ethernet
 
@@ -2261,7 +2335,7 @@ The contiuity tester does exactly what it's name implies, it makes sure two poin
 
 Power Supply Units or 'PSU's are useful because unlike your phone charger which puts out a singular voltage of 5 volts (ignoring fast charging) they can have their output voltage varried usually between 1 and 35-ish volts. Furthermore, they provide current limiting, useful when you're unsure of how much current your circuit might sink or need it for safety.
 
-[TODO] add picture
+[TODO] add picture, mention ATX psu, current safety
 
 ### The Frequnecy or Waveform Generator
 
@@ -2316,6 +2390,8 @@ VCV Rack?
 ## Resistors
 
 [TODO]
+
+potentiometer read from aduino full range (center tap or max resitor)
 
 ## Capacitors
 
@@ -2423,13 +2499,15 @@ Multi-head
 
 Positioning
 
-Color, Brightness, night filter
+Color, Brightness, night filter, size, freesync, HDR, GTG time, Color gammant
 
 **Keyboard**
 
-layout, shortcuts, height, mechanical
+layout, shortcuts, height, mechanical, MX Switch types
 
 **Sound**
+
+Noise isolation both electrical and physical, headphone types (over, on, in), amplifiers, dacs, ASIO/ sound hardware, connection types
 
 ## Various Programs:
 
@@ -2800,7 +2878,7 @@ Show everything in a circuit sim
 zeener, normal, bipolar
 
 + varistors , sparkgaps
-+ Leds - getting current both ways
++ Leds - getting current both ways, LED safety
 
 ### Diode Logic
 
@@ -2814,7 +2892,11 @@ tubes and how they work
 
 ## Integrated Circuits
 
+https://hackaday.com/2019/05/20/integrated-circuits-can-be-easy-to-understand-with-the-right-teachers/
+
 ### 555, OpAmp, 74-Series Logic
+
+potato semi
 
 ## Optical Electronics
 
@@ -3147,6 +3229,10 @@ C++ from scratch, JS electron app, Processing creative coding, Python Kivy or si
 Functional Programming, and other paradigms : lisp, haskell, luna-lang.org
 
 # Chapter 28 - Let's try out programmable logic
+
+[TODO]
+
+Finite State Machines
 
 # Chapter 29 - Let's make our own CPU
 
@@ -3648,6 +3734,10 @@ Also we're going to be building a little server, for this you'll want
 OR
 
 You can find a used Dell Poweredge r610 or poweredge 1950. Many of these will come with out drives, but this option is probably cheaper than the above for better specs. However; these servers are LOUD, loud enough to not be comfortable in the same room and absolutely drink power. As mentioned in the server section, the hardware you use really doesn't matter, you'll just want at least two hard drives, an OS drive, and multiple network interfaces are encouraged. These things can all be added to just about any desktop though, so going to electronics thrift stores or auctions and finding a desktop works too.
+
+## Getting things for cheap
+
+salvage, auctions
 
 # Appendix D - The Politics of it all
 

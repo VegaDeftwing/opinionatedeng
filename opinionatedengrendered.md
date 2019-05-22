@@ -10,7 +10,6 @@
          * [Clock Speed](#clock-speed)
          * [Microcode](#microcode)
          * [Cache](#cache)
-         * [Physically, what is this thing?](#physically-what-is-this-thing)
       * [RAM](#ram)
       * [The Motherboard](#the-motherboard)
          * [Chipset](#chipset)
@@ -21,7 +20,6 @@
       * [Storage](#storage)
          * [HDD](#hdd)
          * [SSD](#ssd)
-         * [Optane](#optane)
          * [Cloud Storage (Some one elses' drives)](#cloud-storage-some-one-elses-drives)
          * [Portable](#portable)
          * [The Past](#the-past)
@@ -42,7 +40,6 @@
       * [/dev, the devices folder](#dev-the-devices-folder)
          * [TTY's, these are important:](#ttys-these-are-important)
       * [/proc, the fake file system](#proc-the-fake-file-system)
-      * [Take a breather,](#take-a-breather)
       * [/bin, /sbin, /lib, /lib64](#bin-sbin-lib-lib64)
       * [/usr](#usr)
       * [/boot](#boot)
@@ -317,8 +314,6 @@ Also by Walliman, a video on [How to Read Math](https://www.youtube.com/watch?v=
 
 [How To Read Math, Cheat Sheet](https://live.staticflickr.com/4671/40544016221_61cf8944d1_h.jpg)
 
-
-
 # Ⅰ - Community
 
 The only way to be successful in this journey is to make friends along the way. Some of this get's really, really difficult. You will get stuck. Having friends to help makes it possible. Find group chats on telegram, join IRC channels, get on some forums, and ask questions on Reddit. Working with people is a lot more fun and you'll learn so much more.
@@ -412,8 +407,6 @@ To quote someone much smarted than myself:
 
 ![Live Overflow Tips](./lotips.png)
 
-
-
 Finally, there's
 
 > **Cunningham's Law** states "the best way to get the right answer on the internet is not to ask a question; it's to post the wrong answer." ([source](https://meta.wikimedia.org/wiki/Cunningham's_Law))
@@ -487,11 +480,11 @@ Alright, we're getting there I promise. You should now have a gray block next to
 
 Okay, now we're finally ready to copy the OS to a flash drive so we can install Arch, to do this, you'll need to download a program called rufus https://rufus.ie/. Download, run, etc. When it opens select the flash drive as your 'device' , press the select button under that and select the archlinux-20xx.xx.xx-x86_64.iso file we downloaded earlier. Everything else should be fine, so click start. This may take a second, in the mean time, open this guide on **another computer** as the next few steps will require a lot of restarting and doing things outside of windows.
 
+> of note, the following guide will be assuming you're installing linux on the same drive as Windows, making it applicable for most systems right away; however, I strongly recomend getting an extra SSD and giving linux it's own disk outright instead. This is far easier to do in a desktop, but if you have a laptop with a CD drive you may be able to put a SSD in it's place. SSD prices have been steadily declining over the pas few years, but as of the time of writing a 250Gb ssd should be available for under 50 USD. I'd recomend a larger disk though, with 500Gb being plenty for most people
+
 While this guide should lead you though step by step, it may be helpful to follow the offical installation guide as well, which is available at https://wiki.archlinux.org/index.php/installation_guide. Furthermore, while slightly outdated, this flow chat is a nice refrence as well (from https://i.imgur.com/Hokk8sK.jpg)
 
 ![archflow](./archflow.jpg)
-
-
 
 despite the technically complexity to get to it, the best place for Arch Linux support, even for installation, is in the IRC (Internet Relay Chat) channel #archlinux on Freenode. https://wiki.archlinux.org/index.php/Arch_IRC_channels
 
@@ -1218,8 +1211,6 @@ One of the nifty things about linux is you don't need to install extra software 
 
 These are CPUS or Central Processing Units. They're the beating heart of your computer, doing the day-to-day number crunching. The rectangular one of one of the first CPU's in the lineage leading up to CPU's like the ones used in desktop's today, with further sucessors shown in order from top left to the bottom right. The metal-capped one at the bottom right, while old, is visulally quite representative of a moden desktop CPU, though the CPUs in a laptop or smart phone do look quite differnt still.
 
-
-
 One of the nifty things we do pretty easily in linux is get information about our hardware directly. Just as when we were installing Arch and we used `lsblk` to see an overview of the disks on the system, we can use some other tools to find out some other information about the system. Let's start off basic and see what CPU you have. Go ahead and run
 
 ```
@@ -1375,13 +1366,15 @@ Put simply, just as with adding more Random Access Memory (RAM) to your system, 
 
 Let's take a look. install the `hwloc` package using yay and then run `lstopo` and you should get an output that looks a bit like this
 
-![2019-02-08-155129_1660x923_scrot](./2019-02-08-155129_1660x923_scrot.png)
+![lstopo](./lstopo.png)
 
 The stuff on the right are connections around the system, you can ignore those for now, but see the various cache layers, designated by L3, L2, L1d and L1i, and you can see how each core has it's own cache. Finally, you can see that each core has two processing units? Hey, wait, what's that all about?
 
 Hyper threading, or SMT, or whatever the new term is for it, is a way of adding paths for doing things to keep every part of the CPU active. We'll go into this more later, but for now, suffice it to say it's a way of getting just a bit more performance out of a system.
 
-### Physically, what is this thing?
+[TODO] add cpu power
+
+**Physically, what is this thing?**
 
 The CPU is on a square or rectangular board that is usually covered by a large heat sink used to keep it cool under load. It connects to the motherboard via hundreds of small, gold plated pins to send and receive signals (which well will discuss in depth later) from all around the system. Even though most modern CPUs are x86_64, generation to generation and cross manufacturer there are changes in the number of pins and the way they are arranged, meaning getting a new processor that's not from the same generation usually won't work. Furthermore, most laptops have soldered on processors that can not be upgraded to begin with.
 
@@ -1391,9 +1384,31 @@ The CPU is on a square or rectangular board that is usually covered by a large h
 
  This is RAM or Random Access Memory. The above two sticks are the normal sized used in desktop PCs, this form factor is called a DIM while the bottom two are from laptops and are called SO-DIMS, the placement of the notch is an indicator of the generation of RAM, with neraly all modern ram being a consecutive generation of the DDR standard. At the time of writing (Q2,2019) DDR4 is common in new, medium to high end devices, with many DDR3 devices still being used. Of note many more compact devices solder the ram chips directly to the board, meaning there is no form factor to consider.
 
+Just like the CPU, RAM has a speed at which it operates as well, Typically it's listed in MHz still, but speeds range from ~1.8Ghz to ~3.8Ghz at the time of writing, dependent DDR3 or 4. While DDR4 has faster clock speeds, it does typically have a higher overall latency, meaning theres a longer delay between when when data is requested to when it's delivered, albeit at a much higher total throughput. This is a massive topic in of itself, yet is also pretty niche as outside of some pretty specialized applications RAM speed and latency has a relatively minor impact, though faster is typically better.
 
+okay, let's move on to ram in Linux.
 
-okay, let's move on to ram in Linux. There's a program on your system called `free` which can be used to see how much RAM you have, how much is in use, etc. Let's run free with the -h flag so we can see the amounts with nice units.
+While support for this will vary depending on your motherboard, you should be able to see information about your ram by running `sudo dmidecode --type 17`
+
+The output will probably repeat multiple times, printing once for each physical stick of ram in your system. I actually have 4 sticks, but I'll just be showing one:
+
+![dmiram](./dmiram.png)
+
+You should note that many of the things mentiond above can be seen here, though I do want to look at some things here.
+
+First, size. This is an 8Gb or 8192Mb stick of ram. Obviously the more ram the better, but you may find strange ram configurations where there's a mix of ram sizes in a system. This can be bad for performance though, because of memory channels.
+
+Most modern systems use 2 or 3 memory channels, to simplify a bit, it makes it so two sticks of ram can have their speed be used in parallel. Think about it like a parking lot, if you have a total of 4 parking lots you could, theoretically, hook them all up in a straight line with one entrace/exit shared among them. This would be pretty stupid though, as it would severely bottleneck traffic going though. Instead you may want to add a seprate entrace exit for each, but that quickly becomes expensive. Instead, most systmes use a mix of the two, connecting a pair of sticks together, allowing for added capacity, but allowing for multiple pairs to be inserted independantly. A lot of people don't fully fill all the available memory slots on their motherbord though, so instead of having 4 lots with 2 entrances you should be able to have 2 and 2, unless you mistakingly put the sticks in wrong, leaving one 'entrance' closed entirely while the other now has a ton of capacity. On my motherboard these 'lots' are labeld A1, A2, B1, and B2. Looking above you can see the stick we're looking at here is the A1 lot. It's because of this that you should ideally have a multiple of as many sticks of ram as you do momory channels, For example, if you have a two channel motherboard. For example if you have a 2 channel of memory motherboard/cpu than you want either 2, 4, or 8 sticks of ram. Most motherboards top out at 4 sticks though, with 2 channel being the most common.
+
+Next, I want to look at the line that says 'Type Detail: Synchronous Unbuffered (Unregistered)' this is refrencing another type of ram, which is buffered and error correcting (ECC) memory. This type of ram is almost strictly used in servers and is specical because there's actually an extra physical memory die on the card. If you look above you'll notice each stick has sets of 8 black memory dies. ECC memory atually has 9 dies. The reason there are normally 8 dies is simple- there's 8 bits in a byte. Servers don't work on some magic 9-bit in a byte system, instead, this extra bit per byte is used to ensure the data hasn't been corrupted. The math behind this can get complicated and weird, but for now let's just go with it. Buffered memory is bascically just adding an extra 'buffer' between the read/write and again, it's a server thing.
+
+Finally I want to point out the voltage. Much like a CPU the voltage a Ram module runs at is important, and needs to be kept very stable. However, it may need bumped up if the RAM is running at a particually high speed or if it's set higher than factory (overclocked).
+
+Some RAM actually includes a special memory profile, often called XMPP, which can be applied in the BIOS/UEFI settings to make sure you're getting the absolute best performance out of you RAM before manual overclocking. This may actually overclock your CPU a bit as well as a bit of a side effect.
+
+Moving out of hardware,
+
+There's a program on your system called `free` which can be used to see how much RAM you have, how much is in use, etc. Let's run free with the -h flag so we can see the amounts with nice units.
 
 ```
 ╭─vega@lyrae ~
@@ -1416,13 +1431,185 @@ Pagefaults [TODO]
 
 Going back to when cache was mentioned though, RAM's primary job is to hold bulk information that's in use a bit closer to the CPU. For example if you load a large image file it'll first get copied to ram and then be processed though cache in chunks, this is because there just simply isn't enough cache on the CPU to hold a large image.
 
-Finally, I'd like to briefly mention some things about RAM at the hardware level. Newer systems use Double Date Rate 4 Ram (DDR4), though many people are still using computers with DDR3. Ram stick come in two main form factors, one mostly used for laptops and one for desktps, both are rectangular sticks with a row of gold connectors that slot into the motherboard.
-
-Just like the CPU, RAM has a speed at which it operates as well, Typically it's listed in MHz still, but speeds range from ~1.8Ghz to ~3.8Ghz at the time of writing, dependent DDR3 or 4. While DDR4 has faster clock speeds, it does typically have a higher overall latency, meaning theres a longer delay between when when data is requested to when it's delivered, albeit at a much higher total throughput. This is a massive topic in of itself, yet is also pretty niche as outside of some pretty specialized applications RAM speed and latency has a relatively minor impact, though faster is typically better.
-
 ## The Motherboard
 
-form factor, cpu socket, VRM capability, rear io, font pannel Io, expansion in general
+![mobo](./mobo.jpg)
+
+This is an older motherboard, but still new enough to have modern parts. Let's start by looking at the the most obvious physical features and move to smaller things from there.
+
+The most obvious thing to point out is the size of the motherboard. This is a mATX motherboard, which is considered the normal size for most systems. Most gaming or DIY computers will use full size ATX motherboards, which look very similar but are a bit longer vertically, allowing for more expansion slots - those horizonal black bars - among other features. Other formfactors include ITX, a smaller form factor with only a single expansion slot, eATX (extended ATX) which is rarely used now, and SSI and EEB which are both server motheboard sizes.
+
+The large, white square is the CPU socket. This is an older board made for an AM3+ processor. The AM3+ processor line, as well as most consumer processors from AMD use a PGA or Pin Grid Array socket. these CPUs have many pins on the bottom wich fall into these holes to make contact. Before the CPU is inserted the metal leaver arm, seen at the bottom of the socket if you look carefully, is raised and the CPU should smoothly plop right in, after which the arm can be lowered. modern Intel CPUs follow a similar-ish mechanism, only instead of having a bunch of pins that go into holes the 'pins' are actually tiny springy pieces of metal on the motherboard which make contact with pads on the CPU, that socket looks a bit like this, albeit this is an old one:
+
+![File:CPU Socket 775 T.jpg](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/CPU_Socket_775_T.jpg/581px-CPU_Socket_775_T.jpg)
+
+([source](https://commons.wikimedia.org/wiki/File:CPU_Socket_775_T.jpg))
+
+If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to giv for a total of of 64 threads. Giving this beautiful sight:![64t](./64thread.png)
+
+Clearly, a server with that much horsepower will use a lot of electricity though, and there is some overhead for the system when getting information from one physical CPU to another.
+
+Above and left of the CPU on you'll see a bunch of copper coils in little boxes and some small metal cylinders, as well as a cluster of these with a large, 4-hole plug a bit further left, directly above the big aluminium heat sink. This all makes up the VRM or Voltage Regulation Module. The connector there is where the CPU power plug from the PC power supply would be plugged in. The power needs to be carefully controlled, filtered, and adjusted based on the needs of the CPU, that's what all of this is for. Generally the beefier and faster a cpu, the larger the VRM. The VRM also needs to disipate a good amount of heat on higher end systems so many nicer motherboards will cover this up with a large heatsink.
+
+Moving on from the CPU you'll see 4 vertical slots next to socket, these are where the RAM sticks are inserted. You'll notice they're color coded as to indicate which slots share the communication channel, so in this case you'd want to put the first memory stick in the blue slot closest to the socket, followed by the black slot closest to the socket, then repeat.
+
+While we're looking at this side of the board- next to the RAM slots you'll see two things of note. First, that black circular thing is actually a little buzzer. A lot of even modern systems have these on board to buzz error codes out in morse code if something goes wrong. Below that is a large, 20 or 24 pin connector (most modern systems use the 24pin varient) which is where the power supply is pluggend in to provide power to the motherboard (with the exception of the CPU) as well.
+
+On the other side of the CPU and down a little you'll see a sizeable metal heatsink. This is covering the chipset. We'll come back to what the chipset does in a bit. This motherboard is actually a bit weird, on most motherboards the chipset is found underneath the RAM, but in general look for a large heatsink and it's probably under that.
+
+Below the chipset here are 4 expansion slots, all of which use the PCI-e standard in this case. We'll come back to these in a bit.
+
+In the bottom right of the motherboard there are 6 SATA connectors, here each is a different color (for no apparent reason?). These are for connecting storage like hard drives.
+
+Vertically in line but closer to the center of the board you'll also spot a coin cell battery. This is so the system can keep time even when fully powered down and diconnecected from wall power.
+
+Along the bottom you'll see various connectors with pins sticking out, these are mostly for front pannel connections- where the USB, audio, power button, etc. from the front of your case connect.
+
+Finally, along the top of the back left edge you'll see the metal tops of the main 'rear i/o' for the computer. These are all the main connections for your system. The bulk of the system's USB ports, networking, and audio ports will be found here.
+
+So, how do we get any information from the motherboard? Well, in case it wasn't already obvious, the motherboard isn't really one thing. It's more a common inteconnect point and routing system than anything; however, it does have some of it's own responsibilites. To start small let's look at one small, but excedingly import role of the motherboard: fan and tempature control.
+
+To see what your fans are doing on linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](./sensors.png)
+
+Of note, depending on your system, there's a small chance nothing will be detected at all or that some information will be wrong. Even in my case this is true as my CPU fan is reporting 0 RPM. Actually entering your motherboard's UEFI or BIOS settings may expose more information, but we'll talk about that more later.
+
+Alright, so that's coll and all, but what else can you do?
+
+Alright, let's move on to seeing the system buses, namely, the pci bus.
+
+The pci bus is where most of the system's add in cards, controllers, and the like connect. Here's a shortened version of the ouput of `lspci` from my system
+
+```
+00:00.0 Host bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) Root Complex
+00:00.2 IOMMU: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) I/O Memory Management Unit
+00:01.0 Host bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-1fh) PCIe Dummy Host Bridge
+00:01.1 PCI bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) PCIe GPP Bridge
+ ...
+00:08.1 PCI bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) Internal PCIe GPP Bridge 0 to Bus B
+00:14.0 SMBus: Advanced Micro Devices, Inc. [AMD] FCH SMBus Controller (rev 59)
+00:14.3 ISA bridge: Advanced Micro Devices, Inc. [AMD] FCH LPC Bridge (rev 51)
+00:18.0 Host bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) Data Fabric: Device 18h; Function 0
+ ...
+00:18.7 Host bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) Data Fabric: Device 18h; Function 7
+01:00.0 Non-Volatile memory controller: Phison Electronics Corporation E12 NVMe Controller (rev 01)
+02:00.0 USB controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset USB 3.1 xHCI Controller (rev 02)
+02:00.1 SATA controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset SATA Controller (rev 02)
+02:00.2 PCI bridge: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset PCIe Upstream Port (rev 02)
+03:00.0 PCI bridge: Advanced Micro Devices, Inc. [AMD] 300 Series Chipset PCIe Port (rev 02)
+ ...
+03:07.0 PCI bridge: Advanced Micro Devices, Inc. [AMD] 300 Series Chipset PCIe Port (rev 02)
+07:00.0 USB controller: ASMedia Technology Inc. ASM1143 USB 3.1 Host Controller
+08:00.0 Ethernet controller: Intel Corporation I211 Gigabit Network Connection (rev 03)
+0a:00.0 PCI bridge: Advanced Micro Devices, Inc. [AMD] Device 1470 (rev c3)
+0b:00.0 PCI bridge: Advanced Micro Devices, Inc. [AMD] Device 1471
+0c:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 XL/XT [Radeon RX Vega 56/64] (rev c3)
+0c:00.1 Audio device: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 HDMI Audio [Radeon Vega 56/64]
+0d:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1)
+0d:00.1 Audio device: NVIDIA Corporation GP106 High Definition Audio Controller (rev a1)
+0e:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Zeppelin/Raven/Raven2 PCIe Dummy Function
+0e:00.2 Encryption controller: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) Platform Security Processor
+0e:00.3 USB controller: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) USB 3.0 Host Controller
+0f:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Zeppelin/Renoir PCIe Dummy Function
+0f:00.2 SATA controller: Advanced Micro Devices, Inc. [AMD] FCH SATA Controller [AHCI mode] (rev 51)
+0f:00.3 Audio device: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) HD Audio Controller
+
+```
+
+Alright, clearly there's a lot going on here, and on first glance it doesn't even look all that useful. But let's look deeper. From this output we can see some intereresting things. Starting from the top you'll see there's a lot of internal AMD things that are just handeling routing, really these probably don't matter. the first interesesting things to look at is `01:00.0 Non-Volatile memory controller: Phison Electronics Corporation E12 NVMe Controller (rev 01)` which is telling me that my super speedy NVMe solid state drive is at the address 01:00.0 on the pci bus and despite being made by a consumer brand (I think mine's a Silicon Power? though I have another that's made by Samsung) the actual controller on the device is made by Phison, a reputable brand for NVMe controllers.
+
+next thing of note is
+
+```
+02:00.0 USB controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset USB 3.1 xHCI Controller (rev 02)
+02:00.1 SATA controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset SATA Controller (rev 02)
+```
+
+You can see here that I have a seprate controller for my USB 3.1 ports and that it's sharing pci lanes with my sata controller. In theory, this means If I'm working one or both of these really hard, the other may be slower.
+
+next is:
+
+```
+07:00.0 USB controller: ASMedia Technology Inc. ASM1143 USB 3.1 Host Controller
+08:00.0 Ethernet controller: Intel Corporation I211 Gigabit Network Connection (rev 03)
+```
+
+What's interesting here is I have another 3.1 controller, on an entirely differnt set of lanes. Really, this is a fault of USB that it's not very clear, this is actually a USB 3.1 gen 2 controller, so each port has a top speed of 10gb/s, compared to the 5gb/s of the other controller.
+
+You'll also see thet my network interface is being handled by an intel network controller, despite this system having an AMD CPU.
+
+moving on:
+
+```
+0c:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 XL/XT [Radeon RX Vega 56/64] (rev c3)
+0c:00.1 Audio device: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 HDMI Audio [Radeon Vega 56/64]
+0d:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1)
+0d:00.1 Audio device: NVIDIA Corporation GP106 High Definition Audio Controller (rev a1)
+```
+
+Here you'll see some devices can actually use multiple IDs for one physical device. both of the 0c:00.x 'devices' are actually for the 'Vega56' graphics card (Often called GPU for graphics processing unit) made by AMD Radeon, while the 0d:00.x devices are for the GTX1060 card made by Nvida that I have in this system as well. Of note, having both of these in one system is excedingly uncommon, and my use case is strange; however, It is common to see systems which have a gpu integrated into the CPU (which will still appear in this list) and have a seprate larger GPU in the system as well.
+
+If you continue down this list you'll see there's yet another USB controller and a audio controller among other things.
+
+What's cool is this information relates back to something we saw earlier when looking at the CPU:
+
+![lstopo2](./lstopo.png)
+
+See all those PCI ids on the right side, those directly corrolate with a lot of the above.
+
+Finally, if you want a lot more information you can run `sudo lspci -v` to see even more info about anything, for example, here's the output about my GTX1060 GPU:
+
+```
+0d:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1) (prog-if 00 [VGA controller])
+	Subsystem: Micro-Star International Co., Ltd. [MSI] GP106 [GeForce GTX 1060 6GB]
+	Flags: bus master, fast devsel, latency 0, IRQ 78
+	Memory at f6000000 (32-bit, non-prefetchable) [size=16M]
+	Memory at c0000000 (64-bit, prefetchable) [size=256M]
+	Memory at d0000000 (64-bit, prefetchable) [size=32M]
+	I/O ports at c000 [size=128]
+	Expansion ROM at f7000000 [disabled] [size=512K]
+	Capabilities: [60] Power Management version 3
+	Capabilities: [68] MSI: Enable+ Count=1/1 Maskable- 64bit+
+	Capabilities: [78] Express Legacy Endpoint, MSI 00
+	Capabilities: [100] Virtual Channel
+	Capabilities: [250] Latency Tolerance Reporting
+	Capabilities: [128] Power Budgeting <?>
+	Capabilities: [420] Advanced Error Reporting
+	Capabilities: [600] Vendor Specific Information: ID=0001 Rev=1 Len=024 <?>
+	Capabilities: [900] Secondary PCI Express <?>
+	Kernel driver in use: nouveau
+	Kernel modules: nouveau
+
+
+```
+
+The most notable thing here is actually at the end:
+
+```
+Kernel driver in use: nouveau
+Kernel modules: nouveau
+```
+
+tells us I'm using the nouveau driver and kernel modules instead of one of the alternatives on the Nvida card in my system If I wanted to I could switch this over to the propiretary Nvidia driver to get a pretty nice speed boost in some applications.
+
+> I'm not really worried about this because I'm mostly just using the Vega56 card. The nvidia card is there strictly for CUDA support in some workloads.
+
+Much like lspci, there's also `lsusb`, which as you can imagine, tells us informaiton about the USB devices on the system. I have a LOT of usb devices on this system so I'll just paste in a snippet:
+
+```
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 0c45:6340 Microdia Camera
+Bus 001 Device 008: ID 28de:1142 Valve Software Wireless Steam Controller
+Bus 001 Device 006: ID 258a:0013
+Bus 001 Device 005: ID 05e3:0745 Genesys Logic, Inc. Logilink CR0012
+```
+
+You'll see here that USB hubs, input devices, webcams, etc. all show up. Anything that's hooked upthough USB should appear here. The device with ID 258a:0013 isn't really telling us anything though. What we do know is the first part is the USB Vendor ID. This is an ID that vendors of USB devices have to purchase to uniquely id their products.
+
+upon looking this id up online, it appears it's used for a generic USB keyboard.
+
+For completeness I'll mention, the first part of the id, the x's in xxxx:yyyy is the vendor id, while the y's are the product id.
+
+Moving on
 
 dmi decode
 
@@ -1450,21 +1637,15 @@ external VRM, over/under volting
 
 ![disks](./hdds.jpg)
 
-
-
 [TODO] mention hdd, ssd, sata, nvme, usb-storage, sd, scsi, u.2, m.2, tape, floppy, zip
-
-
 
 hdparm
 
 ### HDD
 
-
-
 ### SSD
 
-### Optane
+Optane, NVMe, Sata, technically all flash
 
 ### Cloud Storage (Some one elses' drives)
 
@@ -2201,7 +2382,7 @@ One interesting processed to note in here is the process numbered '1' which, if 
 
 Before we leave /proc, look back up at all the file that each process has and take note, also notice how some of these relate to what we saw in /dev
 
-## Take a breather,
+**Take a breather,**
 
 As you can see, Linux gives us a lot of raw access to hardware. There are no training wheels here. While you can use Linux the exact same way you used windows: watch YouTube videos, open a graphical file manager, etc, you can also get down to the nitty gritty of the OS.
 
@@ -2491,15 +2672,69 @@ r/unixporn
 
 ## The Physical Enviroment & Hardware
 
-[TODO]
+![penv](./physicalenv.jpg)
 
-**Monitors**
+Working on a laptop with a mushy membrane keyboard is totally fine for some people, but when you're deep into some complicated work having the best possible setup can save a lot of time, frustration, and mental overhead.
+
+Furthermore, the work enviroment can change how long you can work for and how productive your work time really is. Be it for comfort or productivity, there are many reasons to take care in making sure you're setup is right for you.
+
+If you are on a laptop some of the following is still applicable, but consider how any of what I'm about to mention may be adapted to your own setup.
+
+**Displays**
+
+The way you use your monitor is more important the monitor itself. Don't get me wrong, if you have an 11", 4:3 aspect ratio monitor running though VGA there's a limited amount you can do, but there's still some things.
+
+First and foremost is positioning. I've helped many a office worker complaining about neck and back pain simply by raising their monitor closer to eye level. Ideally you want your eyes to naturally rest right on the on the top 3rd line of your screen, about the level where the left-most knob is on the wallpaper on my right-most monitor in the picture above.
+
+Unfortuately, there is no magic rule for how far away your monitor should be from your face, as this highly depends on your vision, monitor's resolution, and size
+
+> on this note, you'll often hear monitors described by their dots per inch, this is a measure of the number of pixels in a square inch on the screen, the higher this is the finer the details, but the smaller any given element on screen will be. Apple's Retnia displays for example have a high DPI rating, which is a large part of the reason they look so good
+
+I personally have my three, 4k (that's 3840x2160, or 4 times the resolution of 1080p) monitors positioned approximately 30 inches from my eyes.
+
+Before moving forward though, I think it would make sense to talk about some of this dispaly terminology, if you're already cool with this just skip this massive quote block
+
+> Aspect ratio is the ratio is the ratio of the width to the height of the screen, most modern screens are 16:9, or have 16 units of width for every 9 units of height. Most older displays, often now called square screens, are actually 4:3. Many people actually still prefer this for the extra vertial room it affords at a given size, and some laptops are actually moving back to a more 'square' aspect ratio. On the other hand more exotinc ultra-wide dispalys are also coming out
+
+> Sizing of display's is a bit odd. A 27" 16:9 display, is not the same size as a 27" 4:3 display as displays are measured diagonally.
+
+> Resolution of a display refers to the number of pixels, HD technically starts at 720p, or 720 pixels across, though this is generally rather low by modern standards, with acceptable usually considered 1080p, which is technically 1920x1080. You may also see 1080i, this is a strange concept, not actually related to resolution, and we'll come back to it in a moment
+
+> The interface on your dispaly matters greatly as well, the most common at the are HDMI, Display Port, DVI, and VGA
+>
+> VGA is the worst option here, as it's an analog signal. This means the signal can do strange things, getting corrputed between your computer and the monitor. Typically this is a blue, screw in connection with many pins
+>
+> DVI is still pretty common and looks like an even larger VGA connection, with a typically white, screw in connector. This signal is normally digital, though there is a varient of DVI that can be adapted into VGA. Of note, DVI can also be adapted to HDMI though you will not have audio, as DVI does not carry sound
+>
+> HDMI, probably the most well known connector, has multiple revisions, the revision determines many things such as the maximum resolution, refresh rate, and weather or not more obsucre things such as HDR are supported. HDMI is usually considered the best of these three options
+>
+> Taking the crown however, is Display Port (DP). Like HDMI display port does have multiple revisions which do differentiate similar things; however, Display Port will genearlly support high resolutions and more features at any given point. Assuming you're runnig a bog-standard 60hz 1080p display however, you'll find no difference between DVI, HDMI, and DP - unless you need sound.
+
+> Next, you'll want to note the refresh rate of your monitor. This is how many times per second your monitor refreshes the screen. Typically monitors run at 60hz and TVs at 30 or 60. Because unlike a TV you're causing things on screen to change though, 30hz is generally considered bad and can even cause motion sickness. While 60hz may be standard, going for something even higher, with many displays offering well above 120hz, is something you may want to consider, espically if you plan on gaming.
+>
+> Newer displays may support Freesync or Gsync, and both of these technologies require a supported graphics card in the system as well. These allow the display and computer to adaptively change the refresh rate so the monitor and computer both send and display frames in sync, which can make even a low refresh rate 'feel' much higher. This is a feature typically marketed to gamers and only supported in video games, but this has been changing
+
+> related to refresh rate is latency. In general this can actually mean two things, one is how long it takes for an image sent to the screen to actually be displayed. The lower this time the better, with good screens being sub 10 milisecond. Unfortuately, there's no standard among the industry to measure this and many get it wrong.
+>
+> Also with latency theres grey to grey times, this is a measure of how long it takes a pixel to go from one shade to another. The lower this is the less motion blur the screen will exhibit
+
+> The color depth of the display determines how percisely a color may be displayed. The higer this is the better, but almost all modern displays will be the same, and unless you're an artist or creative professional you're unlikely to notice a difference
+>
+> On the other hand, you are likely to notice the color gamut or what range of colors the display is actually capable of displaying.
+>
+> For example, two displays may both be capable of displaying 255 levels of red, but if one display's range is only from a dingy red to a dark-ish red, while the other is from a brillinat red to a deep dark red, there's a massive differnce in color availability. If this is imporant to you, notably as a creative professionaly in photo or video, you may want to read more at https://en.wikipedia.org/wiki/Gamut
+
+> The next obvious thing to mention is dynamic range, or how deep the blacks are and how vivid the whites are. Again, this is simple, the higher the better. Many display types (LCD, TN-Panel) will have similar specifacions in all these areas, but particularly here. OLED is probaly the best when it comes to dynamic range as it can display true black by actually turning the soucre of the light off, but unfortuately these are quite susiptiable to burn in and image presistance.
+>
+> There are some newer displays which feature HDR or High Dynamic Range, which allows the panel to selective change the brightness in an area of the screen, giving much better dynamic range in supported applications than a normal display
+
+> burnin and image presistance are both negitive effects on many displays where a pixel etither permantanly or temporarily resists change in color. This can lead to being able to read previously displayed bright white text on a now black image for example. Mor commonly you'll find TVs which have a particualr station's logo 'burnt in' to one corner of the screen, presisting even after changing channels
+
+> Brightness is obvious, how bright or dim is the display. The big thing to note here is weather the brightness is PWM or DC controlled. Displays with PWM controlled brightness are much more common, however, it's a bit of a cheat. Instead of actually changing the intensity of the back light directly, they're simply strobing the light on and off to fast for the eye to see. This can cause eye strain over time though, and genally DC control, which actually does change the brightness directly is prefered. If you have a PWM display and don't mind it at full brightness, this should help with eyes strain, as there is no longer a strobe effect as the display's backlight is just constatnly on.
 
 Multi-head
 
-Positioning
-
-Color, Brightness, night filter, size, freesync, HDR, GTG time, Color gammant
+night filter
 
 **Keyboard**
 
@@ -2508,6 +2743,8 @@ layout, shortcuts, height, mechanical, MX Switch types
 **Sound**
 
 Noise isolation both electrical and physical, headphone types (over, on, in), amplifiers, dacs, ASIO/ sound hardware, connection types
+
+**The Desk and Chair**
 
 ## Various Programs:
 
@@ -3478,6 +3715,8 @@ When we installed arch we actually changed the default shell from bash to zsh, b
     "UXY is a tool to manipulate UXY format, which is a basically a two-dimenstional table that's both human- and machine-readable."
 
     This gives a nice format for manipulation of commands though pipes for super complex shell scripting
+* lsof
+  * list what files a runnig process has open
 
 While some of these may be included, they're some of the OG addons or tools to make included things better:
 

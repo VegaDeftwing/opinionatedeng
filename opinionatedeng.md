@@ -1422,17 +1422,27 @@ Just like the CPU, RAM has a speed at which it operates as well, Typically it's 
 
 ## The Motherboard
 
-
+form factor, cpu socket, VRM capability, rear io, font pannel Io, expansion in general
 
 dmi decode
 
 ### Chipset
 
+lane division, other responsibilities, AMD!=AMD, etc
+
+multi gen-cpu support
+
 ### Expansion slots
+
+PCI-e + revisions, PCI, AGP, ISA
 
 ### ROM/BIOS/UEFI
 
+physical chips, battery for RTC
+
 ### VRM
+
+external VRM, over/under volting
 
 ## Graphics Card (or integrated graphics)
 

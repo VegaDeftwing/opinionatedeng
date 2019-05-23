@@ -49,7 +49,7 @@ else
 fi
 
 # If you want to allow non-ASCII filenames set this variable to true.
-allownonascii=$(git config --bool hooks.allownonascii)
+allownonascii=true
 
 # Redirect output to stderr.
 exec 1>&2

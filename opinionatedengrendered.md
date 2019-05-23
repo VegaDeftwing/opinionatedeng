@@ -1512,7 +1512,6 @@ The pci bus is where most of the system's add in cards, controllers, and the lik
 0f:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Zeppelin/Renoir PCIe Dummy Function
 0f:00.2 SATA controller: Advanced Micro Devices, Inc. [AMD] FCH SATA Controller [AHCI mode] (rev 51)
 0f:00.3 Audio device: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) HD Audio Controller
-
 ```
 
 Alright, clearly there's a lot going on here, and on first glance it doesn't even look all that useful. But let's look deeper. From this output we can see some intereresting things. Starting from the top you'll see there's a lot of internal AMD things that are just handeling routing, really these probably don't matter. the first interesesting things to look at is `01:00.0 Non-Volatile memory controller: Phison Electronics Corporation E12 NVMe Controller (rev 01)` which is telling me that my super speedy NVMe solid state drive is at the address 01:00.0 on the pci bus and despite being made by a consumer brand (I think mine's a Silicon Power? though I have another that's made by Samsung) the actual controller on the device is made by Phison, a reputable brand for NVMe controllers.
@@ -1560,26 +1559,24 @@ Finally, if you want a lot more information you can run `sudo lspci -v` to see e
 
 ```
 0d:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1) (prog-if 00 [VGA controller])
-	Subsystem: Micro-Star International Co., Ltd. [MSI] GP106 [GeForce GTX 1060 6GB]
-	Flags: bus master, fast devsel, latency 0, IRQ 78
-	Memory at f6000000 (32-bit, non-prefetchable) [size=16M]
-	Memory at c0000000 (64-bit, prefetchable) [size=256M]
-	Memory at d0000000 (64-bit, prefetchable) [size=32M]
-	I/O ports at c000 [size=128]
-	Expansion ROM at f7000000 [disabled] [size=512K]
-	Capabilities: [60] Power Management version 3
-	Capabilities: [68] MSI: Enable+ Count=1/1 Maskable- 64bit+
-	Capabilities: [78] Express Legacy Endpoint, MSI 00
-	Capabilities: [100] Virtual Channel
-	Capabilities: [250] Latency Tolerance Reporting
-	Capabilities: [128] Power Budgeting <?>
-	Capabilities: [420] Advanced Error Reporting
-	Capabilities: [600] Vendor Specific Information: ID=0001 Rev=1 Len=024 <?>
-	Capabilities: [900] Secondary PCI Express <?>
-	Kernel driver in use: nouveau
-	Kernel modules: nouveau
-
-
+    Subsystem: Micro-Star International Co., Ltd. [MSI] GP106 [GeForce GTX 1060 6GB]
+    Flags: bus master, fast devsel, latency 0, IRQ 78
+    Memory at f6000000 (32-bit, non-prefetchable) [size=16M]
+    Memory at c0000000 (64-bit, prefetchable) [size=256M]
+    Memory at d0000000 (64-bit, prefetchable) [size=32M]
+    I/O ports at c000 [size=128]
+    Expansion ROM at f7000000 [disabled] [size=512K]
+    Capabilities: [60] Power Management version 3
+    Capabilities: [68] MSI: Enable+ Count=1/1 Maskable- 64bit+
+    Capabilities: [78] Express Legacy Endpoint, MSI 00
+    Capabilities: [100] Virtual Channel
+    Capabilities: [250] Latency Tolerance Reporting
+    Capabilities: [128] Power Budgeting <?>
+    Capabilities: [420] Advanced Error Reporting
+    Capabilities: [600] Vendor Specific Information: ID=0001 Rev=1 Len=024 <?>
+    Capabilities: [900] Secondary PCI Express <?>
+    Kernel driver in use: nouveau
+    Kernel modules: nouveau
 ```
 
 The most notable thing here is actually at the end:
@@ -1609,9 +1606,11 @@ upon looking this id up online, it appears it's used for a generic USB keyboard.
 
 For completeness I'll mention, the first part of the id, the x's in xxxx:yyyy is the vendor id, while the y's are the product id.
 
-Moving on
+Finally, I'd like to mention `dimdecode`. according to the manual page:
 
-dmi decode
+> dmidecode is a tool for dumping a computer's DMI (some say SMBIOS) table contents in a human-readable format. This table contains a description of the system's hardwarecomponents, as well as other useful pieces of information such as serial numbers and BIOS revision. Thanks to this table, you can retrieve this information without having to probe for the actual hardware. While this is a good point in terms of report speed and safeness, this also makes the presented information possibly unreliable.
+
+we've already used this to get information about the system ram, but other things can be read as well. For example, going back to the pci slots from above running `sudo dmidecode --type 9` will tell you what physical slots corospond to what bus address among other information, for a full list of available types simply look at the dmidecode man page with `man dmidecode`.
 
 ### Chipset
 
@@ -1621,7 +1620,31 @@ multi gen-cpu support
 
 ### Expansion slots
 
-PCI-e + revisions, PCI, AGP, ISA
+Most modern expansion cards connect though the PCI Express or PCIe bus. This standard, much like DDR, has gone though multiple generations of bandwith doubbling. Currently consumer devices offer up to PCIe 3.0 but devices with both 4.0 and 5.0 should be on the market shortly.
+
+PCIe cards are used for just about anything you could imagine, form adding a more powerful graphics card, more usb ports, a higher end sound card, to some more esoterric things like specific task accelorators (encryption, compression) or even a software defined radio.
+
+No matter what the device is you have to keep in mind its physical and electrical requirements. That is, do you have a slot long enough to accomadate the card and can you provide power to it.
+
+This may seem odd, but unlike most connections (think USB or Ethernet) which may support varrying speeds (usb2 vs 3) but are still physically the same size, the more bandwith hungry a PCIe device, the larger the physical connection. The largest available is a 16x connection, while the smallest is a 1x. The most commonly used lane arrangements are 1x, 4x 8x, and 16x. The motherboard shown above has one 16x connector and three 1x connectors. If you have a card that is electrically wired for 4x it will definitly work in any slot physically designed for 4x or greater, and it will still work in a 1x slot of that slot is open ended- this means the 'back' of the slot is open, allowing the card's connector to go past the actual physicall connection. Similarly, many 16x physical slots only have 8x actually wired. If you use a card which elecrically needs more connections it will almost certainly still work, but may have degraded performance. Similarly, if you have a card which expects a PCIe gen 3 16x connection but the best you have available is a PCIe gen 2 connection, it will run at half speed. To be extra clear:
+
+PCIe 1 @ 16x == PCIe 2 @ 8x == PCIe 3 @ 4x
+
+Similarly, putting a card which only supports PCIe Gen 2 into a Gen 3 slot will not suddenly make the card faster, even if it was to compensate, that is, if the card is made for PCIe Gen 2 @ 16x and you put it in a PCIe Gen 3 @ 8x slot, it will still run at half speed because it's the lowest gen number of the card or the slot that determines how many lanes are actually needed.
+
+Unfortunately, PCIe lanes, that is if you add together all the available 16x's and 8x's etc. on a given CPU are usually pretty limited. If the only extra card you plan on adding is a graphics card, you'll be fine, but if you intend to add a graphics card, sound card, network card, etc. all at once you may find that you've either run out of pyhsical slots or that a card is running with less than ideal bandwith as a 16x slot may 'give up' 8 of it's lanes becoming an 8x slot so that another card can function at all.
+
+Of note, the number of physical lanes and slots the mother board has probably greatly excedes the number of lanes actually going to the CPU, so even if it appears you have plenty of room to add cards you may end up accidently starving one for bandwith.
+
+Finally, from a power perpcetive most motherboards will supply up to 75 watts to a card through the motherboard, but power hungry cards like the Nvidia and AMD graphics cards in my system may require external power connections. Also, some server boards cap PCIe power delivery to only 25watts without an external power supply, so just be careful with compatibility.
+
+There are some other standards other than PCIe worth mentioning though.
+
+Older standards such as PCI, AGP, and ISA were all used before the widespread addoption of PCIe and while their availibility is declining, PCI cards are still often for sale, you need to be very careful to only get PCIe cards and not PCI cards if your system doesn't support them.
+
+Both AGP and ISA have been phased out a long time ago, but very old cards may poke up now and then. If you're into vintage computers you may want to look the standards up to learn more.
+
+[TODO] add picture of older cards here
 
 ### ROM/BIOS/UEFI
 
@@ -2648,27 +2671,42 @@ This is the biggest change, I'm going to recomend switching from KDE, which we i
 
 This is with 3 windows ope: Marktext (the program I'm writing this in), a file manager, and an terminal I used to launch the program (scrot) to take the screenshot. What's cool about i3 is how it will always use space as efficently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver.
 
-i3, when first installed, is very, very minimal, it will greet you with a plain black bar and clicking with either mouse button anywhere will do nothing. You should, however, be able to open a terminal by using your modkey (probably the windows key) and enter.
+i3, when first installed, is very, very minimal, it will greet you with a plain black bar and clicking with either mouse button anywhere will do nothing. You should, however, be able to open a terminal by using your modkey (probably the windows or alt key) and enter.
 
-Compton
+i3 actually comes in a bunch of seprate parts, the most important of which are the windowmanager itself, the status bar, and the runner.
 
-LXappearance
+The window manager is the thing that actually manages the windows, this is the part most people are refering to when talking about i3 (assuming they're not talking about an i3 Intel CPU) and is sometimes refferd to as i3wm. A very popular 'fork' of i3 is `i3-gaps` which is available in the community respository.
 
-Rofi
+Ontop of the raw window manager you'll probably want a status bar of some kind. While the default i3bar which is inclued with the i3-gaps package is fine when paired with `i3status`, it does leave a bit to be desired. Many other options are available. I personally use `polybar` though I have friends that have used `lemonbar`  or`i3blocks`.
 
-Ploybar
+Finally you'll want a runner/application launcher. While i3-demu is included, I find it rather annoying to use, and much prefer `rofi` -- this is much better explained here than I can briefly: https://github.com/davatorium/rofi
 
-Deepin-Termianl, URXV-T, kitty,
+To further make i3 reasonable to use you'll want a few more things:
 
-Nitrogen
+`compton` is a composite manager. This is used to allow application to have some transparency, prevent screan tearing, and do slight effects, like but a shadow behind windows.
 
-HiDPI
+`lxappearance-gtk3` can be used to set the theme used by various graphical applications. I use [Sweet](https://www.gnome-look.org/p/1253385/) but there are nearly endless options
 
-Fonts
+For setting the wallpaper (which you probably wont see much) you can use `nitrogen` or `feh`
 
-xrandr
+if you have multiple monitors before setting the wallpaper though you'll probably want to arrange your monitors correctly, for this you can use `xrandr` , read the man page for more information. You can add the command you use to set up your displays to your i3 config file to apply them at each reboot
 
-r/unixporn
+if you have a high resolution monitor and things are small, you may want to look here: https://wiki.archlinux.org/index.php/HiDPI , the best thing from this is to add
+
+```
+QT_QPA_PLATFORMTHEME=qt5ct
+QT_AUTO_SCREEN_SCALE_FACTOR=1
+GDK_SCALE=2
+ELM_SCALE=1.5
+```
+
+to your /etc/enviroment file.
+
+You'll be needing quite a few different utilities beyond this. for a terminal I highly  recomend `deepin-terminal`,  `rxvt-unicode`, or `Alacritty`.
+
+For fonts you'll certainly have your own tastes, but I really like Droid Sans Mono, which is in `ttf-droid`, but `ttf-hack` and `otf-fira-code` are pretty cool too. I also recomend installing `noto-fonts`, `noto-fonts-extra`, and `ttf-font-awesome`. The noto's will provide coverage for weird characters and font awesome is basically icons saved as a font, and many open source projects use it.
+
+If you're looking for more ways to make your setup the best it can be or config files you can steal from check out  [r/unixporn](https://www.reddit.com/r/unixporn).
 
 ## The Physical Enviroment & Hardware
 
@@ -2732,13 +2770,48 @@ Before moving forward though, I think it would make sense to talk about some of 
 
 > Brightness is obvious, how bright or dim is the display. The big thing to note here is weather the brightness is PWM or DC controlled. Displays with PWM controlled brightness are much more common, however, it's a bit of a cheat. Instead of actually changing the intensity of the back light directly, they're simply strobing the light on and off to fast for the eye to see. This can cause eye strain over time though, and genally DC control, which actually does change the brightness directly is prefered. If you have a PWM display and don't mind it at full brightness, this should help with eyes strain, as there is no longer a strobe effect as the display's backlight is just constatnly on.
 
-Multi-head
+clearly there's a lot to be considered here. A no compromise monitor can cost thounands of dollars, but nice 4k 27" monitors like mine can be found for <250 on sale, and I love them. Just figure out what you need and what would be the most benefical for you and work from there
 
-night filter
+---
+
+One of the great things about i3 is how powerful it can be with multiple displays, though even if you're not using i3 having a 'multi head' setup can be a god send for productivity. Even if your monitors don't match it's worth it. If you have the budget to get two maching monitors, great, if not just getting a cheapo used monitor from a thrift store will be a massive improvement. I think 2 is the magic number for most people. 3 monitors take up a lot of room and unless you do some very multi-tasked things you won't see much benefit that using something like i3's workspaces wouldn't provide anyways.
+
+Another thing to mention is red-light filters. While I dont personally use one many people find that reducting the amount of blue light coming from their displays significant helps with eyestrain. If this intrests you give `redshift` a shot. I use it every now and then if I have a headache.
 
 **Keyboard**
 
-layout, shortcuts, height, mechanical, MX Switch types
+Probably the most important thing you can do for your workspace is getting a nice keyboard. If you're rocking a rubber dome or membrane keyboard, moving to a mechanical keyboard will make a massive difference.
+
+![keycomp](./mechkey.png)
+
+([source](https://commons.wikimedia.org/wiki/File:Keyboard_Construction_Button_Press.JPG))
+
+The membrance/rubber dome keyboard on the left doesn't give much physical feedback to your fingers when you press a key, compared to the mechanical key switch on the right. A decent mechancial keyboard can be found on amazon for <50 USD, though as with anything in life the more you spend the better the product. One thing to keep in mind is the color of the switch used. Above you can see that keyboard has blue switches, blue switches have a noticeable 'bump', that is the switch has a spot of higher resistance before it actually botmoms out, and the key actually presses at this point, furthermore, blue keys are clicky - they are lound and some people find this annoying. Finally, they're also pretty light, not taking too much force to push down. Genearly, blues are considered the 'gold standard' among typist, but games on the other hand may prefer a brown, red, or black switch.
+
+|           | Linear | Bump  | Bump + Click |
+| --------- | ------ | ----- | ------------ |
+| **Light** | Red    | Brown | Blue         |
+| **Heavy** | Black  | Clear | Green        |
+
+really it's all a matter of prefrence, I'm actually using a switch not listed here on my keyboard, but genearlly finding what you like among the above first is a good place to start. If I'm not using my main keyboard I generally use Blues.
+
+You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagent number of keys or a weird split keyboard like mine:![keeb](./splitkeeb.jpg)
+
+> This is a custom built ErgoDone keyboard, The Ergodox-ez can be purchased for ~300 USD, or you can build one like mine for a bit under 200
+
+Beyond the physical layout you may also consider the keymap or software layout. Not only does my keyboard look weird, but the keys aren't arranged as you'd expect either. Instead of typing in QWERTY, I actually use Dvorak. That layout looks a like this on a normal keyboard: ![Image result for dvorak](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/KB_United_States_Dvorak.svg/1200px-KB_United_States_Dvorak.svg.png)
+
+though obviously anything is possible. A lot of programmers like to disable their Caps key for example and put something more useful there, or you may just want to move around a letter or two. Using a standard layout like Dovark is a bit easier though as I can easily load my keymap pretty quickly on any computer. Plain old Qwerty is fine, but I personally like my 'weird' keymap.
+
+If you're shelling out big bucks on a nice keyboard anyway, you may also want to get a keyboard which supports QMK, a compeletly open source firmware which gives you total control of your keyboard, allowing you do to cool things like type greek letters ( Ω , α, β) or type perentheses by tapping the shift keys. I find that particually helpful as my keyboard doesn't actually have enough keys to do have every key nicely available (note how I don't have a function row) for more info check out https://docs.qmk.fm/#/ . You can actually buy an adapter to use a normal keyboard with QMK, but it's a bit hack-y and I really recomend just saving up to get a full keyboard made for it.
+
+Back to ergonomics, you'll want to make sure your keyboard is a t a comfortable height for you and that you can type in a way that isn't putning your wrists at any weird angles
+
+Finally, one of the nice things about i3 is the ability to navigate everything entirely from the keyboard as well as bind as much as you want to as many keys as you'd like. Want a key combo to launch a file manager? easy. Want a key to navigate to open up a termial and immediatly run a command- no problem. Set things up as you like and enjoy being able to use your system at break neck speed while everyone else drags things around slowly.
+
+**Mouse and other input**
+
+Speaking of dragging things around slowly: The mouse
 
 **Sound**
 

@@ -1,291 +1,297 @@
-   * [Preface](#preface)
-   * [Ⅰ - Community](#ⅰ---community)
-   * [Ⅱ - Learn how to learn](#ⅱ---learn-how-to-learn)
-   * [Chapter 1 - The first goal](#chapter-1---the-first-goal)
-   * [Chapter 2 - Let's do it then, Installing Arch Linux](#chapter-2---lets-do-it-then-installing-arch-linux)
-      * [So Why Did I do all of that exactly?](#so-why-did-i-do-all-of-that-exactly)
-      * [Okay, so what?](#okay-so-what)
-   * [Chapter 3 - Into the hardware](#chapter-3---into-the-hardware)
-      * [The CPU](#the-cpu)
-         * [Clock Speed](#clock-speed)
-         * [Microcode](#microcode)
-         * [Cache](#cache)
-      * [RAM](#ram)
-      * [The Motherboard](#the-motherboard)
-         * [Chipset](#chipset)
-         * [Expansion slots](#expansion-slots)
-         * [ROM/BIOS/UEFI](#rombiosuefi)
-         * [VRM](#vrm)
-      * [Graphics Card (or integrated graphics)](#graphics-card-or-integrated-graphics)
-      * [Storage](#storage)
-         * [HDD](#hdd)
-         * [SSD](#ssd)
-         * [Cloud Storage (Some one elses' drives)](#cloud-storage-some-one-elses-drives)
-         * [Portable](#portable)
-         * [The Past](#the-past)
-      * [Network Interfaces](#network-interfaces)
-         * [Ethernet](#ethernet)
-         * [WiFi](#wifi)
-         * [High Bandwith](#high-bandwith)
-         * [The Future](#the-future)
-         * [The Past](#the-past-1)
-      * [Power Supply](#power-supply)
-      * [Cooling](#cooling)
-      * [Peripherals](#peripherals)
-         * [Keyborads](#keyborads)
-         * [Legacy Connections](#legacy-connections)
-      * [How to know what to buy](#how-to-know-what-to-buy)
-   * [Chapter 4 - Back to the Root of Things](#chapter-4---back-to-the-root-of-things)
-      * [Permissions](#permissions)
-      * [/dev, the devices folder](#dev-the-devices-folder)
-         * [TTY's, these are important:](#ttys-these-are-important)
-      * [/proc, the fake file system](#proc-the-fake-file-system)
-      * [/bin, /sbin, /lib, /lib64](#bin-sbin-lib-lib64)
-      * [/usr](#usr)
-      * [/boot](#boot)
-      * [/etc](#etc)
-      * [/home, /mnt, /run](#home-mnt-run)
-      * [Users and Groups](#users-and-groups)
-      * [Drivers](#drivers)
-      * [File systems](#file-systems)
-      * [Processes and Memory](#processes-and-memory)
-      * [System Calls](#system-calls)
-      * [Kernel Parameters](#kernel-parameters)
-      * [SystemD and alternatives](#systemd-and-alternatives)
-      * [Schedulers](#schedulers)
-      * [Dbus](#dbus)
-   * [Chapter 5 - Resistance, Capacitance, and Inductance](#chapter-5---resistance-capacitance-and-inductance)
-      * [The Tools of the Trade](#the-tools-of-the-trade)
-         * [The Multimeter](#the-multimeter)
-            * [Resistance and the OHM meter](#resistance-and-the-ohm-meter)
-            * [Voltage, Ground, and the Volt Meter](#voltage-ground-and-the-volt-meter)
-            * [Current and the Ammeter](#current-and-the-ammeter)
-            * [Continuity Tester](#continuity-tester)
-         * [The Lab Power Supply](#the-lab-power-supply)
-         * [The Frequnecy or Waveform Generator](#the-frequnecy-or-waveform-generator)
-         * [The Oscilloscope](#the-oscilloscope)
-         * [The Logic Analyzer](#the-logic-analyzer)
-      * [Software Simulation](#software-simulation)
-      * [OHM's law, Nodal &amp; Mesh Analysis, Superposition, Thevanins](#ohms-law-nodal--mesh-analysis-superposition-thevanins)
-      * [Resistors](#resistors)
-      * [Capacitors](#capacitors)
-      * [Inductors](#inductors)
-      * [Filters](#filters)
-      * [Decibels](#decibels)
-      * [Further Reading](#further-reading)
-   * [Chapter 6 - Let's work on how we work](#chapter-6---lets-work-on-how-we-work)
-      * [The Terminal](#the-terminal)
-      * [Heads up,](#heads-up)
-      * [Code editors](#code-editors)
-      * [The Desktop Envrioment](#the-desktop-envrioment)
-      * [The Physical Enviroment &amp; Hardware](#the-physical-enviroment--hardware)
-      * [Various Programs:](#various-programs)
-   * [Chapter 7 - Let's write some python](#chapter-7---lets-write-some-python)
-      * [The building blocks of programming](#the-building-blocks-of-programming)
-      * [Common methods used](#common-methods-used)
-      * [Some simple programs](#some-simple-programs)
-         * [Hello World](#hello-world)
-         * [Even or Odd, prime,](#even-or-odd-prime)
-         * [Calculating sine and pi](#calculating-sine-and-pi)
-         * [Sorting a list](#sorting-a-list)
-         * [Palindromes](#palindromes)
-         * [Cypher](#cypher)
-      * [Making a full project](#making-a-full-project)
-         * [Part 1, Starting easy](#part-1-starting-easy)
-      * [More advanced topics](#more-advanced-topics)
-   * [Chapter 8 - Low Level Programming](#chapter-8---low-level-programming)
-      * [Some simple programs, in C  ](#some-simple-programs-in-c)
-         * [Hello World](#hello-world-1)
-         * [Even or Odd, prime,](#even-or-odd-prime-1)
-         * [Calculating sine and pi](#calculating-sine-and-pi-1)
-         * [Sorting a list](#sorting-a-list-1)
-         * [Palindromes](#palindromes-1)
-         * [Cypher](#cypher-1)
-         * [Part 2, Going Deeper](#part-2-going-deeper)
-         * [What are we going to do?](#what-are-we-going-to-do)
-         * [Tools to use](#tools-to-use)
-         * [Pseudo code](#pseudo-code)
-         * [Writing it](#writing-it)
-         * [Debugging it](#debugging-it)
-         * [Analyzing the Assembly](#analyzing-the-assembly)
-         * [Patching it](#patching-it)
-      * [C, C  , Rust, Go, ?](#c-c-rust-go-)
-      * [Where to get more pracice with low level programming](#where-to-get-more-pracice-with-low-level-programming)
-   * [Chapter 9 - Finishing up the project](#chapter-9---finishing-up-the-project)
-      * [Part 3, more advanced high level](#part-3-more-advanced-high-level)
-      * [Part 4, getting our toes wet with embeded systems](#part-4-getting-our-toes-wet-with-embeded-systems)
-   * [Chapter 10 - Networking](#chapter-10---networking)
-      * [A typical network](#a-typical-network)
-      * [The physical Layer](#the-physical-layer)
-         * [Coax, Fiber](#coax-fiber)
-         * [Wireless](#wireless)
-         * [Hubs, Repeaters](#hubs-repeaters)
-      * [Data Link](#data-link)
-         * [Ethernet](#ethernet-1)
-         * [PPP](#ppp)
-         * [Switch](#switch)
-         * [Bridge](#bridge)
-         * [Frames](#frames)
-      * [Network](#network)
-         * [Packets](#packets)
-         * [IPV4, IPV6](#ipv4-ipv6)
-         * [MAC](#mac)
-         * [ICMP, IGMP](#icmp-igmp)
-      * [Transport](#transport)
-         * [TCP](#tcp)
-         * [UDP](#udp)
-      * [Session](#session)
-         * [Authentication](#authentication)
-         * [Sockets](#sockets)
-         * [API's](#apis)
-      * [Presentation](#presentation)
-         * [Common Protocols](#common-protocols)
-      * [Application](#application)
-         * [HTTP](#http)
-         * [FTP](#ftp)
-         * [DNS](#dns)
-         * [SSH](#ssh)
-         * [IRC](#irc)
-         * [EMail](#email)
-      * [Time](#time)
-      * [VPNs](#vpns)
-      * [Networking Tools](#networking-tools)
-         * [Etherape](#etherape)
-         * [Wireshark](#wireshark)
-         * [Nmap](#nmap)
-      * [Really weird Networking, because why not!](#really-weird-networking-because-why-not)
-   * [Chapter 11 - High Level Overview of Math, Physics, and Chemistry (Sorry...)](#chapter-11---high-level-overview-of-math-physics-and-chemistry-sorry)
-      * [Ⅰ - Math](#ⅰ---math)
-         * [1 - Algebra](#1---algebra)
-         * [2 - Discrete Math](#2---discrete-math)
-         * [3 - Trig](#3---trig)
-         * [4 - Calculus](#4---calculus)
-         * [5 - Differential Equations](#5---differential-equations)
-         * [6 - Matrix Theory](#6---matrix-theory)
-      * [Ⅱ - Physics](#ⅱ---physics)
-      * [Ⅲ - Chem](#ⅲ---chem)
-   * [Chapter 12 - Diodes,  Transistors, and Integrated Circuits](#chapter-12---diodes--transistors-and-integrated-circuits)
-      * [Transformers, Variacs](#transformers-variacs)
-      * [Diodes, the one way road](#diodes-the-one-way-road)
-         * [Diode Logic](#diode-logic)
-      * [Transistors](#transistors)
-         * [PNP V NPN](#pnp-v-npn)
-         * [IGBT, Mosfets?](#igbt-mosfets)
-      * [Integrated Circuits](#integrated-circuits)
-         * [555, OpAmp, 74-Series Logic](#555-opamp-74-series-logic)
-      * [Optical Electronics](#optical-electronics)
-      * [Crystal Oscilators](#crystal-oscilators)
-      * [PWM](#pwm)
-      * [ADC/DAC](#adcdac)
-      * [Active Filters](#active-filters)
-      * [Audio Devices](#audio-devices)
-   * [Relating AC and Music](#relating-ac-and-music)
-      * [Continued Reading:](#continued-reading)
-   * [Chapter 13 - Embedded Systems](#chapter-13---embedded-systems)
-      * [What is an Embedded System?](#what-is-an-embedded-system)
-      * [PWM, SPI, I2C, What's going on?!](#pwm-spi-i2c-whats-going-on)
-      * [Playing around - Hello World and blink](#playing-around---hello-world-and-blink)
-      * [Making an Embeded System project - 1 - Humidity Sensor](#making-an-embeded-system-project---1---humidity-sensor)
-      * [Making an Embeded System project - 2 - MIDI Controller (with piezzo)](#making-an-embeded-system-project---2---midi-controller-with-piezzo)
-      * [Making an Embeded System project - 3 - Stepper Motor Music](#making-an-embeded-system-project---3---stepper-motor-music)
-   * [Chapter 14 - Discrete Math and Algorithms](#chapter-14---discrete-math-and-algorithms)
-      * [Discrete Math](#discrete-math)
-      * [Complexity analsis](#complexity-analsis)
-      * [Brute Force](#brute-force)
-      * [Data structures](#data-structures)
-      * [Practice](#practice)
-   * [Chapter 15 - Writing a larger program](#chapter-15---writing-a-larger-program)
-      * [Object Oriented Programming](#object-oriented-programming)
-      * [Planning](#planning)
-      * [Software Engineering](#software-engineering)
-   * [Chapter 16 - Servers!](#chapter-16---servers)
-      * [Why build a server](#why-build-a-server)
-      * [DIY Networking: Routing, firewall, etc.](#diy-networking-routing-firewall-etc)
-      * [Web hosting](#web-hosting)
-      * [File Storage, Sharing, Backups](#file-storage-sharing-backups)
-      * [Remote Access](#remote-access)
-      * [Git, Games, and Glory](#git-games-and-glory)
-      * [Virtual Machines](#virtual-machines)
-      * [Containerization](#containerization)
-      * [Fault tollerence](#fault-tollerence)
-   * [Chapter 17 - Databases](#chapter-17---databases)
-   * [Chapter 18 - Debugging, Automated Building and Testing](#chapter-18---debugging-automated-building-and-testing)
-      * [Automated Building](#automated-building)
-      * [Debugging](#debugging)
-         * [Software Debugging](#software-debugging)
-         * [Hardware Dubugging](#hardware-dubugging)
-      * [Testing](#testing)
-         * [Software Testing](#software-testing)
-         * [Hardware Testing](#hardware-testing)
-   * [Chapter 19 - Compilers and Assemblers](#chapter-19---compilers-and-assemblers)
-      * [Making an interpreted language](#making-an-interpreted-language)
-      * [Making a compiled language](#making-a-compiled-language)
-      * [Continued Reading](#continued-reading-1)
-   * [Chapter 20 - Automated Building and Testing](#chapter-20---automated-building-and-testing)
-   * [Chapter 21 - Exploitation](#chapter-21---exploitation)
-      * [Types of exploits](#types-of-exploits)
-         * [Software](#software)
-            * [Networking](#networking)
-         * [Hardware](#hardware)
-         * [Social Engineering](#social-engineering)
-         * [Physical security](#physical-security)
-      * [Malware](#malware)
-      * [Tools of the trade](#tools-of-the-trade)
-      * [Getting some practice](#getting-some-practice)
-         * [CTF-Time](#ctf-time)
-         * [PWNie Island](#pwnie-island)
-      * [Where to learn even more:](#where-to-learn-even-more)
-   * [Chapter 22 - Security](#chapter-22---security)
-   * [Chapter 23 - Open Source, Licences, and Copyright](#chapter-23---open-source-licences-and-copyright)
-   * [Chapter 24 - Let's make our own PCB](#chapter-24---lets-make-our-own-pcb)
-   * [Chapter 25 - We've got cores, let's use em'](#chapter-25---weve-got-cores-lets-use-em)
-   * [Chapter 26 - Graphical Programming](#chapter-26---graphical-programming)
-   * [Chapter 27 - (((())(()((()(()))))))](#chapter-27---)
-   * [Chapter 28 - Let's try out programmable logic](#chapter-28---lets-try-out-programmable-logic)
-   * [Chapter 29 - Let's make our own CPU](#chapter-29---lets-make-our-own-cpu)
-   * [Chapter 30 - 3D printing, cases, and making real things](#chapter-30---3d-printing-cases-and-making-real-things)
-   * [Chapter 31 - Fine, I'll talk about AI](#chapter-31---fine-ill-talk-about-ai)
-   * [Wrapping up - Where to go from here](#wrapping-up---where-to-go-from-here)
-      * [Integrating other interests](#integrating-other-interests)
-      * [Projects to work on](#projects-to-work-on)
-      * [Contributing to Open Source](#contributing-to-open-source)
-   * [Appendix A- Using the Linux Shell](#appendix-a--using-the-linux-shell)
-      * [The Basic Commands](#the-basic-commands)
-      * [Tab Completion and faster navigation](#tab-completion-and-faster-navigation)
-      * [I/O redirection](#io-redirection)
-      * [Wild Cards &amp; Regex](#wild-cards--regex)
-      * [Job Control](#job-control)
-      * [Shortcuts](#shortcuts)
-      * [Aliases and customization](#aliases-and-customization)
-      * [Shell Scripting](#shell-scripting)
-      * [Alternative Shells](#alternative-shells)
-      * [Alternative commands](#alternative-commands)
-      * [Useful Non-Stock CLI Tools](#useful-non-stock-cli-tools)
-      * [Common Graphical Linux Utils](#common-graphical-linux-utils)
-      * [Graphical Enviroments  ](#graphical-enviroments)
-      * [Free Graphical Utilities](#free-graphical-utilities)
-         * [Office &amp; Daily](#office--daily)
-         * [A/V](#av)
-         * [Social](#social)
-         * [Programming](#programming)
-         * [Engineering](#engineering)
-         * [System](#system)
-         * [IRL](#irl)
-         * [Other](#other)
-      * [Paid Graphical Utilities](#paid-graphical-utilities)
-      * [Self hosted / Services](#self-hosted--services)
-   * [Appendix B - Common electrical parts (appearence and numbers)](#appendix-b---common-electrical-parts-appearence-and-numbers)
-   * [Appendix C - BOM](#appendix-c---bom)
-      * [Getting things for cheap](#getting-things-for-cheap)
-   * [Appendix D - The Politics of it all](#appendix-d---the-politics-of-it-all)
-   * [Appendix E - Things to avoid](#appendix-e---things-to-avoid)
-   * [Other Great Resources](#other-great-resources)
-      * [Learning Linux](#learning-linux)
-      * [Youtube](#youtube)
-      * [Podcasts](#podcasts)
-      * [Github info pages](#github-info-pages)
-      * [Books](#books)
-      * [Non-Technical](#non-technical)
+* [Preface](#preface)
+* [Ⅰ - Community](#ⅰ---community)
+* [Ⅱ - Learn how to learn](#ⅱ---learn-how-to-learn)
+* [Chapter 1 - The first goal](#chapter-1---the-first-goal)
+* [Chapter 2 - Let's do it then, Installing Arch Linux](#chapter-2---lets-do-it-then-installing-arch-linux)
+  * [So Why Did I do all of that exactly?](#so-why-did-i-do-all-of-that-exactly)
+  * [Okay, so what?](#okay-so-what)
+* [Chapter 3 - Into the hardware](#chapter-3---into-the-hardware)
+  * [The CPU](#the-cpu)
+    * [Clock Speed](#clock-speed)
+    * [Microcode](#microcode)
+    * [Cache](#cache)
+  * [RAM](#ram)
+  * [The Motherboard](#the-motherboard)
+    * [Chipset](#chipset)
+    * [Expansion slots](#expansion-slots)
+    * [ROM/BIOS/UEFI](#rombiosuefi)
+    * [VRM](#vrm)
+  * [Graphics Card (or integrated graphics)](#graphics-card-or-integrated-graphics)
+  * [Storage](#storage)
+    * [HDD](#hdd)
+    * [SSD](#ssd)
+    * [Cloud Storage (Some one elses' drives)](#cloud-storage-some-one-elses-drives)
+    * [Portable](#portable)
+    * [The Past](#the-past)
+  * [Network Interfaces](#network-interfaces)
+    * [Ethernet](#ethernet)
+    * [WiFi](#wifi)
+    * [High Bandwith](#high-bandwith)
+    * [The Future](#the-future)
+    * [The Past](#the-past-1)
+  * [Power Supply](#power-supply)
+  * [Cooling](#cooling)
+  * [Peripherals](#peripherals)
+    * [Keyborads](#keyborads)
+    * [Legacy Connections](#legacy-connections)
+  * [How to know what to buy](#how-to-know-what-to-buy)
+* [Chapter 4 - Back to the Root of Things](#chapter-4---back-to-the-root-of-things)
+  * [Permissions](#permissions)
+  * [/dev, the devices folder](#dev-the-devices-folder)
+    * [TTY's, these are important:](#ttys-these-are-important)
+  * [/proc, the fake file system](#proc-the-fake-file-system)
+  * [/bin, /sbin, /lib, /lib64](#bin-sbin-lib-lib64)
+  * [/usr](#usr)
+  * [/boot](#boot)
+  * [/etc](#etc)
+  * [/home, /mnt, /run](#home-mnt-run)
+  * [Users and Groups](#users-and-groups)
+  * [Drivers](#drivers)
+  * [File systems](#file-systems)
+  * [Processes and Memory](#processes-and-memory)
+  * [System Calls](#system-calls)
+  * [Kernel Parameters](#kernel-parameters)
+  * [SystemD and alternatives](#systemd-and-alternatives)
+  * [Schedulers](#schedulers)
+  * [Dbus](#dbus)
+* [Chapter 5 - Resistance, Capacitance, and Inductance](#chapter-5---resistance-capacitance-and-inductance)
+  * [The Tools of the Trade](#the-tools-of-the-trade)
+    * [The Multimeter](#the-multimeter)
+      * [Resistance and the OHM meter](#resistance-and-the-ohm-meter)
+      * [Voltage, Ground, and the Volt Meter](#voltage-ground-and-the-volt-meter)
+      * [Current and the Ammeter](#current-and-the-ammeter)
+      * [Continuity Tester](#continuity-tester)
+    * [The Lab Power Supply](#the-lab-power-supply)
+    * [The Frequnecy or Waveform Generator](#the-frequnecy-or-waveform-generator)
+    * [The Oscilloscope](#the-oscilloscope)
+    * [The Logic Analyzer](#the-logic-analyzer)
+  * [Software Simulation](#software-simulation)
+  * [OHM's law, Nodal &amp; Mesh Analysis, Superposition, Thevanins](#ohms-law-nodal--mesh-analysis-superposition-thevanins)
+  * [Resistors](#resistors)
+  * [Capacitors](#capacitors)
+  * [Inductors](#inductors)
+  * [Filters](#filters)
+  * [Decibels](#decibels)
+  * [Further Reading](#further-reading)
+* [Chapter 6 - Let's work on how we work](#chapter-6---lets-work-on-how-we-work)
+  * [The Terminal](#the-terminal)
+  * [Heads up,](#heads-up)
+  * [Code editors](#code-editors)
+  * [The Desktop Envrioment](#the-desktop-envrioment)
+  * [The Physical Enviroment &amp; Hardware](#the-physical-enviroment--hardware)
+  * [Various Programs:](#various-programs)
+* [Chapter 7 - Let's write some python](#chapter-7---lets-write-some-python)
+  * [The building blocks of programming](#the-building-blocks-of-programming)
+  * [Common methods used](#common-methods-used)
+  * [Some simple programs](#some-simple-programs)
+    * [Hello World](#hello-world)
+    * [Even or Odd, prime,](#even-or-odd-prime)
+    * [Calculating sine and pi](#calculating-sine-and-pi)
+    * [Sorting a list](#sorting-a-list)
+    * [Palindromes](#palindromes)
+    * [Cypher](#cypher)
+  * [Making a full project](#making-a-full-project)
+    * [Part 1, Starting easy](#part-1-starting-easy)
+  * [More advanced topics](#more-advanced-topics)
+* [Chapter 8 - Low Level Programming](#chapter-8---low-level-programming)
+  * [Some simple programs, in C  ](#some-simple-programs-in-c)
+    * [Hello World](#hello-world-1)
+    * [Even or Odd, prime,](#even-or-odd-prime-1)
+    * [Calculating sine and pi](#calculating-sine-and-pi-1)
+    * [Sorting a list](#sorting-a-list-1)
+    * [Palindromes](#palindromes-1)
+    * [Cypher](#cypher-1)
+    * [Part 2, Going Deeper](#part-2-going-deeper)
+    * [What are we going to do?](#what-are-we-going-to-do)
+    * [Tools to use](#tools-to-use)
+    * [Pseudo code](#pseudo-code)
+    * [Writing it](#writing-it)
+    * [Debugging it](#debugging-it)
+    * [Analyzing the Assembly](#analyzing-the-assembly)
+    * [Patching it](#patching-it)
+  * [C, C  , Rust, Go, ?](#c-c-rust-go-)
+  * [Where to get more pracice with low level programming](#where-to-get-more-pracice-with-low-level-programming)
+* [Chapter 9 - Finishing up the project](#chapter-9---finishing-up-the-project)
+  * [Part 3, more advanced high level](#part-3-more-advanced-high-level)
+  * [Part 4, getting our toes wet with embeded systems](#part-4-getting-our-toes-wet-with-embeded-systems)
+* [Chapter 10 - Networking](#chapter-10---networking)
+  * [A typical network](#a-typical-network)
+  * [The physical Layer](#the-physical-layer)
+    * [Coax, Fiber](#coax-fiber)
+    * [Wireless](#wireless)
+    * [Hubs, Repeaters](#hubs-repeaters)
+  * [Data Link](#data-link)
+    * [Ethernet](#ethernet-1)
+    * [PPP](#ppp)
+    * [Switch](#switch)
+    * [Bridge](#bridge)
+    * [Frames](#frames)
+  * [Network](#network)
+    * [Packets](#packets)
+    * [IPV4, IPV6](#ipv4-ipv6)
+    * [MAC](#mac)
+    * [ICMP, IGMP](#icmp-igmp)
+  * [Transport](#transport)
+    * [TCP](#tcp)
+    * [UDP](#udp)
+  * [Session](#session)
+    * [Authentication](#authentication)
+    * [Sockets](#sockets)
+    * [API's](#apis)
+  * [Presentation](#presentation)
+    * [Common Protocols](#common-protocols)
+  * [Application](#application)
+    * [HTTP](#http)
+    * [FTP](#ftp)
+    * [DNS](#dns)
+    * [SSH](#ssh)
+    * [IRC](#irc)
+    * [EMail](#email)
+  * [Time](#time)
+  * [VPNs](#vpns)
+  * [Networking Tools](#networking-tools)
+    * [Etherape](#etherape)
+    * [Wireshark](#wireshark)
+    * [Nmap](#nmap)
+  * [Really weird Networking, because why not!](#really-weird-networking-because-why-not)
+* [Chapter 11 - High Level Overview of Math, Physics, and Chemistry (Sorry...)](#chapter-11---high-level-overview-of-math-physics-and-chemistry-sorry)
+  * [Ⅰ - Math](#ⅰ---math)
+    * [1 - Algebra](#1---algebra)
+    * [2 - Discrete Math](#2---discrete-math)
+    * [3 - Trig](#3---trig)
+    * [4 - Calculus](#4---calculus)
+    * [5 - Differential Equations](#5---differential-equations)
+    * [6 - Matrix Theory](#6---matrix-theory)
+  * [Ⅱ - Physics](#ⅱ---physics)
+  * [Ⅲ - Chem](#ⅲ---chem)
+* [Chapter 12 - Diodes,  Transistors, and Integrated Circuits](#chapter-12---diodes--transistors-and-integrated-circuits)
+  * [Transformers, Variacs](#transformers-variacs)
+  * [Diodes, the one way road](#diodes-the-one-way-road)
+    * [Diode Logic](#diode-logic)
+  * [Transistors](#transistors)
+    * [PNP V NPN](#pnp-v-npn)
+    * [IGBT, Mosfets?](#igbt-mosfets)
+  * [Integrated Circuits](#integrated-circuits)
+    * [555, OpAmp, 74-Series Logic](#555-opamp-74-series-logic)
+  * [Optical Electronics](#optical-electronics)
+  * [Crystal Oscilators](#crystal-oscilators)
+  * [PWM](#pwm)
+  * [ADC/DAC](#adcdac)
+  * [Active Filters](#active-filters)
+  * [Audio Devices](#audio-devices)
+* [Relating AC and Music](#relating-ac-and-music)
+  * [Continued Reading:](#continued-reading)
+* [Chapter 13 - Embedded Systems](#chapter-13---embedded-systems)
+  * [What is an Embedded System?](#what-is-an-embedded-system)
+  * [PWM, SPI, I2C, What's going on?!](#pwm-spi-i2c-whats-going-on)
+  * [Playing around - Hello World and blink](#playing-around---hello-world-and-blink)
+  * [Making an Embeded System project - 1 - Humidity Sensor](#making-an-embeded-system-project---1---humidity-sensor)
+  * [Making an Embeded System project - 2 - MIDI Controller (with piezzo)](#making-an-embeded-system-project---2---midi-controller-with-piezzo)
+  * [Making an Embeded System project - 3 - Stepper Motor Music](#making-an-embeded-system-project---3---stepper-motor-music)
+* [Chapter 14 - Discrete Math and Algorithms](#chapter-14---discrete-math-and-algorithms)
+  * [Discrete Math](#discrete-math)
+  * [Complexity analsis](#complexity-analsis)
+  * [Brute Force](#brute-force)
+  * [Data structures](#data-structures)
+  * [Practice](#practice)
+* [Chapter 15 - Writing a larger program](#chapter-15---writing-a-larger-program)
+  * [Object Oriented Programming](#object-oriented-programming)
+  * [Planning](#planning)
+  * [Software Engineering](#software-engineering)
+* [Chapter 16 - Servers!](#chapter-16---servers)
+  * [Why build a server](#why-build-a-server)
+  * [DIY Networking: Routing, firewall, etc.](#diy-networking-routing-firewall-etc)
+  * [Web hosting](#web-hosting)
+  * [File Storage, Sharing, Backups](#file-storage-sharing-backups)
+  * [Remote Access](#remote-access)
+  * [Git, Games, and Glory](#git-games-and-glory)
+  * [Virtual Machines](#virtual-machines)
+  * [Containerization](#containerization)
+  * [Fault tollerence](#fault-tollerence)
+* [Chapter 17 - Databases](#chapter-17---databases)
+* [Chapter 18 - Debugging, Automated Building and Testing](#chapter-18---debugging-automated-building-and-testing)
+  * [Automated Building](#automated-building)
+  * [Debugging](#debugging)
+    * [Software Debugging](#software-debugging)
+    * [Hardware Dubugging](#hardware-dubugging)
+  * [Testing](#testing)
+    * [Software Testing](#software-testing)
+    * [Hardware Testing](#hardware-testing)
+* [Chapter 19 - Compilers and Assemblers](#chapter-19---compilers-and-assemblers)
+  * [Making an interpreted language](#making-an-interpreted-language)
+  * [Making a compiled language](#making-a-compiled-language)
+  * [Continued Reading](#continued-reading-1)
+* [Chapter 20 - Automated Building and Testing](#chapter-20---automated-building-and-testing)
+* [Chapter 21 - Exploitation](#chapter-21---exploitation)
+  * [Types of exploits](#types-of-exploits)
+    * [Software](#software)
+      * [Networking](#networking)
+    * [Hardware](#hardware)
+    * [Social Engineering](#social-engineering)
+    * [Physical security](#physical-security)
+  * [Malware](#malware)
+  * [Tools of the trade](#tools-of-the-trade)
+  * [Getting some practice](#getting-some-practice)
+    * [CTF-Time](#ctf-time)
+    * [PWNie Island](#pwnie-island)
+  * [Where to learn even more:](#where-to-learn-even-more)
+* [Chapter 22 - Security](#chapter-22---security)
+* [Chapter 23 - Open Source, Licences, and Copyright](#chapter-23---open-source-licences-and-copyright)
+* [Chapter 24 - Let's make our own PCB](#chapter-24---lets-make-our-own-pcb)
+* [Chapter 25 - We've got cores, let's use em'](#chapter-25---weve-got-cores-lets-use-em)
+* [Chapter 26 - Graphical Programming](#chapter-26---graphical-programming)
+* [Chapter 27 - (((())(()((()(()))))))](#chapter-27---)
+* [Chapter 28 - Let's try out programmable logic](#chapter-28---lets-try-out-programmable-logic)
+* [Chapter 29 - Let's make our own CPU](#chapter-29---lets-make-our-own-cpu)
+* [Chapter 30 - 3D printing, cases, and making real things](#chapter-30---3d-printing-cases-and-making-real-things)
+* [Chapter 31 - Fine, I'll talk about AI](#chapter-31---fine-ill-talk-about-ai)
+* [Wrapping up - Where to go from here](#wrapping-up---where-to-go-from-here)
+  * [Integrating other interests](#integrating-other-interests)
+  * [Projects to work on](#projects-to-work-on)
+  * [Contributing to Open Source](#contributing-to-open-source)
+* [Appendix A- Using the Linux Shell](#appendix-a--using-the-linux-shell)
+  * [The Basic Commands](#the-basic-commands)
+  * [Tab Completion and faster navigation](#tab-completion-and-faster-navigation)
+  * [I/O redirection](#io-redirection)
+  * [Wild Cards &amp; Regex](#wild-cards--regex)
+  * [Job Control](#job-control)
+  * [Shortcuts](#shortcuts)
+  * [Aliases and customization](#aliases-and-customization)
+  * [Shell Scripting](#shell-scripting)
+  * [Alternative Shells](#alternative-shells)
+  * [Alternative commands](#alternative-commands)
+  * [Useful Non-Stock CLI Tools](#useful-non-stock-cli-tools)
+  * [Common Graphical Linux Utils](#common-graphical-linux-utils)
+  * [Graphical Enviroments  ](#graphical-enviroments)
+  * [Free Graphical Utilities](#free-graphical-utilities)
+    * [Office &amp; Daily](#office--daily)
+    * [A/V](#av)
+    * [Social](#social)
+    * [Programming](#programming)
+    * [Engineering](#engineering)
+    * [System](#system)
+    * [IRL](#irl)
+    * [Other](#other)
+  * [Paid Graphical Utilities](#paid-graphical-utilities)
+  * [Self hosted / Services](#self-hosted--services)
+* [Appendix B - Common electrical parts (appearence and numbers)](#appendix-b---common-electrical-parts-appearence-and-numbers)
+* [Appendix C - BOM](#appendix-c---bom)
+  * [Getting things for cheap](#getting-things-for-cheap)
+* [Appendix D - The Politics of it all](#appendix-d---the-politics-of-it-all)
+* [Appendix E - Things to avoid](#appendix-e---things-to-avoid)
+* [Other Great Resources](#other-great-resources)
+  * [Learning Linux](#learning-linux)
+  
+  * [Youtube](#youtube)
+  
+  * [Podcasts](#podcasts)
+  
+  * [Github info pages](#github-info-pages)
+  
+  * [Books](#books)
+  
+  * [Non-Technical](#non-technical)
+    
     DELIMITEDFORTOC
 
 # Preface
@@ -343,30 +349,30 @@ Oh, and to mention it now
 Yes, there is always a relevant XKCD, and yes, you will always feel like everyone knows more than you. Don't stress about asking stupid questions:
 
 > Frequently in chats, whether telegram, IRC, slack, or discord, someone says something like this:
->
+> 
 > <AnonOtter> Anyone know rust? Having an issue.
->
+> 
 > How that question is often read:
->
+> 
 > <AnonOtter> Can someone to commit to being able to solve my problem with rust, spending as much time as necessary, without them even knowing what the actual problem is or if it's even a rust problem?
->
+> 
 > Hopefully it's clear why questions like this rarely result in direct answers.
->
+> 
 > - There are very few people who could be called experts in every facet of whatever is being asked
 > - Imposter syndrome is common
 > - Most people won't write that blank check for time/help commitment
->
+> 
 > Instead, share:
->
+> 
 > - The goal - "Trying to query for a list of tags on a post" - See [The XY Problem](http://xyproblem.info/)
 > - The problem - "I'm getting back these results"
 > - The expectation - "but it should be these results"
 > - Any context or previous research you've done
 > - If possible, a simplified example. 3v4l for php, jsfiddle for html/js/css, etc. are great, otherwise a paste site.
 > - What you've already tried
->
+> 
 > This allows anyone there to try to help. Many skills transfer well to other languages or platforms. At minimum, you might get an idea for something you haven't tried yet. Sometimes you'll even solve your own problem while narrowing down the simplest possible test case.
->
+> 
 > Oh, and don't snark at well-intentioned answers. It's rude and discourages participation.
 
 --from https://bad.pet/q/
@@ -415,7 +421,7 @@ but note, you should keep in mind the standard warning that comes when first usi
 
 > We trust you have received the usual lecture from the local System
 > Administrator. It usually boils down to these three things:
->
+> 
 >     #1) Respect the privacy of others.
 >     #2) Think before you type.
 >     #3) With great power comes great responsibility.
@@ -425,13 +431,13 @@ but note, you should keep in mind the standard warning that comes when first usi
 Every journey needs a place to start, and while many may like to start slow I think a head first approach is best. So that's exactly what we're gonna do. The very first thing we're going to do is install a new operating system (OS) on your computer.
 
 > Quote boxes like these will provide notes throughout the guide, often definitonal. If you already understand everything prior to each box, you can probably safely ignore it, though it will occasionally be used for actual quotes as seen prior to this
->
+> 
 > Operating System: According to wikipedia, "An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs." put simply on your hardware this is probably Windows or Mac OS, and it's what everything else runs ontop of
 
 You should really make a full backup of your computer before doing this, as installing an operating system can rather easily lead to lost files when you reformat or reparation your drive or when you change settings in the BIOS/UEFI and swap the bootloader.
 
 > Reformat: the bulk storage device in your computer, the hard drive or solid state drive, needs to be formated before use, this sets up a way for the computer and the drive to agree on a base system for how partitions should be setup, speaking of which:
->
+> 
 > Repartion: To partition a drive means to take all the space on the hard drive and divide it into partitions onto which you can put a file system. Most operating systems like Windows, Mac OsX, or Linux, use multiple partitions for the operating system to function. Usually a filesystem is set up on each of these partitions, in windows this is typically NTFS for Hard Drives and FAT32 for flash drives, these file systems are effectively the index for all the files you'll put on the drive, and as you may have multiple partitions and multiple file systems on one disk each will have an index to match. As complicated as it may seem this means the partition table can be seen as an 'index of inecies' of sorts. Don't worry if that's a lot to understand right now, we'll come back to this topic in depth.
 > BIOS/UEFI: The Binary Input Output System or Unified Extensible Firmware Interface is the thing you see before you computer loads the operating system, usually prompting to press delete or f2 to change settings. This is the system that is used to change the way all the components around the computer talk to one another and at what speed.
 > Bootloader: The bootloader sits at a special place on the hard drive selected for boot in the UEFI or BIOS, and is what the computer uses to load the full operating system, most will let you chose what operating system you want to boot if you have multiple installed on you computer at once
@@ -495,7 +501,7 @@ Obviously if you need this you'll need IRC open on a differnt device than the on
 > ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 > Seriously, backup your shit. I've done this countless times and have still managed to accidentally wipe a drive. There's a good chance you're about to completely murder your windows install. This is a necssary evil to learn, and I assure you'll be happy you've done all this, but this next bit is actual hell for people. I'm sorry it gets so bad so early. I promise it's worth it, okay?
 > ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
->
+> 
 > The next section requires a lot of reboots and has steps where you can't have this guide open on the computer you're working on. Don't be stupid.
 
 Now you'll need to power off your computer. Turn it back on and as you do mash the everliving hell out of both f2 and delete (unless you know what key gets you into the UEFI / BIOS settings). This should bring up a menu that either looks super fancy or looks stright out of the 80's. Either is fine. The setting we're looking for is 'Secure Boot' it's probably under a menu called 'Boot' or 'Security'. You'll need to shut this off. In theory secure boot should protect against a nasty kind of virus called a rootkit, in practice it doesn't and only serves to make installing linux more annoying, don't worry, I'm a security nut and am comfortable leaving it off. Exit and save settings, and as your computer boots again mash F11 or whatever key gets you to a boot menu, and select your USB key. If it shows up twice try the first one first, if that doesn't work try the other one. (If you end up back in Windows just restart and go back into the bios settings, go to 'Boot' and reorder the boot menu entries so your flash drive is the first option) The system should boot first to a screen with a few options, pick Arch Linux if you have to or just wait for it to move on. You should, with any luck, see a list of text flash down the screen that looks roughly like
@@ -1512,7 +1518,6 @@ The pci bus is where most of the system's add in cards, controllers, and the lik
 0f:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Zeppelin/Renoir PCIe Dummy Function
 0f:00.2 SATA controller: Advanced Micro Devices, Inc. [AMD] FCH SATA Controller [AHCI mode] (rev 51)
 0f:00.3 Audio device: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) HD Audio Controller
-
 ```
 
 Alright, clearly there's a lot going on here, and on first glance it doesn't even look all that useful. But let's look deeper. From this output we can see some intereresting things. Starting from the top you'll see there's a lot of internal AMD things that are just handeling routing, really these probably don't matter. the first interesesting things to look at is `01:00.0 Non-Volatile memory controller: Phison Electronics Corporation E12 NVMe Controller (rev 01)` which is telling me that my super speedy NVMe solid state drive is at the address 01:00.0 on the pci bus and despite being made by a consumer brand (I think mine's a Silicon Power? though I have another that's made by Samsung) the actual controller on the device is made by Phison, a reputable brand for NVMe controllers.
@@ -1560,26 +1565,24 @@ Finally, if you want a lot more information you can run `sudo lspci -v` to see e
 
 ```
 0d:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1) (prog-if 00 [VGA controller])
-	Subsystem: Micro-Star International Co., Ltd. [MSI] GP106 [GeForce GTX 1060 6GB]
-	Flags: bus master, fast devsel, latency 0, IRQ 78
-	Memory at f6000000 (32-bit, non-prefetchable) [size=16M]
-	Memory at c0000000 (64-bit, prefetchable) [size=256M]
-	Memory at d0000000 (64-bit, prefetchable) [size=32M]
-	I/O ports at c000 [size=128]
-	Expansion ROM at f7000000 [disabled] [size=512K]
-	Capabilities: [60] Power Management version 3
-	Capabilities: [68] MSI: Enable+ Count=1/1 Maskable- 64bit+
-	Capabilities: [78] Express Legacy Endpoint, MSI 00
-	Capabilities: [100] Virtual Channel
-	Capabilities: [250] Latency Tolerance Reporting
-	Capabilities: [128] Power Budgeting <?>
-	Capabilities: [420] Advanced Error Reporting
-	Capabilities: [600] Vendor Specific Information: ID=0001 Rev=1 Len=024 <?>
-	Capabilities: [900] Secondary PCI Express <?>
-	Kernel driver in use: nouveau
-	Kernel modules: nouveau
-
-
+    Subsystem: Micro-Star International Co., Ltd. [MSI] GP106 [GeForce GTX 1060 6GB]
+    Flags: bus master, fast devsel, latency 0, IRQ 78
+    Memory at f6000000 (32-bit, non-prefetchable) [size=16M]
+    Memory at c0000000 (64-bit, prefetchable) [size=256M]
+    Memory at d0000000 (64-bit, prefetchable) [size=32M]
+    I/O ports at c000 [size=128]
+    Expansion ROM at f7000000 [disabled] [size=512K]
+    Capabilities: [60] Power Management version 3
+    Capabilities: [68] MSI: Enable+ Count=1/1 Maskable- 64bit+
+    Capabilities: [78] Express Legacy Endpoint, MSI 00
+    Capabilities: [100] Virtual Channel
+    Capabilities: [250] Latency Tolerance Reporting
+    Capabilities: [128] Power Budgeting <?>
+    Capabilities: [420] Advanced Error Reporting
+    Capabilities: [600] Vendor Specific Information: ID=0001 Rev=1 Len=024 <?>
+    Capabilities: [900] Secondary PCI Express <?>
+    Kernel driver in use: nouveau
+    Kernel modules: nouveau
 ```
 
 The most notable thing here is actually at the end:
@@ -1609,9 +1612,11 @@ upon looking this id up online, it appears it's used for a generic USB keyboard.
 
 For completeness I'll mention, the first part of the id, the x's in xxxx:yyyy is the vendor id, while the y's are the product id.
 
-Moving on
+Finally, I'd like to mention `dimdecode`. according to the manual page:
 
-dmi decode
+> dmidecode is a tool for dumping a computer's DMI (some say SMBIOS) table contents in a human-readable format. This table contains a description of the system's hardwarecomponents, as well as other useful pieces of information such as serial numbers and BIOS revision. Thanks to this table, you can retrieve this information without having to probe for the actual hardware. While this is a good point in terms of report speed and safeness, this also makes the presented information possibly unreliable.
+
+we've already used this to get information about the system ram, but other things can be read as well. For example, going back to the pci slots from above running `sudo dmidecode --type 9` will tell you what physical slots corospond to what bus address among other information, for a full list of available types simply look at the dmidecode man page with `man dmidecode`.
 
 ### Chipset
 
@@ -1621,7 +1626,31 @@ multi gen-cpu support
 
 ### Expansion slots
 
-PCI-e + revisions, PCI, AGP, ISA
+Most modern expansion cards connect though the PCI Express or PCIe bus. This standard, much like DDR, has gone though multiple generations of bandwith doubbling. Currently consumer devices offer up to PCIe 3.0 but devices with both 4.0 and 5.0 should be on the market shortly.
+
+PCIe cards are used for just about anything you could imagine, form adding a more powerful graphics card, more usb ports, a higher end sound card, to some more esoterric things like specific task accelorators (encryption, compression) or even a software defined radio.
+
+No matter what the device is you have to keep in mind its physical and electrical requirements. That is, do you have a slot long enough to accomadate the card and can you provide power to it.
+
+This may seem odd, but unlike most connections (think USB or Ethernet) which may support varrying speeds (usb2 vs 3) but are still physically the same size, the more bandwith hungry a PCIe device, the larger the physical connection. The largest available is a 16x connection, while the smallest is a 1x. The most commonly used lane arrangements are 1x, 4x 8x, and 16x. The motherboard shown above has one 16x connector and three 1x connectors. If you have a card that is electrically wired for 4x it will definitly work in any slot physically designed for 4x or greater, and it will still work in a 1x slot of that slot is open ended- this means the 'back' of the slot is open, allowing the card's connector to go past the actual physicall connection. Similarly, many 16x physical slots only have 8x actually wired. If you use a card which elecrically needs more connections it will almost certainly still work, but may have degraded performance. Similarly, if you have a card which expects a PCIe gen 3 16x connection but the best you have available is a PCIe gen 2 connection, it will run at half speed. To be extra clear:
+
+PCIe 1 @ 16x == PCIe 2 @ 8x == PCIe 3 @ 4x
+
+Similarly, putting a card which only supports PCIe Gen 2 into a Gen 3 slot will not suddenly make the card faster, even if it was to compensate, that is, if the card is made for PCIe Gen 2 @ 16x and you put it in a PCIe Gen 3 @ 8x slot, it will still run at half speed because it's the lowest gen number of the card or the slot that determines how many lanes are actually needed.
+
+Unfortunately, PCIe lanes, that is if you add together all the available 16x's and 8x's etc. on a given CPU are usually pretty limited. If the only extra card you plan on adding is a graphics card, you'll be fine, but if you intend to add a graphics card, sound card, network card, etc. all at once you may find that you've either run out of pyhsical slots or that a card is running with less than ideal bandwith as a 16x slot may 'give up' 8 of it's lanes becoming an 8x slot so that another card can function at all.
+
+Of note, the number of physical lanes and slots the mother board has probably greatly excedes the number of lanes actually going to the CPU, so even if it appears you have plenty of room to add cards you may end up accidently starving one for bandwith.
+
+Finally, from a power perpcetive most motherboards will supply up to 75 watts to a card through the motherboard, but power hungry cards like the Nvidia and AMD graphics cards in my system may require external power connections. Also, some server boards cap PCIe power delivery to only 25watts without an external power supply, so just be careful with compatibility.
+
+There are some other standards other than PCIe worth mentioning though.
+
+Older standards such as PCI, AGP, and ISA were all used before the widespread addoption of PCIe and while their availibility is declining, PCI cards are still often for sale, you need to be very careful to only get PCIe cards and not PCI cards if your system doesn't support them.
+
+Both AGP and ISA have been phased out a long time ago, but very old cards may poke up now and then. If you're into vintage computers you may want to look the standards up to learn more.
+
+[TODO] add picture of older cards here
 
 ### ROM/BIOS/UEFI
 
@@ -2648,27 +2677,42 @@ This is the biggest change, I'm going to recomend switching from KDE, which we i
 
 This is with 3 windows ope: Marktext (the program I'm writing this in), a file manager, and an terminal I used to launch the program (scrot) to take the screenshot. What's cool about i3 is how it will always use space as efficently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver.
 
-i3, when first installed, is very, very minimal, it will greet you with a plain black bar and clicking with either mouse button anywhere will do nothing. You should, however, be able to open a terminal by using your modkey (probably the windows key) and enter.
+i3, when first installed, is very, very minimal, it will greet you with a plain black bar and clicking with either mouse button anywhere will do nothing. You should, however, be able to open a terminal by using your modkey (probably the windows or alt key) and enter.
 
-Compton
+i3 actually comes in a bunch of seprate parts, the most important of which are the windowmanager itself, the status bar, and the runner.
 
-LXappearance
+The window manager is the thing that actually manages the windows, this is the part most people are refering to when talking about i3 (assuming they're not talking about an i3 Intel CPU) and is sometimes refferd to as i3wm. A very popular 'fork' of i3 is `i3-gaps` which is available in the community respository.
 
-Rofi
+Ontop of the raw window manager you'll probably want a status bar of some kind. While the default i3bar which is inclued with the i3-gaps package is fine when paired with `i3status`, it does leave a bit to be desired. Many other options are available. I personally use `polybar` though I have friends that have used `lemonbar`  or`i3blocks`.
 
-Ploybar
+Finally you'll want a runner/application launcher. While i3-demu is included, I find it rather annoying to use, and much prefer `rofi` -- this is much better explained here than I can briefly: https://github.com/davatorium/rofi
 
-Deepin-Termianl, URXV-T, kitty,
+To further make i3 reasonable to use you'll want a few more things:
 
-Nitrogen
+`compton` is a composite manager. This is used to allow application to have some transparency, prevent screan tearing, and do slight effects, like but a shadow behind windows.
 
-HiDPI
+`lxappearance-gtk3` can be used to set the theme used by various graphical applications. I use [Sweet](https://www.gnome-look.org/p/1253385/) but there are nearly endless options
 
-Fonts
+For setting the wallpaper (which you probably wont see much) you can use `nitrogen` or `feh`
 
-xrandr
+if you have multiple monitors before setting the wallpaper though you'll probably want to arrange your monitors correctly, for this you can use `xrandr` , read the man page for more information. You can add the command you use to set up your displays to your i3 config file to apply them at each reboot
 
-r/unixporn
+if you have a high resolution monitor and things are small, you may want to look here: https://wiki.archlinux.org/index.php/HiDPI , the best thing from this is to add
+
+```
+QT_QPA_PLATFORMTHEME=qt5ct
+QT_AUTO_SCREEN_SCALE_FACTOR=1
+GDK_SCALE=2
+ELM_SCALE=1.5
+```
+
+to your /etc/enviroment file.
+
+You'll be needing quite a few different utilities beyond this. for a terminal I highly  recomend `deepin-terminal`,  `rxvt-unicode`, or `Alacritty`.
+
+For fonts you'll certainly have your own tastes, but I really like Droid Sans Mono, which is in `ttf-droid`, but `ttf-hack` and `otf-fira-code` are pretty cool too. I also recomend installing `noto-fonts`, `noto-fonts-extra`, and `ttf-font-awesome`. The noto's will provide coverage for weird characters and font awesome is basically icons saved as a font, and many open source projects use it.
+
+If you're looking for more ways to make your setup the best it can be or config files you can steal from check out  [r/unixporn](https://www.reddit.com/r/unixporn).
 
 ## The Physical Enviroment & Hardware
 
@@ -2701,44 +2745,79 @@ Before moving forward though, I think it would make sense to talk about some of 
 > Resolution of a display refers to the number of pixels, HD technically starts at 720p, or 720 pixels across, though this is generally rather low by modern standards, with acceptable usually considered 1080p, which is technically 1920x1080. You may also see 1080i, this is a strange concept, not actually related to resolution, and we'll come back to it in a moment
 
 > The interface on your dispaly matters greatly as well, the most common at the are HDMI, Display Port, DVI, and VGA
->
+> 
 > VGA is the worst option here, as it's an analog signal. This means the signal can do strange things, getting corrputed between your computer and the monitor. Typically this is a blue, screw in connection with many pins
->
+> 
 > DVI is still pretty common and looks like an even larger VGA connection, with a typically white, screw in connector. This signal is normally digital, though there is a varient of DVI that can be adapted into VGA. Of note, DVI can also be adapted to HDMI though you will not have audio, as DVI does not carry sound
->
+> 
 > HDMI, probably the most well known connector, has multiple revisions, the revision determines many things such as the maximum resolution, refresh rate, and weather or not more obsucre things such as HDR are supported. HDMI is usually considered the best of these three options
->
+> 
 > Taking the crown however, is Display Port (DP). Like HDMI display port does have multiple revisions which do differentiate similar things; however, Display Port will genearlly support high resolutions and more features at any given point. Assuming you're runnig a bog-standard 60hz 1080p display however, you'll find no difference between DVI, HDMI, and DP - unless you need sound.
 
 > Next, you'll want to note the refresh rate of your monitor. This is how many times per second your monitor refreshes the screen. Typically monitors run at 60hz and TVs at 30 or 60. Because unlike a TV you're causing things on screen to change though, 30hz is generally considered bad and can even cause motion sickness. While 60hz may be standard, going for something even higher, with many displays offering well above 120hz, is something you may want to consider, espically if you plan on gaming.
->
+> 
 > Newer displays may support Freesync or Gsync, and both of these technologies require a supported graphics card in the system as well. These allow the display and computer to adaptively change the refresh rate so the monitor and computer both send and display frames in sync, which can make even a low refresh rate 'feel' much higher. This is a feature typically marketed to gamers and only supported in video games, but this has been changing
 
 > related to refresh rate is latency. In general this can actually mean two things, one is how long it takes for an image sent to the screen to actually be displayed. The lower this time the better, with good screens being sub 10 milisecond. Unfortuately, there's no standard among the industry to measure this and many get it wrong.
->
+> 
 > Also with latency theres grey to grey times, this is a measure of how long it takes a pixel to go from one shade to another. The lower this is the less motion blur the screen will exhibit
 
 > The color depth of the display determines how percisely a color may be displayed. The higer this is the better, but almost all modern displays will be the same, and unless you're an artist or creative professional you're unlikely to notice a difference
->
+> 
 > On the other hand, you are likely to notice the color gamut or what range of colors the display is actually capable of displaying.
->
+> 
 > For example, two displays may both be capable of displaying 255 levels of red, but if one display's range is only from a dingy red to a dark-ish red, while the other is from a brillinat red to a deep dark red, there's a massive differnce in color availability. If this is imporant to you, notably as a creative professionaly in photo or video, you may want to read more at https://en.wikipedia.org/wiki/Gamut
 
 > The next obvious thing to mention is dynamic range, or how deep the blacks are and how vivid the whites are. Again, this is simple, the higher the better. Many display types (LCD, TN-Panel) will have similar specifacions in all these areas, but particularly here. OLED is probaly the best when it comes to dynamic range as it can display true black by actually turning the soucre of the light off, but unfortuately these are quite susiptiable to burn in and image presistance.
->
+> 
 > There are some newer displays which feature HDR or High Dynamic Range, which allows the panel to selective change the brightness in an area of the screen, giving much better dynamic range in supported applications than a normal display
 
 > burnin and image presistance are both negitive effects on many displays where a pixel etither permantanly or temporarily resists change in color. This can lead to being able to read previously displayed bright white text on a now black image for example. Mor commonly you'll find TVs which have a particualr station's logo 'burnt in' to one corner of the screen, presisting even after changing channels
 
 > Brightness is obvious, how bright or dim is the display. The big thing to note here is weather the brightness is PWM or DC controlled. Displays with PWM controlled brightness are much more common, however, it's a bit of a cheat. Instead of actually changing the intensity of the back light directly, they're simply strobing the light on and off to fast for the eye to see. This can cause eye strain over time though, and genally DC control, which actually does change the brightness directly is prefered. If you have a PWM display and don't mind it at full brightness, this should help with eyes strain, as there is no longer a strobe effect as the display's backlight is just constatnly on.
 
-Multi-head
+clearly there's a lot to be considered here. A no compromise monitor can cost thounands of dollars, but nice 4k 27" monitors like mine can be found for <250 on sale, and I love them. Just figure out what you need and what would be the most benefical for you and work from there
 
-night filter
+---
+
+One of the great things about i3 is how powerful it can be with multiple displays, though even if you're not using i3 having a 'multi head' setup can be a god send for productivity. Even if your monitors don't match it's worth it. If you have the budget to get two maching monitors, great, if not just getting a cheapo used monitor from a thrift store will be a massive improvement. I think 2 is the magic number for most people. 3 monitors take up a lot of room and unless you do some very multi-tasked things you won't see much benefit that using something like i3's workspaces wouldn't provide anyways.
+
+Another thing to mention is red-light filters. While I dont personally use one many people find that reducting the amount of blue light coming from their displays significant helps with eyestrain. If this intrests you give `redshift` a shot. I use it every now and then if I have a headache.
 
 **Keyboard**
 
-layout, shortcuts, height, mechanical, MX Switch types
+Probably the most important thing you can do for your workspace is getting a nice keyboard. If you're rocking a rubber dome or membrane keyboard, moving to a mechanical keyboard will make a massive difference.
+
+![keycomp](./mechkey.png)
+
+([source](https://commons.wikimedia.org/wiki/File:Keyboard_Construction_Button_Press.JPG))
+
+The membrance/rubber dome keyboard on the left doesn't give much physical feedback to your fingers when you press a key, compared to the mechanical key switch on the right. A decent mechancial keyboard can be found on amazon for <50 USD, though as with anything in life the more you spend the better the product. One thing to keep in mind is the color of the switch used. Above you can see that keyboard has blue switches, blue switches have a noticeable 'bump', that is the switch has a spot of higher resistance before it actually botmoms out, and the key actually presses at this point, furthermore, blue keys are clicky - they are lound and some people find this annoying. Finally, they're also pretty light, not taking too much force to push down. Genearly, blues are considered the 'gold standard' among typist, but games on the other hand may prefer a brown, red, or black switch.
+
+|           | Linear | Bump  | Bump + Click |
+| --------- | ------ | ----- | ------------ |
+| **Light** | Red    | Brown | Blue         |
+| **Heavy** | Black  | Clear | Green        |
+
+really it's all a matter of prefrence, I'm actually using a switch not listed here on my keyboard, but genearlly finding what you like among the above first is a good place to start. If I'm not using my main keyboard I generally use Blues.
+
+You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagent number of keys or a weird split keyboard like mine:![keeb](./splitkeeb.jpg)
+
+> This is a custom built ErgoDone keyboard, The Ergodox-ez can be purchased for ~300 USD, or you can build one like mine for a bit under 200
+
+Beyond the physical layout you may also consider the keymap or software layout. Not only does my keyboard look weird, but the keys aren't arranged as you'd expect either. Instead of typing in QWERTY, I actually use Dvorak. That layout looks a like this on a normal keyboard: ![Image result for dvorak](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/KB_United_States_Dvorak.svg/1200px-KB_United_States_Dvorak.svg.png)
+
+though obviously anything is possible. A lot of programmers like to disable their Caps key for example and put something more useful there, or you may just want to move around a letter or two. Using a standard layout like Dovark is a bit easier though as I can easily load my keymap pretty quickly on any computer. Plain old Qwerty is fine, but I personally like my 'weird' keymap.
+
+If you're shelling out big bucks on a nice keyboard anyway, you may also want to get a keyboard which supports QMK, a compeletly open source firmware which gives you total control of your keyboard, allowing you do to cool things like type greek letters ( Ω , α, β) or type perentheses by tapping the shift keys. I find that particually helpful as my keyboard doesn't actually have enough keys to do have every key nicely available (note how I don't have a function row) for more info check out https://docs.qmk.fm/#/ . You can actually buy an adapter to use a normal keyboard with QMK, but it's a bit hack-y and I really recomend just saving up to get a full keyboard made for it.
+
+Back to ergonomics, you'll want to make sure your keyboard is a t a comfortable height for you and that you can type in a way that isn't putning your wrists at any weird angles
+
+Finally, one of the nice things about i3 is the ability to navigate everything entirely from the keyboard as well as bind as much as you want to as many keys as you'd like. Want a key combo to launch a file manager? easy. Want a key to navigate to open up a termial and immediatly run a command- no problem. Set things up as you like and enjoy being able to use your system at break neck speed while everyone else drags things around slowly.
+
+**Mouse and other input**
+
+Speaking of dragging things around slowly: The mouse
 
 **Sound**
 
@@ -3539,11 +3618,11 @@ While this book/guide/thing primarily focuses on the less mechancial-engieering-
 ## Tab Completion and faster navigation
 
     Probably the most useful shortcut for using the shell is tab completion. This is used when you need to type a really long command or chain of commands, say I want to run ncmpcpp, a name that is both long and hard to remember, instead of just typing the full name I can type ```ncm``` and press tab, and ta-da suddenly the full name is inserted. If you happen to have another package that has multiple possible endings say you want to run ``lstopo`` but you have `ls, lsusb, lstopo` all on your system, most shells will display a menu underneath with all the possible options. This is nice for commands, but the true power comes in file names, say I want to run ``cat /etc/pacman.d/mirrorlist`` while that's not too awful to type out, you could easily type `cat /e` press tab, get `cat /etc/` add pac to get `cat /etc/pac` press tab, get `cat /etc/pacman.d/` type mir and tab and get the full command, while that sounds complicated it actually speeds using the command line up rather significantly and prevents spelling mistakes
-
+    
     Next up for navigation is directory shortcuts, these can be massive time savers, the most obvious is `~` which is just short hand for the location of the current shell users home directory, so in my case `~` is the exact same as typing out `/home/vega`. The next two have already been touched on which are `.` for the current directory and `..` for the previous directory. Depending on the shell and arbitrary number of dots may take you back and arbitary number of directories. Give it a shot! If nothing else you can always use `../../..` to navigate back as necessary. Finally, `-` represents the last directory you were in so if your in `~/Downloads` and then `cd /etc/pacman.d/`, running `cd -` will bring you back to downloads.
-
+    
     The most advanced form of bult in linux navigation comes in the form of `pushd` and `popd`, which as their names imply push and pop directories to a stack (a special kind of list) of directories. Like a stack of any item you can put or 'push' an item on top, and take or 'pop' an item off. Running `dirs -v` will show you a numberd list of the stack, you can navigate to the top item with `popd` or and abitrary item with `cd ~#` where # is the number as shown by `dirs -v`.
-
+    
     Finally, there's one more super handy way to get around your file system but it's a non-standard tool so most systems or servers you use other than your own will not have it installed, and that's autojump. Put simply it takes a good guess about where you want to go by only typing part of the name of a folder you've navigated to before, so say you have a long file path `/mnt/data/archived/january2000/pictures/family/vacation/` you can get back to it again by simply running `j vac` which is obviously much simpiler. It works the vast majority of the time in practice, only having issues if you don't include enough letters leading to ambuguity.
 
 ## I/O redirection
@@ -3569,7 +3648,7 @@ Note, `&>` redirects both stderr and stdout
 Finally, the weirdest and rarely used `<>` operator can be used to directly attch file descriptions and read/write files dirctly, this is rearely used as it's kind of a pita, but if you need to script something advanced it's available. Stollen from the above advanced link:
 
 >    [j]<>filename
->
+> 
 >       #  Open file "filename" for reading and writing,
 >       #+ and assign file descriptor "j" to it.
 >       #  If "filename" does not exist, create it.
@@ -3711,9 +3790,9 @@ When we installed arch we actually changed the default shell from bash to zsh, b
   * pretty terminal based hex viewer
 * [UXY](https://github.com/sustrik/uxy)
   * "UXY tool also wraps some common UNIX tools and exports their output in UXY format."
-
+    
     "UXY is a tool to manipulate UXY format, which is a basically a two-dimenstional table that's both human- and machine-readable."
-
+    
     This gives a nice format for manipulation of commands though pipes for super complex shell scripting
 * lsof
   * list what files a runnig process has open
@@ -3721,15 +3800,15 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 While some of these may be included, they're some of the OG addons or tools to make included things better:
 
 * tmux
-
+  
   * multiplex your termianal, open multiple terminals in your terminal, usefull in non-graphicas ttys espically
 
 * vim + extensions (neovim, spacevim, etc)
-
+  
   * the old school text editor meets new school
 
 * GDB + gef
-
+  
   * GDB, the original debugger, has it's faults. GEF, a config file for GDB on steroids, fixes many of them. While orgiginally made for exploit developers, many people use it for everyday debugging
 
 ## Common Graphical Linux Utils
@@ -3905,7 +3984,7 @@ TaskWeb (TaskWarrior)
 * reading specs
 
 * datasheets
-
+  
   *
 
 # Appendix C - BOM

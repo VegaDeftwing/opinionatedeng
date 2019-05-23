@@ -6,6 +6,7 @@ View the main guide [here](opinionatedengrendered.md)
 This repo also contains some other guides, deemed to specific or off topic for the main guide:
 
 [Opinionated Music](opinionatedmusicrendered.md), a guide to music production hardware, software, and theory
+
 [Opinionated Design](opinionateddesignrendered.md), a guide to design and art
 
 ---

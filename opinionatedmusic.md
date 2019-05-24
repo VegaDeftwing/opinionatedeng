@@ -1,3 +1,4 @@
+DELIMITEDFORTOC
 # Preface
 
 Hey there.

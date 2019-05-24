@@ -1,3 +1,6 @@
+   * [Preface](#preface)
+   * [Analog Art](#analog-art)
+   * [Digital Art](#digital-art)
 DELIMITEDFORTOC
 # Preface
 

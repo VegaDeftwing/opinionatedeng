@@ -1,3 +1,13 @@
+   * [Preface](#preface)
+   * [Basic setup to get started](#basic-setup-to-get-started)
+   * [Theory](#theory)
+   * [Software](#software)
+      * [DAWs](#daws)
+      * [VSTs](#vsts)
+      * [Other](#other)
+   * [Hardware](#hardware)
+      * [MIDI](#midi)
+      * [Synths](#synths)
 DELIMITEDFORTOC
 # Preface
 

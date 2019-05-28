@@ -35,5 +35,5 @@ That, and it's a pretty slick way of taking notes for my own use and finding gap
 
 ---
 Written using marktext and vscode.
-Developed in opinionatedeng.md, rendered for viewing on github by pre-commit hook to opinionatedengrendered.md.
-The same format and hook are used for the sister guides as well.
+Developed in chapters folder, rendered for viewing on github by ./assemble in chapters and pre-commit hook to generate opinionatedengrendered.md.
+Music and Design are developed in the non-rendered files directly.

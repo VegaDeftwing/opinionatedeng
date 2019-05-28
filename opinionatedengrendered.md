@@ -287,7 +287,8 @@
       * [Github info pages](#github-info-pages)
       * [Books](#books)
       * [Non-Technical](#non-technical)
-    DELIMITEDFORTOC
+DELIMITEDFORTOC
+
 
 # Preface
 
@@ -438,6 +439,7 @@ You should really make a full backup of your computer before doing this, as inst
 > Bootloader: The bootloader sits at a special place on the hard drive selected for boot in the UEFI or BIOS, and is what the computer uses to load the full operating system, most will let you chose what operating system you want to boot if you have multiple installed on you computer at once
 
  Alright, so why do I want you to install a new OS to begin with? Well, the OS we'll be using is called Linux. Linux is actually what powers both android and chomeOS, and is a common descendant of the same system as Mac OsX as well as almost all of the servers on the internet from massive website like Facebook and Google to small Minecraft servers you can rent online to play with friends. What's cool about Linux is it lets you get much closer to the hardware and see what's going on, and it just generally makes writing code much easier. Furthermore, it's super easy to set up an amazing development environment in Linux for getting work done with code or electronics, and at the end of the day you can still watch YouTube, play *most* games that are on steam, or open up an office suite, just like Windows or Mac.
+
 
 # Chapter 2 - Let's do it then, Installing Arch Linux
 
@@ -1204,6 +1206,7 @@ But more than that, linux actually exposes the system to the user and doesn't tr
 
 You'll start to see this more as we move forward though these next few chapters. Speaking of...
 
+
 # Chapter 3 - Into the hardware
 
 One of the nifty things about linux is you don't need to install extra software to check out the deeper parts of your hardware. While on windows you might need a tool like CPU-Z to look at information about the CPU on linux you can do it out of the box. Let's get started on that then!
@@ -1799,6 +1802,7 @@ Blower, air flow vs static pressure, fan size liquid, heat pipes, pwm vs DC cont
 Paralell, Serial, Tape, CD,
 
 ## How to know what to buy
+
 
 # Chapter 4 - Back to the Root of Things
 
@@ -2565,6 +2569,7 @@ https://github.com/KnowNo/How-Linux-Works-2nd-Edition/blob/master/How.Linux.Work
 
 We'll explore more of the OS later, but for now I think the information overload is a bit much anyway, so lets move away from screens and into the world of hardware
 
+
 # Chapter 5 - Resistance, Capacitance, and Inductance
 
 ## The Tools of the Trade
@@ -2702,6 +2707,7 @@ How to read logorithmic first
 https://learn.sparkfun.com/tutorials/voltage-current-resistance-and-ohms-law/voltage
 
 https://en.wikipedia.org/wiki/Fourier_transform
+
 
 # Chapter 6 - Let's work on how we work
 
@@ -2976,6 +2982,7 @@ Vivaldi, Firefox, Syncthing, Beaker, IPFS, IRC - irssi, Telegram, Etherape, Wire
 
 [TODO]
 
+
 # Chapter 7 - Let's write some python
 
 ## The building blocks of programming
@@ -3029,6 +3036,7 @@ for now, everything should be strictly command line arguments and print statment
 ## More advanced topics
 
 lambdas(high level only), threads/ parrallelization(high level only), interupts (actually, let's save this until embbeded), apis,
+
 
 # Chapter 8 - Low Level Programming
 
@@ -3130,6 +3138,7 @@ https://doc.rust-lang.org/book/foreword.html
 
 https://tour.golang.org/welcome/1
 
+
 # Chapter 9 - Finishing up the project
 
 ## Part 3, more advanced high level
@@ -3139,6 +3148,7 @@ Modify the original python program to support a pretty cli input in a pretty way
 ## Part 4, getting our toes wet with embeded systems
 
 Finally, let's go back and add a com port to the C code and send data to an arduino (can be simulated) and a TFT to display the currently active task and time elapsed.
+
 
 # Chapter 10 - Networking
 
@@ -3232,6 +3242,7 @@ Real time clocks, timezones, utc, etc.
 
 Netsukuku, cjdns + hyperboria, Dat / Beaker, https://readhacker.news/s/3WJ75
 
+
 # Chapter 11 - High Level Overview of Math, Physics, and Chemistry (Sorry...)
 
 [TODO]
@@ -3257,6 +3268,7 @@ Imaginary numbers, systems of equations
 ## Ⅱ - Physics
 
 ## Ⅲ - Chem
+
 
 # Chapter 12 - Diodes,  Transistors, and Integrated Circuits
 
@@ -3319,6 +3331,7 @@ At this point I highly recommend *'Practical Electronics for Inventors'* ISBN 97
 
 https://taleri.files.wordpress.com/2014/02/practical_electronics_for_inventors_-_scherz_paul.pdf
 
+
 # Chapter 13 - Embedded Systems
 
 [TODO]
@@ -3336,6 +3349,7 @@ https://taleri.files.wordpress.com/2014/02/practical_electronics_for_inventors_-
 ## Making an Embeded System project - 3 - Stepper Motor Music
 
 adapted from floppy drives, but less expensive
+
 
 # Chapter 14 - Discrete Math and Algorithms
 
@@ -3361,6 +3375,7 @@ trees, hashtables/maps, stacks
 
 Fib, some pracice logical equliv, base conversion algo, overlapping lines, matrix multiplication
 
+
 # Chapter 15 - Writing a larger program
 
 [TODO]
@@ -3370,6 +3385,7 @@ Fib, some pracice logical equliv, base conversion algo, overlapping lines, matri
 ## Planning
 
 ## Software Engineering
+
 
 # Chapter 16 - Servers!
 
@@ -3399,6 +3415,7 @@ Before we get to business there's some necessary viewing: http://motherfuckingwe
 
 ## Fault tollerence
 
+
 # Chapter 17 - Databases
 
 [TODO]
@@ -3406,6 +3423,7 @@ Before we get to business there's some necessary viewing: http://motherfuckingwe
 Otherwise known as the chapter about sanitizing your damn inputs.
 
 // insert xkcd drop tables
+
 
 # Chapter 18 - Debugging, Automated Building and Testing
 
@@ -3429,6 +3447,7 @@ common interfaces, simulation, serial/print debugging (slow), internal data logg
 
 ### Hardware Testing
 
+
 # Chapter 19 - Compilers and Assemblers
 
 [TODO]
@@ -3445,11 +3464,13 @@ https://medium.freecodecamp.org/the-programming-language-pipeline-91d3f449c919
 
 At this point I highly recommend '[The Art of Exploitation](https://nostarch.com/hacking2.htm)' by Jon Erickson
 
+
 # Chapter 20 - Automated Building and Testing
 
 [TODO]
 
 Fuzzing (sandsifter), make and alts, etc.
+
 
 # Chapter 21 - Exploitation
 
@@ -3585,17 +3606,20 @@ https://microcorruption.com/ , https://ctftime.org/ ,
 
 CTF time,
 
+
 # Chapter 22 - Security
 
 [TODO]
 
 focus on how to write secure programs, protect hardware, etc.
 
+
 # Chapter 23 - Open Source, Licences, and Copyright
 
 [TODO]
 
 actually contribute on github, make an issue, submit a pull request, make a custom repo,
+
 
 # Chapter 24 - Let's make our own PCB
 
@@ -3605,9 +3629,11 @@ First things first, we're going to be using Kicad, so you'll want to go grab tha
 
 https://www.youtube.com/watch?v=zK3rDhJqMu0&index=8&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&t=0s
 
+
 # Chapter 25 - We've got cores, let's use em'
 
 [TODO]
+
 
 # Chapter 26 - Graphical Programming
 
@@ -3615,11 +3641,13 @@ https://www.youtube.com/watch?v=zK3rDhJqMu0&index=8&list=PL5cGwrD7cv8hK-qxPqRB25
 
 C++ from scratch, JS electron app, Processing creative coding, Python Kivy or similar, Flutter (google lang), shaders
 
+
 # Chapter 27 - (((())(()((()(()))))))
 
 [TODO]
 
 Functional Programming, and other paradigms : lisp, haskell, luna-lang.org
+
 
 # Chapter 28 - Let's try out programmable logic
 
@@ -3627,9 +3655,11 @@ Functional Programming, and other paradigms : lisp, haskell, luna-lang.org
 
 Finite State Machines
 
+
 # Chapter 29 - Let's make our own CPU
 
 [TODO]
+
 
 # Chapter 30 - 3D printing, cases, and making real things
 
@@ -3637,7 +3667,9 @@ Finite State Machines
 
 While this book/guide/thing primarily focuses on the less mechancial-engieering-y side of things, it wouldn't make sense not to include at least a little about 3D printing, molding, materials, gears, springs, and the like. So, here goes:
 
+
 # Chapter 31 - Fine, I'll talk about AI
+
 
 # Wrapping up - Where to go from here
 
@@ -3648,6 +3680,7 @@ While this book/guide/thing primarily focuses on the less mechancial-engieering-
 ## Projects to work on
 
 ## Contributing to Open Source
+
 
 # Appendix A- Using the Linux Shell
 
@@ -4052,6 +4085,7 @@ Mathics
 
 TaskWeb (TaskWarrior)
 
+
 # Appendix B - Common electrical parts (appearence and numbers)
 
 [TODO]
@@ -4064,7 +4098,8 @@ TaskWeb (TaskWarrior)
 
   *
 
-# Appendix C - BOM
+
+  # Appendix C - BOM
 
 [TODO - FINAL REVSION]
 
@@ -4134,6 +4169,7 @@ You can find a used Dell Poweredge r610 or poweredge 1950. Many of these will co
 
 salvage, auctions
 
+
 # Appendix D - The Politics of it all
 
 [TODO:] link guerilla open access manifesto and http://www.textfiles.com/100/hack7.txt
@@ -4146,9 +4182,11 @@ Most in the technical community belive that you should have full control over th
 
 Finally, many in the tech community are on the heartbeat of issues surounding copyright, fairuse, and the [Digital Millennium Copyright Act](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) or DMCA as without exceptions , a lot of security research would not be legal and it's of direct importance to issues like software piracy and issues sorunding Youtube's automated ContentID [TODO: add links]
 
+
 # Appendix E - Things to avoid
 
 [TODO]
+
 
 # Other Great Resources
 
@@ -4229,3 +4267,5 @@ https://github.com/EbookFoundation/free-programming-books#readme
 ## Non-Technical
 
 https://longform.org/
+
+

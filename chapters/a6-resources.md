@@ -48,6 +48,8 @@ https://theamphour.com/
 
 https://github.com/Awesome-Windows/Awesome
 
+https://github.com/dwmkerr/hacker-laws
+
 https://github.com/cirosantilli/x86-assembly-cheat
 
 https://github.com/kozross/awesome-c
@@ -70,12 +72,49 @@ https://github.com/sdnds-tw/awesome-sdn#readme
 
 https://github.com/jagracey/Awesome-Unicode#readme
 
+https://github.com/netspooky/Simple-Virtual-CPU
+
+
+
 ## Books
 
 https://github.com/EbookFoundation/free-programming-books#readme
+
+## Blogs
+
+http://blog.cleancoder.com/
+
+## DIY Pages
+
+https://www.instructables.com/circuits/
 
 ## Non-Technical
 
 https://longform.org/
 
-
+## Some really cool, inspirational people
+# Security
+Netspooky @ https://twitter.com/netspooky , https://twitter.com/netspooky
+LiveOverflow @ https://twitter.com/LiveOverflow
+https://twitter.com/ANDnXOR
+https://twitter.com/DCFurs
+https://twitter.com/gynvael
+https://twitter.com/ZonkSec
+https://twitter.com/Viss
+https://twitter.com/hacks4pancakes
+https://twitter.com/malwareunicorn
+https://twitter.com/da_667
+https://twitter.com/0xCODEs
+https://twitter.com/zerosum0x0
+https://twitter.com/x0rz -- https://discord.0day.rocks/
+# Programming/Live coding
+RavenKwok @ https://twitter.com/RavenKwok
+Neauoire & RekkaBell @ https://merveilles.town/@neauoire , http://100r.co/
+https://twitter.com/RavenKwok
+https://twitter.com/generateme_blog
+https://twitter.com/manoloidee
+# Just generally nerdy
+https://twitter.com/Level1Techs / https://twitter.com/tekwendell
+https://twitter.com/Snowden
+https://twitter.com/oshpark
+https://twitter.com/climagic

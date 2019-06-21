@@ -2,7 +2,7 @@
 
 the stack, pointers, etc.
 
-psuedo code, bitwise opererators, types,
+psuedo code, bitwise opererators, types, unsigned, signed bit, 1's compliment, 2's compliment
 
 ## Some simple programs, in C++
 

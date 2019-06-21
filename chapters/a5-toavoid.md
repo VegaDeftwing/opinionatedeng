@@ -1,5 +1,0 @@
-# Appendix E - Things to avoid
-
-[TODO]
-
-

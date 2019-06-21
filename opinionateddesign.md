@@ -1,6 +1,10 @@
    * [Preface](#preface)
    * [Analog Art](#analog-art)
    * [Digital Art](#digital-art)
+   * [Blending the two](#blending-the-two)
+   * [Links](#links)
+      * [Software](#software)
+      * [Inspirational Artists](#inspirational-artists)
 DELIMITEDFORTOC
 # Preface
 
@@ -12,4 +16,21 @@ My name is Vega. I know there are plenty of tutorials and ways to learn online b
 
 # Digital Art
 
+Dark Patterns -- don't be that guy
+
+Screen Considerations
+
+
+
 # Blending the two
+
+# Links
+## Software
+
+## Inspirational Artists
+ /// Caution some are NSFW ///
+https://twitter.com/halphelt
+https://twitter.com/Hushabye_Valley
+https://twitter.com/koidrake
+https://twitter.com/managore
+https://twitter.com/inconvergent

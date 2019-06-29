@@ -10,6 +10,8 @@
       * [Synths](#synths)
    * [Modular](#modular)
    * [List of All link mentioned](#list-of-all-link-mentioned)
+      * [Software and tools](#software-and-tools)
+      * [Cool People](#cool-people)
 DELIMITEDFORTOC
 # Preface
 
@@ -46,7 +48,7 @@ Go ahead and fire up VCV and a template patch should have opened up that looks s
 # Modular
 
 # List of All link mentioned
-
+## Software and tools
 \$ - Paid
 ! - Require paid software
 * - Has paid features
@@ -56,14 +58,15 @@ https://tidalcycles.org/index.php/Welcome -Tidal- Live coding enviroment
 ! https://github.com/carrierdown/mutate4l -Mutate4l- Live coding in Ableton Live
 -ORCΛ- Live Coding in a game-of-life esque edditor
 
-\* -VCV Rack- Modular Synth Software
+\* https://vcvrack.com/ -VCV Rack- Modular Synth Software
+\* https://www.modulargrid.net/ -Modular Grid- an online tool for dreaming about hardware setups
 
 \$ -Abletone Live-
 \$ -Renoise-
 \$ -Reaper
 \$ -FL Studio-
 
-Cool People
+## Cool People
 https://twitter.com/RichardDevine
 https://twitter.com/LOOKMUMNOCMPUTR
 
@@ -77,6 +80,7 @@ Loopop
 RedMeansRecording
 AdamNeely
 AndrewHuang
+Rob Scallon https://www.youtube.com/watch?v=JeB3JnKp8To&list=FLFMnqfaTa1se1LfbCB3peJQ&index=4&t=116s, https://www.youtube.com/watch?v=48RVcbkhNHQ&list=FLFMnqfaTa1se1LfbCB3peJQ&index=26&t=879s,
 
 Reddit: https://www.reddit.com/r/vcvrack/ , https://www.reddit.com/r/synthesizers/ , https://www.reddit.com/r/synthdiy/ , https://www.reddit.com/r/modular/
 

@@ -7,3 +7,4 @@ First things first, we're going to be using Kicad, so you'll want to go grab tha
 https://www.youtube.com/watch?v=zK3rDhJqMu0&index=8&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&t=0s
 
 
+

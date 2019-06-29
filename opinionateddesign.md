@@ -34,3 +34,6 @@ https://twitter.com/Hushabye_Valley
 https://twitter.com/koidrake
 https://twitter.com/managore
 https://twitter.com/inconvergent
+http://electricsheepcomix.com/almostguy/
+https://www.youtube.com/watch?v=7g1pmHSWHe0&list=FLFMnqfaTa1se1LfbCB3peJQ&index=74&t=0s
+https://www.youtube.com/watch?v=K9KLZ8C9DrY&list=FLFMnqfaTa1se1LfbCB3peJQ&index=82&t=353s

@@ -6,6 +6,8 @@ psuedo code, bitwise opererators, types, unsigned, signed bit, 1's compliment, 2
 
 ## Some simple programs, in C++
 
+https://www.youtube.com/watch?v=Snr113r5ocY&list=FLFMnqfaTa1se1LfbCB3peJQ&index=126&t=0s
+
 ### Hello World
 
 fully discect each line and call and why each line is used, ASCII table

@@ -26,6 +26,7 @@ tubes and how they work
 ## Integrated Circuits
 
 https://hackaday.com/2019/05/20/integrated-circuits-can-be-easy-to-understand-with-the-right-teachers/
+https://www.youtube.com/watch?v=VNzkhZBjo5k&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=10&t=0s
 
 ### 555, OpAmp, 74-Series Logic
 

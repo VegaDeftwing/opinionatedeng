@@ -1,16 +1,30 @@
 # Other Great Resources
 
-https://github.com/alex/what-happens-when
+https://news.ycombinator.com/
+
+https://slashdot.org/
+
+https://hackaday.com/
+
+https://lobste.rs/
+
+https://snapzu.com/
+
+https://serializer.io/
+
+https://stackoverflow.com/
 
 http://textfiles.com/
 
 https://www.alchemistowl.org/pocorgtfo/
 
-https://github.com/lorin/resilience-engineering
-
-https://github.com/dwmkerr/hacker-laws
-
 https://n-o-d-e.news/
+
+https://glitch.com/
+
+https://media.ccc.de/
+
+https://media.ccc.de/
 
 [Crash Course: Comptuer Science, from PBS](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
 
@@ -46,6 +60,12 @@ https://theamphour.com/
 
 ## Github info pages
 
+https://github.com/dwmkerr/hacker-laws
+
+https://github.com/lorin/resilience-engineering
+
+https://github.com/alex/what-happens-when
+
 https://github.com/Awesome-Windows/Awesome
 
 https://github.com/dwmkerr/hacker-laws
@@ -76,9 +96,11 @@ https://github.com/netspooky/Simple-Virtual-CPU
 
 
 
-## Books
+## Books and Papers
 
 https://github.com/EbookFoundation/free-programming-books#readme
+https://scihub.org/
+
 
 ## Blogs
 
@@ -91,6 +113,8 @@ https://www.instructables.com/circuits/
 ## Non-Technical
 
 https://longform.org/
+https://www.metafilter.com/
+https://relevant.community/relevant/top
 
 ## Some really cool, inspirational people
 # Security
@@ -118,3 +142,5 @@ https://twitter.com/Level1Techs / https://twitter.com/tekwendell
 https://twitter.com/Snowden
 https://twitter.com/oshpark
 https://twitter.com/climagic
+https://archive.org/
+https://media.ccc.de/v/31c3_-_6373_-_en_-_saal_6_-_201412291600_-_the_only_thing_we_know_about_cyberspace_is_that_its_640x480_-_olia_lialina#t=621

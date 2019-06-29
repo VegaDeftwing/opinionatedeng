@@ -79,3 +79,48 @@ I value honesty, kindness, equality, and autonomy. Doing justice in the world in
 
 ---
 
+from https://bloodyjinxii.tumblr.com/post/180765738141/lets-talk-about-mastodon
+
+Let’s Talk About Mastodon!
+So now that Tumblr is going through the crapper, it’s time to read the writing on the wall and start talking about alternatives.
+
+Mastodon is the one I’ve tried the most and I like it a lot so let me tell you what it’s all about!
+
+What is Mastodon?
+Mastodon is like Twitter: it’s a short-form social media network. For each “toot” you have 500 characters.
+
+What sets it apart is that instead of being thrown into a sea of hundreds of millions of users, it lets you start by picking an “instance” to join.
+
+What are instances?
+They’re like communities or neighborhoods. Each has its own set of rules, and moderators and admins to enforce them. Each user is also identified by their instance, like an email address. So if user ILoveDogs was joining the basic server @mastadon.social, their username would be ILoveDogs@mastodon.social
+
+But your friends aren’t limited to your instance! You can find users on the federated timeline, or search for hashtags or specific users.
+
+There’s instances for everything, but let me talk about a few of the coolest ones.
+
+Mastodon.social - The main instance, has 250,000+ users. It’s mostly general, and allows all content that follows the code of conduct. It’s HUGE and I wouldn’t recommend it if your interests are more niche.
+
+Niu.moe - My instance! If you love anime and gaming, or basically anything to do with Japanese pop culture, this may be the instance for you. It doesn’t allow underage depictions of sex (photos or drawings), or harassment of any one person or group. NSFW must be hidden.
+
+Sunbeam.city - A Socialist instance with a solarpunk theme. It’s relatively small, but fairly active. If you’re an activism blogger or love nature, you might fit right in. They explicitly disallow Nazis and fascists and sexual harassment, and believe in transparency with their members.
+
+Queer.party - An instance surrounding the LGBTQ+ community. They have a friendly and considerate staff that encourages tagging triggers and reporting content that goes against their rules.
+
+Witches.live - This instance focuses on witchcraft and has a very welcoming community that also really loves memes. They’re smaller, but if you’re a witch, then you’ll fit in right away.
+
+This is only a small section of the instances on Mastodon. And if you can’t find one you like, you’re free to make your own!
+
+Each instance also has a federated timeline, which also you to see and interact with users from instances your instance approves of. So if catsarebetter.meow doesn’t like dogsarebetter.woof, you won’t see posts from the dogsarebetter.woof instance’s members.
+
+What other features are there?
+Your icon can be a .gif!
+Custom emojis in each instance
+Censoring your posts with trigger warnings that require a click to view
+Easy blocking of NSFW content
+Filtering!
+It’s all open source!
+What are you waiting for?
+
+Sign up at JoinMastodon.org today!
+(And don’t forget to tag your #introduction post with #tumblrmigration so we can find you!)
+

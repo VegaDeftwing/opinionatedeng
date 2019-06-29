@@ -12,6 +12,7 @@
    * [List of All link mentioned](#list-of-all-link-mentioned)
       * [Software and tools](#software-and-tools)
       * [Cool People](#cool-people)
+      * [Other Resources](#other-resources)
 DELIMITEDFORTOC
 # Preface
 
@@ -83,5 +84,8 @@ AndrewHuang
 Rob Scallon https://www.youtube.com/watch?v=JeB3JnKp8To&list=FLFMnqfaTa1se1LfbCB3peJQ&index=4&t=116s, https://www.youtube.com/watch?v=48RVcbkhNHQ&list=FLFMnqfaTa1se1LfbCB3peJQ&index=26&t=879s,
 
 Reddit: https://www.reddit.com/r/vcvrack/ , https://www.reddit.com/r/synthesizers/ , https://www.reddit.com/r/synthdiy/ , https://www.reddit.com/r/modular/
+
+## Other Resources
+https://learningmusic.ableton.com/
 
 

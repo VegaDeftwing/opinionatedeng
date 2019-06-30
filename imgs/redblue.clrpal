@@ -1,0 +1,281 @@
+COLORTOOL v1.0
+SECTION PALETTE 247
+#000000 #480000 #740000 #960000 #b40000 #cf0000 #e80000 #ff0000 #00514b #008077 #00a69b #00c6ba #00e4d5 #00ffef #3dfff0 #62fff1 #80fff2 #9afff4 #b1fff6 #c6fff8 #dafffa #edfffd #ffffff #ff3d3d #ff6262 #ff8080 #ff9a9a #ffb1b1 #ffc6c6 #ffdada #ffeded
+SECTION DOCUMENT 4023
+{
+ "id": "15618436233161026589",
+ "filepath": "/run/media/vega/Data/VegaProductions/opinionatedeng/imgs/redblue.clrpal",
+ "settings": {
+  "snap_to_grid": true,
+  "grid_size": {
+   "_t": "Vector2",
+   "value": [
+    16,
+    16
+   ]
+  },
+  "draw_grid": false,
+  "zoom": -3.816089,
+  "scroll": {
+   "_t": "Vector2",
+   "value": [
+    594,
+    199.5
+   ]
+  },
+  "old_path_root": "/run/media/vega/Data/VegaProductions/opinionatedeng/imgs"
+ },
+ "objects": [
+  {
+   "_t": "RefImage",
+   "_v": 2,
+   "id": "Img0001",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     165,
+     -299
+    ]
+   },
+   "size": {
+    "_t": "Vector2",
+    "value": [
+     2385,
+     1301
+    ]
+   },
+   "anchor": 3,
+   "visible": true,
+   "initialized": true,
+   "image_path": "/run/media/vega/Data/VegaProductions/opinionatedeng/imgs/algorithm.jpg",
+   "export_path": "",
+   "export_name": "",
+   "factors": {
+    "lum": 6,
+    "vib": 1,
+    "red": 1,
+    "green": 1,
+    "blue": 1
+   },
+   "multipliers": {
+    "lum": 1,
+    "vib": 1,
+    "red": 1,
+    "green": 1,
+    "blue": 1
+   },
+   "midpoints": {
+    "lum": 0.5,
+    "vib": 0.5,
+    "red": 0.5,
+    "green": 0.5,
+    "blue": 0.5
+   },
+   "color_mapping_mode": "Dynamic",
+   "color_mapping_enabled": true,
+   "smooth_transitions": false,
+   "effects": {
+    "_t": "EffectStack",
+    "_v": 0,
+    "list": [
+     {
+      "_t": "ResizeImage",
+      "_v": 0,
+      "enabled": false,
+      "mode": "width",
+      "width": 64,
+      "height": 64,
+      "scale": 0.5
+     },
+     {
+      "_t": "DitherOverlay",
+      "_v": 0,
+      "enabled": false,
+      "opacity": 0.2,
+      "pattern": "res://Shaders/dither4x4.png"
+     },
+     {
+      "_t": "RemoveNoise",
+      "_v": 0,
+      "enabled": false,
+      "threshold": 0.5,
+      "strength": 1
+     }
+    ]
+   },
+   "include_in_batch_export": true,
+   "zoom": 0,
+   "scroll": {
+    "_t": "Vector2",
+    "value": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 1,
+   "id": "Clr0002",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     -247,
+     -583
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0,
+     1,
+     0.2126
+    ]
+   },
+   "color_space": "HCY"
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 1,
+   "id": "Clr0003",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     -231,
+     -343
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0.476987,
+     1,
+     0.777431
+    ]
+   },
+   "color_space": "HCY"
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 1,
+   "id": "Clr0004",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     -135,
+     -455
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0,
+     0,
+     0
+    ]
+   },
+   "color_space": "HCY"
+  },
+  {
+   "_t": "ColorShard",
+   "_v": 1,
+   "id": "Clr0005",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     -455,
+     -471
+    ]
+   },
+   "color": {
+    "_t": "Vector3",
+    "value": [
+     0,
+     0,
+     1
+    ]
+   },
+   "color_space": "HCY"
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp0006",
+   "from": "Clr0002",
+   "to": "Clr0004",
+   "steps": 6,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp0007",
+   "from": "Clr0003",
+   "to": "Clr0004",
+   "steps": 5,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp0008",
+   "from": "Clr0005",
+   "to": "Clr0003",
+   "steps": 8,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "_t": "ColorRamp",
+   "_v": 0,
+   "id": "Ramp0009",
+   "from": "Clr0002",
+   "to": "Clr0005",
+   "steps": 8,
+   "color_space": "Linear RGB",
+   "curve_shape": 1.4,
+   "curves": [
+    -1,
+    -1,
+    -1
+   ],
+   "offsets": [
+    0,
+    0,
+    0
+   ]
+  }
+ ]
+}

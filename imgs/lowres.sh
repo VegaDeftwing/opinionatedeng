@@ -1,1 +1,1 @@
-convert microstest.png -colors 10 -resize 262144@ -strip -interlace JPEG -quality 60% -sampling-factor 4:2:0 -colorspace RGB -define microstest16.jpg
+convert -depth 4 ramrb161.jpg -resize 131072@ -quality 70 -dither FloydSteinberg -define dither:diffusion-amount=50% -remap redblue.png -auto-level -quantize RGB -black-threshold 5% -black-point-compensation -posterize 5 -normalize ramrb162.png

@@ -1,6 +1,6 @@
 # Chapter 2 - Let's do it then, Installing Arch Linux
 
-![Arch Logo](./imgs/archlogo.png)
+![Arch Logo](./imgs/openg/archlogo.png)
 
 First of all, Linux is actually just the name of the underlying 'core' of the system, known as the kernel, as such, there are literally thousands of Linux variations. The one I'm going to have you install is know as one of the hardest to work with, but also one of the most powerful: Arch Linux.
 

@@ -178,7 +178,7 @@ Names, Timezones, unicode, maps (Tiwan v china)
 
 ## Religion
 
-![swearingin](../imgs/swearingin.png)
+![swearingin](../imgs/openg/swearingin.png)
 
 The engineering community is strangly divided, the 'old gaurd' is actually realitively conservative and professional, but as time has moved forward it's quite the opposite. Unsuprisingly, this corolates with religion as well. The main way this plays into politics is a general hard stance for the separation of church and state. This is in part due to a past of religoutly motivated legilation negitively impacting copyright law, but also just generally an understood ideal that is beneficial to democracy. Furthermore, it would probably be worth your time to look into basics of most world religions, as engineering is incressingly a global field where you will have no choice but to work with people from diverse backgrounds across the globe.
 
@@ -193,7 +193,7 @@ The 'Hacking' community in particular is usally very clear on sexual liberation/
 Finally, a little less NSFW, the Maker and engineering communities also tend to overlap rather heavily with more artisticaly minded and sub-culture heavy groups, ranging from those obsessed with comics to anime nerds or furries. I really recomend you do at least a little reseach into various sub cultrues and geek culture to better understand some of the people you'll probably interact with. You might just find something new you enjoy while you're at it.
 
 Also, because this got a bit heavy for a bit, let's touch on Rule 34. We all know it, but where does it come from? 4Chan of course. Here's the full set:
-![irules](../imgs/irules.jpg)
+![irules](../imgs/openg/irules.jpg)
 
 ## Thank you
 If you've made it this far I just want to say thank you. We need more people to really consider the ethics of technology as we design it and procede with it. DeepFakes, Automated driving, and even more mass online censorship are issues we're only going to face more with time and it's people like you who are going to help make sure we take the best path we can. So, from the bottom of my heart, thank you.

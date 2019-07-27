@@ -20,7 +20,7 @@ The first two are terminal based `nano` and `vim`,
 
 nano, is the similist of all the editors I'll list here. It's stupid simlpe to use and for quick just opening a text file and changing one line, probably the fastest. It clearly prints it's instructions at the bottom of the termianl:
 
-![nano](./imgs/nano.png)
+![nano](./imgs/openg/nano.png)
 
 where ^ is the ctrl key, and M the alt key. However, you'll quickly find nano rather limiting, so onto vim!
 
@@ -34,13 +34,13 @@ Graphically I recomend Visual Studio Code with Platform IO, Bracket Pair Coloriz
 
 This gives you a pretty kick butt editor on bar with most full Integrated Development Envrioments or IDEs. I recomend you try out IDEs, espcially if for some unholy reason you want to write in Java, but otherwise this will do fine.
 
-![code](./imgs/code.png)
+![code](./imgs/openg/code.png)
 
 ## The Desktop Envrioment
 
 This is the biggest change, I'm going to recomend switching from KDE, which we installled when we setup arch, to i3. i3 is a tiling window manager, this means it looks something like this:
 
-![i3](./imgs/i3.png)
+![i3](./imgs/openg/i3.png)
 
 This is with 3 windows ope: Marktext (the program I'm writing this in), a file manager, and an terminal I used to launch the program (scrot) to take the screenshot. What's cool about i3 is how it will always use space as efficently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver.
 
@@ -83,7 +83,7 @@ If you're looking for more ways to make your setup the best it can be or config 
 
 ## The Physical Enviroment & Hardware
 
-![penv](./imgs/physicalenv.jpg)
+![penv](./imgs/openg/physicalenv.jpg)
 
 Working on a laptop with a mushy membrane keyboard is totally fine for some people, but when you're deep into some complicated work having the best possible setup can save a lot of time, frustration, and mental overhead.
 
@@ -155,7 +155,7 @@ Another thing to mention is red-light filters. While I dont personally use one m
 
 Probably the most important thing you can do for your workspace is getting a nice keyboard. If you're rocking a rubber dome or membrane keyboard, moving to a mechanical keyboard will make a massive difference.
 
-![keycomp](./imgs/mechkey.png)
+![keycomp](./imgs/openg/mechkey.png)
 
 ([source](https://commons.wikimedia.org/wiki/File:Keyboard_Construction_Button_Press.JPG))
 
@@ -173,7 +173,7 @@ really it's all a matter of prefrence, I'm actually using a switch not listed he
 
 Furthermore, there are other types of switches like IBM's old Model M line which use a buckling spring, which are quite stiff and have a very unique, heavy feeling. If you don't want to use a 20 year old keyboard Unicomp makes clones that are quite nice.
 
-You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagent number of keys or a weird split keyboard like mine:![keeb](./imgs/splitkeeb.jpg)
+You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagent number of keys or a weird split keyboard like mine:![keeb](./imgs/openg/splitkeeb.jpg)
 
 > This is a custom built ErgoDone keyboard, The Ergodox-ez can be purchased for ~300 USD, or you can build one like mine for a bit under 200
 

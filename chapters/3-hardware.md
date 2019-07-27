@@ -4,7 +4,7 @@ One of the nifty things about linux is you don't need to install extra software 
 
 ## The CPU
 
-![CPUS](cpus.jpg)
+![CPUS](./imgs/openg/openg/cpus.jpg)
 
 These are CPUS or Central Processing Units. They're the beating heart of your computer, doing the day-to-day number crunching. The rectangular one of one of the first CPU's in the lineage leading up to CPU's like the ones used in desktop's today, with further sucessors shown in order from top left to the bottom right. The metal-capped one at the bottom right, while old, is visulally quite representative of a moden desktop CPU, though the CPUs in a laptop or smart phone do look quite differnt still.
 
@@ -65,7 +65,7 @@ Each of these things is very important, but I'm going to start with cpu MHz as i
 
 ### Clock Speed
 
-![transistor](./imgs/transistor.jpg)
+![transistor](./imgs/openg/transistor.jpg)
 
 However, to get to that we've gotta go just a bit further down the rabbit hole to the relay. Relays are super simple to understand, they're just a metal switch that is pulled open or closed using another input signal, basically imagine a light switch, where the switch itself is controlled by yet another electrical signal. Relays are slow though, they require a physical metal plate to move to change the connection. Because of this they have limited reliability and worth note they're actually loud. You can hear an audible click of the switch as they change state.
 
@@ -163,7 +163,7 @@ Put simply, just as with adding more Random Access Memory (RAM) to your system, 
 
 Let's take a look. install the `hwloc` package using yay and then run `lstopo` and you should get an output that looks a bit like this
 
-![lstopo](./imgs/lstopo.png)
+![lstopo](./imgs/openg/lstopo.png)
 
 The stuff on the right are connections around the system, you can ignore those for now, but see the various cache layers, designated by L3, L2, L1d and L1i, and you can see how each core has it's own cache. Finally, you can see that each core has two processing units? Hey, wait, what's that all about?
 
@@ -177,7 +177,7 @@ The CPU is on a square or rectangular board that is usually covered by a large h
 
 ## RAM
 
-![RAM](./imgs/ram.jpg)
+![RAM](./imgs/openg/ram.jpg)
 
  This is RAM or Random Access Memory. The above two sticks are the normal sized used in desktop PCs, this form factor is called a DIM while the bottom two are from laptops and are called SO-DIMS, the placement of the notch is an indicator of the generation of RAM, with neraly all modern ram being a consecutive generation of the DDR standard. At the time of writing (Q2,2019) DDR4 is common in new, medium to high end devices, with many DDR3 devices still being used. Of note many more compact devices solder the ram chips directly to the board, meaning there is no form factor to consider.
 
@@ -189,7 +189,7 @@ While support for this will vary depending on your motherboard, you should be ab
 
 The output will probably repeat multiple times, printing once for each physical stick of ram in your system. I actually have 4 sticks, but I'll just be showing one:
 
-![dmiram](./imgs/dmiram.png)
+![dmiram](./imgs/openg/dmiram.png)
 
 You should note that many of the things mentiond above can be seen here, though I do want to look at some things here.
 
@@ -230,7 +230,7 @@ Going back to when cache was mentioned though, RAM's primary job is to hold bulk
 
 ## The Motherboard
 
-![mobo](./imgs/mobo.jpg)
+![mobo](./imgs/openg/mobo.jpg)
 
 This is an older motherboard, but still new enough to have modern parts. Let's start by looking at the the most obvious physical features and move to smaller things from there.
 
@@ -242,7 +242,7 @@ The large, white square is the CPU socket. This is an older board made for an AM
 
 ([source](https://commons.wikimedia.org/wiki/File:CPU_Socket_775_T.jpg))
 
-If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to giv for a total of of 64 threads. Giving this beautiful sight:![64t](./imgs/64thread.png)
+If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to giv for a total of of 64 threads. Giving this beautiful sight:![64t](./imgs/openg/64thread.png)
 
 Clearly, a server with that much horsepower will use a lot of electricity though, and there is some overhead for the system when getting information from one physical CPU to another.
 
@@ -266,7 +266,7 @@ Finally, along the top of the back left edge you'll see the metal tops of the ma
 
 So, how do we get any information from the motherboard? Well, in case it wasn't already obvious, the motherboard isn't really one thing. It's more a common inteconnect point and routing system than anything; however, it does have some of it's own responsibilites. To start small let's look at one small, but excedingly import role of the motherboard: fan and tempature control.
 
-To see what your fans are doing on linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](./imgs/sensors.png)
+To see what your fans are doing on linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](./imgs/openg/sensors.png)
 
 Of note, depending on your system, there's a small chance nothing will be detected at all or that some information will be wrong. Even in my case this is true as my CPU fan is reporting 0 RPM. Actually entering your motherboard's UEFI or BIOS settings may expose more information, but we'll talk about that more later.
 
@@ -348,7 +348,7 @@ If you continue down this list you'll see there's yet another USB controller and
 
 What's cool is this information relates back to something we saw earlier when looking at the CPU:
 
-![lstopo2](./imgs/lstopo.png)
+![lstopo2](./imgs/openg/lstopo.png)
 
 See all those PCI ids on the right side, those directly corrolate with a lot of the above.
 
@@ -455,7 +455,7 @@ external VRM, over/under volting
 
 ## Storage
 
-![disks](./imgs/hdds.jpg)
+![disks](./imgs/openg/hdds.jpg)
 
 > Pictured here are 3 hard drives, 2 of which are 'full size' at 3.5" and the the other a 'laptop drive' at 2.5", the left most hard drive has been opened up, which has certainly ruined it as dust has gotten in. Below the smaller Hard drive is an NVMe ssd, a micro sd card, and a flash drive. All of which are examples of solid state storage
 
@@ -477,7 +477,7 @@ At the end of the day, for bulk media storage that you still want to be able to 
 
 Most hard drives connect though either SATA or SAS, with almost all consumer drives being SATA, and enterprise drives using a mix. SAS has some extra features and depending on the drive may be capable of writing an reading at the same time, a nifty trick SATA drives can't do without alternating between the two rapidly.
 
-For bulk storage servers you can get insane capacites, and buliding one yourself isn't all that hard. Here's mine:![powervault](./imgs/powervault.jpg)
+For bulk storage servers you can get insane capacites, and buliding one yourself isn't all that hard. Here's mine:![powervault](./imgs/openg/powervault.jpg)
 
 > A modified powervault MD1000 with a hard drive poking out and the computer - being used an archive server - it connects to. It currently is only housing three, 3Tb SAS hard drives.
 
@@ -494,7 +494,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 Alright, so I already have the disk 62% used, let's give that a closer look by firing up `ncdu` at the mount point. This will take a little while to scan, the more files the longer it will take. After spending a few minutes to analyze the disk I'm greeted with this:
 
-![ncdu](./imgs/ncdu.png)
+![ncdu](./imgs/openg/ncdu.png)
 
 From this you should be able to plainly see that the majority of the hard drive is taken up by Archived files, Music, Games, Videos, and Pictures. Pretty Mundane, but I could easily dive into the Archives and see why they're so big and save myself some space
 
@@ -552,7 +552,7 @@ Zfs, hardware raid, software raid, emulated hardware (bios), etc.
 
 ## Network Interfaces
 
-![NICS](./imgs/nics.jpg)
+![NICS](./imgs/openg/nics.jpg)
 
 Pictured here are three Network Interface cards or a NIC. The three on the left are for WiFi (though some of this form factor may include bluetooth as well) while the one on the right has an ethernet port for wired access. Most comptuer's will not have a seprate card for the wired inteface though, as most motherboard's have a wired network interface built in.
 

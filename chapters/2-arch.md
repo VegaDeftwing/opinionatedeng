@@ -44,9 +44,7 @@ Okay, now we're finally ready to copy the OS to a flash drive so we can install 
 
 > of note, the following guide will be assuming you're installing linux on the same drive as Windows, making it applicable for most systems right away; however, I strongly recomend getting an extra SSD and giving linux it's own disk outright instead. This is far easier to do in a desktop, but if you have a laptop with a CD drive you may be able to put a SSD in it's place. SSD prices have been steadily declining over the pas few years, but as of the time of writing a 250Gb ssd should be available for under 50 USD. I'd recomend a larger disk though, with 500Gb being plenty for most people
 
-While this guide should lead you though step by step, it may be helpful to follow the offical installation guide as well, which is available at https://wiki.archlinux.org/index.php/installation_guide. Furthermore, while slightly outdated, this flow chat is a nice refrence as well (from https://i.imgur.com/Hokk8sK.jpg)
-
-![archflow](./imgs/archflow.jpg)
+While this guide should lead you though step by step, it may be helpful to follow the offical installation guide as well, which is available at https://wiki.archlinux.org/index.php/installation_guide. Furthermore, while slightly outdated, this flow chat is a nice refrence as well: https://i.imgur.com/Hokk8sK.jpg
 
 despite the technically complexity to get to it, the best place for Arch Linux support, even for installation, is in the IRC (Internet Relay Chat) channel #archlinux on Freenode. https://wiki.archlinux.org/index.php/Arch_IRC_channels
 
@@ -67,6 +65,8 @@ Now you'll need to power off your computer. Turn it back on and as you do mash t
 [OK] starting thing
 [OK] did thing
 ```
+
+> If something comes up as [FAILED] even though you still get to the login prompt, don't worry about it for now
 
 Then, you should be greeted by a mininal prompt that looks like
 

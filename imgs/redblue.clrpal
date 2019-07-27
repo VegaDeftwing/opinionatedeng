@@ -1,10 +1,10 @@
 COLORTOOL v1.0
 SECTION PALETTE 247
-#000000 #480000 #740000 #960000 #b40000 #cf0000 #e80000 #ff0000 #00514b #008077 #00a69b #00c6ba #00e4d5 #00ffef #3dfff0 #62fff1 #80fff2 #9afff4 #b1fff6 #c6fff8 #dafffa #edfffd #ffffff #ff3d3d #ff6262 #ff8080 #ff9a9a #ffb1b1 #ffc6c6 #ffdada #ffeded
-SECTION DOCUMENT 4023
+#222222 #502121 #781e1e #991b1b #b61717 #d01212 #e80a0a #ff0000 #205752 #1d837b #19a79d #14c7bb #0ce4d6 #00ffef #dddddd #d8dfde #d1e2df #c6e5e1 #bae9e3 #abede5 #98f1e7 #80f6ea #5dfaec #fe3333 #fb5454 #f86e6e #f58484 #f19999 #edabab #e8bdbd #e3cdcd
+SECTION DOCUMENT 5621
 {
  "id": "15618436233161026589",
- "filepath": "/run/media/vega/Data/VegaProductions/opinionatedeng/imgs/redblue.clrpal",
+ "filepath": "/run/media/vega/raid/VegaProductions/opinionatedeng/imgs/redblue.clrpal",
  "settings": {
   "snap_to_grid": true,
   "grid_size": {
@@ -15,15 +15,15 @@ SECTION DOCUMENT 4023
    ]
   },
   "draw_grid": false,
-  "zoom": -3.816089,
+  "zoom": 2,
   "scroll": {
    "_t": "Vector2",
    "value": [
-    594,
-    199.5
+    113.399986,
+    73.266663
    ]
   },
-  "old_path_root": "/run/media/vega/Data/VegaProductions/opinionatedeng/imgs"
+  "old_path_root": "/run/media/vega/raid/VegaProductions/opinionatedeng/imgs"
  },
  "objects": [
   {
@@ -45,9 +45,9 @@ SECTION DOCUMENT 4023
     ]
    },
    "anchor": 3,
-   "visible": true,
+   "visible": false,
    "initialized": true,
-   "image_path": "/run/media/vega/Data/VegaProductions/opinionatedeng/imgs/algorithm.jpg",
+   "image_path": "/home/vega/Desktop/algorithm.jpg",
    "export_path": "",
    "export_name": "",
    "factors": {
@@ -104,12 +104,12 @@ SECTION DOCUMENT 4023
     ]
    },
    "include_in_batch_export": true,
-   "zoom": 0,
+   "zoom": -4.5,
    "scroll": {
     "_t": "Vector2",
     "value": [
-     0,
-     0
+     -1330.127686,
+     41.636353
     ]
    }
   },
@@ -169,12 +169,12 @@ SECTION DOCUMENT 4023
    "color": {
     "_t": "Vector3",
     "value": [
-     0,
-     0,
-     0
+     0.015996,
+     0.015996,
+     0.015996
     ]
    },
-   "color_space": "HCY"
+   "color_space": "Linear RGB"
   },
   {
    "_t": "ColorShard",
@@ -190,12 +190,12 @@ SECTION DOCUMENT 4023
    "color": {
     "_t": "Vector3",
     "value": [
-     0,
-     0,
-     1
+     0.723055,
+     0.723055,
+     0.723055
     ]
    },
-   "color_space": "HCY"
+   "color_space": "Linear RGB"
   },
   {
    "_t": "ColorRamp",
@@ -276,6 +276,93 @@ SECTION DOCUMENT 4023
     0,
     0
    ]
+  },
+  {
+   "_t": "RefImage",
+   "_v": 2,
+   "id": "Img0002",
+   "position": {
+    "_t": "Vector2",
+    "value": [
+     140,
+     37
+    ]
+   },
+   "size": {
+    "_t": "Vector2",
+    "value": [
+     2760,
+     1610
+    ]
+   },
+   "anchor": 3,
+   "visible": false,
+   "initialized": true,
+   "image_path": "/run/media/vega/raid/Pictures/newram.jpg",
+   "export_path": "/run/media/vega/raid/VegaProductions/opinionatedeng/imgs/newramredblue.png",
+   "export_name": "newramredblue.png",
+   "factors": {
+    "lum": 6,
+    "vib": 1,
+    "red": 1,
+    "green": 1,
+    "blue": 1
+   },
+   "multipliers": {
+    "lum": 1,
+    "vib": 1,
+    "red": 1,
+    "green": 1,
+    "blue": 1
+   },
+   "midpoints": {
+    "lum": 0.5,
+    "vib": 0.5,
+    "red": 0.5,
+    "green": 0.5,
+    "blue": 0.5
+   },
+   "color_mapping_mode": "Dynamic",
+   "color_mapping_enabled": true,
+   "smooth_transitions": true,
+   "effects": {
+    "_t": "EffectStack",
+    "_v": 0,
+    "list": [
+     {
+      "_t": "ResizeImage",
+      "_v": 0,
+      "enabled": true,
+      "mode": "width",
+      "width": 800,
+      "height": 64,
+      "scale": 0.5
+     },
+     {
+      "_t": "DitherOverlay",
+      "_v": 0,
+      "enabled": true,
+      "opacity": 0.14,
+      "pattern": "res://Shaders/dither4x4.png"
+     },
+     {
+      "_t": "RemoveNoise",
+      "_v": 0,
+      "enabled": false,
+      "threshold": 0.5,
+      "strength": 1
+     }
+    ]
+   },
+   "include_in_batch_export": true,
+   "zoom": -2.532206,
+   "scroll": {
+    "_t": "Vector2",
+    "value": [
+     168.166672,
+     167.583328
+    ]
+   }
   }
  ]
 }

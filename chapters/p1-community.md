@@ -1,6 +1,6 @@
 # Ⅰ - Community
 
-The only way to be successful in this journey is to make friends along the way. Some of this get's really, really difficult. You will get stuck. Having friends to help makes it possible. Find group chats on telegram, join IRC channels, get on some forums, and ask questions on Reddit. Working with people is a lot more fun and you'll learn so much more.
+The only way to be successful in this journey is to make friends along the way. Some of this get's really, really difficult. You *will* get stuck. Having friends to help makes it possible. Find group chats on telegram, join IRC channels, get on some forums, and ask questions on Reddit. Working with people is a lot more fun and you'll learn so much more.
 
 Beyond that, having inspiration each day can be a huge booster shot to your motivation and creativity. Some sites I use nearly daily to finding good new material are:
 
@@ -20,7 +20,7 @@ https://www.alchemistowl.org/pocorgtfo/
 
 https://www.youtube.com/user/DEFCONConference
 
-(There are many more linuxs in the 'Other Great Resources' section at the bottom of this document)
+(There are many more links in the 'Other Great Resources' section at the bottom of this document)
 
 Oh, and to mention it now
 
@@ -75,15 +75,15 @@ On the note of point Ⅲ...
 
 ![Standards](https://imgs.xkcd.com/comics/standards.png)
 
-Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtousy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevent to the conversation, it's totally reasonable to interject and ask for a superquick primer on what's going on or a relevent link. This may seem obvious, but a good number of technical chats die because of exectaly the afforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
+Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtesy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevant to the conversation, it's totally reasonable to interject and ask for a super quick primer on what's going on or a relevant link. This may seem obvious, but a good number of technical chats die because of exectaly the aforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
 
 TLDR: RTFM & STFW http://www.catb.org/esr/faqs/smart-questions.html#rtfm
 
 **Finally, **and I can't stress this enough, I think balancing your creativity among other interests and looking for ties between them can lead to more good than any of thing mentioned above. I enjoy playing music, reading, and writing, so I find inspiration in these media. There are countless electrical hardware and software tools that use hands on programming when playing music. In books I find ideas for what an author may have thought only futuristic when written. I never know when my mind will strike similar gold when writing for myself. Find a hobby and bend it to this as you go along. Like photography? Lean about the internals of a camera. Like cars? Look up how the ODB2 interface actually works. Nothing is magic and the internet will likely have answers and give you ways to apply this knowledge that you care about.
 
-In general I've found site specific forms and reddit to be the best platforms for most things, with some others finding their main following in other places though. For example I'm in a large technical chat group with Furries on Telegram and some open source tools still thrive on IRC.
+In general I've found site specific forms and Reddit to be the best platforms for most things, with some others finding their main following in other places though. For example I'm in a large technical chat group with Furries on Telegram and some open source tools still thrive on IRC.
 
-No matter what you care about, know there's a [wide range of communities](https://www.youtube.com/watch?v=0QO0yZldC2M&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=229&t=0s) that would be thrilled to have you, and you can always combine what you learn here with any of the other intresets you have to make the things your passionate about better!
+No matter what you care about, know there's a [wide range of communities](https://www.youtube.com/watch?v=0QO0yZldC2M&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=229&t=0s) that would be thrilled to have you, and you can always combine what you learn here with any of the other interests you have to make the things your passionate about better!
 
 
 

@@ -1,10 +1,10 @@
-# Chapter 3 - Into the hardware
+Chapter 3 - Into the hardware
 
-One of the nifty things about linux is you don't need to install extra software to check out the deeper parts of your hardware. While on windows you might need a tool like CPU-Z to look at information about the CPU on linux you can do it out of the box. Let's get started on that then!
+One of the nifty things about Linux is you don't need to install extra software to check out the deeper parts of your hardware. While on windows you might need a tool like CPU-Z to look at information about the CPU on Linux you can do it out of the box. Let's get started on that then!
 
 ## The CPU
 
-![CPUS](./imgs/openg/openg/cpus.jpg)
+![CPUS](./imgs/openg/cpus.jpg)
 
 These are CPUS or Central Processing Units. They're the beating heart of your computer, doing the day-to-day number crunching. The rectangular one of one of the first CPU's in the lineage leading up to CPU's like the ones used in desktop's today, with further sucessors shown in order from top left to the bottom right. The metal-capped one at the bottom right, while old, is visulally quite representative of a moden desktop CPU, though the CPUs in a laptop or smart phone do look quite differnt still.
 
@@ -169,9 +169,15 @@ The stuff on the right are connections around the system, you can ignore those f
 
 Hyper threading, or SMT, or whatever the new term is for it, is a way of adding paths for doing things to keep every part of the CPU active. We'll go into this more later, but for now, suffice it to say it's a way of getting just a bit more performance out of a system.
 
-[TODO] add cpu power
+**Power**
 
-**Physically, what is this thing?**
+the CPU is one of the most power hungry parts of your computer, and as such it does some interesting things to try to keep it's power usage lower. Namely, it'll turn it's clock speed to do less operations per second as previously mentioned, but theres other things like entering sleep and hibernation states the processor is also capable of. The main thing you might want to concern yourself with from a performance to power consumption stand point is how aggressive this clock speed changing is. You can go as extreme as to tell the system to never let the processor get to full speed or to say 'only run at max speed all the time'. The latter is actually quite useful as often it can take quite a few clock cycles after a heavy load is started for the processor to come up to speed, but if it's always running full steam ahead this is a non issue. This entire topic is particularly relevent to laptops, and on Arch you may want to install a program to manage some of this for you or set sane defaults to save battery. I've had good luck using the `tlp` package. the `cpupower` package is helpful for looking at how arch handles cpu scaling and it lets you directly set these min and max frequencies or pick the scaling governor to handle how aggressive the switching is.https://wiki.archlinux.org/index.php/CPU_frequency_scaling#cpupower
+
+I very strongly recommend looking into this on any system though, as by default some CPUs will run at the minimum frequency only.
+
+![cpupower](./imgs/openg/cpupower.png)
+
+**Physically, what and where is this thing?**
 
 The CPU is on a square or rectangular board that is usually covered by a large heat sink used to keep it cool under load. It connects to the motherboard via hundreds of small, gold plated pins to send and receive signals (which well will discuss in depth later) from all around the system. Even though most modern CPUs are x86_64, generation to generation and cross manufacturer there are changes in the number of pins and the way they are arranged, meaning getting a new processor that's not from the same generation usually won't work. Furthermore, most laptops have soldered on processors that can not be upgraded to begin with.
 
@@ -191,15 +197,15 @@ The output will probably repeat multiple times, printing once for each physical 
 
 ![dmiram](./imgs/openg/dmiram.png)
 
-You should note that many of the things mentiond above can be seen here, though I do want to look at some things here.
+You should note that many of the things mentioned above can be seen here, though I do want to look at some things here.
 
 First, size. This is an 8Gb or 8192Mb stick of ram. Obviously the more ram the better, but you may find strange ram configurations where there's a mix of ram sizes in a system. This can be bad for performance though, because of memory channels.
 
-Most modern systems use 2 or 3 memory channels, to simplify a bit, it makes it so two sticks of ram can have their speed be used in parallel. Think about it like a parking lot, if you have a total of 4 parking lots you could, theoretically, hook them all up in a straight line with one entrace/exit shared among them. This would be pretty stupid though, as it would severely bottleneck traffic going though. Instead you may want to add a seprate entrace exit for each, but that quickly becomes expensive. Instead, most systmes use a mix of the two, connecting a pair of sticks together, allowing for added capacity, but allowing for multiple pairs to be inserted independantly. A lot of people don't fully fill all the available memory slots on their motherbord though, so instead of having 4 lots with 2 entrances you should be able to have 2 and 2, unless you mistakingly put the sticks in wrong, leaving one 'entrance' closed entirely while the other now has a ton of capacity. On my motherboard these 'lots' are labeld A1, A2, B1, and B2. Looking above you can see the stick we're looking at here is the A1 lot. It's because of this that you should ideally have a multiple of as many sticks of ram as you do momory channels, For example, if you have a two channel motherboard. For example if you have a 2 channel of memory motherboard/cpu than you want either 2, 4, or 8 sticks of ram. Most motherboards top out at 4 sticks though, with 2 channel being the most common.
+Most modern systems use 2 or 3 memory channels, to simplify a bit, it makes it so two sticks of ram can have their speed be used in parallel. Think about it like a parking lot, if you have a total of 4 parking lots you could, theoretically, hook them all up in a straight line with one entrance/exit shared among them. This would be pretty stupid though, as it would severely bottleneck traffic going though. Instead you may want to add a separate entrance and exit for each, but that quickly becomes expensive. Instead, most systems use a mix of the two, connecting a pair of sticks together, allowing for added capacity, but allowing for multiple pairs to be inserted independently. A lot of people don't fully fill all the available memory slots on their motherboard though, so instead of having 4 lots with 2 entrances you should be able to have 2 and 2, unless you mistakingly put the sticks in wrong, leaving one 'entrance' closed entirely while the other now has a ton of capacity. On my motherboard these 'lots' are labeled A1, A2, B1, and B2. Looking above you can see the stick we're looking at here is the A1 lot. It's because of this that you should ideally have a multiple of as many sticks of ram as you do memory channels. For example, if you have a two channel motherboard and CPU then you want either 2, 4, or 8 sticks of ram. Most motherboards top out at 4 sticks though, with 2 channel and 2 sticks being the most common configuration.
 
-Next, I want to look at the line that says 'Type Detail: Synchronous Unbuffered (Unregistered)' this is refrencing another type of ram, which is buffered and error correcting (ECC) memory. This type of ram is almost strictly used in servers and is specical because there's actually an extra physical memory die on the card. If you look above you'll notice each stick has sets of 8 black memory dies. ECC memory atually has 9 dies. The reason there are normally 8 dies is simple- there's 8 bits in a byte. Servers don't work on some magic 9-bit in a byte system, instead, this extra bit per byte is used to ensure the data hasn't been corrupted. The math behind this can get complicated and weird, but for now let's just go with it. Buffered memory is bascically just adding an extra 'buffer' between the read/write and again, it's a server thing.
+Next, I want to look at the line that says 'Type Detail: Synchronous Unbuffered (Unregistered)' this is referencing another type of ram, which is buffered and error correcting (ECC) memory. This type of ram is almost strictly used in servers and is special because there's actually an extra physical memory die on the card. If you look above you'll notice each stick has sets of 8 black memory dies. ECC memory actually has 9 dies. The reason there are normally 8 dies is simple- there's 8 bits in a byte. Servers don't work on some magic 9-bit in a byte system, instead, this extra bit per byte is used to ensure the data hasn't been corrupted. The math behind this can get complicated and weird, but for now let's just go with it. Buffered memory is basically just adding an extra 'buffer' between the read/write and again, it's a server thing.
 
-Finally I want to point out the voltage. Much like a CPU the voltage a Ram module runs at is important, and needs to be kept very stable. However, it may need bumped up if the RAM is running at a particually high speed or if it's set higher than factory (overclocked).
+Finally I want to point out the voltage. Much like a CPU the voltage a Ram module runs at is important, and needs to be kept very stable. However, it may need bumped up if the RAM is running at a particularly high speed or if it's set higher than factory (overclocked).
 
 Some RAM actually includes a special memory profile, often called XMPP, which can be applied in the BIOS/UEFI settings to make sure you're getting the absolute best performance out of you RAM before manual overclocking. This may actually overclock your CPU a bit as well as a bit of a side effect.
 
@@ -238,35 +244,35 @@ The most obvious thing to point out is the size of the motherboard. This is a mA
 
 The large, white square is the CPU socket. This is an older board made for an AM3+ processor. The AM3+ processor line, as well as most consumer processors from AMD use a PGA or Pin Grid Array socket. these CPUs have many pins on the bottom wich fall into these holes to make contact. Before the CPU is inserted the metal leaver arm, seen at the bottom of the socket if you look carefully, is raised and the CPU should smoothly plop right in, after which the arm can be lowered. modern Intel CPUs follow a similar-ish mechanism, only instead of having a bunch of pins that go into holes the 'pins' are actually tiny springy pieces of metal on the motherboard which make contact with pads on the CPU, that socket looks a bit like this, albeit this is an old one:
 
-![File:CPU Socket 775 T.jpg](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/CPU_Socket_775_T.jpg/581px-CPU_Socket_775_T.jpg)
+![File:CPU Socket 775 T.jpg](./imgs/openg/581px-CPU_Socket_775_T.jpg)
 
-([source](https://commons.wikimedia.org/wiki/File:CPU_Socket_775_T.jpg))
+([img source](https://commons.wikimedia.org/wiki/File:CPU_Socket_775_T.jpg))
 
-If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to giv for a total of of 64 threads. Giving this beautiful sight:![64t](./imgs/openg/64thread.png)
+If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to give for a total of of 64 threads. Giving this beautiful sight:![64t](./imgs/openg/64thread.png)
 
 Clearly, a server with that much horsepower will use a lot of electricity though, and there is some overhead for the system when getting information from one physical CPU to another.
 
-Above and left of the CPU on you'll see a bunch of copper coils in little boxes and some small metal cylinders, as well as a cluster of these with a large, 4-hole plug a bit further left, directly above the big aluminium heat sink. This all makes up the VRM or Voltage Regulation Module. The connector there is where the CPU power plug from the PC power supply would be plugged in. The power needs to be carefully controlled, filtered, and adjusted based on the needs of the CPU, that's what all of this is for. Generally the beefier and faster a cpu, the larger the VRM. The VRM also needs to disipate a good amount of heat on higher end systems so many nicer motherboards will cover this up with a large heatsink.
+Above and left of the CPU on you'll see a bunch of copper coils in little boxes and some small metal cylinders, as well as a cluster of these with a large, 4-hole plug a bit further left, directly above the big aluminum heat sink. This all makes up the VRM or Voltage Regulation Module. The connector there is where the CPU power plug from the PC power supply would be plugged in. The power needs to be carefully controlled, filtered, and adjusted based on the needs of the CPU, that's what all of this is for. Generally the beefier and faster a CPU, the larger the VRM. The VRM also needs to dissipate a good amount of heat on higher end systems so many nicer motherboards will cover this up with a large heatsink.
 
 Moving on from the CPU you'll see 4 vertical slots next to socket, these are where the RAM sticks are inserted. You'll notice they're color coded as to indicate which slots share the communication channel, so in this case you'd want to put the first memory stick in the blue slot closest to the socket, followed by the black slot closest to the socket, then repeat.
 
-While we're looking at this side of the board- next to the RAM slots you'll see two things of note. First, that black circular thing is actually a little buzzer. A lot of even modern systems have these on board to buzz error codes out in morse code if something goes wrong. Below that is a large, 20 or 24 pin connector (most modern systems use the 24pin varient) which is where the power supply is pluggend in to provide power to the motherboard (with the exception of the CPU) as well.
+While we're looking at this side of the board- next to the RAM slots you'll see two things of note. First, that black circular thing is actually a little buzzer. A lot of even modern systems have these on board to buzz error codes out in morse code if something goes wrong. Below that is a large, 20 or 24 pin connector (most modern systems use the 24pin varient) which is where the power supply is plugged in to provide power to the motherboard (with the exception of the CPU) as well.
 
-On the other side of the CPU and down a little you'll see a sizeable metal heatsink. This is covering the chipset. We'll come back to what the chipset does in a bit. This motherboard is actually a bit weird, on most motherboards the chipset is found underneath the RAM, but in general look for a large heatsink and it's probably under that.
+On the other side of the CPU and down a little you'll see a sizable metal heatsink. This is covering the chipset. We'll come back to what the chipset does in a bit. This motherboard is actually a bit weird, on most motherboards the chipset is found underneath the RAM, but in general look for a large heatsink and it's probably under that.
 
 Below the chipset here are 4 expansion slots, all of which use the PCI-e standard in this case. We'll come back to these in a bit.
 
 In the bottom right of the motherboard there are 6 SATA connectors, here each is a different color (for no apparent reason?). These are for connecting storage like hard drives.
 
-Vertically in line but closer to the center of the board you'll also spot a coin cell battery. This is so the system can keep time even when fully powered down and diconnecected from wall power.
+Vertically in line but closer to the center of the board you'll also spot a coin cell battery. This is so the system can keep time even when fully powered down and disconnected from wall power.
 
-Along the bottom you'll see various connectors with pins sticking out, these are mostly for front pannel connections- where the USB, audio, power button, etc. from the front of your case connect.
+Along the bottom you'll see various connectors with pins sticking out, these are mostly for front panel connections- where the USB, audio, power button, etc. from the front of your case connect.
 
 Finally, along the top of the back left edge you'll see the metal tops of the main 'rear i/o' for the computer. These are all the main connections for your system. The bulk of the system's USB ports, networking, and audio ports will be found here.
 
-So, how do we get any information from the motherboard? Well, in case it wasn't already obvious, the motherboard isn't really one thing. It's more a common inteconnect point and routing system than anything; however, it does have some of it's own responsibilites. To start small let's look at one small, but excedingly import role of the motherboard: fan and tempature control.
+So, how do we get any information from the motherboard? Well, in case it wasn't already obvious, the motherboard isn't really one thing. It's more a common interconnect point and routing system than anything; however, it does have some of it's own responsibilities. To start small let's look at one small, but exceedingly import role of the motherboard: fan and temperature control.
 
-To see what your fans are doing on linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](./imgs/openg/sensors.png)
+To see what your fans are doing on Linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](./imgs/openg/sensors.png)
 
 Of note, depending on your system, there's a small chance nothing will be detected at all or that some information will be wrong. Even in my case this is true as my CPU fan is reporting 0 RPM. Actually entering your motherboard's UEFI or BIOS settings may expose more information, but we'll talk about that more later.
 
@@ -311,7 +317,7 @@ The pci bus is where most of the system's add in cards, controllers, and the lik
 0f:00.3 Audio device: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) HD Audio Controller
 ```
 
-Alright, clearly there's a lot going on here, and on first glance it doesn't even look all that useful. But let's look deeper. From this output we can see some intereresting things. Starting from the top you'll see there's a lot of internal AMD things that are just handeling routing, really these probably don't matter. the first interesesting things to look at is `01:00.0 Non-Volatile memory controller: Phison Electronics Corporation E12 NVMe Controller (rev 01)` which is telling me that my super speedy NVMe solid state drive is at the address 01:00.0 on the pci bus and despite being made by a consumer brand (I think mine's a Silicon Power? though I have another that's made by Samsung) the actual controller on the device is made by Phison, a reputable brand for NVMe controllers.
+Alright, clearly there's a lot going on here, and on first glance it doesn't even look all that useful. But let's look deeper. From this output we can see some interesting things. Starting from the top you'll see there's a lot of internal AMD things that are just handling routing, really these probably don't matter. the first interesting things to look at is `01:00.0 Non-Volatile memory controller: Phison Electronics Corporation E12 NVMe Controller (rev 01)` which is telling me that my super speedy NVMe solid state drive is at the address 01:00.0 on the pci bus and despite being made by a consumer brand (I think mine's a Silicon Power? though I have another that's made by Samsung) the actual controller on the device is made by Phison, a reputable brand for NVMe controllers.
 
 next thing of note is
 
@@ -320,7 +326,7 @@ next thing of note is
 02:00.1 SATA controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset SATA Controller (rev 02)
 ```
 
-You can see here that I have a seprate controller for my USB 3.1 ports and that it's sharing pci lanes with my sata controller. In theory, this means If I'm working one or both of these really hard, the other may be slower.
+You can see here that I have a separate controller for my USB 3.1 ports and that it's sharing pci lanes with my sata controller. In theory, this means If I'm working one or both of these really hard, the other may be slower.
 
 next is:
 
@@ -329,9 +335,9 @@ next is:
 08:00.0 Ethernet controller: Intel Corporation I211 Gigabit Network Connection (rev 03)
 ```
 
-What's interesting here is I have another 3.1 controller, on an entirely differnt set of lanes. Really, this is a fault of USB that it's not very clear, this is actually a USB 3.1 gen 2 controller, so each port has a top speed of 10gb/s, compared to the 5gb/s of the other controller.
+What's interesting here is I have another 3.1 controller, on an entirely different set of lanes. Really, this is a fault of USB that it's not very clear, this is actually a USB 3.1 gen 2 controller, so each port has a top speed of 10gb/s, compared to the 5gb/s of the other controller.
 
-You'll also see thet my network interface is being handled by an intel network controller, despite this system having an AMD CPU.
+You'll also see that my network interface is being handled by an Intel network controller, despite this system having an AMD CPU.
 
 moving on:
 
@@ -342,7 +348,7 @@ moving on:
 0d:00.1 Audio device: NVIDIA Corporation GP106 High Definition Audio Controller (rev a1)
 ```
 
-Here you'll see some devices can actually use multiple IDs for one physical device. both of the 0c:00.x 'devices' are actually for the 'Vega56' graphics card (Often called GPU for graphics processing unit) made by AMD Radeon, while the 0d:00.x devices are for the GTX1060 card made by Nvida that I have in this system as well. Of note, having both of these in one system is excedingly uncommon, and my use case is strange; however, It is common to see systems which have a gpu integrated into the CPU (which will still appear in this list) and have a seprate larger GPU in the system as well.
+Here you'll see some devices can actually use multiple IDs for one physical device. both of the 0c:00.x 'devices' are actually for the 'Vega56' graphics card (Often called GPU for graphics processing unit) made by AMD Radeon, while the 0d:00.x devices are for the GTX1060 card made by Nvida that I have in this system as well. Of note, having both of these in one system is exceedingly uncommon, and my use case is strange; however, It is common to see systems which have a gpu integrated into the CPU (which will still appear in this list) and have a separate larger GPU in the system as well.
 
 If you continue down this list you'll see there's yet another USB controller and a audio controller among other things.
 
@@ -350,7 +356,7 @@ What's cool is this information relates back to something we saw earlier when lo
 
 ![lstopo2](./imgs/openg/lstopo.png)
 
-See all those PCI ids on the right side, those directly corrolate with a lot of the above.
+See all those PCI ids on the right side, those directly correlate with a lot of the above.
 
 Finally, if you want a lot more information you can run `sudo lspci -v` to see even more info about anything, for example, here's the output about my GTX1060 GPU:
 
@@ -383,11 +389,11 @@ Kernel driver in use: nouveau
 Kernel modules: nouveau
 ```
 
-tells us I'm using the nouveau driver and kernel modules instead of one of the alternatives on the Nvida card in my system If I wanted to I could switch this over to the propiretary Nvidia driver to get a pretty nice speed boost in some applications.
+tells us I'm using the nouveau driver and kernel modules instead of one of the alternatives on the Nvida card in my system If I wanted to I could switch this over to the proprietary Nvidia driver to get a pretty nice speed boost in some applications.
 
 > I'm not really worried about this because I'm mostly just using the Vega56 card. The nvidia card is there strictly for CUDA support in some workloads.
 
-Much like lspci, there's also `lsusb`, which as you can imagine, tells us informaiton about the USB devices on the system. I have a LOT of usb devices on this system so I'll just paste in a snippet:
+Much like lspci, there's also `lsusb`, which as you can imagine, tells us information about the USB devices on the system. I have a LOT of usb devices on this system so I'll just paste in a snippet:
 
 ```
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
@@ -397,7 +403,7 @@ Bus 001 Device 006: ID 258a:0013
 Bus 001 Device 005: ID 05e3:0745 Genesys Logic, Inc. Logilink CR0012
 ```
 
-You'll see here that USB hubs, input devices, webcams, etc. all show up. Anything that's hooked upthough USB should appear here. The device with ID 258a:0013 isn't really telling us anything though. What we do know is the first part is the USB Vendor ID. This is an ID that vendors of USB devices have to purchase to uniquely id their products.
+You'll see here that USB hubs, input devices, webcams, etc. all show up. Anything that's hooked up through USB should appear here. The device with ID 258a:0013 isn't really telling us anything though. What we do know is the first part is the USB Vendor ID. This is an ID that vendors of USB devices have to purchase to uniquely id their products.
 
 upon looking this id up online, it appears it's used for a generic USB keyboard.
 
@@ -407,9 +413,11 @@ Finally, I'd like to mention `dimdecode`. according to the manual page:
 
 > dmidecode is a tool for dumping a computer's DMI (some say SMBIOS) table contents in a human-readable format. This table contains a description of the system's hardwarecomponents, as well as other useful pieces of information such as serial numbers and BIOS revision. Thanks to this table, you can retrieve this information without having to probe for the actual hardware. While this is a good point in terms of report speed and safeness, this also makes the presented information possibly unreliable.
 
-we've already used this to get information about the system ram, but other things can be read as well. For example, going back to the pci slots from above running `sudo dmidecode --type 9` will tell you what physical slots corospond to what bus address among other information, for a full list of available types simply look at the dmidecode man page with `man dmidecode`.
+we've already used this to get information about the system ram, but other things can be read as well. For example, going back to the pci slots from above running `sudo dmidecode --type 9` will tell you what physical slots correspond to what bus address among other information, for a full list of available types simply look at the dmidecode man page with `man dmidecode`.
 
 ### Chipset
+
+[TODO]
 
 lane division, other responsibilities, AMD!=AMD, etc
 
@@ -417,27 +425,27 @@ multi gen-cpu support
 
 ### Expansion slots
 
-Most modern expansion cards connect though the PCI Express or PCIe bus. This standard, much like DDR, has gone though multiple generations of bandwith doubbling. Currently consumer devices offer up to PCIe 3.0 but devices with both 4.0 and 5.0 should be on the market shortly.
+Most modern expansion cards connect though the PCI Express or PCIe bus. This standard, much like DDR, has gone though multiple generations of bandwidth doubling. Currently consumer devices offer up to PCIe 3.0 but devices with both 4.0 and 5.0 should be on the market shortly.
 
-PCIe cards are used for just about anything you could imagine, form adding a more powerful graphics card, more usb ports, a higher end sound card, to some more esoterric things like specific task accelorators (encryption, compression) or even a software defined radio.
+PCIe cards are used for just about anything you could imagine, form adding a more powerful graphics card, more usb ports, a higher end sound card, to some more esoteric things like specific task accelerators (encryption, compression) or even a software defined radio.
 
-No matter what the device is you have to keep in mind its physical and electrical requirements. That is, do you have a slot long enough to accomadate the card and can you provide power to it.
+No matter what the device is you have to keep in mind its physical and electrical requirements. That is, do you have a slot long enough to accommodate the card and can you provide power to it.
 
-This may seem odd, but unlike most connections (think USB or Ethernet) which may support varrying speeds (usb2 vs 3) but are still physically the same size, the more bandwith hungry a PCIe device, the larger the physical connection. The largest available is a 16x connection, while the smallest is a 1x. The most commonly used lane arrangements are 1x, 4x 8x, and 16x. The motherboard shown above has one 16x connector and three 1x connectors. If you have a card that is electrically wired for 4x it will definitly work in any slot physically designed for 4x or greater, and it will still work in a 1x slot of that slot is open ended- this means the 'back' of the slot is open, allowing the card's connector to go past the actual physicall connection. Similarly, many 16x physical slots only have 8x actually wired. If you use a card which elecrically needs more connections it will almost certainly still work, but may have degraded performance. Similarly, if you have a card which expects a PCIe gen 3 16x connection but the best you have available is a PCIe gen 2 connection, it will run at half speed. To be extra clear:
+This may seem odd, but unlike most connections (think USB or Ethernet) which may support varying speeds (usb2 vs 3) but are still physically the same size, the more bandwith hungry a PCIe device, the larger the physical connection. The largest available is a 16x connection, while the smallest is a 1x. The most commonly used lane arrangements are 1x, 4x 8x, and 16x. The motherboard shown above has one 16x connector and three 1x connectors. If you have a card that is electrically wired for 4x it will definitly work in any slot physically designed for 4x or greater, and it will still work in a 1x slot of that slot is open ended- this means the 'back' of the slot is open, allowing the card's connector to go past the actual physical connection. Similarly, many 16x physical slots only have 8x actually wired. If you use a card which elecrically needs more connections it will almost certainly still work, but may have degraded performance. Similarly, if you have a card which expects a PCIe gen 3 16x connection but the best you have available is a PCIe gen 2 connection, it will run at half speed. To be extra clear:
 
 PCIe 1 @ 16x == PCIe 2 @ 8x == PCIe 3 @ 4x
 
 Similarly, putting a card which only supports PCIe Gen 2 into a Gen 3 slot will not suddenly make the card faster, even if it was to compensate, that is, if the card is made for PCIe Gen 2 @ 16x and you put it in a PCIe Gen 3 @ 8x slot, it will still run at half speed because it's the lowest gen number of the card or the slot that determines how many lanes are actually needed.
 
-Unfortunately, PCIe lanes, that is if you add together all the available 16x's and 8x's etc. on a given CPU are usually pretty limited. If the only extra card you plan on adding is a graphics card, you'll be fine, but if you intend to add a graphics card, sound card, network card, etc. all at once you may find that you've either run out of pyhsical slots or that a card is running with less than ideal bandwith as a 16x slot may 'give up' 8 of it's lanes becoming an 8x slot so that another card can function at all.
+Unfortunately, PCIe lanes, that is if you add together all the available 16x's and 8x's etc. on a given CPU are usually pretty limited. If the only extra card you plan on adding is a graphics card, you'll be fine, but if you intend to add a graphics card, sound card, network card, etc. all at once you may find that you've either run out of physical slots or that a card is running with less than ideal bandwidth as a 16x slot may 'give up' 8 of it's lanes becoming an 8x slot so that another card can function at all.
 
-Of note, the number of physical lanes and slots the mother board has probably greatly excedes the number of lanes actually going to the CPU, so even if it appears you have plenty of room to add cards you may end up accidently starving one for bandwith.
+Of note, the number of physical lanes and slots the mother board has probably greatly exceeds the number of lanes actually going to the CPU, so even if it appears you have plenty of room to add cards you may end up accidentally starving one for bandwidth.
 
-Finally, from a power perpcetive most motherboards will supply up to 75 watts to a card through the motherboard, but power hungry cards like the Nvidia and AMD graphics cards in my system may require external power connections. Also, some server boards cap PCIe power delivery to only 25watts without an external power supply, so just be careful with compatibility.
+Finally, from a power perspective most motherboards will supply up to 75 watts to a card through the motherboard, but power hungry cards like the Nvidia and AMD graphics cards in my system may require external power connections. Also, some server boards cap PCIe power delivery to only 25 watts without an external power supply, so just be careful with compatibility.
 
 There are some other standards other than PCIe worth mentioning though.
 
-Older standards such as PCI, AGP, and ISA were all used before the widespread addoption of PCIe and while their availibility is declining, PCI cards are still often for sale, you need to be very careful to only get PCIe cards and not PCI cards if your system doesn't support them.
+Older standards such as PCI, AGP, and ISA were all used before the widespread adoption of PCIe and while their availability is declining, PCI cards are still often for sale, you need to be very careful to only get PCIe cards and not PCI cards if your system doesn't support them.
 
 Both AGP and ISA have been phased out a long time ago, but very old cards may poke up now and then. If you're into vintage computers you may want to look the standards up to learn more.
 
@@ -445,13 +453,19 @@ Both AGP and ISA have been phased out a long time ago, but very old cards may po
 
 ### ROM/BIOS/UEFI
 
+[TODO]
+
 physical chips, battery for RTC
 
 ### VRM
 
-external VRM, over/under volting
+[TODO]
+
+external VRM, over/under volting, max power, choke count, digital vrm
 
 ## Graphics Card (or integrated graphics)
+
+[TODO]
 
 ## Storage
 
@@ -459,7 +473,7 @@ external VRM, over/under volting
 
 > Pictured here are 3 hard drives, 2 of which are 'full size' at 3.5" and the the other a 'laptop drive' at 2.5", the left most hard drive has been opened up, which has certainly ruined it as dust has gotten in. Below the smaller Hard drive is an NVMe ssd, a micro sd card, and a flash drive. All of which are examples of solid state storage
 
-Permanent storage is rapidly evloving, but the old gaurd: hard drives and tape storage aren't going anywhere either. But why use one over the other? How do you interact with them in Linux?
+Permanent storage is rapidly evolving, but the old guard: hard drives and tape storage aren't going anywhere either. But why use one over the other? How do you interact with them in Linux?
 
 [TODO] mention hdd, ssd, sata, nvme, usb-storage, sd, scsi, u.2, m.2, tape, floppy, zip
 
@@ -469,9 +483,9 @@ hdparm
 
 Hard disk drives or 'HDDs' are sometimes called "spinning rust" because unlike other modern storage devices they're fundamentally mechanical.
 
-Looking at the delidded hard drive you'll see they're pretty simple in their basic construction: a magnatized needle(s) move across (a) platter(s) and flip bits accordingly. These platters typically spin at 5400 or 7200 RPM, with the faster meaning data can be read and written faster as well. Harddrives generally are not used for speed though, as compared to other alternatives they're extraordinarly slow. Instead, they run at 'good enough' speeds for most things- like storing video, music, etc. while being much less expensize than solid state options and with a proven reliability and without suffering from data loss when left unpowered for long periods of time. That said, just like any storage medium, over time data can be corrupted, so backups are still a must.
+Looking at the delidded hard drive you'll see they're pretty simple in their basic construction: a magnatized needle(s) move across (a) platter(s) and flip bits accordingly. These platters typically spin at 5400 or 7200 RPM, with the faster meaning data can be read and written faster as well. Hard drives generally are not used for speed though, as compared to other alternatives they're extraordinary slow. Instead, they run at 'good enough' speeds for most things- like storing video, music, etc. while being much less expensive than solid state options and with a proven reliability and without suffering from data loss when left without power for long periods of time. That said, just like any storage medium, over time data can be corrupted, so backups are still a must.
 
-When a Hard drive is powered off, the head will typically 'park' off the platter (this is part of what the delidded plater above died) and tranportation should be pretty safe, however, when running and spinning quickly they're pretty fragile, and this is why so many older laptops have dead drives: the gyroscopic effects of spinning something that fast make it resistant to a change in orientation, causing things to scrape, scratch, or otherwise go wrong. Thankfully most 2.5" hard drives have been hardened against this now; however, it's still a good idea to store and run hard drives with as much protection from vibration and shock as possible. In fact, yelling at a hard drive [has been shown](https://www.youtube.com/watch?v=tDacjrSCeq4) to hurt performance.
+When a Hard drive is powered off, the head will typically 'park' off the platter (this is part of what the delidded plater above died) and transportation should be pretty safe, however, when running and spinning quickly they're pretty fragile, and this is why so many older laptops have dead drives: the gyroscopic effects of spinning something that fast make it resistant to a change in orientation, causing things to scrape, scratch, or otherwise go wrong. Thankfully most 2.5" hard drives have been hardened against this now; however, it's still a good idea to store and run hard drives with as much protection from vibration and shock as possible. In fact, yelling at a hard drive [has been shown](https://www.youtube.com/watch?v=tDacjrSCeq4) to hurt performance.
 
 At the end of the day, for bulk media storage that you still want to be able to access quickly or for backups, hard drives are still one of the best options.
 
@@ -485,7 +499,7 @@ For working with hard drives in linux you're best friend is `hdparm` lets use it
 
 The first thing we should do is get an idea about the disk usage, to do that I'll go to the mount point of the disk on my system ( it's mounted at /run/media/vega/raid despite the fact it's no longer in a raid array, we'll come back to this)
 
-so first I'll run `df -h` , that `-h` on most linux commands means to make the output human readable, printing things in terms of Gigabytes or Terabytes etc instead of just a raw byte count.
+so first I'll run `df -h` , that `-h` on most Linux commands means to make the output human readable, printing things in terms of Gigabytes or Terabytes etc instead of just a raw byte count.
 
 ```
 Filesystem      Size  Used Avail Use% Mounted on
@@ -509,17 +523,17 @@ This gives:
 
 ```
 
-You should immediately notice that cached reads are absolutely insanely high compared to buffered, in reality it's because it was using RAM for cache, and RAM really is that fast. The reads of bulk data on the other hand? A little under 200MB/sec is actually quite fast for a hard drive. Anything bettween 1-200 is normal. You'll soon see that compared to SSDs though, this is kind of disapointing.
+You should immediately notice that cached reads are absolutely insanely high compared to buffered, in reality it's because it was using RAM for cache, and RAM really is that fast. The reads of bulk data on the other hand? A little under 200MB/sec is actually quite fast for a hard drive. Anything between 1-200 is normal. You'll soon see that compared to SSDs though, this is kind of disappointing.
 
 But, moving on, another few interesting flags available in hdparm are `-g` which displays the "geometry" of the drive: cylinders, heads, sectors, etc., `-H` for tempature.
 This begs the obvious question: what are cylinders, heads, and sectors
 [TODO]
 
-Another thing of note is S.M.A.R.T tests, while not exclusive to hard drives, they're particually useful for them as most hard drives give a lot of warning signs before failing out right. In
+Another thing of note is S.M.A.R.T tests, while not exclusive to hard drives, they're particularly useful for them as most hard drives give a lot of warning signs before failing out right. In
 order to get in-depth S.M.A.R.T info on your drive, you'll likely need to run a test first, after which you can view the results. To do this on Linux you can run
 [TODO]
 
-Finally, a quick note about Westren Digital Green drives: Linux eats them. Thankfully you can use hdparm to fix this. From the man page:
+Finally, a quick note about Western Digital Green drives: Linux eats them. Thankfully you can use hdparm to fix this. From the man page:
 > -J
 >  Get/set the Western Digital (WD) Green Drive's "idle3" timeout value.  This timeout controls how often the drive parks its heads and enters a low power  consumption  state.
 >  The  factory  default is eight (8) seconds, which is a very poor choice for use with Linux.  Leaving it at the default will result in hundreds of thousands of head load/un‐
@@ -533,20 +547,28 @@ Finally, a quick note about Westren Digital Green drives: Linux eats them. Thank
 
 ### SSD
 
-Solid state drives, like HDDs, come in many capacites, speeds, and form factors; however, SSDs come in many, many more than HDDs. The primary two of note at the moment are SATA SSDs and NVMe SSDs. Sata SSDs are typically the same size and shape (though sometimes a bit thinner) as the normal 2.5" laptop hard drive; however, some other standards are used such as mSATA and m.2. Unfortuately, the m.2
+Solid state drives, like HDDs, come in many capacites, speeds, and form factors; however, SSDs come in many, many more than HDDs. The primary two of note at the moment are SATA SSDs and NVMe SSDs. Sata SSDs are typically the same size and shape (though sometimes a bit thinner) as the normal 2.5" laptop hard drive; however, some other standards are used such as mSATA and m.2. Unfortunately, the m.2
 
 [TODO]
 Optane, NVMe, Sata, technically all flash, Ram disks
 
 ### Cloud Storage (Some one elses' drives)
 
+[TODO]
+
 ### Portable
 
+[TODO]
+
 ### The Past
+
+[TODO]
 
 Floppy, Zip,
 
 ### RAID and Disk Pools
+
+[TODO]
 
 Zfs, hardware raid, software raid, emulated hardware (bios), etc.
 
@@ -554,29 +576,43 @@ Zfs, hardware raid, software raid, emulated hardware (bios), etc.
 
 ![NICS](./imgs/openg/nics.jpg)
 
-Pictured here are three Network Interface cards or a NIC. The three on the left are for WiFi (though some of this form factor may include bluetooth as well) while the one on the right has an ethernet port for wired access. Most comptuer's will not have a seprate card for the wired inteface though, as most motherboard's have a wired network interface built in.
+Pictured here are three Network Interface cards or a NIC. The three on the left are for WiFi (though some of this form factor may include bluetooth as well) while the one on the right has an ethernet port for wired access. Most computer's will not have a separate card for the wired interface though, as most motherboard's have a wired network interface built in.
 
 NICs also include the wireless chipset used for connecting to a cell tower and really any radio communication device in general.
 
-Older NICs include those used for Dial-Up connections and some obscure wireless methods that predate wifi.
+Older NICs include those used for Dial-Up connections and some obscure wireless methods that predate WiFi.
 
 ### Ethernet
 
+[TODO] rj45, ethernet over infiniband,
+
 ### WiFi
 
-### High Bandwith
+[TODO]
+
+### High Bandwidth
+
+[TODO], infiniband, DMA, 10GbE+, Multigig
+
+"Nothing is faster than a truck filled with drives quote"
 
 ### The Future
+
+[TODO]
 
 wifi6, 10gbe rj45 and beyond, cellular, sdr
 
 ### The Past
 
+[TODO]
+
 coax network, infrared, sneakernet
 
 ## Power Supply
 
-power efficency, size, voltage stability
+[TODO]
+
+power efficiency cuvers, 80+ 'metal' ratings, size, voltage stability, multi-rail, -12, 3.3, 5, 12,
 
 ## Cooling
 
@@ -584,14 +620,18 @@ Blower, air flow vs static pressure, fan size liquid, heat pipes, pwm vs DC cont
 
 ## Peripherals
 
-### Keyborads
+### Keyboards
+
+[TODO]
 
 5pin din, PS2, USB
 
 ### Legacy Connections
 
-Paralell, Serial, Tape, CD,
+[TODO]
+
+Parallel, Serial, Tape, CD, gameport
 
 ## How to know what to buy
 
-
+[TODO - possibly move]

@@ -5,7 +5,6 @@
    * [Chapter 2 - Let's do it then, Installing Arch Linux](#chapter-2---lets-do-it-then-installing-arch-linux)
       * [So Why Did I do all of that exactly?](#so-why-did-i-do-all-of-that-exactly)
       * [Okay, so what?](#okay-so-what)
-   * [Chapter 3 - Into the hardware](#chapter-3---into-the-hardware)
       * [The CPU](#the-cpu)
          * [Clock Speed](#clock-speed)
          * [Microcode](#microcode)
@@ -27,16 +26,15 @@
       * [Network Interfaces](#network-interfaces)
          * [Ethernet](#ethernet)
          * [WiFi](#wifi)
-         * [High Bandwith](#high-bandwith)
+         * [High Bandwidth](#high-bandwidth)
          * [The Future](#the-future)
          * [The Past](#the-past-1)
       * [Power Supply](#power-supply)
       * [Cooling](#cooling)
       * [Peripherals](#peripherals)
-         * [Keyborads](#keyborads)
+         * [Keyboards](#keyboards)
          * [Legacy Connections](#legacy-connections)
       * [How to know what to buy](#how-to-know-what-to-buy)
-   * [Chapter 4 - Back to the Root of Things](#chapter-4---back-to-the-root-of-things)
       * [Permissions](#permissions)
       * [/dev, the devices folder](#dev-the-devices-folder)
          * [TTY's, these are important:](#ttys-these-are-important)
@@ -58,10 +56,11 @@
    * [Chapter 5 - Resistance, Capacitance, and Inductance](#chapter-5---resistance-capacitance-and-inductance)
       * [The Tools of the Trade](#the-tools-of-the-trade)
          * [The Multimeter](#the-multimeter)
-            * [Resistance and the OHM meter](#resistance-and-the-ohm-meter)
-            * [Voltage, Ground, and the Volt Meter](#voltage-ground-and-the-volt-meter)
-            * [Current and the Ammeter](#current-and-the-ammeter)
+      * [Resistance and the OHM meter](#resistance-and-the-ohm-meter)
+      * [Voltage, Ground, and the Volt Meter](#voltage-ground-and-the-volt-meter)
+      * [Current and the Ammeter](#current-and-the-ammeter)
             * [Continuity Tester](#continuity-tester)
+            * [[TODO] day to day use, why you want one](#todo-day-to-day-use-why-you-want-one)
          * [The Lab Power Supply](#the-lab-power-supply)
          * [The Frequnecy or Waveform Generator](#the-frequnecy-or-waveform-generator)
          * [The Oscilloscope](#the-oscilloscope)
@@ -71,6 +70,8 @@
       * [Resistors](#resistors)
       * [Capacitors](#capacitors)
       * [Inductors](#inductors)
+      * [Buttons, Switches, and Knobs](#buttons-switches-and-knobs)
+      * [Relays](#relays)
       * [Filters](#filters)
       * [Decibels](#decibels)
       * [Further Reading](#further-reading)
@@ -182,6 +183,7 @@
       * [ADC/DAC](#adcdac)
       * [Active Filters](#active-filters)
       * [Audio Devices](#audio-devices)
+      * [TODO](#todo)
    * [Relating AC and Music](#relating-ac-and-music)
       * [Continued Reading:](#continued-reading)
    * [Chapter 13 - Embedded Systems](#chapter-13---embedded-systems)
@@ -289,7 +291,7 @@
       * [An NSFW Note](#an-nsfw-note)
       * [Thank you](#thank-you)
       * [Political rambalings from hackers solarpunks and engineers](#political-rambalings-from-hackers-solarpunks-and-engineers)
-      * [TODO](#todo)
+      * [TODO](#todo-1)
       * [Fix by working comparison](#fix-by-working-comparison)
    * [Other Great Resources](#other-great-resources)
       * [Learning Linux](#learning-linux)
@@ -319,17 +321,17 @@ I by no means expect you to share my same biases, in fact, I hope you do not and
 
 With that said, what is this exactly?
 
-This is a guide for understanding the power the humble electron has in our lives. Electricity, digital logic, code, computers, embedded systems, these things are all around us every second of everyday. As I type this I'm wearing a smart watch, I have a smart phone in my pocket, and I'm directly using a desktop computer. Each of these devices contains dozens of smaller computers, power supplies, wireless interfaces, etc. My goal with this is to teach you how all of this works and how to use it from transistors to high level code to useful user applications.
+This is a guide for understanding the power the humble electron has in our lives. Electricity, digital logic, code, computers, embedded systems, these things are all around us every second of everyday. As I type this I'm wearing a smart watch, I have a smart phone in my pocket, and I'm using a desktop computer. Each of these devices contains dozens of smaller computers, power supplies, wireless interfaces, etc. My goal with this is to teach you how all of this works and how to use it from transistors to high level code to useful user applications.
 
-I will be assuming you are of reasonable technical ability already- that is the concept of how to proficiently use most types of software, navigation of a file manager, etc-  furthermore, I will avoid going into high level math, chemistry, and physics as much as is practical- mostly because knowing these things is typically not actually useful in the daily life of someone who works on any of this beyond those that are doing cutting edge research or are planning to teach, in which case you should actually go to college instead of reading this. For everyone else, welcome. This is the document which can save you going to college and taking classes full of useless information you will inevitably forget and for which employers don't care about to begin with.
+I will be assuming you are of reasonable technical ability already- that is the concept of how to proficiently use most types of generic software like text editors, navigation of a file manager, etc-  furthermore, I will avoid going into high level math, chemistry, and physics as much as is practical- mostly because knowing these things is typically not actually useful in the daily life of someone who works on any of this beyond those that are doing cutting edge research or are planning to teach, in which case you should actually go to college instead of reading this. For everyone else, welcome. This is the document which can save you going to college and taking classes full of useless information you will inevitably forget and for which employers don't care about to begin with.
 
 Following along will require a few things. The first of which is dedication and time. If you don't have the desire to put in at least a little bit of work there is simply no way I can help, that said, if you're reading this instead of watching Netflix I believe that's already proof enough you want to learn. Next is hardware and software, namely you'll be needing a few development boards and linux, but I'll get into those with time; however, for convince, everything referenced to be downloaded or physical items to be purchased are all listed in Appendix C
 
-Before we get started there are a few things I recomend reading and watching first. These should give you a bit of an overview of some of the things that will be covered to give you at least a tiny bit of familiarity as each concept comes up.
+Before we get started there are a few things I recommend reading and watching first. These should give you a bit of an overview of some of the things that will be covered to give you at least a tiny bit of familiarity as each concept comes up.
 
 ---
 
-I recomend this overview of the topics covered in CS: [Map of Computer Science](https://www.youtube.com/watch?v=SzJ46YA_RaA) by Dominic Walliman
+I recommend this overview of the topics covered in CS: [Map of Computer Science](https://www.youtube.com/watch?v=SzJ46YA_RaA) by Dominic Walliman
 
 Also by Walliman, a video on [How to Read Math](https://www.youtube.com/watch?v=Kp2bYWRQylk) and the cheat sheet from it:
 
@@ -337,7 +339,7 @@ Also by Walliman, a video on [How to Read Math](https://www.youtube.com/watch?v=
 
 # Ⅰ - Community
 
-The only way to be successful in this journey is to make friends along the way. Some of this get's really, really difficult. You will get stuck. Having friends to help makes it possible. Find group chats on telegram, join IRC channels, get on some forums, and ask questions on Reddit. Working with people is a lot more fun and you'll learn so much more.
+The only way to be successful in this journey is to make friends along the way. Some of this get's really, really difficult. You *will* get stuck. Having friends to help makes it possible. Find group chats on telegram, join IRC channels, get on some forums, and ask questions on Reddit. Working with people is a lot more fun and you'll learn so much more.
 
 Beyond that, having inspiration each day can be a huge booster shot to your motivation and creativity. Some sites I use nearly daily to finding good new material are:
 
@@ -357,7 +359,7 @@ https://www.alchemistowl.org/pocorgtfo/
 
 https://www.youtube.com/user/DEFCONConference
 
-(There are many more linuxs in the 'Other Great Resources' section at the bottom of this document)
+(There are many more links in the 'Other Great Resources' section at the bottom of this document)
 
 Oh, and to mention it now
 
@@ -412,15 +414,15 @@ On the note of point Ⅲ...
 
 ![Standards](https://imgs.xkcd.com/comics/standards.png)
 
-Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtousy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevent to the conversation, it's totally reasonable to interject and ask for a superquick primer on what's going on or a relevent link. This may seem obvious, but a good number of technical chats die because of exectaly the afforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
+Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtesy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevant to the conversation, it's totally reasonable to interject and ask for a super quick primer on what's going on or a relevant link. This may seem obvious, but a good number of technical chats die because of exectaly the aforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
 
 TLDR: RTFM & STFW http://www.catb.org/esr/faqs/smart-questions.html#rtfm
 
 **Finally, **and I can't stress this enough, I think balancing your creativity among other interests and looking for ties between them can lead to more good than any of thing mentioned above. I enjoy playing music, reading, and writing, so I find inspiration in these media. There are countless electrical hardware and software tools that use hands on programming when playing music. In books I find ideas for what an author may have thought only futuristic when written. I never know when my mind will strike similar gold when writing for myself. Find a hobby and bend it to this as you go along. Like photography? Lean about the internals of a camera. Like cars? Look up how the ODB2 interface actually works. Nothing is magic and the internet will likely have answers and give you ways to apply this knowledge that you care about.
 
-In general I've found site specific forms and reddit to be the best platforms for most things, with some others finding their main following in other places though. For example I'm in a large technical chat group with Furries on Telegram and some open source tools still thrive on IRC.
+In general I've found site specific forms and Reddit to be the best platforms for most things, with some others finding their main following in other places though. For example I'm in a large technical chat group with Furries on Telegram and some open source tools still thrive on IRC.
 
-No matter what you care about, know there's a [wide range of communities](https://www.youtube.com/watch?v=0QO0yZldC2M&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=229&t=0s) that would be thrilled to have you, and you can always combine what you learn here with any of the other intresets you have to make the things your passionate about better!
+No matter what you care about, know there's a [wide range of communities](https://www.youtube.com/watch?v=0QO0yZldC2M&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=229&t=0s) that would be thrilled to have you, and you can always combine what you learn here with any of the other interests you have to make the things your passionate about better!
 
 
 
@@ -453,7 +455,7 @@ Every journey needs a place to start, and while many may like to start slow I th
 
 > Quote boxes like these will provide notes throughout the guide, often definitonal. If you already understand everything prior to each box, you can probably safely ignore it, though it will occasionally be used for actual quotes as seen prior to this
 >
-> Operating System: According to wikipedia, "An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs." put simply on your hardware this is probably Windows or Mac OS, and it's what everything else runs ontop of
+> Operating System: According to wikipedia, "An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs." put simply on your hardware this is probably Windows or Mac OS, and it's what everything else runs on top of
 
 You should really make a full backup of your computer before doing this, as installing an operating system can rather easily lead to lost files when you reformat or reparation your drive or when you change settings in the BIOS/UEFI and swap the bootloader.
 
@@ -463,32 +465,34 @@ You should really make a full backup of your computer before doing this, as inst
 > BIOS/UEFI: The Binary Input Output System or Unified Extensible Firmware Interface is the thing you see before you computer loads the operating system, usually prompting to press delete or f2 to change settings. This is the system that is used to change the way all the components around the computer talk to one another and at what speed.
 > Bootloader: The bootloader sits at a special place on the hard drive selected for boot in the UEFI or BIOS, and is what the computer uses to load the full operating system, most will let you chose what operating system you want to boot if you have multiple installed on you computer at once
 
- Alright, so why do I want you to install a new OS to begin with? Well, the OS we'll be using is called Linux. Linux is actually what powers both android and chomeOS, and is a common descendant of the same system as Mac OsX as well as almost all of the servers on the internet from massive website like Facebook and Google to small Minecraft servers you can rent online to play with friends. What's cool about Linux is it lets you get much closer to the hardware and see what's going on, and it just generally makes writing code much easier. Furthermore, it's super easy to set up an amazing development environment in Linux for getting work done with code or electronics, and at the end of the day you can still watch YouTube, play *most* games that are on steam, or open up an office suite, just like Windows or Mac.
+ Alright, so why do I want you to install a new OS to begin with? Well, the OS we'll be using is called Linux. Linux is actually what powers both android and chomeOS, and is a common descendant of the same system as Mac OsX as well as almost all of the servers on the internet from massive website like Facebook and Google to small Minecraft servers you can rent online to play with friends. What's cool about Linux is it lets you get much closer to the hardware and see what's going on, and it just generally makes writing code much easier. Furthermore, it's super easy to set up an amazing development environment in Linux for getting work done with code or electronics, and at the end of the day you can still watch YouTube, play *most* games that are on steam, or open up an office suite, just like Windows or Mac. Unlike Windows and (to a lesser extent) Mac though the system is laid out in way so that all the moving parts are exposed and able to be tinkered with. No setting or configuration is locked in and you have total control over your computer with Linux. Furthermore, it's not just easier to run and use software and tools for doing hardware and programming development on Linux, but it's also easier to find and install the tools, as you'll see shortly. Finally, linux has a great track record of stability, as there are many linux servers that run 24/7/365 to serve web pages, host services like games, and crunch big data in real time. In fact, all of the world's top 500 super computers use Linux.
 
 
 # Chapter 2 - Let's do it then, Installing Arch Linux
 
 ![Arch Logo](./imgs/openg/archlogo.png)
 
-First of all, Linux is actually just the name of the underlying 'core' of the system, known as the kernel, as such, there are literally thousands of Linux variations. The one I'm going to have you install is know as one of the hardest to work with, but also one of the most powerful: Arch Linux.
+Unlike Windows or Mac which are primarily differentiated by versions (Windows XP, Vista, 7, 10...), Linux has two important things to look out for: The distribution and the kernel version number. Linux is actually just the name of the underlying 'core' of the system, known as the kernel, as such, there are literally thousands of Linux variations. Some of the well known variants include Ubuntu, Fedora, OpenSuse, and Arch just to name a few. Each of these has a different target audience, with some meant for servers, some meant for casual users as an alternative to Windows, others as work station for hard core computing. They also ship with different software pre-installed to be accessed after the first boot. The other differentiating factor is the version of the Linux Kernel that they use. Some chose to use an older, battle hardended kernel that is known to be very, very stable, others chose a nice middle ground, while yet others continuously release an update to the newest available kernel. There are pros and cons to each model and each has its place; however, the one I'm going to have you install is know as one of the hardest to work with, but also one of the most powerful: Arch Linux. Arch is what's known as a rolling release distribution, which means it gets the bleeding edge features and the newest kernel pretty much as fast as possible, though really the biggest thing that makes Arch special is how bare bones it is out of the box, shipping with basically no pre installed software. In fact, when you first start it up the only thing you'll see is a screen to type and run commands, and that's where we're going to start.
 
-Because the various distributions or 'distros' of Linux all have this common core the particular brand of choice is of little consequence. For most distros like Ubuntu or OpenSuse (feel free to look these up, this page isn't going anywhere) there's a nice graphical, point and click installer which helps you install the system and somewhat mitigates potential risk of killing your original OS (Mac/Win) or losing data; however, the goal of this guide is to learn. Arch's install process is hard, but that difficulty leads to a deeper understanding and respect for the system as a whole
+For most distros like Ubuntu or OpenSuse (feel free to look these up, this page isn't going anywhere) there's a nice graphical, point and click installer which helps you install the system and somewhat mitigates potential risk of killing your original OS (Mac/Win) or losing data; however, the goal of this guide is to learn. Arch's install process, entirely by typing commands in this terminal is hard, but that difficulty leads to a deeper understanding and respect for the system as a whole
 
-[TODO] expand on why arch and some of the alternatives
+When we're done you'll have a system that has exactly what you need and nothing you don't. You won't find weird forcibly installed software like Win 10's Candy Crush App here, and your system will only do exactly what you tell it. Of course, this implies you know how to speak it's language and tell it what you want. Thankfully with some practice you'll get used to running Arch and you'll wonder why you ever dealt with other systmes to begin with.
 
-Install instructions will vary dependent on your hardware, but I'm going to assume you have a desktop or laptop which shipped with Windows 10 and has a UEFI system. Most laptops newer than ~2016 should be in this category. If your system uses a BIOS or Legacy boot instead, or if you have a mac, this won't apply to you.
+Install instructions will vary dependent on your hardware, but I'm going to assume you have a desktop or laptop which shipped with Windows 10 and has a UEFI system. Most laptops newer than ~2016 should be in this category. If your system uses a BIOS or Legacy boot instead, or if you have a mac, this won't apply to you, but you should be able to follow some of the resources I used to make this guide which are linked below along with some searching online to figure it out.
 
-Alright, so what exactly are you getting yourself into? Well, I'll be real with you, a lot. Installing Arch sucks. Things can go wrong, it's not user friendly at all, and is generally a pain, and if you screw up you'll need someone who can restore your computer to at least having Windows on it again so I'll say it again- **Make a backup of your entire hard drive before proceeding, if you don't know how to do this, google it.**
+Alright, so what exactly are you getting yourself into? Well, I'll be real with you, a lot. Installing Arch sucks. Things can go wrong, it's not user friendly at all, and is generally a pain, and if you screw up you'll need someone who can restore your computer to at least having Windows on it again so I'll say it again- **Make a backup of your entire hard drive before proceeding, if you don't know how to do this, search it.**
 
 Okay, so, with that said let's dive into it. After you have a backup, you'll need to head on over to https://www.archlinux.org/download/ and if you have a torrent client installed use the provided BitTorrent Downloads, if you have no idea what that is, look at the below box
 
-> BitTorrent: Torrenting is type of download that runs over a distruibuted peer to peer, this means you're directly downoalding the file from multiple people rather than from one large server. Popular clients on Windows include uTorrent, qBittorrent, and Deluge
+> BitTorrent: Torrenting is type of download that runs over distributed peer to peer connections, this means you're directly downloading the file from multiple people rather than from one large server. Popular clients on Windows include uTorrent, qBittorrent, and Deluge
 
 You may want to go grab a coffee while it downloads depending on your connection, though the image should be rather small. Once that's done downloading your torrent client should automatically confirm the image by checksum, but as this is a good learning opportunity let's do a manual double check as well.
 
-> checksum: a mathmatical summing of the bits in a file combined with some sort of cypher to produce a 'hash' which can be checked to against one that is known, any modification would result in a differnt hash. This protects against malacious actors putting bad things in the code as well as from a corrupted download.
+> checksum: a mathematical summing of the bits in a file combined with some sort of cypher to produce a 'hash' which can be checked to against one that is known, any modification would result in a different hash. This protects against malicious actors putting bad things in the code as well as from a corrupted download.
 
-To do so open up a command prompt on windows, and we'll need to navigate to the location of the downloaded file it should be nammed something along the lines of archlinux-20xx.xx.xx-x86_64.iso and be in your Downloads folder. When you open a command prompt on Windows it should start out in your user folder (C:\Users\%username%\). To list the folders in this folder you can type 'dir' and press enter. You should, at minimum, see folders like 'Downloads' 'Desktop' and 'Documents' to enter the Downloads folder simply type 'cd Dow' and press tab, the line should auto-complete to 'cd Downloads', then press enter. Now you can run 'certutil -hashfile arch' , presstab to complete it to 'certutil -hashfile archlinux-20xx.xx.xx-x86_64.iso' then add 'sha1' on the end so the finally command looks like
+---
+
+**WINDOWS**: open up a command prompt by pressing ctr+r and typing 'cmd' then enter, and we'll need to navigate to the location of the downloaded file it should be named something along the lines of archlinux-20xx.xx.xx-x86_64.iso and be in your Downloads folder. When you open a command prompt on Windows it should start out in your user folder (C:\Users\%username%\). To list the folders in this folder you can type 'dir' and press enter. You should, at minimum, see folders like 'Downloads' 'Desktop' and 'Documents' to enter the Downloads folder simply type 'cd Dow' and press tab, the line should auto-complete to 'cd Downloads', then press enter. Now you can type 'certutil -hashfile arch' , press tab to complete it to 'certutil -hashfile archlinux-20xx.xx.xx-x86_64.iso' then add 'sha1' on the end so the finally command looks like
 
 ```bash
 certutil -hashfile archlinux-20xx.xx.xx-x86_64.iso sha1
@@ -496,11 +500,41 @@ certutil -hashfile archlinux-20xx.xx.xx-x86_64.iso sha1
 
 > Note, if this spits out "The process cannot access the file because it is being used by another process." you'll need to close your torrent client or stop seeding the file first!
 
-So let's look at this command. The first part, certutil, is a program on your computer, '-hashfile' says the next string of text is the name of the file we want to examine, and the last part sha1 is the checksum as mentioned before. Finally, if you go back to https://www.archlinux.org/download/ and look under 'Checksums' you can compare the output of the command you just ran against the SHA1 sum provided to be sure you didn't have any errors in the file. This is mostly a security check as in theory someone could provide a 'bad' version of the OS containing malware, but such a version would produce an incorrect checksum, in practice this is extraordinarily uncommon.
+So let's look at this command. The first part, certutil, is a program on your computer, '-hashfile' says the next string of text is the name of the file we want to examine, and the last part sha1 is the checksum as mentioned before. Finally, if you go back to https://www.archlinux.org/download/ and look under 'Checksums' you can compare the output of the command you just ran against the SHA1 sum provided to be sure you didn't have any errors in the file. This is mostly a security check as in theory someone could provide a 'bad' version of the OS containing malware, but such a version would produce an incorrect checksum, in practice this is extraordinarily uncommon. Though this does also serve to ensure the download wasn't corrupted in any way either.
+
+---
+
+**MAC**: open up a terminal by going to the Utilities fore in Applications and open 'Terminal'. The mac terminal is very, very similar to what you'll use in Linux actually, and the commands here are actually identical. You should see something like
+
+```
+MacBook:~ username$
+```
+
+waiting for input.
+
+That `~` represents that you're in your user or 'home' folder, and assuming you downloaded Arch's install image to your downloads folder you should be able to type
+
+``` MacBook:~ username$ shasum -a 1 Downloads/arch```
+
+followed by pressing tab to make that auto complete to something like
+
+``` MacBook:~ username$ shasum -a 1 Downloads/archlinux-20xx.xx.xx-x86_64.iso```
+
+upon pressing enter the terminal should print out a long string of text.
+
+So let's look at this command. The first part, shasum, is a program on your computer, '-a 1' says to use the sha1 algorithm instead of something like sha256, and the last part is the filename we want to compute the checksum of. Now, if you go back to https://www.archlinux.org/download/ and look under 'Checksums' you can compare the output of the command you just ran against the SHA1 sum provided to be sure you didn't have any errors in the file. This is mostly a security check as in theory someone could provide a 'bad' version of the OS containing malware, but such a version would produce an incorrect checksum, in practice this is extraordinarily uncommon. Though this does also serve to ensure the download wasn't corrupted in any way either.
+
+---
 
 Okay, so we have the OS, how do you install the damn thing? Well, get ready for a fun time. The first thing you'll need is a flash drive with nothing on it you care about, as it's going to be reformated, which will wipe any data on it. To install an OS you have to create 'bootable media' this used to be done with a CD, though mostly it's done with flash drives now. You'll actually be putting the OS on the flash drive and then using that to put it on your hard drive.
 
-Let's not get ahead of ourselves though, we need room to put the new operating system in! Thankfully Linux is small- really small. Even 50Gb should be plenty for the OS, all your programs, and tons of room to spare for data, but I typically recommend at least 100GB, and since we'll be installing a lot of development tools, it makes sense to do this right to begin with. When you got your computer with windows is likely that all of the room on your hard drive was pre allocated for windows (as it should be!) so we'll need to shrink this down and make room for windows. Open the start menu and type 'disk manag' and hopefully "create or format hard drive partitions" will show up as an option. At the bottom you should see a few bars showing partitions on your disk(s). If you have multiple hard drives there will be multiple rows of bars, otherwise there will be only one row. If you have multiple drives it's likely that one is a larger hard drive (HDD) and the other a smaller solid state drive (SSD), if you have room on your SSD use that, if you don't using the HDD will be fine, but the OS may feel slower than you're accustomed to. If you only have one drive, ignore this. Right click in what is likely the largest box, labeled 'primary partition' and chose 'Shrink Volume'. After it finishes querying available disk space enter 102400 as the amount of room to shrink (This is 100GB as there are 1024MB in a GB) or a lower or higher value as you please, but realize this is data you will not be able to access from windows.
+Let's not get ahead of ourselves though, we need room to put the new operating system in! Thankfully Linux is small- really small. Even 50Gb should be plenty for the OS, all your programs, and tons of room to spare for data, but I typically recommend at least 100GB, and since we'll be installing a lot of development tools, it makes sense to do this right to begin with.
+
+---
+
+**Windows**:
+
+When you got your computer with windows is likely that all of the room on your hard drive was preallocated for windows (as it should be!) so we'll need to shrink this down and make room for Linux to live along side Windows. Open the start menu and type 'disk manag' and hopefully "create or format hard drive partitions" will show up as an option. At the bottom you should see a few bars showing partitions on your disk(s). If you have multiple hard drives there will be multiple rows of bars, otherwise there will be only one row. If you have multiple drives it's likely that one is a larger hard drive (HDD) and the other a smaller solid state drive (SSD), if you have room on your SSD use that, if you don't using the HDD will be fine, but the OS may feel slower than you're accustomed to. If you only have one drive, ignore this. Right click in what is likely the largest box, labeled 'primary partition' and chose 'Shrink Volume'. After it finishes querying available disk space enter 102400 as the amount of room to shrink (This is 100GB as there are 1024MB in a GB) or a lower or higher value as you please, but realize this is data you will not be able to access from windows.
 
 > If the window shows 0MB of available shrink space first try running disk cleanup and choose cleanup system files, try turning off system restore, and finally disable the page file. In my experince it's usually the pagefile, which kinda sucks.
 > If none of this works, you do have another option: wiping everything and installing linux. This is actually easier, however, it's a bit more extreme, as you won't be able to boot back to windows for anythig. You may instead want to try linux out on an old usused computer first. Either way, you do you, but I'm not liable if things go wrong.
@@ -510,7 +544,31 @@ Alright, we're getting there I promise. You should now have a gray block next to
 
 Okay, now we're finally ready to copy the OS to a flash drive so we can install Arch, to do this, you'll need to download a program called rufus https://rufus.ie/. Download, run, etc. When it opens select the flash drive as your 'device' , press the select button under that and select the archlinux-20xx.xx.xx-x86_64.iso file we downloaded earlier. Everything else should be fine, so click start. This may take a second, in the mean time, open this guide on **another computer** as the next few steps will require a lot of restarting and doing things outside of windows.
 
-> of note, the following guide will be assuming you're installing linux on the same drive as Windows, making it applicable for most systems right away; however, I strongly recomend getting an extra SSD and giving linux it's own disk outright instead. This is far easier to do in a desktop, but if you have a laptop with a CD drive you may be able to put a SSD in it's place. SSD prices have been steadily declining over the pas few years, but as of the time of writing a 250Gb ssd should be available for under 50 USD. I'd recomend a larger disk though, with 500Gb being plenty for most people
+---
+
+**MAC**:
+
+Before we go any further I really want to warn you of two things, one, it's going to be harder to follow this guide on a MAC. More steps are involved, and some work arounds are necessary, and more importantly, I have no experience with it. so I'm mostly regurgitating other things I've read. Pages like https://wiki.archlinux.org/index.php/Mac#Installation may prove helpful later.
+
+First, you'll need to open up 'Disk Utility' in Applications/Utilities, then pick your disk and click 'Partition' and click the '+' button to make a new partition. Choose how much space you want to leave on the disk for MacOS and how much you want for Arch. The format of the new partition doesn't matter.
+
+> Note, if your disk is encrypted, you'll need to decrypt first.
+
+Now, you'll need to open a terminal like you did back when checking the checksum. Plug in either an empty flash drive or one which you don't mind erasing, and run
+
+```diskutil list``` and you should see something like `/dev/diskX (external, physical)` which is your flash drive. Now run `diskutil unmountDisk /dev/diskX` where X is your flash drive disk number from above, then finally run ```dd if=path/to/arch.iso of=/dev/rdiskX bs=1m```. Note that the `of` part has /**r**diskX . The path to your arch iso is probably something like `~/Downloads/archlinux-20xx.xx.xx-x86_64.iso`
+
+This command won't print anything while it's running, but when it's done you'll see a new line asking for input. Two more notes ripped straight from https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_macOS:
+
+> To view progress, send SIGINFO by pressing `Ctrl+t`. Note `diskX` here should not include the `s1` suffix, or else the USB device will only be bootable in UEFI mode and not legacy. After completion, macOS may complain that "The disk you inserted was not readable by this computer". Select 'Ignore'. The USB device will be bootable.
+
+Now you should be good to carry on with the guide
+
+---
+
+> of note, the following guide will be assuming you're installing Linux on the same drive as Windows or MacOS, making it applicable for most systems right away; however, I strongly recommend getting an extra SSD and giving Linux it's own disk outright instead. This is far easier to do in a desktop, but if you have a laptop with a CD drive you may be able to put a SSD in it's place. SSD prices have been steadily declining over the pas few years, but as of the time of writing a 250Gb ssd should be available for under 50 USD. I'd recommend a larger disk though, with 500Gb being plenty for most people
+
+
 
 While this guide should lead you though step by step, it may be helpful to follow the offical installation guide as well, which is available at https://wiki.archlinux.org/index.php/installation_guide. Furthermore, while slightly outdated, this flow chat is a nice refrence as well: https://i.imgur.com/Hokk8sK.jpg
 
@@ -525,6 +583,12 @@ Obviously if you need this you'll need IRC open on a differnt device than the on
 > ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 >
 > The next section requires a lot of reboots and has steps where you can't have this guide open on the computer you're working on. Don't be stupid.
+
+---
+
+**MAC**: Beware, none of the following was writen with a MAC in mind, and as such I strongly recommend you read https://wiki.archlinux.org/index.php/Mac#Installation and look for where my instructions deviate from what's recommended here.
+
+---
 
 Now you'll need to power off your computer. Turn it back on and as you do mash the everliving hell out of both f2 and delete (unless you know what key gets you into the UEFI / BIOS settings). This should bring up a menu that either looks super fancy or looks stright out of the 80's. Either is fine. The setting we're looking for is 'Secure Boot' it's probably under a menu called 'Boot' or 'Security'. You'll need to shut this off. In theory secure boot should protect against a nasty kind of virus called a rootkit, in practice it doesn't and only serves to make installing linux more annoying, don't worry, I'm a security nut and am comfortable leaving it off. Exit and save settings, and as your computer boots again mash F11 or whatever key gets you to a boot menu, and select your USB key. If it shows up twice try the first one first, if that doesn't work try the other one. (If you end up back in Windows just restart and go back into the bios settings, go to 'Boot' and reorder the boot menu entries so your flash drive is the first option) The system should boot first to a screen with a few options, pick Arch Linux if you have to or just wait for it to move on. You should, with any luck, see a list of text flash down the screen that looks roughly like
 
@@ -1086,7 +1150,7 @@ and a new window should pop up. It'll probably open with a few tabs welcoming yo
 
  `file -> new file`  Then, down at the bottom right of the editor you should see something that says `plain text` click that and a box will appear asking for the name of the language you're working with. Obviously chose python.
 
-alright, now we're ready to code! Let's put a bit more interesting of a progam in and then we'll talk about what it does line by line. I stole this code from https://matplotlib.org/2.0.2/examples/animation/animate_decay.html
+alright, now we're ready to code! Let's put a bit more interesting of a program in and then we'll talk about what it does line by line. I stole this code from https://matplotlib.org/2.0.2/examples/animation/animate_decay.html
 
 ```python
 #!/bin/python3
@@ -1225,20 +1289,20 @@ For now, we're going to take a bit of a break from code, but we'll be back.
 
 So, yeah, you can develop python just fine in windows. Installing it is just a matter of going online and fetching an exe installer and checking the right boxes. There's nothing here you can't do in windows. If that's the case why do any of this.
 
-Frankly the answer is complicated. The gist of it is that linux actually exposes things in a way that while might be possible in windows will probably be much more difficult. Even in the above, when we installed python and a few libraries there was no need to open a web browser and each package is maintianied and verified in a way that makes installation easy, secure, and reproduceable.
+Frankly the answer is complicated. The gist of it is that Linux actually exposes things in a way that while might be possible in windows will probably be much more difficult. Even in the above, when we installed python and a few libraries there was no need to open a web browser and each package is maintained and verified in a way that makes installation easy, secure, and reproducable.
 
-But more than that, linux actually exposes the system to the user and doesn't try to hide it's inner workings, rather, for many things linux implies that you should manually edit the config files, look at how programs use various resources, and peer into how the system actually handles any given task.
+But more than that, Linux actually exposes the system to the user and doesn't try to hide it's inner workings, rather, for many things Linux implies that you should manually edit the config files, look at how programs use various resources, and peer into how the system actually handles any given task.
 
 You'll start to see this more as we move forward though these next few chapters. Speaking of...
 
 
-# Chapter 3 - Into the hardware
+Chapter 3 - Into the hardware
 
-One of the nifty things about linux is you don't need to install extra software to check out the deeper parts of your hardware. While on windows you might need a tool like CPU-Z to look at information about the CPU on linux you can do it out of the box. Let's get started on that then!
+One of the nifty things about Linux is you don't need to install extra software to check out the deeper parts of your hardware. While on windows you might need a tool like CPU-Z to look at information about the CPU on Linux you can do it out of the box. Let's get started on that then!
 
 ## The CPU
 
-![CPUS](./imgs/openg/openg/cpus.jpg)
+![CPUS](./imgs/openg/cpus.jpg)
 
 These are CPUS or Central Processing Units. They're the beating heart of your computer, doing the day-to-day number crunching. The rectangular one of one of the first CPU's in the lineage leading up to CPU's like the ones used in desktop's today, with further sucessors shown in order from top left to the bottom right. The metal-capped one at the bottom right, while old, is visulally quite representative of a moden desktop CPU, though the CPUs in a laptop or smart phone do look quite differnt still.
 
@@ -1403,9 +1467,15 @@ The stuff on the right are connections around the system, you can ignore those f
 
 Hyper threading, or SMT, or whatever the new term is for it, is a way of adding paths for doing things to keep every part of the CPU active. We'll go into this more later, but for now, suffice it to say it's a way of getting just a bit more performance out of a system.
 
-[TODO] add cpu power
+**Power**
 
-**Physically, what is this thing?**
+the CPU is one of the most power hungry parts of your computer, and as such it does some interesting things to try to keep it's power usage lower. Namely, it'll turn it's clock speed to do less operations per second as previously mentioned, but theres other things like entering sleep and hibernation states the processor is also capable of. The main thing you might want to concern yourself with from a performance to power consumption stand point is how aggressive this clock speed changing is. You can go as extreme as to tell the system to never let the processor get to full speed or to say 'only run at max speed all the time'. The latter is actually quite useful as often it can take quite a few clock cycles after a heavy load is started for the processor to come up to speed, but if it's always running full steam ahead this is a non issue. This entire topic is particularly relevent to laptops, and on Arch you may want to install a program to manage some of this for you or set sane defaults to save battery. I've had good luck using the `tlp` package. the `cpupower` package is helpful for looking at how arch handles cpu scaling and it lets you directly set these min and max frequencies or pick the scaling governor to handle how aggressive the switching is.https://wiki.archlinux.org/index.php/CPU_frequency_scaling#cpupower
+
+I very strongly recommend looking into this on any system though, as by default some CPUs will run at the minimum frequency only.
+
+![cpupower](./imgs/openg/cpupower.png)
+
+**Physically, what and where is this thing?**
 
 The CPU is on a square or rectangular board that is usually covered by a large heat sink used to keep it cool under load. It connects to the motherboard via hundreds of small, gold plated pins to send and receive signals (which well will discuss in depth later) from all around the system. Even though most modern CPUs are x86_64, generation to generation and cross manufacturer there are changes in the number of pins and the way they are arranged, meaning getting a new processor that's not from the same generation usually won't work. Furthermore, most laptops have soldered on processors that can not be upgraded to begin with.
 
@@ -1425,15 +1495,15 @@ The output will probably repeat multiple times, printing once for each physical 
 
 ![dmiram](./imgs/openg/dmiram.png)
 
-You should note that many of the things mentiond above can be seen here, though I do want to look at some things here.
+You should note that many of the things mentioned above can be seen here, though I do want to look at some things here.
 
 First, size. This is an 8Gb or 8192Mb stick of ram. Obviously the more ram the better, but you may find strange ram configurations where there's a mix of ram sizes in a system. This can be bad for performance though, because of memory channels.
 
-Most modern systems use 2 or 3 memory channels, to simplify a bit, it makes it so two sticks of ram can have their speed be used in parallel. Think about it like a parking lot, if you have a total of 4 parking lots you could, theoretically, hook them all up in a straight line with one entrace/exit shared among them. This would be pretty stupid though, as it would severely bottleneck traffic going though. Instead you may want to add a seprate entrace exit for each, but that quickly becomes expensive. Instead, most systmes use a mix of the two, connecting a pair of sticks together, allowing for added capacity, but allowing for multiple pairs to be inserted independantly. A lot of people don't fully fill all the available memory slots on their motherbord though, so instead of having 4 lots with 2 entrances you should be able to have 2 and 2, unless you mistakingly put the sticks in wrong, leaving one 'entrance' closed entirely while the other now has a ton of capacity. On my motherboard these 'lots' are labeld A1, A2, B1, and B2. Looking above you can see the stick we're looking at here is the A1 lot. It's because of this that you should ideally have a multiple of as many sticks of ram as you do momory channels, For example, if you have a two channel motherboard. For example if you have a 2 channel of memory motherboard/cpu than you want either 2, 4, or 8 sticks of ram. Most motherboards top out at 4 sticks though, with 2 channel being the most common.
+Most modern systems use 2 or 3 memory channels, to simplify a bit, it makes it so two sticks of ram can have their speed be used in parallel. Think about it like a parking lot, if you have a total of 4 parking lots you could, theoretically, hook them all up in a straight line with one entrance/exit shared among them. This would be pretty stupid though, as it would severely bottleneck traffic going though. Instead you may want to add a separate entrance and exit for each, but that quickly becomes expensive. Instead, most systems use a mix of the two, connecting a pair of sticks together, allowing for added capacity, but allowing for multiple pairs to be inserted independently. A lot of people don't fully fill all the available memory slots on their motherboard though, so instead of having 4 lots with 2 entrances you should be able to have 2 and 2, unless you mistakingly put the sticks in wrong, leaving one 'entrance' closed entirely while the other now has a ton of capacity. On my motherboard these 'lots' are labeled A1, A2, B1, and B2. Looking above you can see the stick we're looking at here is the A1 lot. It's because of this that you should ideally have a multiple of as many sticks of ram as you do memory channels. For example, if you have a two channel motherboard and CPU then you want either 2, 4, or 8 sticks of ram. Most motherboards top out at 4 sticks though, with 2 channel and 2 sticks being the most common configuration.
 
-Next, I want to look at the line that says 'Type Detail: Synchronous Unbuffered (Unregistered)' this is refrencing another type of ram, which is buffered and error correcting (ECC) memory. This type of ram is almost strictly used in servers and is specical because there's actually an extra physical memory die on the card. If you look above you'll notice each stick has sets of 8 black memory dies. ECC memory atually has 9 dies. The reason there are normally 8 dies is simple- there's 8 bits in a byte. Servers don't work on some magic 9-bit in a byte system, instead, this extra bit per byte is used to ensure the data hasn't been corrupted. The math behind this can get complicated and weird, but for now let's just go with it. Buffered memory is bascically just adding an extra 'buffer' between the read/write and again, it's a server thing.
+Next, I want to look at the line that says 'Type Detail: Synchronous Unbuffered (Unregistered)' this is referencing another type of ram, which is buffered and error correcting (ECC) memory. This type of ram is almost strictly used in servers and is special because there's actually an extra physical memory die on the card. If you look above you'll notice each stick has sets of 8 black memory dies. ECC memory actually has 9 dies. The reason there are normally 8 dies is simple- there's 8 bits in a byte. Servers don't work on some magic 9-bit in a byte system, instead, this extra bit per byte is used to ensure the data hasn't been corrupted. The math behind this can get complicated and weird, but for now let's just go with it. Buffered memory is basically just adding an extra 'buffer' between the read/write and again, it's a server thing.
 
-Finally I want to point out the voltage. Much like a CPU the voltage a Ram module runs at is important, and needs to be kept very stable. However, it may need bumped up if the RAM is running at a particually high speed or if it's set higher than factory (overclocked).
+Finally I want to point out the voltage. Much like a CPU the voltage a Ram module runs at is important, and needs to be kept very stable. However, it may need bumped up if the RAM is running at a particularly high speed or if it's set higher than factory (overclocked).
 
 Some RAM actually includes a special memory profile, often called XMPP, which can be applied in the BIOS/UEFI settings to make sure you're getting the absolute best performance out of you RAM before manual overclocking. This may actually overclock your CPU a bit as well as a bit of a side effect.
 
@@ -1472,35 +1542,35 @@ The most obvious thing to point out is the size of the motherboard. This is a mA
 
 The large, white square is the CPU socket. This is an older board made for an AM3+ processor. The AM3+ processor line, as well as most consumer processors from AMD use a PGA or Pin Grid Array socket. these CPUs have many pins on the bottom wich fall into these holes to make contact. Before the CPU is inserted the metal leaver arm, seen at the bottom of the socket if you look carefully, is raised and the CPU should smoothly plop right in, after which the arm can be lowered. modern Intel CPUs follow a similar-ish mechanism, only instead of having a bunch of pins that go into holes the 'pins' are actually tiny springy pieces of metal on the motherboard which make contact with pads on the CPU, that socket looks a bit like this, albeit this is an old one:
 
-![File:CPU Socket 775 T.jpg](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/CPU_Socket_775_T.jpg/581px-CPU_Socket_775_T.jpg)
+![File:CPU Socket 775 T.jpg](./imgs/openg/581px-CPU_Socket_775_T.jpg)
 
-([source](https://commons.wikimedia.org/wiki/File:CPU_Socket_775_T.jpg))
+([img source](https://commons.wikimedia.org/wiki/File:CPU_Socket_775_T.jpg))
 
-If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to giv for a total of of 64 threads. Giving this beautiful sight:![64t](./imgs/openg/64thread.png)
+If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to give for a total of of 64 threads. Giving this beautiful sight:![64t](./imgs/openg/64thread.png)
 
 Clearly, a server with that much horsepower will use a lot of electricity though, and there is some overhead for the system when getting information from one physical CPU to another.
 
-Above and left of the CPU on you'll see a bunch of copper coils in little boxes and some small metal cylinders, as well as a cluster of these with a large, 4-hole plug a bit further left, directly above the big aluminium heat sink. This all makes up the VRM or Voltage Regulation Module. The connector there is where the CPU power plug from the PC power supply would be plugged in. The power needs to be carefully controlled, filtered, and adjusted based on the needs of the CPU, that's what all of this is for. Generally the beefier and faster a cpu, the larger the VRM. The VRM also needs to disipate a good amount of heat on higher end systems so many nicer motherboards will cover this up with a large heatsink.
+Above and left of the CPU on you'll see a bunch of copper coils in little boxes and some small metal cylinders, as well as a cluster of these with a large, 4-hole plug a bit further left, directly above the big aluminum heat sink. This all makes up the VRM or Voltage Regulation Module. The connector there is where the CPU power plug from the PC power supply would be plugged in. The power needs to be carefully controlled, filtered, and adjusted based on the needs of the CPU, that's what all of this is for. Generally the beefier and faster a CPU, the larger the VRM. The VRM also needs to dissipate a good amount of heat on higher end systems so many nicer motherboards will cover this up with a large heatsink.
 
 Moving on from the CPU you'll see 4 vertical slots next to socket, these are where the RAM sticks are inserted. You'll notice they're color coded as to indicate which slots share the communication channel, so in this case you'd want to put the first memory stick in the blue slot closest to the socket, followed by the black slot closest to the socket, then repeat.
 
-While we're looking at this side of the board- next to the RAM slots you'll see two things of note. First, that black circular thing is actually a little buzzer. A lot of even modern systems have these on board to buzz error codes out in morse code if something goes wrong. Below that is a large, 20 or 24 pin connector (most modern systems use the 24pin varient) which is where the power supply is pluggend in to provide power to the motherboard (with the exception of the CPU) as well.
+While we're looking at this side of the board- next to the RAM slots you'll see two things of note. First, that black circular thing is actually a little buzzer. A lot of even modern systems have these on board to buzz error codes out in morse code if something goes wrong. Below that is a large, 20 or 24 pin connector (most modern systems use the 24pin varient) which is where the power supply is plugged in to provide power to the motherboard (with the exception of the CPU) as well.
 
-On the other side of the CPU and down a little you'll see a sizeable metal heatsink. This is covering the chipset. We'll come back to what the chipset does in a bit. This motherboard is actually a bit weird, on most motherboards the chipset is found underneath the RAM, but in general look for a large heatsink and it's probably under that.
+On the other side of the CPU and down a little you'll see a sizable metal heatsink. This is covering the chipset. We'll come back to what the chipset does in a bit. This motherboard is actually a bit weird, on most motherboards the chipset is found underneath the RAM, but in general look for a large heatsink and it's probably under that.
 
 Below the chipset here are 4 expansion slots, all of which use the PCI-e standard in this case. We'll come back to these in a bit.
 
 In the bottom right of the motherboard there are 6 SATA connectors, here each is a different color (for no apparent reason?). These are for connecting storage like hard drives.
 
-Vertically in line but closer to the center of the board you'll also spot a coin cell battery. This is so the system can keep time even when fully powered down and diconnecected from wall power.
+Vertically in line but closer to the center of the board you'll also spot a coin cell battery. This is so the system can keep time even when fully powered down and disconnected from wall power.
 
-Along the bottom you'll see various connectors with pins sticking out, these are mostly for front pannel connections- where the USB, audio, power button, etc. from the front of your case connect.
+Along the bottom you'll see various connectors with pins sticking out, these are mostly for front panel connections- where the USB, audio, power button, etc. from the front of your case connect.
 
 Finally, along the top of the back left edge you'll see the metal tops of the main 'rear i/o' for the computer. These are all the main connections for your system. The bulk of the system's USB ports, networking, and audio ports will be found here.
 
-So, how do we get any information from the motherboard? Well, in case it wasn't already obvious, the motherboard isn't really one thing. It's more a common inteconnect point and routing system than anything; however, it does have some of it's own responsibilites. To start small let's look at one small, but excedingly import role of the motherboard: fan and tempature control.
+So, how do we get any information from the motherboard? Well, in case it wasn't already obvious, the motherboard isn't really one thing. It's more a common interconnect point and routing system than anything; however, it does have some of it's own responsibilities. To start small let's look at one small, but exceedingly import role of the motherboard: fan and temperature control.
 
-To see what your fans are doing on linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](./imgs/openg/sensors.png)
+To see what your fans are doing on Linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](./imgs/openg/sensors.png)
 
 Of note, depending on your system, there's a small chance nothing will be detected at all or that some information will be wrong. Even in my case this is true as my CPU fan is reporting 0 RPM. Actually entering your motherboard's UEFI or BIOS settings may expose more information, but we'll talk about that more later.
 
@@ -1545,7 +1615,7 @@ The pci bus is where most of the system's add in cards, controllers, and the lik
 0f:00.3 Audio device: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) HD Audio Controller
 ```
 
-Alright, clearly there's a lot going on here, and on first glance it doesn't even look all that useful. But let's look deeper. From this output we can see some intereresting things. Starting from the top you'll see there's a lot of internal AMD things that are just handeling routing, really these probably don't matter. the first interesesting things to look at is `01:00.0 Non-Volatile memory controller: Phison Electronics Corporation E12 NVMe Controller (rev 01)` which is telling me that my super speedy NVMe solid state drive is at the address 01:00.0 on the pci bus and despite being made by a consumer brand (I think mine's a Silicon Power? though I have another that's made by Samsung) the actual controller on the device is made by Phison, a reputable brand for NVMe controllers.
+Alright, clearly there's a lot going on here, and on first glance it doesn't even look all that useful. But let's look deeper. From this output we can see some interesting things. Starting from the top you'll see there's a lot of internal AMD things that are just handling routing, really these probably don't matter. the first interesting things to look at is `01:00.0 Non-Volatile memory controller: Phison Electronics Corporation E12 NVMe Controller (rev 01)` which is telling me that my super speedy NVMe solid state drive is at the address 01:00.0 on the pci bus and despite being made by a consumer brand (I think mine's a Silicon Power? though I have another that's made by Samsung) the actual controller on the device is made by Phison, a reputable brand for NVMe controllers.
 
 next thing of note is
 
@@ -1554,7 +1624,7 @@ next thing of note is
 02:00.1 SATA controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset SATA Controller (rev 02)
 ```
 
-You can see here that I have a seprate controller for my USB 3.1 ports and that it's sharing pci lanes with my sata controller. In theory, this means If I'm working one or both of these really hard, the other may be slower.
+You can see here that I have a separate controller for my USB 3.1 ports and that it's sharing pci lanes with my sata controller. In theory, this means If I'm working one or both of these really hard, the other may be slower.
 
 next is:
 
@@ -1563,9 +1633,9 @@ next is:
 08:00.0 Ethernet controller: Intel Corporation I211 Gigabit Network Connection (rev 03)
 ```
 
-What's interesting here is I have another 3.1 controller, on an entirely differnt set of lanes. Really, this is a fault of USB that it's not very clear, this is actually a USB 3.1 gen 2 controller, so each port has a top speed of 10gb/s, compared to the 5gb/s of the other controller.
+What's interesting here is I have another 3.1 controller, on an entirely different set of lanes. Really, this is a fault of USB that it's not very clear, this is actually a USB 3.1 gen 2 controller, so each port has a top speed of 10gb/s, compared to the 5gb/s of the other controller.
 
-You'll also see thet my network interface is being handled by an intel network controller, despite this system having an AMD CPU.
+You'll also see that my network interface is being handled by an Intel network controller, despite this system having an AMD CPU.
 
 moving on:
 
@@ -1576,7 +1646,7 @@ moving on:
 0d:00.1 Audio device: NVIDIA Corporation GP106 High Definition Audio Controller (rev a1)
 ```
 
-Here you'll see some devices can actually use multiple IDs for one physical device. both of the 0c:00.x 'devices' are actually for the 'Vega56' graphics card (Often called GPU for graphics processing unit) made by AMD Radeon, while the 0d:00.x devices are for the GTX1060 card made by Nvida that I have in this system as well. Of note, having both of these in one system is excedingly uncommon, and my use case is strange; however, It is common to see systems which have a gpu integrated into the CPU (which will still appear in this list) and have a seprate larger GPU in the system as well.
+Here you'll see some devices can actually use multiple IDs for one physical device. both of the 0c:00.x 'devices' are actually for the 'Vega56' graphics card (Often called GPU for graphics processing unit) made by AMD Radeon, while the 0d:00.x devices are for the GTX1060 card made by Nvida that I have in this system as well. Of note, having both of these in one system is exceedingly uncommon, and my use case is strange; however, It is common to see systems which have a gpu integrated into the CPU (which will still appear in this list) and have a separate larger GPU in the system as well.
 
 If you continue down this list you'll see there's yet another USB controller and a audio controller among other things.
 
@@ -1584,7 +1654,7 @@ What's cool is this information relates back to something we saw earlier when lo
 
 ![lstopo2](./imgs/openg/lstopo.png)
 
-See all those PCI ids on the right side, those directly corrolate with a lot of the above.
+See all those PCI ids on the right side, those directly correlate with a lot of the above.
 
 Finally, if you want a lot more information you can run `sudo lspci -v` to see even more info about anything, for example, here's the output about my GTX1060 GPU:
 
@@ -1617,11 +1687,11 @@ Kernel driver in use: nouveau
 Kernel modules: nouveau
 ```
 
-tells us I'm using the nouveau driver and kernel modules instead of one of the alternatives on the Nvida card in my system If I wanted to I could switch this over to the propiretary Nvidia driver to get a pretty nice speed boost in some applications.
+tells us I'm using the nouveau driver and kernel modules instead of one of the alternatives on the Nvida card in my system If I wanted to I could switch this over to the proprietary Nvidia driver to get a pretty nice speed boost in some applications.
 
 > I'm not really worried about this because I'm mostly just using the Vega56 card. The nvidia card is there strictly for CUDA support in some workloads.
 
-Much like lspci, there's also `lsusb`, which as you can imagine, tells us informaiton about the USB devices on the system. I have a LOT of usb devices on this system so I'll just paste in a snippet:
+Much like lspci, there's also `lsusb`, which as you can imagine, tells us information about the USB devices on the system. I have a LOT of usb devices on this system so I'll just paste in a snippet:
 
 ```
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
@@ -1631,7 +1701,7 @@ Bus 001 Device 006: ID 258a:0013
 Bus 001 Device 005: ID 05e3:0745 Genesys Logic, Inc. Logilink CR0012
 ```
 
-You'll see here that USB hubs, input devices, webcams, etc. all show up. Anything that's hooked upthough USB should appear here. The device with ID 258a:0013 isn't really telling us anything though. What we do know is the first part is the USB Vendor ID. This is an ID that vendors of USB devices have to purchase to uniquely id their products.
+You'll see here that USB hubs, input devices, webcams, etc. all show up. Anything that's hooked up through USB should appear here. The device with ID 258a:0013 isn't really telling us anything though. What we do know is the first part is the USB Vendor ID. This is an ID that vendors of USB devices have to purchase to uniquely id their products.
 
 upon looking this id up online, it appears it's used for a generic USB keyboard.
 
@@ -1641,9 +1711,11 @@ Finally, I'd like to mention `dimdecode`. according to the manual page:
 
 > dmidecode is a tool for dumping a computer's DMI (some say SMBIOS) table contents in a human-readable format. This table contains a description of the system's hardwarecomponents, as well as other useful pieces of information such as serial numbers and BIOS revision. Thanks to this table, you can retrieve this information without having to probe for the actual hardware. While this is a good point in terms of report speed and safeness, this also makes the presented information possibly unreliable.
 
-we've already used this to get information about the system ram, but other things can be read as well. For example, going back to the pci slots from above running `sudo dmidecode --type 9` will tell you what physical slots corospond to what bus address among other information, for a full list of available types simply look at the dmidecode man page with `man dmidecode`.
+we've already used this to get information about the system ram, but other things can be read as well. For example, going back to the pci slots from above running `sudo dmidecode --type 9` will tell you what physical slots correspond to what bus address among other information, for a full list of available types simply look at the dmidecode man page with `man dmidecode`.
 
 ### Chipset
+
+[TODO]
 
 lane division, other responsibilities, AMD!=AMD, etc
 
@@ -1651,27 +1723,27 @@ multi gen-cpu support
 
 ### Expansion slots
 
-Most modern expansion cards connect though the PCI Express or PCIe bus. This standard, much like DDR, has gone though multiple generations of bandwith doubbling. Currently consumer devices offer up to PCIe 3.0 but devices with both 4.0 and 5.0 should be on the market shortly.
+Most modern expansion cards connect though the PCI Express or PCIe bus. This standard, much like DDR, has gone though multiple generations of bandwidth doubling. Currently consumer devices offer up to PCIe 3.0 but devices with both 4.0 and 5.0 should be on the market shortly.
 
-PCIe cards are used for just about anything you could imagine, form adding a more powerful graphics card, more usb ports, a higher end sound card, to some more esoterric things like specific task accelorators (encryption, compression) or even a software defined radio.
+PCIe cards are used for just about anything you could imagine, form adding a more powerful graphics card, more usb ports, a higher end sound card, to some more esoteric things like specific task accelerators (encryption, compression) or even a software defined radio.
 
-No matter what the device is you have to keep in mind its physical and electrical requirements. That is, do you have a slot long enough to accomadate the card and can you provide power to it.
+No matter what the device is you have to keep in mind its physical and electrical requirements. That is, do you have a slot long enough to accommodate the card and can you provide power to it.
 
-This may seem odd, but unlike most connections (think USB or Ethernet) which may support varrying speeds (usb2 vs 3) but are still physically the same size, the more bandwith hungry a PCIe device, the larger the physical connection. The largest available is a 16x connection, while the smallest is a 1x. The most commonly used lane arrangements are 1x, 4x 8x, and 16x. The motherboard shown above has one 16x connector and three 1x connectors. If you have a card that is electrically wired for 4x it will definitly work in any slot physically designed for 4x or greater, and it will still work in a 1x slot of that slot is open ended- this means the 'back' of the slot is open, allowing the card's connector to go past the actual physicall connection. Similarly, many 16x physical slots only have 8x actually wired. If you use a card which elecrically needs more connections it will almost certainly still work, but may have degraded performance. Similarly, if you have a card which expects a PCIe gen 3 16x connection but the best you have available is a PCIe gen 2 connection, it will run at half speed. To be extra clear:
+This may seem odd, but unlike most connections (think USB or Ethernet) which may support varying speeds (usb2 vs 3) but are still physically the same size, the more bandwith hungry a PCIe device, the larger the physical connection. The largest available is a 16x connection, while the smallest is a 1x. The most commonly used lane arrangements are 1x, 4x 8x, and 16x. The motherboard shown above has one 16x connector and three 1x connectors. If you have a card that is electrically wired for 4x it will definitly work in any slot physically designed for 4x or greater, and it will still work in a 1x slot of that slot is open ended- this means the 'back' of the slot is open, allowing the card's connector to go past the actual physical connection. Similarly, many 16x physical slots only have 8x actually wired. If you use a card which elecrically needs more connections it will almost certainly still work, but may have degraded performance. Similarly, if you have a card which expects a PCIe gen 3 16x connection but the best you have available is a PCIe gen 2 connection, it will run at half speed. To be extra clear:
 
 PCIe 1 @ 16x == PCIe 2 @ 8x == PCIe 3 @ 4x
 
 Similarly, putting a card which only supports PCIe Gen 2 into a Gen 3 slot will not suddenly make the card faster, even if it was to compensate, that is, if the card is made for PCIe Gen 2 @ 16x and you put it in a PCIe Gen 3 @ 8x slot, it will still run at half speed because it's the lowest gen number of the card or the slot that determines how many lanes are actually needed.
 
-Unfortunately, PCIe lanes, that is if you add together all the available 16x's and 8x's etc. on a given CPU are usually pretty limited. If the only extra card you plan on adding is a graphics card, you'll be fine, but if you intend to add a graphics card, sound card, network card, etc. all at once you may find that you've either run out of pyhsical slots or that a card is running with less than ideal bandwith as a 16x slot may 'give up' 8 of it's lanes becoming an 8x slot so that another card can function at all.
+Unfortunately, PCIe lanes, that is if you add together all the available 16x's and 8x's etc. on a given CPU are usually pretty limited. If the only extra card you plan on adding is a graphics card, you'll be fine, but if you intend to add a graphics card, sound card, network card, etc. all at once you may find that you've either run out of physical slots or that a card is running with less than ideal bandwidth as a 16x slot may 'give up' 8 of it's lanes becoming an 8x slot so that another card can function at all.
 
-Of note, the number of physical lanes and slots the mother board has probably greatly excedes the number of lanes actually going to the CPU, so even if it appears you have plenty of room to add cards you may end up accidently starving one for bandwith.
+Of note, the number of physical lanes and slots the mother board has probably greatly exceeds the number of lanes actually going to the CPU, so even if it appears you have plenty of room to add cards you may end up accidentally starving one for bandwidth.
 
-Finally, from a power perpcetive most motherboards will supply up to 75 watts to a card through the motherboard, but power hungry cards like the Nvidia and AMD graphics cards in my system may require external power connections. Also, some server boards cap PCIe power delivery to only 25watts without an external power supply, so just be careful with compatibility.
+Finally, from a power perspective most motherboards will supply up to 75 watts to a card through the motherboard, but power hungry cards like the Nvidia and AMD graphics cards in my system may require external power connections. Also, some server boards cap PCIe power delivery to only 25 watts without an external power supply, so just be careful with compatibility.
 
 There are some other standards other than PCIe worth mentioning though.
 
-Older standards such as PCI, AGP, and ISA were all used before the widespread addoption of PCIe and while their availibility is declining, PCI cards are still often for sale, you need to be very careful to only get PCIe cards and not PCI cards if your system doesn't support them.
+Older standards such as PCI, AGP, and ISA were all used before the widespread adoption of PCIe and while their availability is declining, PCI cards are still often for sale, you need to be very careful to only get PCIe cards and not PCI cards if your system doesn't support them.
 
 Both AGP and ISA have been phased out a long time ago, but very old cards may poke up now and then. If you're into vintage computers you may want to look the standards up to learn more.
 
@@ -1679,13 +1751,19 @@ Both AGP and ISA have been phased out a long time ago, but very old cards may po
 
 ### ROM/BIOS/UEFI
 
+[TODO]
+
 physical chips, battery for RTC
 
 ### VRM
 
-external VRM, over/under volting
+[TODO]
+
+external VRM, over/under volting, max power, choke count, digital vrm
 
 ## Graphics Card (or integrated graphics)
+
+[TODO]
 
 ## Storage
 
@@ -1693,7 +1771,7 @@ external VRM, over/under volting
 
 > Pictured here are 3 hard drives, 2 of which are 'full size' at 3.5" and the the other a 'laptop drive' at 2.5", the left most hard drive has been opened up, which has certainly ruined it as dust has gotten in. Below the smaller Hard drive is an NVMe ssd, a micro sd card, and a flash drive. All of which are examples of solid state storage
 
-Permanent storage is rapidly evloving, but the old gaurd: hard drives and tape storage aren't going anywhere either. But why use one over the other? How do you interact with them in Linux?
+Permanent storage is rapidly evolving, but the old guard: hard drives and tape storage aren't going anywhere either. But why use one over the other? How do you interact with them in Linux?
 
 [TODO] mention hdd, ssd, sata, nvme, usb-storage, sd, scsi, u.2, m.2, tape, floppy, zip
 
@@ -1703,9 +1781,9 @@ hdparm
 
 Hard disk drives or 'HDDs' are sometimes called "spinning rust" because unlike other modern storage devices they're fundamentally mechanical.
 
-Looking at the delidded hard drive you'll see they're pretty simple in their basic construction: a magnatized needle(s) move across (a) platter(s) and flip bits accordingly. These platters typically spin at 5400 or 7200 RPM, with the faster meaning data can be read and written faster as well. Harddrives generally are not used for speed though, as compared to other alternatives they're extraordinarly slow. Instead, they run at 'good enough' speeds for most things- like storing video, music, etc. while being much less expensize than solid state options and with a proven reliability and without suffering from data loss when left unpowered for long periods of time. That said, just like any storage medium, over time data can be corrupted, so backups are still a must.
+Looking at the delidded hard drive you'll see they're pretty simple in their basic construction: a magnatized needle(s) move across (a) platter(s) and flip bits accordingly. These platters typically spin at 5400 or 7200 RPM, with the faster meaning data can be read and written faster as well. Hard drives generally are not used for speed though, as compared to other alternatives they're extraordinary slow. Instead, they run at 'good enough' speeds for most things- like storing video, music, etc. while being much less expensive than solid state options and with a proven reliability and without suffering from data loss when left without power for long periods of time. That said, just like any storage medium, over time data can be corrupted, so backups are still a must.
 
-When a Hard drive is powered off, the head will typically 'park' off the platter (this is part of what the delidded plater above died) and tranportation should be pretty safe, however, when running and spinning quickly they're pretty fragile, and this is why so many older laptops have dead drives: the gyroscopic effects of spinning something that fast make it resistant to a change in orientation, causing things to scrape, scratch, or otherwise go wrong. Thankfully most 2.5" hard drives have been hardened against this now; however, it's still a good idea to store and run hard drives with as much protection from vibration and shock as possible. In fact, yelling at a hard drive [has been shown](https://www.youtube.com/watch?v=tDacjrSCeq4) to hurt performance.
+When a Hard drive is powered off, the head will typically 'park' off the platter (this is part of what the delidded plater above died) and transportation should be pretty safe, however, when running and spinning quickly they're pretty fragile, and this is why so many older laptops have dead drives: the gyroscopic effects of spinning something that fast make it resistant to a change in orientation, causing things to scrape, scratch, or otherwise go wrong. Thankfully most 2.5" hard drives have been hardened against this now; however, it's still a good idea to store and run hard drives with as much protection from vibration and shock as possible. In fact, yelling at a hard drive [has been shown](https://www.youtube.com/watch?v=tDacjrSCeq4) to hurt performance.
 
 At the end of the day, for bulk media storage that you still want to be able to access quickly or for backups, hard drives are still one of the best options.
 
@@ -1719,7 +1797,7 @@ For working with hard drives in linux you're best friend is `hdparm` lets use it
 
 The first thing we should do is get an idea about the disk usage, to do that I'll go to the mount point of the disk on my system ( it's mounted at /run/media/vega/raid despite the fact it's no longer in a raid array, we'll come back to this)
 
-so first I'll run `df -h` , that `-h` on most linux commands means to make the output human readable, printing things in terms of Gigabytes or Terabytes etc instead of just a raw byte count.
+so first I'll run `df -h` , that `-h` on most Linux commands means to make the output human readable, printing things in terms of Gigabytes or Terabytes etc instead of just a raw byte count.
 
 ```
 Filesystem      Size  Used Avail Use% Mounted on
@@ -1743,17 +1821,17 @@ This gives:
 
 ```
 
-You should immediately notice that cached reads are absolutely insanely high compared to buffered, in reality it's because it was using RAM for cache, and RAM really is that fast. The reads of bulk data on the other hand? A little under 200MB/sec is actually quite fast for a hard drive. Anything bettween 1-200 is normal. You'll soon see that compared to SSDs though, this is kind of disapointing.
+You should immediately notice that cached reads are absolutely insanely high compared to buffered, in reality it's because it was using RAM for cache, and RAM really is that fast. The reads of bulk data on the other hand? A little under 200MB/sec is actually quite fast for a hard drive. Anything between 1-200 is normal. You'll soon see that compared to SSDs though, this is kind of disappointing.
 
 But, moving on, another few interesting flags available in hdparm are `-g` which displays the "geometry" of the drive: cylinders, heads, sectors, etc., `-H` for tempature.
 This begs the obvious question: what are cylinders, heads, and sectors
 [TODO]
 
-Another thing of note is S.M.A.R.T tests, while not exclusive to hard drives, they're particually useful for them as most hard drives give a lot of warning signs before failing out right. In
+Another thing of note is S.M.A.R.T tests, while not exclusive to hard drives, they're particularly useful for them as most hard drives give a lot of warning signs before failing out right. In
 order to get in-depth S.M.A.R.T info on your drive, you'll likely need to run a test first, after which you can view the results. To do this on Linux you can run
 [TODO]
 
-Finally, a quick note about Westren Digital Green drives: Linux eats them. Thankfully you can use hdparm to fix this. From the man page:
+Finally, a quick note about Western Digital Green drives: Linux eats them. Thankfully you can use hdparm to fix this. From the man page:
 > -J
 >  Get/set the Western Digital (WD) Green Drive's "idle3" timeout value.  This timeout controls how often the drive parks its heads and enters a low power  consumption  state.
 >  The  factory  default is eight (8) seconds, which is a very poor choice for use with Linux.  Leaving it at the default will result in hundreds of thousands of head load/un‐
@@ -1767,20 +1845,28 @@ Finally, a quick note about Westren Digital Green drives: Linux eats them. Thank
 
 ### SSD
 
-Solid state drives, like HDDs, come in many capacites, speeds, and form factors; however, SSDs come in many, many more than HDDs. The primary two of note at the moment are SATA SSDs and NVMe SSDs. Sata SSDs are typically the same size and shape (though sometimes a bit thinner) as the normal 2.5" laptop hard drive; however, some other standards are used such as mSATA and m.2. Unfortuately, the m.2
+Solid state drives, like HDDs, come in many capacites, speeds, and form factors; however, SSDs come in many, many more than HDDs. The primary two of note at the moment are SATA SSDs and NVMe SSDs. Sata SSDs are typically the same size and shape (though sometimes a bit thinner) as the normal 2.5" laptop hard drive; however, some other standards are used such as mSATA and m.2. Unfortunately, the m.2
 
 [TODO]
 Optane, NVMe, Sata, technically all flash, Ram disks
 
 ### Cloud Storage (Some one elses' drives)
 
+[TODO]
+
 ### Portable
 
+[TODO]
+
 ### The Past
+
+[TODO]
 
 Floppy, Zip,
 
 ### RAID and Disk Pools
+
+[TODO]
 
 Zfs, hardware raid, software raid, emulated hardware (bios), etc.
 
@@ -1788,29 +1874,43 @@ Zfs, hardware raid, software raid, emulated hardware (bios), etc.
 
 ![NICS](./imgs/openg/nics.jpg)
 
-Pictured here are three Network Interface cards or a NIC. The three on the left are for WiFi (though some of this form factor may include bluetooth as well) while the one on the right has an ethernet port for wired access. Most comptuer's will not have a seprate card for the wired inteface though, as most motherboard's have a wired network interface built in.
+Pictured here are three Network Interface cards or a NIC. The three on the left are for WiFi (though some of this form factor may include bluetooth as well) while the one on the right has an ethernet port for wired access. Most computer's will not have a separate card for the wired interface though, as most motherboard's have a wired network interface built in.
 
 NICs also include the wireless chipset used for connecting to a cell tower and really any radio communication device in general.
 
-Older NICs include those used for Dial-Up connections and some obscure wireless methods that predate wifi.
+Older NICs include those used for Dial-Up connections and some obscure wireless methods that predate WiFi.
 
 ### Ethernet
 
+[TODO] rj45, ethernet over infiniband,
+
 ### WiFi
 
-### High Bandwith
+[TODO]
+
+### High Bandwidth
+
+[TODO], infiniband, DMA, 10GbE+, Multigig
+
+"Nothing is faster than a truck filled with drives quote"
 
 ### The Future
+
+[TODO]
 
 wifi6, 10gbe rj45 and beyond, cellular, sdr
 
 ### The Past
 
+[TODO]
+
 coax network, infrared, sneakernet
 
 ## Power Supply
 
-power efficency, size, voltage stability
+[TODO]
+
+power efficiency cuvers, 80+ 'metal' ratings, size, voltage stability, multi-rail, -12, 3.3, 5, 12,
 
 ## Cooling
 
@@ -1818,18 +1918,21 @@ Blower, air flow vs static pressure, fan size liquid, heat pipes, pwm vs DC cont
 
 ## Peripherals
 
-### Keyborads
+### Keyboards
+
+[TODO]
 
 5pin din, PS2, USB
 
 ### Legacy Connections
 
-Paralell, Serial, Tape, CD,
+[TODO]
+
+Parallel, Serial, Tape, CD, gameport
 
 ## How to know what to buy
 
-
-# Chapter 4 - Back to the Root of Things
+[TODO - possibly move]# Chapter 4 - Back to the Root of Things
 
 We've been using file in /proc and /dev thoughout this, but we never really looked to see what else is in there. Let's do that.
 
@@ -2639,19 +2742,19 @@ Building, fixing, and analyzing circuitry requires the use of a few tools and ap
 
 ![multimeter](./imgs/openg/multimeter.jpg)
 
-#### Resistance and the OHM meter
+## Resistance and the OHM meter
 
-resistors do one thing- resist current. Using the ohm meter function of your multimeter you can find out the amount of this resistance measured in ohms (ohms are represented with a capital omega, Ω) using an ohm meter is simple, just poke and prod with at least one component inbetween the leads. If there's nothing in between - that is the leads are touching one another- there will be no resistance, if there's no way for a DC voltage to get from one point to the other, that will be infinite or 'overload' resistance
+resistors do one thing- resist current. Using the ohm meter function of your multimeter you can find out the amount of this resistance measured in ohms (ohms are represented with a capital omega, Ω) using an ohm meter is simple, just poke and prod with at least one component in between the leads. If there's nothing in between - that is the leads are touching one another- there will be no resistance, if there's no way for a DC voltage to get from one point to the other, that will be infinite or 'overload' resistance
 
-#### Voltage, Ground, and the Volt Meter
+## Voltage, Ground, and the Volt Meter
 
-Voltage can be thought of as the 'pressure' in a hose. However, this pressure is realative to another point, the point we usally take refrence to is called 'ground', though this doesn't have to be the case- you can measure the volatge across a single resistor or other component too. Just remember measuring the voltage with both probes at point or along the same wire doesn't make sense because a volt meter only tells you the voltage difference between two points. This would be like seeing the pressure difference in hose between two nearby points, obviously the pressure of one point minus the other will be 0.
+Voltage can be thought of as the 'pressure' in a hose. However, this pressure is relative to another point, the point we usually take reference to is called 'ground', though this doesn't have to be the case- you can measure the voltage across a single resistor or other component too. Just remember measuring the voltage with both probes at point or along the same wire doesn't make sense because a volt meter only tells you the voltage difference between two points. This would be like seeing the pressure difference in hose between two nearby points, obviously the pressure of one point minus the other will be 0.
 
-In general there are two primary ways you will work with voltage- AC or DC, these stand for Alternating Current and Direct Current. DC is simply a constant voltage level output. AC on the otherhand is any time varrying signal, usually periodic (repeating) and most commonly a sine, though many other waves are used like square, triangle, saw, and any mixture of these, inculding the same signal with a DC offset.
+In general there are two primary ways you will work with voltage- AC or DC, these stand for Alternating Current and Direct Current. DC is simply a constant voltage level output. AC on the other hand is any time varying signal, usually periodic (repeating) and most commonly a sine, though many other waves are used like square, triangle, saw, and any mixture of these, including the same signal with a DC offset.
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Waveforms.svg/557px-Waveforms.svg.png)
 
-Your multimeter will likely have two different settings for measuring voltage, one for DC and one for AC. Of note, *most* mulitmeters are not true RMS (Root Mean Square) meters, meaning the reading of AC voltage is not accurate unless it's a clean, no DC offset sine wave. RMS is a topic we'll be covering later, but to wet your appatite, this from wikipedia may help:
+Your multimeter will likely have two different settings for measuring voltage, one for DC and one for AC. Of note, *most* multimeters are not true RMS (Root Mean Square) meters, meaning the reading of AC voltage is not accurate unless it's a clean, no DC offset sine wave. RMS is a topic we'll be covering later, but to wet your apatite, this from wikipedia may help:
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Sine_wave_voltages.svg/400px-Sine_wave_voltages.svg.png)
 
@@ -2663,7 +2766,7 @@ Of note, from a mathematical perspective all time varrying signals can be repres
 
 https://en.wikipedia.org/wiki/Fourier_series#Examples
 
-#### Current and the Ammeter
+## Current and the Ammeter
 
 If current is the pressure in the hose, then current is how much water actually flows. This analogy holds up too, because if we use a resistor to kink the hose and the flow is restircted the current will go down. If you were to stick a wire directly into the wall outlet all the current the wall can give will try to flow though, but it can be restricted. To measure the current though a circuit we can't just probe between two points as before though. Instead the probes need to form the exclusive path that part of the circuit can flow through.
 
@@ -2674,6 +2777,8 @@ Current, just like voltage, can varry, and in AC circuits usually does. This lea
 #### Continuity Tester
 
 The contiuity tester does exactly what it's name implies, it makes sure two points are connected electrically. If you have a piece of metal and put both probes on it it should beep, but if you put the probes on rubber, they clearly will not be. The continutiy tester isn't really much different from the ohm meter in operation, and many will actually dispaly the resistance if there is any. The main use is that it beeps when the resistance is low enough to be confident two points are electrically connected.
+
+#### [TODO] day to day use, why you want one
 
 ### The Lab Power Supply
 
@@ -2691,29 +2796,35 @@ https://en.wikipedia.org/wiki/Arbitrary_waveform_generator
 
 ### The Oscilloscope
 
-The osciliscope (or OScope or simply Scope) allows you to see an AC signal and how it varies over time as a plot of Voltage on the Y axis and time on the X, Most OScopes will allow you to look at multiple signals at once, with one overlaid on the other. Furthermore, most support X-Y mode, where the plot is actually the voltage of one input as the X axis and the volatge of another as the Y, moving a dot and it's trail around the screen. In fact, this is how the first computer monitors worked:
+The osciliscope (or OScope or simply Scope) allows you to see an AC signal and how it varies over time as a plot of Voltage on the Y axis and time on the X, Most OScopes will allow you to look at multiple signals at once, with one overlaid on the other. Furthermore, most support X-Y mode, where the plot is actually the voltage of one input as the X axis and the voltage of another as the Y, moving a dot and it's trail around the screen. In fact, this is how the first computer monitors worked:
 
 ![Image result for asteroids game](./imgs/openg/oscopeastroids.jpeg)
 
-Modern OScopes look much different than their phosphoresent green ancestors though:
+Modern OScopes look much different than their phosphorescent green ancestors though:
 
 ![Image result for oscilloscope](./imgs/openg/modernscope.jpeg)
 
-However, a 'Digital Storage Oscilloscope' or DSO like the one above run a minimum of \$300 at the time of writing, so many hobbiset opt for older scopes like this one:
+However, a decent 'Digital Storage Oscilloscope' or DSO like the one above run a minimum of \$300 at the time of writing, so many hobbyist opt for older scopes like this one:
 
 ![Image result for oscilloscope](./imgs/openg/oldscope.jpeg)
 
-or a cheap, low resolution, low speed one from Ebay. For most uses, both of these will be perfectly fine. For just starting out though I'd recomend a logic analyzer scope combo tool, like the **LHT00SU1** which can be found on Ebay. Speaking of...
+or a cheap, low resolution, low speed one from Ebay. For most uses, both of these will be perfectly fine. For just starting out though I'd recommend a logic analyzer (I'll talk about that next) and oscilloscope combo tool, like the **LHT00SU1** which can be found on Ebay pretty easily. Be aware they can fry your USB port or worse though.
+
+But what are these actually used for day to day, and why would you want one? [TODO]
+
+
 
 ### The Logic Analyzer
 
-Logic Analyzers... analyze logic. Who knew? But what does that mean? well, in reality they are *somewhat* similar to an osciliscope in that they show a voltage over time, the difference is they only show either on or off over time based on the set TTL (Transistor–transistor logic) voltage. This lets you evesdrop on the digital communication going on over a wire. Here's an example output:
+Logic Analyzers... analyze logic. Who knew? But what does that mean? Well, in reality they are *somewhat* similar to an oscilloscope in that they show a voltage over time, the difference is they only show either on or off over time based on the set TTL (Transistor–transistor logic) voltage. This lets you eavesdrop on the digital communication going on over a wire. Here's an example output:
 
 ![logic](./imgs/openg/logic.png)
 
-In this particular encoding, the longer high bumps represent a 1 and the short high bumps a 0, so you're looking at the binary that was sent over a wire. It's actually pretty rare that a wire sends raw high for a 1 and low for 0 so other schemes, like the one above, are used. For most schemes the software can actually be used to decode the recived data into raw binary or if it was human readable characters even that.
+In this particular encoding, the longer high bumps represent a 1 and the short high bumps a 0, so you're looking at the binary that was sent over a wire. It's actually pretty rare that a wire sends raw high for a 1 and low for 0 so other schemes, like the one above, are used. For most schemes the software can actually be used to decode the received data into raw binary or if it was human readable characters even that.
 
-Using a logic analyzer is pretty simlpe, most today are connected to your comuputer over USB and then use software like Pulseview as shown above, then you just select the sample rate (how many times per second to check the wire, here 1MHz) and the number of samples to collect and hit start. You may want to setup a trigger too (speaking of, it's worthwhile to look up how triggering works on an OScope [TODO]) Most logic analyzers support 8 or more simultanious data streams, though in the picture above I'm only using one.
+Using a logic analyzer is pretty simple, most today are connected to your computer over USB and then use software like Pulseview as shown above, then you just select the sample rate (how many times per second to check the wire, here 1MHz) and the number of samples to collect and hit start. You may want to setup a trigger too (speaking of, it's worthwhile to look up how triggering works on an OScope [TODO]) Most logic analyzers support 8 or more simultaneous data streams, though in the picture above I'm only using one.
+
+[TODO] explain when a logic analyzer is actually used, and look at a quick example decode
 
 ## Software Simulation
 
@@ -2747,6 +2858,14 @@ potentiometer read from aduino full range (center tap or max resitor)
 
 Motors
 
+## Buttons, Switches, and Knobs
+
+[TODO] SPST DPST etc.  Pots V encoders, encoders with buttons, slider pots. (inc motorized) etc.
+
+## Relays
+
+[TODO] solid state vs old school
+
 ## Filters
 
 [TODO]
@@ -2760,6 +2879,8 @@ Passive V Active
 How to read logorithmic first
 
 ## Further Reading
+
+[TODO]
 
 https://learn.sparkfun.com/tutorials/voltage-current-resistance-and-ohms-law/voltage
 
@@ -3360,11 +3481,15 @@ Imaginary numbers, systems of equations
 
 [TODO]
 
-Show everything in a circuit sim
+Show everything in a circuit sim, fix heading levels (this is a mess)
 
 ## Transformers, Variacs
 
+[TODO]
+
 ## Diodes, the one way road
+
+[TODO]
 
 zeener, normal, bipolar
 
@@ -3375,6 +3500,8 @@ zeener, normal, bipolar
 
 ## Transistors
 
+[TODO]
+
 tubes and how they work
 
 ### PNP V NPN
@@ -3382,6 +3509,8 @@ tubes and how they work
 ### IGBT, Mosfets?
 
 ## Integrated Circuits
+
+[TODO]
 
 https://hackaday.com/2019/05/20/integrated-circuits-can-be-easy-to-understand-with-the-right-teachers/
 https://www.youtube.com/watch?v=VNzkhZBjo5k&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=10&t=0s
@@ -3392,19 +3521,35 @@ potato semi
 
 ## Optical Electronics
 
+[TODO]
+
 ## Crystal Oscilators
+
+[TODO]
 
 https://www.youtube.com/watch?v=wcJXA8IqYl8&t=474s
 
 ## PWM
 
+[TODO]
+
 ## ADC/DAC
+
+[TODO]
 
 ## Active Filters
 
+[TODO]
+
 ## Audio Devices
 
+[TODO]
+
 speakers, piezos, amps, mics and pickup patters
+
+## TODO
+
+add motors, analog meters, various connection standards, radio, flex/pressure sense, grounding (chasis, digital, analog, ground planes, etc.), solar/photo reactive,
 
 # Relating AC and Music
 
@@ -3413,6 +3558,8 @@ speakers, piezos, amps, mics and pickup patters
 Relate back to things like ADRS, Distortion, Reverb / Echo, Decibels (audio), etc. Use VCV RACK
 
 ## Continued Reading:
+
+[TODO]
 
 At this point I highly recommend *'Practical Electronics for Inventors'* ISBN 978-1259587542, namely chapters 2-12, and 15-16. It's a very large, detailed book that does it's best to keep things, well, practical.
 

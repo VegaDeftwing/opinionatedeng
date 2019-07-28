@@ -36,5 +36,8 @@ That, and it's a pretty slick way of taking notes for my own use and finding gap
 ---
 # Contributing
 Written using marktext and vscode, but really use whatever as long as it doesn't cause issues
-OpinionatedEng.md Developed in chapters folder as seprate files, rendered for viewing on github by pre-commit hook to generate opinionatedengrendered.md.
-OpMusic and OpDesign developed directly in non-rendered .md files
+OpinionatedEng.md Developed in chapters folder as seprate files, rendered into single file by pre-commit hook
+OpMusic and OpDesign developed directly in respective .md files
+
+pre-commit hook depends on 'moreutils' package and executes the gh-md-toc script in the top level.
+gh-md-toc by ekalinin github.com/ekalinin/github-markdown-toc

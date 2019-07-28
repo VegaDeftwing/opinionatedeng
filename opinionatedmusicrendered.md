@@ -99,7 +99,7 @@ So the adventure continues. 'ADSR' stands for 'Attack, Decay, Sustain, Release' 
 
 So, back to the 'ADSR' an ADSR generates a signal that looks like this:
 
-![adsr](/run/media/vega/raid/VegaProductions/opinionatedeng/imgs/gifs/adsr.gif)
+![adsr](./imgs/gifs/adsr.gif)
 
 That is, voltage will follow this shape over time. The 'Attack' knob sets how long it takes to reach the peak point, the Decay knob set's how long it will take to reach the sustain level, the sustain knob set's at what level the sustain should be held at, and the release knob set's how long the note should take to fade out from the sustain level after the key is released. Take note, the sustain knob controls a level, while the other three control time:
 
@@ -109,7 +109,7 @@ So, this output signal is fed to two places, the first is the frequency knob we 
 
 The mixer in this demo patch is super simple. It has 4 inputs, with one output. The sliders let you set the level of each input, and the 'CV' input of each slider let's you externally control the slider. Because the ADSR is fed into this input and the ADSR output is at 0V unless you hit a key the mixer actually mutes the signal until a key is pressed and then lets it play, fading out over the release period. The mixer also has one big volume knob ontop to set the master output volume of all 4 channels combined. Essentially the volume follows this shape of the ADSR signal over time. In times like this, the ADSR signal is called the 'envelope' for the sound. Really, the mixer is just a combination of multiple of a simpler component though, the VCA or Voltage Controlled Amplifier. This name is a bit misleading though, as really VCAs are usually used to bring a sounds volume down, like an attenuator. To show the simplest case I'll hook up a LFO to control a VCA's level, in turn changing the level of the signal passing though:
 
-![vcavult](/run/media/vega/raid/VegaProductions/opinionatedeng/imgs/gifs/vcavult.gif)
+![vcavult](./imgs/gifs/vcavult.gif)
 
 Also, above you'll see I used a 3rd party oscillator instead of the VCO-1 you've seen so far. Pictured is 'Basal' from the 'Vult-Free' collection of modules available on the VCV library page.
 

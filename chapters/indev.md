@@ -49,6 +49,8 @@ https://www.alchemistowl.org/pocorgtfo/
 
 https://www.youtube.com/user/DEFCONConference
 
+(There are many more linuxs in the 'Other Great Resources' section at the bottom of this document)
+
 Oh, and to mention it now
 
 ![Image result for dunning kruger effect xkcd](https://imgs.xkcd.com/comics/impostor_syndrome.png)
@@ -110,6 +112,10 @@ TLDR: RTFM & STFW http://www.catb.org/esr/faqs/smart-questions.html#rtfm
 
 In general I've found site specific forms and reddit to be the best platforms for most things, with some others finding their main following in other places though. For example I'm in a large technical chat group with Furries on Telegram and some open source tools still thrive on IRC.
 
+No matter what you care about, know there's a [wide range of communities](https://www.youtube.com/watch?v=0QO0yZldC2M&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=229&t=0s) that would be thrilled to have you, and you can always combine what you learn here with any of the other intresets you have to make the things your passionate about better!
+
+
+
 # Ⅱ - Learn how to learn
 
 I'm going to keep this short and sweet: Nobody learns (effectively) by being shown what to do. You can watch hundreds of hours of people playing guitar, even explaining how they do it, but you wont be able to randomly pick one up and play if you never have before. Furthermore, as much as you can learn from direct reading and instruction, it has it's place and limits. This guide, book, whatever you want to call it, was never meant to be followed like instructions. You should go out on your own and poke around as you go though. If you find a topic dull, don't read it as in depth. I don't want you wasting your time. Break things. Make mistakes. By the end of this you should know what a burning resistor smells like, what it's like to try to recover a slightly busted linux system, and how it feels when a bug has been eluding you for hours and your code still doesn't work. The only way that happens (unless I made a mistake which is also probable) is if you try ideas when you get them and do more than what's in this book.
@@ -118,7 +124,7 @@ This struggle is part of learning and proof that you're doing well. These experi
 
 To quote someone much smarted than myself:
 
-![Live Overflow Tips](../imgs/lotips.png)
+![Live Overflow Tips](../imgs/openg/lotips.png)
 
 Finally, there's
 
@@ -154,7 +160,7 @@ You should really make a full backup of your computer before doing this, as inst
 
 # Chapter 2 - Let's do it then, Installing Arch Linux
 
-![Arch Logo](../imgs/archlogo.png)
+![Arch Logo](../imgs/openg/archlogo.png)
 
 First of all, Linux is actually just the name of the underlying 'core' of the system, known as the kernel, as such, there are literally thousands of Linux variations. The one I'm going to have you install is know as one of the hardest to work with, but also one of the most powerful: Arch Linux.
 
@@ -198,9 +204,7 @@ Okay, now we're finally ready to copy the OS to a flash drive so we can install 
 
 > of note, the following guide will be assuming you're installing linux on the same drive as Windows, making it applicable for most systems right away; however, I strongly recomend getting an extra SSD and giving linux it's own disk outright instead. This is far easier to do in a desktop, but if you have a laptop with a CD drive you may be able to put a SSD in it's place. SSD prices have been steadily declining over the pas few years, but as of the time of writing a 250Gb ssd should be available for under 50 USD. I'd recomend a larger disk though, with 500Gb being plenty for most people
 
-While this guide should lead you though step by step, it may be helpful to follow the offical installation guide as well, which is available at https://wiki.archlinux.org/index.php/installation_guide. Furthermore, while slightly outdated, this flow chat is a nice refrence as well (from https://i.imgur.com/Hokk8sK.jpg)
-
-![archflow](../imgs/archflow.jpg)
+While this guide should lead you though step by step, it may be helpful to follow the offical installation guide as well, which is available at https://wiki.archlinux.org/index.php/installation_guide. Furthermore, while slightly outdated, this flow chat is a nice refrence as well: https://i.imgur.com/Hokk8sK.jpg
 
 despite the technically complexity to get to it, the best place for Arch Linux support, even for installation, is in the IRC (Internet Relay Chat) channel #archlinux on Freenode. https://wiki.archlinux.org/index.php/Arch_IRC_channels
 
@@ -221,6 +225,8 @@ Now you'll need to power off your computer. Turn it back on and as you do mash t
 [OK] starting thing
 [OK] did thing
 ```
+
+> If something comes up as [FAILED] even though you still get to the login prompt, don't worry about it for now
 
 Then, you should be greeted by a mininal prompt that looks like
 
@@ -924,7 +930,7 @@ One of the nifty things about linux is you don't need to install extra software 
 
 ## The CPU
 
-![CPUS](cpus.jpg)
+![CPUS](../imgs/openg/openg/cpus.jpg)
 
 These are CPUS or Central Processing Units. They're the beating heart of your computer, doing the day-to-day number crunching. The rectangular one of one of the first CPU's in the lineage leading up to CPU's like the ones used in desktop's today, with further sucessors shown in order from top left to the bottom right. The metal-capped one at the bottom right, while old, is visulally quite representative of a moden desktop CPU, though the CPUs in a laptop or smart phone do look quite differnt still.
 
@@ -985,7 +991,7 @@ Each of these things is very important, but I'm going to start with cpu MHz as i
 
 ### Clock Speed
 
-![transistor](../imgs/transistor.jpg)
+![transistor](../imgs/openg/transistor.jpg)
 
 However, to get to that we've gotta go just a bit further down the rabbit hole to the relay. Relays are super simple to understand, they're just a metal switch that is pulled open or closed using another input signal, basically imagine a light switch, where the switch itself is controlled by yet another electrical signal. Relays are slow though, they require a physical metal plate to move to change the connection. Because of this they have limited reliability and worth note they're actually loud. You can hear an audible click of the switch as they change state.
 
@@ -1083,7 +1089,7 @@ Put simply, just as with adding more Random Access Memory (RAM) to your system, 
 
 Let's take a look. install the `hwloc` package using yay and then run `lstopo` and you should get an output that looks a bit like this
 
-![lstopo](../imgs/lstopo.png)
+![lstopo](../imgs/openg/lstopo.png)
 
 The stuff on the right are connections around the system, you can ignore those for now, but see the various cache layers, designated by L3, L2, L1d and L1i, and you can see how each core has it's own cache. Finally, you can see that each core has two processing units? Hey, wait, what's that all about?
 
@@ -1097,7 +1103,7 @@ The CPU is on a square or rectangular board that is usually covered by a large h
 
 ## RAM
 
-![RAM](../imgs/ram.jpg)
+![RAM](../imgs/openg/ram.jpg)
 
  This is RAM or Random Access Memory. The above two sticks are the normal sized used in desktop PCs, this form factor is called a DIM while the bottom two are from laptops and are called SO-DIMS, the placement of the notch is an indicator of the generation of RAM, with neraly all modern ram being a consecutive generation of the DDR standard. At the time of writing (Q2,2019) DDR4 is common in new, medium to high end devices, with many DDR3 devices still being used. Of note many more compact devices solder the ram chips directly to the board, meaning there is no form factor to consider.
 
@@ -1109,7 +1115,7 @@ While support for this will vary depending on your motherboard, you should be ab
 
 The output will probably repeat multiple times, printing once for each physical stick of ram in your system. I actually have 4 sticks, but I'll just be showing one:
 
-![dmiram](../imgs/dmiram.png)
+![dmiram](../imgs/openg/dmiram.png)
 
 You should note that many of the things mentiond above can be seen here, though I do want to look at some things here.
 
@@ -1150,7 +1156,7 @@ Going back to when cache was mentioned though, RAM's primary job is to hold bulk
 
 ## The Motherboard
 
-![mobo](../imgs/mobo.jpg)
+![mobo](../imgs/openg/mobo.jpg)
 
 This is an older motherboard, but still new enough to have modern parts. Let's start by looking at the the most obvious physical features and move to smaller things from there.
 
@@ -1162,7 +1168,7 @@ The large, white square is the CPU socket. This is an older board made for an AM
 
 ([source](https://commons.wikimedia.org/wiki/File:CPU_Socket_775_T.jpg))
 
-If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to giv for a total of of 64 threads. Giving this beautiful sight:![64t](../imgs/64thread.png)
+If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to giv for a total of of 64 threads. Giving this beautiful sight:![64t](../imgs/openg/64thread.png)
 
 Clearly, a server with that much horsepower will use a lot of electricity though, and there is some overhead for the system when getting information from one physical CPU to another.
 
@@ -1186,7 +1192,7 @@ Finally, along the top of the back left edge you'll see the metal tops of the ma
 
 So, how do we get any information from the motherboard? Well, in case it wasn't already obvious, the motherboard isn't really one thing. It's more a common inteconnect point and routing system than anything; however, it does have some of it's own responsibilites. To start small let's look at one small, but excedingly import role of the motherboard: fan and tempature control.
 
-To see what your fans are doing on linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](../imgs/sensors.png)
+To see what your fans are doing on linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](../imgs/openg/sensors.png)
 
 Of note, depending on your system, there's a small chance nothing will be detected at all or that some information will be wrong. Even in my case this is true as my CPU fan is reporting 0 RPM. Actually entering your motherboard's UEFI or BIOS settings may expose more information, but we'll talk about that more later.
 
@@ -1268,7 +1274,7 @@ If you continue down this list you'll see there's yet another USB controller and
 
 What's cool is this information relates back to something we saw earlier when looking at the CPU:
 
-![lstopo2](../imgs/lstopo.png)
+![lstopo2](../imgs/openg/lstopo.png)
 
 See all those PCI ids on the right side, those directly corrolate with a lot of the above.
 
@@ -1375,7 +1381,7 @@ external VRM, over/under volting
 
 ## Storage
 
-![disks](../imgs/hdds.jpg)
+![disks](../imgs/openg/hdds.jpg)
 
 > Pictured here are 3 hard drives, 2 of which are 'full size' at 3.5" and the the other a 'laptop drive' at 2.5", the left most hard drive has been opened up, which has certainly ruined it as dust has gotten in. Below the smaller Hard drive is an NVMe ssd, a micro sd card, and a flash drive. All of which are examples of solid state storage
 
@@ -1397,7 +1403,7 @@ At the end of the day, for bulk media storage that you still want to be able to 
 
 Most hard drives connect though either SATA or SAS, with almost all consumer drives being SATA, and enterprise drives using a mix. SAS has some extra features and depending on the drive may be capable of writing an reading at the same time, a nifty trick SATA drives can't do without alternating between the two rapidly.
 
-For bulk storage servers you can get insane capacites, and buliding one yourself isn't all that hard. Here's mine:![powervault](../imgs/powervault.jpg)
+For bulk storage servers you can get insane capacites, and buliding one yourself isn't all that hard. Here's mine:![powervault](../imgs/openg/powervault.jpg)
 
 > A modified powervault MD1000 with a hard drive poking out and the computer - being used an archive server - it connects to. It currently is only housing three, 3Tb SAS hard drives.
 
@@ -1414,7 +1420,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 Alright, so I already have the disk 62% used, let's give that a closer look by firing up `ncdu` at the mount point. This will take a little while to scan, the more files the longer it will take. After spending a few minutes to analyze the disk I'm greeted with this:
 
-![ncdu](../imgs/ncdu.png)
+![ncdu](../imgs/openg/ncdu.png)
 
 From this you should be able to plainly see that the majority of the hard drive is taken up by Archived files, Music, Games, Videos, and Pictures. Pretty Mundane, but I could easily dive into the Archives and see why they're so big and save myself some space
 
@@ -1472,7 +1478,7 @@ Zfs, hardware raid, software raid, emulated hardware (bios), etc.
 
 ## Network Interfaces
 
-![NICS](../imgs/nics.jpg)
+![NICS](../imgs/openg/nics.jpg)
 
 Pictured here are three Network Interface cards or a NIC. The three on the left are for WiFi (though some of this form factor may include bluetooth as well) while the one on the right has an ethernet port for wired access. Most comptuer's will not have a seprate card for the wired inteface though, as most motherboard's have a wired network interface built in.
 
@@ -2155,31 +2161,31 @@ once it installs go ahead and open it up
 
 you should see something like this:
 
-![2019-02-08-194336_3836x2042_scrot](../imgs/2019-02-08-194336_3836x2042_scrot.png)
+![2019-02-08-194336_3836x2042_scrot](../imgs/openg/2019-02-08-194336_3836x2042_scrot.png)
 
 This is a super powerful equivalent to task manager from windows. You can see the load on all 16 of my cpu threads, the memory usage on the system, uptime, loadavg, and number of tasks running here, but best of all we can see a nice tree of all the processes, and how each one of them is impacting the system. (you may need to press f5 to put it in tree mode) From here you can also see the Process's ID known as the PID, these numbers should directly corolate with those visable in /proc
 
 Leaving that windows open lets open up two more terminals, in one navigate to /proc and in the other start up python:
 
- ![2019-02-08-194844_3241x2113_scrot](../imgs/2019-02-08-194844_3241x2113_scrot.png)
+ ![2019-02-08-194844_3241x2113_scrot](../imgs/openg/2019-02-08-194844_3241x2113_scrot.png)
 
 from here go back to the window running htop and use f3 to search for python if there are multiple processes that come up just keep pressing i3 until you find one that has a tree that looks like:
 
 (note your terminal will probably be named either konsole or xterm, not deepin-terminal)
 
-![2019-02-08-195158_1685x128_scrot](../imgs/2019-02-08-195158_1685x128_scrot.png)
+![2019-02-08-195158_1685x128_scrot](../imgs/openg/2019-02-08-195158_1685x128_scrot.png)
 
 and look to the left to find the pid of the running python process, in my case it's 754.
 
 Go over to the terminal where you navigated to /proc and now navigate to the folder with the id of your process, in my case i'd run `cd 754`  then run 'ls' and look at everything in this folder:
 
-![2019-02-08-195440_1912x424_scrot](../imgs/2019-02-08-195440_1912x424_scrot.png)
+![2019-02-08-195440_1912x424_scrot](../imgs/openg/2019-02-08-195440_1912x424_scrot.png)
 
 now, we're gonna run one more thing before we leave, and we'll come back to it later, but I want to show you now, so you can appreciate how cool it is later: go ahead and run `sudo cat stack`
 
 you should see something like:
 
- ![2019-02-08-200152_831x306_scrot](../imgs/2019-02-08-200152_831x306_scrot.png)
+ ![2019-02-08-200152_831x306_scrot](../imgs/openg/2019-02-08-200152_831x306_scrot.png)
 
 but when we run this in the python terminal:
 
@@ -2190,7 +2196,7 @@ while(1):
 
 and read the stack again we'll see:
 
-![2019-02-08-200307_427x115_scrot](../imgs/2019-02-08-200307_427x115_scrot.png)
+![2019-02-08-200307_427x115_scrot](../imgs/openg/2019-02-08-200307_427x115_scrot.png)
 
 Which while may not look overly interesting, I assure you will be something of interest later.
 
@@ -2224,8 +2230,40 @@ boot loaders, init, initrd fs?
 
 ... and etc.
 
-Literally. the etc folder contains system configuarion files mostly. Remember back when we installed and you used `nano /etc/fstab` that was editing the file system table that the system loads at boot, a configuration file. When we configure SSH later, it's config files are stored here too. Basically, most of the admin level system config files and default config files (lower priority than the config by the user) files are here. As you learn about your system and tweak things you'll find yourself in this folder rather often.
+Literally. the etc folder contains system configuarion files mostly. Remember back when we installed and you used `nano /etc/fstab` that was editing the list of file systems that the system loads at boot, a configuration file. When we configure SSH later, it's config files are stored here too. Basically, most of the admin level system config files and default config files (lower priority than the config by the user) files are here. As you learn about your system and tweak things you'll find yourself in this folder rather often.
+[TODO, add chapter links]
 
+Some of the more interesting things in `/etc` are:
+`/ca-certificates/` -- we'll talk about these more in networking [TODO]
+`/conf.d/` -- various system default config files for system services
+`/cron.d/`,`/cron.daily/`,`/cron.hourly/`, etc. are all form the `cronie` package which can be installed then enabled with systemd. Note, systemd timers are a built in way to do the same thing. cron is the 'old' way of doing thing, but is super simple to use
+`/crypttab` is the similar to `/fstab` but for encrypted partitions
+`/cups` is a folder used by `cups`, which is the backend used for printers in linux
+`/dbus-1/` is used by `dbus` which is a backend for interprocess communication in linux
+`/dconf/` is a folder used by `dconf` wich is used to store config settings. `dconf` is a cli tool for changing these settings
+`/gconf/` -- `gconf` is very similar to dconf but outdated. Still used by somethings though.
+`/dnsmasq.conf` is used by `dnsmasq`, which will be discussed in networking [TODO]
+`/default/` stores default configuration files, typically these get overriden elsewhere by the user
+`/dhcp_fingerprint.conf`,`/dhcpcd.conf`,`/dhcpd.conf`, and `/ducpd6.conf` are all part of `dhcpcd` and `dhcp`, used for reciveing DHCP information. This is dicussed further in the networking chapter [TODO]
+`/dkms/framework.conf` is used to configure `dkms` or Dynamic Kernel Module Support which is used to load modules for the kernel without building the kernel from source. In practice this means drivers for various hardware can be loaded even if it's not in the linux source tree. Read more here: https://www.linuxjournal.com/article/6896
+`/envrioment` is a configarating file for pam_env files. Basically, enviroment variables that you want to be loaded at boot can be put here. For example to change the defalut editor used by command line programs you can set `EDITOR=vim` or `EDITOR=nano` or whatever you like here.
+`/ethertypes` is a file listing various ethernet protolcols, we'll come back to this in the networking chapter [TODO]
+`/exports` is used to setup NFS shares, again, in networking [TODO]
+`/firewall.d/`,`/gufw/` are where firewall settings are stored, dependant on the firewall progarm used
+`/fonts/` holds your fonts, go figgure. You'll need to update the font database if you install things manually: https://wiki.archlinux.org/index.php/Fonts#Manual_installation
+`/foremost.conf` is used by the `foremost` package, it contains information about file headers, footers, and data structures for file recovery purposeses. For example, if you have a backup .img file of a failing hdd and need to scan for .jpg file headers to recover images
+`/freeipmi/` contains config files for Intelligent Platform Managment Inferface Modules. We'll talk about this more in servers [TODO], but essentially it's a way to, using server hardware, set BIOS settings, monitor hardware, and turn the system on/off remotely.
+`/freetds/`,`/mysql/`,`/sqlmap.conf`,`/odbc.ini`,`ODBCDataSources`,and `odbcinst.ini` all have to do with databases and database connectivity. [TODO_Ch17]
+`/fstab/` short for file system table contains a table of file systems to be mounted at startup and options they should have. Settings here can dramatically effect fs performance or cause your system not to boot, so make sure you know what you're doing. Even if your system doesn't boot because of something here, you should land in an emrgancy shell where you can edit `/etc/fstab` and fix the mistake
+`/fuse.conf` is the config file for `fuse`, which is dicussed below in file systems.
+`/gdb/gdbinit` -- you probably want to put the global gdb config file at `~/.gdbinit` not here in /etc. `gdb` is discussed more in debugging [TODO_Ch18]
+`/group` is where linux user groups are defined. You probably want to use the `groups`,`groupadd`,`groupdel`,`groupmems`, and `groupmod` commands.
+`/grub.d/` contains config files and boot loader entries for the grub bootloader. Not relevent if you're using systemd boot on a UEFI system
+`/gshadow` contains encrypted passwords for each group. `!!` and `!` both indicated no password, though `!!` is no password has been set before
+`/healthd.conf` used to notify if hardware has an issue (temp, fan, etc) -- provided by `lmsensors`
+`/host.conf` & `/resolv.conf` are used for resolver configuration. More in networking [TODO]
+`/hosts` local host configuration file. Very useful, in networking again [TODO]
+`/httpd/`, and specifically `/httpd/conf/httpd.conf` is used to conigure a local web server like Apache. Refrenced in Networking [TODO] and Servers [TODO]
 ## /home, /mnt, /run
 
 [TODO]
@@ -2244,7 +2282,7 @@ udev rules
 
 [TODO]
 
-Inodes, Raid
+Inodes, Raid, fuse, ext4, ntfs, zfs, tmpfs, fat/fat32/exfat, ...
 
 ## Processes and Memory
 
@@ -2291,7 +2329,7 @@ Building, fixing, and analyzing circuitry requires the use of a few tools and ap
 
 [TODO]
 
-![multimeter](../imgs/multimeter.jpg)
+![multimeter](../imgs/openg/multimeter.jpg)
 
 #### Resistance and the OHM meter
 
@@ -2347,15 +2385,15 @@ https://en.wikipedia.org/wiki/Arbitrary_waveform_generator
 
 The osciliscope (or OScope or simply Scope) allows you to see an AC signal and how it varies over time as a plot of Voltage on the Y axis and time on the X, Most OScopes will allow you to look at multiple signals at once, with one overlaid on the other. Furthermore, most support X-Y mode, where the plot is actually the voltage of one input as the X axis and the volatge of another as the Y, moving a dot and it's trail around the screen. In fact, this is how the first computer monitors worked:
 
-![Image result for asteroids game](../imgs/oscopeastroids.jpeg)
+![Image result for asteroids game](../imgs/openg/oscopeastroids.jpeg)
 
 Modern OScopes look much different than their phosphoresent green ancestors though:
 
-![Image result for oscilloscope](../imgs/modernscope.jpeg)
+![Image result for oscilloscope](../imgs/openg/modernscope.jpeg)
 
 However, a 'Digital Storage Oscilloscope' or DSO like the one above run a minimum of \$300 at the time of writing, so many hobbiset opt for older scopes like this one:
 
-![Image result for oscilloscope](../imgs/oldscope.jpeg)
+![Image result for oscilloscope](../imgs/openg/oldscope.jpeg)
 
 or a cheap, low resolution, low speed one from Ebay. For most uses, both of these will be perfectly fine. For just starting out though I'd recomend a logic analyzer scope combo tool, like the **LHT00SU1** which can be found on Ebay. Speaking of...
 
@@ -2363,7 +2401,7 @@ or a cheap, low resolution, low speed one from Ebay. For most uses, both of thes
 
 Logic Analyzers... analyze logic. Who knew? But what does that mean? well, in reality they are *somewhat* similar to an osciliscope in that they show a voltage over time, the difference is they only show either on or off over time based on the set TTL (Transistor–transistor logic) voltage. This lets you evesdrop on the digital communication going on over a wire. Here's an example output:
 
-![logic](../imgs/logic.png)
+![logic](../imgs/openg/logic.png)
 
 In this particular encoding, the longer high bumps represent a 1 and the short high bumps a 0, so you're looking at the binary that was sent over a wire. It's actually pretty rare that a wire sends raw high for a 1 and low for 0 so other schemes, like the one above, are used. For most schemes the software can actually be used to decode the recived data into raw binary or if it was human readable characters even that.
 
@@ -2442,7 +2480,7 @@ The first two are terminal based `nano` and `vim`,
 
 nano, is the similist of all the editors I'll list here. It's stupid simlpe to use and for quick just opening a text file and changing one line, probably the fastest. It clearly prints it's instructions at the bottom of the termianl:
 
-![nano](../imgs/nano.png)
+![nano](../imgs/openg/nano.png)
 
 where ^ is the ctrl key, and M the alt key. However, you'll quickly find nano rather limiting, so onto vim!
 
@@ -2456,13 +2494,13 @@ Graphically I recomend Visual Studio Code with Platform IO, Bracket Pair Coloriz
 
 This gives you a pretty kick butt editor on bar with most full Integrated Development Envrioments or IDEs. I recomend you try out IDEs, espcially if for some unholy reason you want to write in Java, but otherwise this will do fine.
 
-![code](../imgs/code.png)
+![code](../imgs/openg/code.png)
 
 ## The Desktop Envrioment
 
 This is the biggest change, I'm going to recomend switching from KDE, which we installled when we setup arch, to i3. i3 is a tiling window manager, this means it looks something like this:
 
-![i3](../imgs/i3.png)
+![i3](../imgs/openg/i3.png)
 
 This is with 3 windows ope: Marktext (the program I'm writing this in), a file manager, and an terminal I used to launch the program (scrot) to take the screenshot. What's cool about i3 is how it will always use space as efficently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver.
 
@@ -2505,7 +2543,7 @@ If you're looking for more ways to make your setup the best it can be or config 
 
 ## The Physical Enviroment & Hardware
 
-![penv](../imgs/physicalenv.jpg)
+![penv](../imgs/openg/physicalenv.jpg)
 
 Working on a laptop with a mushy membrane keyboard is totally fine for some people, but when you're deep into some complicated work having the best possible setup can save a lot of time, frustration, and mental overhead.
 
@@ -2577,7 +2615,7 @@ Another thing to mention is red-light filters. While I dont personally use one m
 
 Probably the most important thing you can do for your workspace is getting a nice keyboard. If you're rocking a rubber dome or membrane keyboard, moving to a mechanical keyboard will make a massive difference.
 
-![keycomp](../imgs/mechkey.png)
+![keycomp](../imgs/openg/mechkey.png)
 
 ([source](https://commons.wikimedia.org/wiki/File:Keyboard_Construction_Button_Press.JPG))
 
@@ -2595,7 +2633,7 @@ really it's all a matter of prefrence, I'm actually using a switch not listed he
 
 Furthermore, there are other types of switches like IBM's old Model M line which use a buckling spring, which are quite stiff and have a very unique, heavy feeling. If you don't want to use a 20 year old keyboard Unicomp makes clones that are quite nice.
 
-You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagent number of keys or a weird split keyboard like mine:![keeb](../imgs/splitkeeb.jpg)
+You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagent number of keys or a weird split keyboard like mine:![keeb](../imgs/openg/splitkeeb.jpg)
 
 > This is a custom built ErgoDone keyboard, The Ergodox-ez can be purchased for ~300 USD, or you can build one like mine for a bit under 200
 
@@ -2696,6 +2734,20 @@ Vivaldi, Firefox, Syncthing, Beaker, IPFS, IRC - irssi, Telegram, Etherape, Wire
 
 # Chapter 7 - Let's write some python
 
+From https://wiki.xxiivv.com/#development:
+> Prototype before polishing. Get it working before optimizing it.
+> Separate policy from mechanism; separate interfaces from engines.
+> Write simple modular parts connected by clean interfaces.
+> Design programs to be connected to other programs.
+> Write programs to write programs when you can.
+> Design for the future, because it will be here sooner than you think.
+> In interface design, always do the least surprising thing.
+> When a program has nothing surprising to say, it should say nothing.
+> When a program must fail, it should fail noisily and as soon as possible.
+> Write big programs only when it is clear by demonstration that nothing else will do.
+
+Programming can seem scary at first but [TODO]
+
 ## The building blocks of programming
 
 [TODO]
@@ -2748,14 +2800,21 @@ for now, everything should be strictly command line arguments and print statment
 
 lambdas(high level only), threads/ parrallelization(high level only), interupts (actually, let's save this until embbeded), apis,
 
+## A little more practice
+
+https://www.youtube.com/watch?v=Cp5WWtMoeKg
+https://www.youtube.com/watch?v=M3iI2l0ltbE
+
 
 # Chapter 8 - Low Level Programming
 
 the stack, pointers, etc.
 
-psuedo code, bitwise opererators, types,
+psuedo code, bitwise opererators, types, unsigned, signed bit, 1's compliment, 2's compliment
 
 ## Some simple programs, in C++
+
+https://www.youtube.com/watch?v=Snr113r5ocY&list=FLFMnqfaTa1se1LfbCB3peJQ&index=126&t=0s
 
 ### Hello World
 
@@ -2860,6 +2919,11 @@ Modify the original python program to support a pretty cli input in a pretty way
 
 Finally, let's go back and add a com port to the C code and send data to an arduino (can be simulated) and a TFT to display the currently active task and time elapsed.
 
+## Part 5, Coding practice and compititons
+
+https://www.youtube.com/watch?v=rwOI1biZeD8&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=15&t=0s Obvuscated C, https://www.ioccc.org/
+
+
 
 # Chapter 10 - Networking
 
@@ -2869,7 +2933,7 @@ Finally, let's go back and add a com port to the C code and send data to an ardu
 
 [TODO]
 
-Default Gateway, Routes & kernel routing table, subnet mask, ping, traceroute, dns - resolv.conf, pihole, caching / squid, localhosts, port forwards, DHCP, private nets, firewalls, chromecast port thing, https vs no s,  rsync,scp,samba, cups, databases , pihole, BGP, RIP, OSFI, multi-zone wifi, single ap multi freq wifi, enterprise security, secured ethernet,
+Default Gateway, Routes & kernel routing table, subnet mask, ping, traceroute, dns - resolv.conf, pihole, caching / squid, localhosts, port forwards, DHCP, private nets, firewalls, chromecast port thing, https vs no s,  rsync,scp,samba, cups, databases , pihole, BGP, RIP, OSFI, multi-zone wifi, single ap multi freq wifi, enterprise security, secured ethernet, https://blog.cloudflare.com/how-verizon-and-a-bgp-optimizer-knocked-large-parts-of-the-internet-offline-today/
 
 The OSI model of networking is
 
@@ -2924,6 +2988,9 @@ The OSI model of networking is
 ## Application
 
 ### HTTP
+
+![Codes](../imgs/openg/http-status-codes.png)
+> https://www.monkeyuser.com/2017/http-status-codes/
 
 ### FTP
 
@@ -3009,6 +3076,7 @@ tubes and how they work
 ## Integrated Circuits
 
 https://hackaday.com/2019/05/20/integrated-circuits-can-be-easy-to-understand-with-the-right-teachers/
+https://www.youtube.com/watch?v=VNzkhZBjo5k&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=10&t=0s
 
 ### 555, OpAmp, 74-Series Logic
 
@@ -3185,6 +3253,8 @@ Fuzzing (sandsifter), make and alts, etc.
 
 # Chapter 21 - Exploitation
 
+Often when we think about Exploitation, better known as hacking, we conjur images of a more-punk-than-cyber cyberpunk person clicking away wildly on a keyboard as code flies by, like the [1995 movie, Hackers](https://en.wikipedia.org/wiki/Hackers_(film)), and to some extent this isn't wrong, as one look around the floor at [DefCon](https://www.defcon.org/), will show you. And honestly, that's to by accident. While there are strictly professional security experts, those that work at corperations and banks, a large number do it for the lolz, for fun, and to bring a little fun back into computing. Calling exploitation 'hacking' is almost a misnome, as hacking encompases a lot more than exploitation, and exploitation a lot more than hacking. For that reason, before we start, I recomend you watch [this video](https://www.youtube.com/watch?v=wjge1bVobN0), on speed running Super Mario 64, this is a prime example of exploitation in a non-harmful manner done for fun.
+
 [TODO]
 
 ## Types of exploits
@@ -3317,6 +3387,17 @@ https://microcorruption.com/ , https://ctftime.org/ ,
 
 CTF time,
 
+## Some Hacking Community Fun
+https://www.youtube.com/watch?v=Jwpg-AwJ0Jc
+https://www.youtube.com/watch?v=UBaVek2oTtc
+https://www.youtube.com/watch?v=bouYRMItWnI
+https://www.youtube.com/watch?v=RDZnlcnmPUA
+
+
+Never claim something is 'unhackable':
+https://techcrunch.com/2019/05/10/eyedisk-encrypted-flash-drive-unhackable/,
+![unhackable](../imgs/openg/unhackable1.jpg)
+
 
 # Chapter 22 - Security
 
@@ -3341,6 +3422,7 @@ First things first, we're going to be using Kicad, so you'll want to go grab tha
 https://www.youtube.com/watch?v=zK3rDhJqMu0&index=8&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&t=0s
 
 
+
 # Chapter 25 - We've got cores, let's use em'
 
 [TODO]
@@ -3351,6 +3433,9 @@ https://www.youtube.com/watch?v=zK3rDhJqMu0&index=8&list=PL5cGwrD7cv8hK-qxPqRB25
 [TODO]
 
 C++ from scratch, JS electron app, Processing creative coding, Python Kivy or similar, Flutter (google lang), shaders
+
+
+## GP-GPU
 
 
 # Chapter 27 - (((())(()((()(()))))))
@@ -3368,6 +3453,8 @@ Finite State Machines
 
 
 # Chapter 29 - Let's make our own CPU
+
+Before we start, I'll warn you this isn't easy, but it's also not as bad as it sounds, and it's certainly not as [bad](https://www.youtube.com/watch?v=C8txvmXUIJQ&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=141&t=0s) as it used to be
 
 [TODO]
 
@@ -3810,7 +3897,7 @@ TaskWeb (TaskWarrior)
   *
 
 
-  # Appendix C - BOM
+# Appendix C - BOM
 
 [TODO - FINAL REVSION]
 
@@ -3881,37 +3968,243 @@ You can find a used Dell Poweredge r610 or poweredge 1950. Many of these will co
 salvage, auctions
 
 
-# Appendix D - The Politics of it all
+# Appendix D - Polotics and Ethics
 
-[TODO:] link guerilla open access manifesto and http://www.textfiles.com/100/hack7.txt
+> Don't feed the Trolls
 
 Becuase you're now somebody in the know about topics relating to technology and have a deeper understanding about issues that may effect the pubilc, such as [The FBI V Apple encryption case](https://en.wikipedia.org/wiki/FBI–Apple_encryption_dispute), [Issues regrading internet speed and infrastructure](https://gizmodo.com/why-americas-internet-is-so-shitty-and-slow-1686173744), or [The Government/NSA spying on people](https://en.wikipedia.org/wiki/Room_641A). There are plenty of issues that weather you like it or not you're one of the few with enough informationg to truly understand and inform your peers. A well known digital writes and freedom advocacy group you may consider supporting is the [Electronic Frontier Foundation or EFF](www.eff.org), as they do some absolutely incredible work making sure we maintain our digital rights both in the role of consumers as well as hackers, tinkerers, security reseachers and nerds. You may consider checking out [Free press](https://www.freepress.net/) as well, though above all else educating yourself and others about issues to end ignorance and fear when it comes to these issues is more valuable than anything else.
 
 Furthermore, there's a general view in the technical community that we should help push adoption of superior platfroms. This is usually either for a push for [decentralized](https://www.youtube.com/watch?v=SrA7XTDCtok) services like [Mastodon](https://joinmastodon.org/) or [Dat](https://datproject.org/), or a push for FOSS (Free and Open Source) software like Linux or LibreOffice.
 
-Most in the technical community belive that you should have full control over the devices you own. This is a major factor in why so many technical people host their own servers and build a lot of the crazy things they do. As a result you'll hear a lot about rooting or getting superuser on various devices as well as [Right to Repair](https://repair.org/).
+Most in the technical community belive that you should have full control over the devices you own. This is a major factor in why so many technical people host their own servers and build a lot of the crazy things they do. As a result you'll hear a lot about rooting or getting superuser or root on various devices as well as [Right to Repair](https://repair.org/).
 
-Finally, many in the tech community are on the heartbeat of issues surounding copyright, fairuse, and the [Digital Millennium Copyright Act](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) or DMCA as without exceptions , a lot of security research would not be legal and it's of direct importance to issues like software piracy and issues sorunding Youtube's automated ContentID [TODO: add links]
+Many in the tech community are on the heartbeat of issues surounding copyright, fairuse, and the [Digital Millennium Copyright Act](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) or DMCA as without exceptions, a lot of security research would not be legal and it's of direct importance to issues like software piracy and issues sorunding Youtube's automated ContentID [TODO: add links]
+
+Moving on from that though, there is increasingly a concern about energy consumption and enviormental consequences of technology use. Data centers alone are already consuming over 2% of the worlds electricity and that number is set to grow exponentially in the coming years. Becuase of this having a light, fast, http://motherfuckingwebsite.com/ instead of a bloated, javascript heavy page actually matters. http://gauthierroussilhe.com/en/posts/convert-low-tech as well as https://solar.lowtechmagazine.com/2016/05/how-to-go-off-grid-in-your-apartment.html are good sites that go more in depth on this issue. Now, at the same time, I'm not going to act all high and mighty, my desktop and monitors use in excess of 300w, but it is still something to be mindful of.
+
+From https://wiki.xxiivv.com/#development:
+> The Four Essential Freedoms
+> The freedom to run the program as you wish, for any purpose.
+> The freedom to study how the program works, and change it.
+> The freedom to redistribute copies so you can help others.
+> The freedom to distribute copies of your modified versions to others.
+
+The hacker and information freedom community has multiple 'sacred texts' if you will, which I think do a good job of outlining some of the ideologies of the communities. Probably the most famous is the Guerilla Open Access Manifesto written by Aaron Swartz, an amazing man that, according to Wikipedia "was involved in the development of the web feed format RSS and the Markdown publishing format, the organization Creative Commons, and the website framework web.py, and was a co-founder of the social news site Reddit". Due to his extensive work in online politics his wikipedia page almost acts like a hub of sorts for relevent information: https://en.wikipedia.org/wiki/Aaron_Swartz. The full text of the Guerilla Open Access Manifesto is below:
+
+> Information is power. But like all power, there are those who want to keep it for
+> themselves. The world's entire scientific and cultural heritage, published over centuries
+> in books and journals, is increasingly being digitized and locked up by a handful of
+> private corporations. Want to read the papers featuring the most famous results of the
+> sciences? You'll need to send enormous amounts to publishers like Reed Elsevier.
+>
+> There are those struggling to change this. The Open Access Movement has fought
+> valiantly to ensure that scientists do not sign their copyrights away but instead ensure
+> their work is published on the Internet, under terms that allow anyone to access it. But
+> even under the best scenarios, their work will only apply to things published in the future.
+> Everything up until now will have been lost.
+>
+> That is too high a price to pay. Forcing academics to pay money to read the work of their
+> colleagues? Scanning entire libraries but only allowing the folks at Google to read them?
+> Providing scientific articles to those at elite universities in the First World, but not to
+> children in the Global South? It's outrageous and unacceptable.
+>
+> "I agree," many say, "but what can we do? The companies hold the copyrights, they
+> make enormous amounts of money by charging for access, and it's perfectly legal —
+> there's nothing we can do to stop them." But there is something we can, something that's
+> already being done: we can fight back.
+>
+> Those with access to these resources — students, librarians, scientists — you have been
+> given a privilege. You get to feed at this banquet of knowledge while the rest of the world
+> is locked out. But you need not — indeed, morally, you cannot — keep this privilege for
+> yourselves. You have a duty to share it with the world. And you have: trading passwords
+> with colleagues, filling download requests for friends.
+>
+>
+>
+> Meanwhile, those who have been locked out are not standing idly by. You have been
+> sneaking through holes and climbing over fences, liberating the information locked up by
+> publishers and sharing them with your friends.
+>
+> But all of this action goes on in the dark, hidden underground. It's called stealing or
+> piracy, as if sharing a wealth of knowledge were the moral equivalent of plundering a
+> ship and murdering its crew. But sharing isn't immoral — it's a moral imperative. Only
+> those blinded by greed would refuse to let a friend make a copy.
+>
+> Large corporations, of course, are blinded by greed. The laws under which they operate
+> require it — their shareholders would revolt at anything less. And the politicians they
+> have bought off back them, passing laws giving them the exclusive power to decide who
+> can make copies.
+>
+> There is no justice in following unjust laws. It's time to come into the light and, in the
+> grand tradition of civil disobedience, declare our opposition to this private theft of public
+> culture.
+>
+> We need to take information, wherever it is stored, make our copies and share them with
+> the world. We need to take stuff that's out of copyright and add it to the archive. We need
+> to buy secret databases and put them on the Web. We need to download scientific
+> journals and upload them to file sharing networks. We need to fight for Guerilla Open
+> Access.
+>
+> With enough of us, around the world, we'll not just send a strong message opposing the
+> privatization of knowledge — we'll make it a thing of the past. Will you join us?
+>
+> Aaron Swartz
+>
+> July 2008, Eremo, Italy
+
+If you'd like more information on Swartz's infulence you can watch a documentry on him [here](https://www.youtube.com/watch?v=vXr-2hwTk58&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=367&t=0s)
+
+Another important document is "The Conscience of a Hacker" written by "The Mentor" in '86
+
+>    Another one got caught today, It's all over the papers.
+> "Teenager Arrested in Computer Crime Scandal", "Hacker arrested
+> after Bank Tampering"...
+>
+>    Damn kids. They're all alike.
+>
+>    But did you, in your three-piece psychology and 1950's
+> technobrain, ever take a look behind the eyes of a hacker? did
+> you ever wonder what made him tick, what forces shaped him, what
+> may have molded him?
+>
+>    I am a hacker. Enter my world.
+>
+>    Mine is a world that begins with school... I'm smarter than
+> most of the other kids, this crap they teach us bores me...
+>                     Come on...  Ain't Got All Day!!
+>    Damn underachiever. They're all alike.
+>
+>    I'm in junior high or high school. I've listened to the
+> teachers explain for the fifteenth time how to reduce a
+> fraction. I understand it. "No Ms. Smith, I didn't show my work.
+> I did it in my head..."
+>
+>    Damn kid. Probably copied it. They're all alike.
+>
+>    I made a discovery today. I found a computer. Wait a xecond,
+> this is cool. It does what I want it to. if it makes a mistake,
+> it's because I screwed it up. Not Because it doesn't like me...
+> Or feels threatend by me...
+> Or thinks I'm a smart ass...
+> Or doesn't like teaching and shouldn't be here...
+>
+>    Damn kid. All he does is play games. They're all alike.
+>
+>    And then it happened... a door opened to a world... rushing
+> through the phone line like junk through an addict's veins, an
+> electronic impulse is sent out, a refuge from the day-to-day
+> incompetencies is sought... a board is found.
+>
+>    "this is it... this is wwhere I belong..."
+>
+>    I know everyone herre... even if I've never met them, never
+> talked to them, may never hear from them again... I know you
+> all...
+>
+>    Damn kid. tying up the phone line again. They're all alike...
+>                     Come on...  Ain't Got All Day!!
+>    You bet your ass we're all alike... we've been spoon-fed baby
+> food at school when we hungered for steak... the bits of meat
+> that you did let slip through were prechewed and tasteless.
+> We've been dominated by sadist, or ignored by the apathetic. The
+> few that had something to teach us found us willing pupils, but
+> those few are like drops of water in the desert.
+>
+>    This is our world now... the world of the electron and the
+> switch, the beauty of the baud. We make use of a service already
+> existing without paying for what could be dirt-cheap if it
+> wasn't run by profiteering gluttons, and you call us criminals.
+> we explore... and you call us criminals. We seek after
+> knoledge... and you call us criminals. We exist without skin
+> color, without nationality, without religous bias... and you
+> call us criminals. You build atomic bombs, you wage wars, you
+> murder, cheat, and lie to us and try to make us believe it's for
+> our own good, yet we're the criminals.
+>
+>    Yes, I am a criminal. My crime is that of curiosity. My crime
+> is that of judging people by what they say and think, not what
+> they look like. My crime is that of outsmarting you, something
+> that you will never forgive me for.
+>
+>                     Come on...  Ain't Got All Day!!
+>
+> I am a hacker, and this is my manifesto. You may stop this
+> individual, but you can't stop us all... after all, we're all alike.
+>
+> +++The Mentor+++
+>    Racketeers
+>
+
+Finally, I'd like to make a few notes about online communities, trolling, hate speech, and the like. Clearly the tech industry leans significantly on the liberal/libertarian side; however, most of us also strongly support your right to say whatever you like even if we don't support it. This is particually frustrating when it comes to large, non-grouped online communities like Twitter or Tumblr where except by blocking, everyone is in the same public sphere instead of isolated. While the isolation can have negitive effects too, like echo chambers where false information and hate breed, the samller communities are also benefical as they allow for a better sense of community and for individual moderation policies decided by the useres instead of awkward rules like [Tumblr's](https://gizmodo.com/tumblrs-porn-filter-flags-its-own-examples-of-permitted-1831151178?utm_source=gizmodo_twitter&utm_medium=socialflow&utm_campaign=socialflow_gizmodo_twitter&fbclid=IwAR2cfAMZ5IpJLINVt6WSuLCcu7KX5D83FQ8F4J-DTxbyJFMZ4704-VxTbN4) [NSFW](https://staff.tumblr.com/post/181199101690/hey-tumblr-a-couple-of-weeks-ago-we-announced-an) ban and the chaos that insued. Clearly the lines between hate speech and trolling and free speech are a problem online, and frankly the internet is young. We haven't really figured out the right way to handle it yet. Should Twitter have the right to remove the Alt-Right or are they to important of a polticial forum to deny freedom of speech despite being a public company? Is it ethically okay to use services like Tor for privacy when by doing so you're indirectly helping people get away with things like child ... abuse (I don't want this document getting flagged by something, ironically). Or because the tools are going to exist regardless and criminals will always find another way is it okay? The truth is, it's not black and white, and it's well worth your time to sit down and consider what you are personally okay with and what you think, as a society, we need to change and how we might go about doing that. Personally, I think services like Mastodon which offer security and privacy while keeping individual communities free to handle themselves are the best option, but they're also more complicated. Just know that decesion you make online can have real world consequences, and that at the end of the day, there's a human on the other side of that screen.
+
+## Localization
 
 
-# Appendix E - Things to avoid
+
+https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/
+https://www.youtube.com/watch?v=-5wpm-gesOY
+https://www.youtube.com/watch?v=q9ZMub2UrKU&feature=youtu.be
+Names, Timezones, unicode, maps (Tiwan v china)
+
+## Religion
+
+![swearingin](.../imgs/openg/swearingin.png)
+
+The engineering community is strangly divided, the 'old gaurd' is actually realitively conservative and professional, but as time has moved forward it's quite the opposite. Unsuprisingly, this corolates with religion as well. The main way this plays into politics is a general hard stance for the separation of church and state. This is in part due to a past of religoutly motivated legilation negitively impacting copyright law, but also just generally an understood ideal that is beneficial to democracy. Furthermore, it would probably be worth your time to look into basics of most world religions, as engineering is incressingly a global field where you will have no choice but to work with people from diverse backgrounds across the globe.
+
+## Other interesting Case Studdies
+https://www.nytimes.com/2017/04/30/business/traffic-light-fine.html
+https://arstechnica.com/tech-policy/2018/08/verizon-throttled-fire-departments-unlimited-data-during-calif-wildfire/
+
+## An NSFW Note
+
+The 'Hacking' community in particular is usally very clear on sexual liberation/freedoms and given that techinally minded people tend to have statitically significantly higher ammouns of LGBTQIA+ people, it's relevent to mention. I don't want to go in depth or be your source of sex education, but I do think skipping over this would be doing the community some injustice. As such I'd also like to link to some videos providing sexual education, https://www.youtube.com/watch?v=L-q-tSHo9Ho&list=FLFMnqfaTa1se1LfbCB3peJQ&index=103&t=0s
+
+Finally, a little less NSFW, the Maker and engineering communities also tend to overlap rather heavily with more artisticaly minded and sub-culture heavy groups, ranging from those obsessed with comics to anime nerds or furries. I really recomend you do at least a little reseach into various sub cultrues and geek culture to better understand some of the people you'll probably interact with. You might just find something new you enjoy while you're at it.
+
+Also, because this got a bit heavy for a bit, let's touch on Rule 34. We all know it, but where does it come from? 4Chan of course. Here's the full set:
+![irules](.../imgs/openg/irules.jpg)
+
+## Thank you
+If you've made it this far I just want to say thank you. We need more people to really consider the ethics of technology as we design it and procede with it. DeepFakes, Automated driving, and even more mass online censorship are issues we're only going to face more with time and it's people like you who are going to help make sure we take the best path we can. So, from the bottom of my heart, thank you.
+
+## Political rambalings from hackers solarpunks and engineers
+https://ameyama.com/#/blog/2018/11/18/values-update
+
+## TODO
+Education, college, prices, highschool homework and personal time, Drugs,# Appendix E - Fixing issues
 
 [TODO]
+## Fix by working comparison
 
 
 # Other Great Resources
 
-https://github.com/alex/what-happens-when
+https://news.ycombinator.com/
+
+https://slashdot.org/
+
+https://hackaday.com/
+
+https://lobste.rs/
+
+https://snapzu.com/
+
+https://serializer.io/
+
+https://stackoverflow.com/
 
 http://textfiles.com/
 
 https://www.alchemistowl.org/pocorgtfo/
 
-https://github.com/lorin/resilience-engineering
-
-https://github.com/dwmkerr/hacker-laws
-
 https://n-o-d-e.news/
+
+https://glitch.com/
+
+https://media.ccc.de/
+
+https://media.ccc.de/
 
 [Crash Course: Comptuer Science, from PBS](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
 
@@ -3947,7 +4240,15 @@ https://theamphour.com/
 
 ## Github info pages
 
+https://github.com/dwmkerr/hacker-laws
+
+https://github.com/lorin/resilience-engineering
+
+https://github.com/alex/what-happens-when
+
 https://github.com/Awesome-Windows/Awesome
+
+https://github.com/dwmkerr/hacker-laws
 
 https://github.com/cirosantilli/x86-assembly-cheat
 
@@ -3971,12 +4272,65 @@ https://github.com/sdnds-tw/awesome-sdn#readme
 
 https://github.com/jagracey/Awesome-Unicode#readme
 
-## Books
+https://github.com/netspooky/Simple-Virtual-CPU
+
+
+
+## Books and Papers
 
 https://github.com/EbookFoundation/free-programming-books#readme
+https://scihub.org/
+
+
+## Blogs
+
+http://blog.cleancoder.com/
+
+## DIY Pages
+
+https://www.instructables.com/circuits/
 
 ## Non-Technical
 
 https://longform.org/
+https://www.metafilter.com/
+https://relevant.community/relevant/top
+
+## Some really cool, inspirational people
+# Security
+Netspooky @ https://twitter.com/netspooky , https://twitter.com/netspooky
+LiveOverflow @ https://twitter.com/LiveOverflow
+https://twitter.com/ANDnXOR
+https://twitter.com/DCFurs
+https://twitter.com/gynvael
+https://twitter.com/ZonkSec
+https://twitter.com/Viss
+https://twitter.com/hacks4pancakes
+https://twitter.com/malwareunicorn
+https://twitter.com/da_667
+https://twitter.com/0xCODEs
+https://twitter.com/zerosum0x0
+https://twitter.com/x0rz -- https://discord.0day.rocks/
+# Programming/Live coding
+RavenKwok @ https://twitter.com/RavenKwok
+Neauoire & RekkaBell @ https://merveilles.town/@neauoire , http://100r.co/
+https://twitter.com/RavenKwok
+https://twitter.com/generateme_blog
+https://twitter.com/manoloidee
+# Just generally nerdy
+https://twitter.com/Level1Techs / https://twitter.com/tekwendell
+https://twitter.com/Snowden
+https://twitter.com/oshpark
+https://twitter.com/climagic
+https://archive.org/
+https://media.ccc.de/v/31c3_-_6373_-_en_-_saal_6_-_201412291600_-_the_only_thing_we_know_about_cyberspace_is_that_its_640x480_-_olia_lialina#t=621
+# History
+[TODO] Move this elsewhere
+
+https://www.youtube.com/watch?v=TfwKYUmoC-k&list=PL5cGwrD7cv8hK-qxPqRB25Dzs0BtLWhXz&index=17&t=0s
+
+## Perserving data
+https://media.ccc.de/v/31c3_-_6373_-_en_-_saal_6_-_201412291600_-_the_only_thing_we_know_about_cyberspace_is_that_its_640x480_-_olia_lialina#t=3641
+
 
 

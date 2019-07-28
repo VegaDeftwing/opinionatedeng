@@ -6,7 +6,7 @@ This struggle is part of learning and proof that you're doing well. These experi
 
 To quote someone much smarted than myself:
 
-![Live Overflow Tips](./imgs/lotips.png)
+![Live Overflow Tips](./imgs/openg/lotips.png)
 
 Finally, there's
 

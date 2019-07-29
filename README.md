@@ -1,3 +1,7 @@
+# THIS REPO HAS MOVED
+
+https://github.com/opinionatedguide
+
 # The Opinionated Guide to Learning Computer and Electrical Enginerring
 ### Version 0.1, Contributions welcome
 
